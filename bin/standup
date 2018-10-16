@@ -1,0 +1,28 @@
+#!/bin/bash
+set -euo pipefail
+
+AUTHOR="Ammar Alakkad"
+
+if [ $(date +%w) == 6 ]; then
+	LIMIT="3 days ago"
+else
+	LIMIT="yesterday"
+fi
+
+cd ~/Projects/Zad
+
+for d in *; do
+	cd $d
+	if [ -d .git ]; then
+		git fetch &> /dev/null
+		OUTPUT="$(git log --reverse --branches --after="$LIMIT" --author="$AUTHOR" --format=format:'-%Creset %s' --date=local | grep -v 'Assets generate')"
+
+		if [ ! -z "$OUTPUT" ]; then
+			echo "$(tput setab 2; tput setaf 7) $d $(tput sgr 0;)"
+			echo "$OUTPUT"
+			echo "$(tput setaf 0)-----$(tput sgr 0;)"
+		fi
+	fi
+	cd ..
+done
+

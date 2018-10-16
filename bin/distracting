@@ -1,0 +1,1 @@
+open -a "/Applications/Google Chrome.app" "https://facebook.com" "https://twitter.com" "https://news.ycombinator.com" "https://reddit.com" "https://producthunt.com"

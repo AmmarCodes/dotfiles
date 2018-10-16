@@ -1,0 +1,32 @@
+#!/bin/bash
+set -euo pipefail
+
+echo "Upgrading Homebrew + brew packages"
+brew update
+brew upgrade
+
+echo "Upgrading cask packages"
+brew cask upgrade
+
+echo "Cleaning up brew & cask packages"
+brew cleanup
+
+echo "Upgrading npm"
+npm install npm@latest -g
+
+echo "Upgrading npm packages"
+npm update -g
+
+echo "Upgrading composer packages"
+composer global update
+
+echo "Upgrading pip3"
+pip3 install pip --upgrade
+
+echo "Upgrading Vim & its plugins"
+pip3 install neovim --upgrade
+nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
+
+echo "Upgrading Mac App Store apps"
+mas upgrade
+
