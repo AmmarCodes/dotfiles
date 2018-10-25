@@ -12,5 +12,5 @@ if [ ! -d $DIR_PATH ]; then
 fi
 
 touch $FULL_PATH
-vim $FULL_PATH
+nvim $FULL_PATH
 
