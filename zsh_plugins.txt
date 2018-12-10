@@ -1,0 +1,20 @@
+zsh-users/zsh-completions
+#zsh-users/zsh-syntax-highlighting
+zsh-users/zsh-autosuggestions
+zsh-users/zsh-history-substring-search
+zdharma/fast-syntax-highlighting
+mafredri/zsh-async
+sindresorhus/pure
+djui/alias-tips
+hlissner/zsh-autopair
+tysonwolker/iterm-tab-colors
+sobolevn/wakatime-zsh-plugin
+
+robbyrussell/oh-my-zsh path:plugins/git
+robbyrussell/oh-my-zsh path:plugins/composer
+robbyrussell/oh-my-zsh path:plugins/node
+robbyrussell/oh-my-zsh path:plugins/brew
+robbyrussell/oh-my-zsh path:plugins/colorize
+robbyrussell/oh-my-zsh path:plugins/docker
+robbyrussell/oh-my-zsh path:plugins/docker-compose
+
