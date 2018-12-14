@@ -124,6 +124,13 @@ function llog {
     --color
 }
 
+function search() {
+  emulate -L zsh
+
+  # italic blue paths, pink line numbers, underlined purple matches
+  command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
+}
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 

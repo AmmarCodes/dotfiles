@@ -12,5 +12,6 @@ if [ ! -d $DIR_PATH ]; then
 fi
 
 touch $FULL_PATH
-nvim $FULL_PATH
+# code $FULL_PATH
+open -a "/Applications/iA Writer Trial.app/Contents/MacOS/iA Writer" $FULL_PATH
 

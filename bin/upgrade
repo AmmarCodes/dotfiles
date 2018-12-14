@@ -23,6 +23,9 @@ composer global update
 echo "Upgrading pip3"
 pip3 install pip --upgrade
 
+echo "Upgrading zsh plugins"
+antibody update
+
 echo "Upgrading Vim & its plugins"
 pip3 install neovim --upgrade
 nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
