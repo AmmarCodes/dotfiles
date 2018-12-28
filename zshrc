@@ -131,8 +131,9 @@ function search() {
   command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 source $HOME/.private_aliases
-
