@@ -9,11 +9,12 @@
               :language "ar"}
           }
  :simlayers {:launch-mode {:key :caps_lock} :alfred-mode {:key :k}}
- :devices {:magicforce [{:product_id 41208 :vendor_id 1241}] :macbook [:product_id 627 :vendor_id 1452]}
+ :devices {
+	   :magicforce [{:product_id 41208 :vendor_id 1241}]
+	   :macbook [{:product_id 627 :vendor_id 1452}]
+	   :magickeyboard [{:product_id 615 :vendor_id 76}]}
 
  :main [
-   {:des "Command + Esc to Command + `"
-	:rules [[[:escape :left_command] [:grave_accent_and_tilde :left_command]]]}
    {:des "Swap left_option with left_command"
 	:rules [
 		[:##left_option :##left_command :magicforce]
@@ -22,14 +23,22 @@
    }
    {:des "Swap fn and left_control"
 	:rules [
-		[:fn :left_control :macbook]
-		[:left_control :fn :macbook]
+		[:##fn :##left_control :macbook]
+		[:##left_control :##fn :macbook]
+		[:##fn :##left_control :magickeyboard]
+		[:##left_control :##fn :magickeyboard]
 	]
    }
-   {:des "Swap non_us_pound and grave_accent_and_tilde"
+   {:des "Swap non_us_backslash and grave_accent_and_tilde"
 	:rules [
-		[:non_us_pound :grave_accent_and_tilde :macbook :en]
+		[:##grave_accent_and_tilde :##non_us_backslash :macbook :en]
+		[:##grave_accent_and_tilde :##non_us_backslash :magickeyboard :en]
+		[:##non_us_backslash :##grave_accent_and_tilde :macbook :en]
+		[:##non_us_backslash :##grave_accent_and_tilde :magickeyboard :en]
 	]
+   }
+   {:des "Disable caps_lock"
+    :rules [:caps_lock :left_control]
    }
    ;{:des "Swap escape and ذ in Arabic and magicforce"
    ; :rules [
@@ -46,6 +55,7 @@
      [:c [:launch "Slack"]]
      [:a [:launch "Airmail"]]
      [:t [:launch "iTerm"]]
+     [:p [:launch "PhpStorm"]]
     ]
    }
    {:des "Launch Alfred workflows"
@@ -53,7 +63,7 @@
    	 :alfred-mode
    	 [:t [:alfred "tabs" "com.clintonstrong.SearchTabs"]]
    	 [:q [:alfred "search folders" "nikivi.search.folders"]]
-     [:j [:alfred "run" "iansinnott.keyboardmaestro"]]
+	 [:j [:alfred "run" "iansinnott.keyboardmaestro"]]
    	]
    }
  ]
