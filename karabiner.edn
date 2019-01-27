@@ -40,12 +40,6 @@
    {:des "Disable caps_lock"
     :rules [:caps_lock :left_control]
    }
-   ;{:des "Swap escape and ذ in Arabic and magicforce"
-   ; :rules [
-   ; 	[:escape :grave_accent_and_tilde :magicforce :ar]
-   ; 	[:grave_accent_and_tilde :escape :magicforce :ar]
-   ; ]
-   ;}
    {:des "Launch apps"
     :rules [
      :launch-mode
@@ -55,6 +49,7 @@
      [:c [:launch "Slack"]]
      [:a [:launch "Airmail"]]
      [:t [:launch "iTerm"]]
+     [:v [:launch "Visual Studio Code"]]
      [:p [:launch "PhpStorm"]]
     ]
    }
