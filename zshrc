@@ -54,6 +54,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # Paths
 export PATH="/Users/nose/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+export PATH="/usr/local/lib/ruby/gems/2.6.0/bin/:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # NVM
 export NVM_DIR="$HOME/.nvm"
@@ -109,6 +110,9 @@ alias docc="docker-compose"
 alias dcup="docker-compose up"
 alias dcupb="docker-compose up --build -d"
 alias dcd="docker-compose down"
+alias ..="cd .."
+alias ...="cd ../.."
+alias kara="vim ~/.dotfiles/karabiner.edn"
 
 function dacc() {
     docker exec -it $1 sh;
