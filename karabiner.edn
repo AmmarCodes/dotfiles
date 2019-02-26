@@ -12,7 +12,8 @@
  :devices {
 	   :magicforce [{:product_id 41208 :vendor_id 1241}]
 	   :macbook [{:product_id 627 :vendor_id 1452}]
-	   :magickeyboard [{:product_id 615 :vendor_id 76}]}
+	   :magickeyboard [{:product_id 615 :vendor_id 76}]
+	   :applekeyboard [{:product_id 592 :vendor_id 1452}]}
 
  :main [
    {:des "Swap left_option with left_command"
@@ -51,6 +52,7 @@
      [:t [:launch "iTerm"]]
      [:v [:launch "Visual Studio Code"]]
      [:p [:launch "PhpStorm"]]
+     [:r [:launch "Trello"]]
     ]
    }
    {:des "Launch Alfred workflows"
@@ -59,6 +61,8 @@
    	 [:t [:alfred "tabs" "com.clintonstrong.SearchTabs"]]
    	 [:q [:alfred "search folders" "nikivi.search.folders"]]
 	 [:j [:alfred "run" "iansinnott.keyboardmaestro"]]
+	 [:p [:km "Pomodoro"]]
+	 [:n [:km "a: Toggle Noizio"]]
    	]
    }
  ]
