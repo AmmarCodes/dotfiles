@@ -24,10 +24,10 @@
    }
    {:des "Swap fn and left_control"
 	:rules [
-		[:##fn :##left_control :macbook]
-		[:##left_control :##fn :macbook]
-		[:##fn :##left_control :magickeyboard]
-		[:##left_control :##fn :magickeyboard]
+		; [:##fn :##left_control :macbook]
+		; [:##left_control :##fn :macbook]
+		; [:##fn :##left_control :magickeyboard]
+		; [:##left_control :##fn :magickeyboard]
 	]
    }
    {:des "Swap non_us_backslash and grave_accent_and_tilde"
@@ -53,16 +53,17 @@
      [:v [:launch "Visual Studio Code"]]
      [:p [:launch "PhpStorm"]]
      [:r [:launch "Trello"]]
+     [:n [:km "a: Toggle Noizio"]]
     ]
    }
    {:des "Launch Alfred workflows"
    	:rules [
    	 :alfred-mode
    	 [:t [:alfred "tabs" "com.clintonstrong.SearchTabs"]]
-   	 [:q [:alfred "search folders" "nikivi.search.folders"]]
+   	 [:f [:alfred "search folders" "nikivi.search.folders"]]
 	 [:j [:alfred "run" "iansinnott.keyboardmaestro"]]
 	 [:p [:km "Pomodoro"]]
-	 [:n [:km "a: Toggle Noizio"]]
+	 [:o [:km "Show websites palette"]]
    	]
    }
  ]

@@ -6,15 +6,15 @@ zdharma/fast-syntax-highlighting
 mafredri/zsh-async
 sindresorhus/pure
 djui/alias-tips
-hlissner/zsh-autopair
-tysonwolker/iterm-tab-colors
+# hlissner/zsh-autopair
+# tysonwolker/iterm-tab-colors # this one might be slow
 sobolevn/wakatime-zsh-plugin
 
 robbyrussell/oh-my-zsh path:plugins/git
-robbyrussell/oh-my-zsh path:plugins/composer
+# robbyrussell/oh-my-zsh path:plugins/composer
 robbyrussell/oh-my-zsh path:plugins/node
 robbyrussell/oh-my-zsh path:plugins/brew
-robbyrussell/oh-my-zsh path:plugins/colorize
-robbyrussell/oh-my-zsh path:plugins/docker
-robbyrussell/oh-my-zsh path:plugins/docker-compose
+# robbyrussell/oh-my-zsh path:plugins/colorize
+# robbyrussell/oh-my-zsh path:plugins/docker
+# robbyrussell/oh-my-zsh path:plugins/docker-compose
 
