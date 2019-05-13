@@ -37,7 +37,7 @@ setopt extended_glob # Use extended globbing syntax
 # setopt inc_append_history # save history entries as soon as they are entered
 # setopt share_history # share history between different instances of the shell
 
-setopt correct_all # autocorrect commands
+setopt correct # autocorrect commands
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
@@ -58,17 +58,25 @@ export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # NVM
 export NVM_DIR="$HOME/.nvm"
 
+# Fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
 export GRADLE_HOME=/usr/local/opt/gradle
-export ANDROID_HOME=/usr/local/opt/android-sdk
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
 export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
 
 export PATH=$ANT_HOME/bin:$PATH
 export PATH=$MAVEN_HOME/bin:$PATH
 export PATH=$GRADLE_HOME/bin:$PATH
-export PATH=$ANDROID_HOME/tools:$PATH
-export PATH=$ANDROID_HOME/platform-tools:$PATH
+# avdmanager, sdkmanager
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin
+# adb, logcat
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+# emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+
 
 export GOPATH=$HOME/golang
 export GOROOT=/usr/local/opt/go/libexec
