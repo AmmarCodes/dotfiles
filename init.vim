@@ -86,7 +86,7 @@ Plug 'SirVer/ultisnips'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'alvan/vim-closetag' " auto close html tags
 Plug 'Valloric/MatchTagAlways'
-Plug 'wakatime/vim-wakatime'
+" Plug 'wakatime/vim-wakatime'
 " Plug 'ludovicchabant/vim-gutentags'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }

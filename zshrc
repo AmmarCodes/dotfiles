@@ -12,7 +12,7 @@ promptinit
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 source <(antibody init)
-antibody bundle < ~/.zsh_plugins.txt
+antibody bundle < ~/.dotfiles/zsh_plugins.txt
 
 # binding for history substring search
 bindkey '^[[A' history-substring-search-up
