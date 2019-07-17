@@ -5,10 +5,10 @@ zsh-users/zsh-history-substring-search
 zdharma/fast-syntax-highlighting
 mafredri/zsh-async
 sindresorhus/pure
-djui/alias-tips
+# djui/alias-tips
 # hlissner/zsh-autopair
 # tysonwolker/iterm-tab-colors # this one might be slow
-sobolevn/wakatime-zsh-plugin
+# sobolevn/wakatime-zsh-plugin
 
 robbyrussell/oh-my-zsh path:plugins/git
 # robbyrussell/oh-my-zsh path:plugins/composer

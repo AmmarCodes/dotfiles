@@ -18,6 +18,10 @@ antibody bundle < ~/.zsh_plugins.txt
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+# iterm shell integration
+source ~/.iterm2_shell_integration.zsh
+
+
 
 HISTSIZE=10000 # Lines of history to keep in memory for current session
 HISTFILESIZE=10000 # Number of commands to save in the file
@@ -31,19 +35,31 @@ setopt inc_append_history # Immediately append to the history file, not just whe
 setopt extended_glob # Use extended globbing syntax
 
 
-
-# setopt hist_ignore_all_dups # remove older duplicate entries from history
-# setopt hist_reduce_blanks # remove superfluous blanks from history items
-# setopt inc_append_history # save history entries as soon as they are entered
-# setopt share_history # share history between different instances of the shell
-
 setopt correct # autocorrect commands
 setopt auto_list # automatically list choices on ambiguous completion
 setopt auto_menu # automatically use menu completion
 setopt always_to_end # move cursor to end if word had one match
+
+setopt AUTO_CD                 # [default] .. is shortcut for cd .. (etc)
+setopt AUTO_PARAM_SLASH        # tab completing directory appends a slash
+setopt AUTO_PUSHD              # [default] cd automatically pushes old dir onto dir stack
+setopt MENU_COMPLETE           # auto-insert first possible ambiguous completion
+setopt NO_NOMATCH              # [default] unmatched patterns are left unchanged
+setopt PRINT_EXIT_VALUE        # [default] for non-zero exit status
+setopt SHARE_HISTORY           # share history across shells
+setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto stack
+
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^x' edit-command-line # https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.zshrc#L208
+
+
 zstyle ':completion:*' menu select # select completions with arrow keys
 zstyle ':completion:*' group-name '' # group results by category
-zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+# zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
+zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.zshrc#L37
+
 
 
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
@@ -120,6 +136,12 @@ alias dcd="docker-compose down"
 alias ..="cd .."
 alias ...="cd ../.."
 alias kara="vim ~/.dotfiles/karabiner.edn"
+alias wm="vim ~/Desktop/working-memory.md" # edit working memory file
+
+# Find in files (search for string and return list of files that contains that string).
+function fif() {
+  rg $1 . -l ;
+}
 
 function dacc() {
     docker exec -it $1 sh;
@@ -162,3 +184,11 @@ function search() {
 
 
 source $HOME/.private_aliases
+export PATH="/usr/local/opt/postgresql@10/bin:/usr/local/opt/node@12/bin:$PATH"
+
+# Ruby stuff
+export PATH="$HOME/.rbenv/bin:$PATH"
+
+eval "$(rbenv init -)"
+
+export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
