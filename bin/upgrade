@@ -1,24 +1,38 @@
 #!/bin/bash
 set -euo pipefail
 
-echo "Upgrading Homebrew packages"
-brew update && brew upgrade && brew cask upgrade && brew cleanup
+if [ -x "$(command -v brew)" ]; then
+	echo "Upgrading Homebrew packages"
+	brew update && brew upgrade && brew cask upgrade && brew cleanup
+fi
 
-echo "Upgrading npm"
-npm install -g npm && npm update -g
+if [ -x "$(command -v npm)" ]; then
+	echo "Upgrading npm"
+	npm install -g npm && npm update -g
+fi
 
-echo "Upgrading composer packages"
-composer global update
+if [ -x "$(command -v composer)" ]; then
+	echo "Upgrading composer packages"
+	composer global update
+fi
 
-echo "Upgrading pip3"
-pip3 install pip --upgrade
+if [ -x "$(command -v pip3)" ]; then
+	echo "Upgrading pip3"
+	pip3 install pip --upgrade
+fi
 
-echo "Upgrading zsh plugins"
-antibody update
+if [ -x "$(command -v antibody)" ]; then
+	echo "Upgrading zsh plugins"
+	antibody update
+fi
 
-echo "Upgrading Vim & its plugins"
-pip3 install neovim --upgrade && nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
+if [ -x "$(command -v pip3)" ]; then
+	echo "Upgrading Vim & its plugins"
+	pip3 install neovim --upgrade && nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
+fi
 
-echo "Upgrading Mac App Store apps"
-mas upgrade
+if [ -x "$(command -v mas)" ]; then
+	echo "Upgrading Mac App Store apps"
+	mas upgrade
+fi
 
