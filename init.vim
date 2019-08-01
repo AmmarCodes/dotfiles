@@ -11,7 +11,10 @@ Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'neoclide/vim-jsx-improve'
 " Plug 'peitalin/vim-jsx-typescript'
 Plug 'posva/vim-vue'
-
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+Plug 'Yggdroot/indentLine'
 
 " Colorschemes
 Plug 'mhartington/oceanic-next'
@@ -20,8 +23,8 @@ Plug 'mhartington/oceanic-next'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
 " Plug 'logico-dev/typewriter'
-" Plug 'ayu-theme/ayu-vim'
-" Plug 'yarisgutierrez/ayu-lightline'
+Plug 'ayu-theme/ayu-vim'
+Plug 'yarisgutierrez/ayu-lightline'
 " Plug 'chriskempson/vim-tomorrow-theme'
 
 " Code
@@ -34,9 +37,9 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth' " detect indentation of the openned file
-" Plug 'w0rp/ale' " Plug 'vim-syntastic/syntastic'
+Plug 'w0rp/ale' " Plug 'vim-syntastic/syntastic'
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Plug 'raimondi/delimitmate'
 " Plug 'junegunn/vim-easy-align'
@@ -48,6 +51,8 @@ Plug 'vim-ruby/vim-ruby'
 " Languages
 " Plug 'elzr/vim-json', {'for' : 'json'}
 Plug 'othree/html5.vim'
+Plug 'gregsexton/MatchTag'
+Plug 'tpope/vim-haml'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'StanAngeloff/php.vim', {'for' : 'php'}
 " Plug 'shawncplus/phpcomplete.vim'
@@ -147,9 +152,9 @@ endif
 
 
 syntax enable
-set background=dark
-" let ayucolor="mirage" " for mirage version of theme
-colorscheme onedark " ayu Tomorrow-Night onedark nova OceanicNext
+set background=light
+let ayucolor="light" " for mirage version of theme
+colorscheme ayu  "onedark ayu Tomorrow-Night onedark nova OceanicNext
 " highlight Normal ctermfg=grey ctermbg=black
 " highlight Comment cterm=italic
 " highlight htmlArg cterm=italic
@@ -170,7 +175,7 @@ set list
 " let g:oceanic_next_terminal_italic = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'PaperColor',
       \ 'active': {
       \   'left':  [ [ 'mode', 'paste' ],
       \              [ 'readonly', 'filename', 'modified' ] ],
@@ -306,7 +311,7 @@ augroup FiletypeGroup
 augroup END
 
 let g:ale_linters = {
-\	'js': ['standard'],
+\	'js': ['prettier'],
 \	'ts': ['tslint'],
 \	'tsx': ['tslint'],
 \	'jsx': ['standard'],
@@ -315,13 +320,13 @@ let g:ale_linters = {
 \	'php': ['php']
 \}
 
-let g:ale_javascript_standard_executable = 'semistandard'
-let g:ale_javascript_standard_use_global = 1
+" let g:ale_javascript_standard_executable = 'semistandard'
+" let g:ale_javascript_standard_use_global = 1
 
 ""\	'php': ['phpcbf'],
 let g:ale_fixers = {
-\       'js': ['standard'],
-\       'jsx': ['standard'],
+\       'js': ['prettier'],
+\       'jsx': ['prettier'],
 \       'ts': ['prettier'],
 \       'tsx': ['prettier']
 \}
@@ -460,13 +465,36 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
 
 " Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
+" command! -nargs=0 Format :call CocAction('format')
 
 let g:vimfiler_as_default_explorer = 1
+
+" Show trailing whitespaces
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+" IndentLine {{
+" let g:indentLine_char = ''
+" let g:indentLine_first_char = ''
+" let g:indentLine_showFirstIndentLevel = 1
+" let g:indentLine_setColors = 0
+let g:indentLine_color_term = 255
+let g:indentLine_color_gui = '#dddddd'
+" }}
+
+
+" Italic fonts
+highlight Comment gui=italic
+highlight htmlArg gui=italic
+highlight javascriptImport gui=italic
+highlight javascriptExport gui=italic
+highlight javascriptFuncKeyword gui=italic
+highlight javascriptVariable gui=italic
+highlight javascriptIdentifier gui=italic
+

@@ -98,6 +98,10 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+# Change screenshots folder location
+defaults write com.apple.screencapture location ~/Desktop/Screenshots
+
 
 # Symlink files
+mkdir ~/.config
 ln -s karabiner.edn ~/.config/

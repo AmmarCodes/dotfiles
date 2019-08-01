@@ -12,37 +12,37 @@
  :devices {
 	   :magicforce [{:product_id 41208 :vendor_id 1241}]
 	   :macbook [{:product_id 627 :vendor_id 1452}]
+	   :macbookpro [{:product_id 636 :vendor_id 1452}]
 	   :magickeyboard [{:product_id 615 :vendor_id 76}]
-	   :magickeyboardwired [{:product_id 615 :vendor_id 1452}]
 	   :applekeyboard [{:product_id 592 :vendor_id 1452}]}
 
  :main [
    {:des "Swap left_option with left_command"
 	:rules [
-		; [:##left_option :##left_command :magicforce]
-		; [:##left_command :##left_option :magicforce]
+		[:##left_option :##left_command :magicforce]
+		[:##left_command :##left_option :magicforce]
 	]
    }
    {:des "Swap fn and left_control"
 	:rules [
-		; [:##fn :##left_control :macbook]
-		; [:##left_control :##fn :macbook]
-		; [:##fn :##left_control :magickeyboard]
-		; [:##left_control :##fn :magickeyboard]
+		[:##fn :##left_control :macbookpro]
+		[:##left_control :##fn :macbookpro]
+		[:##fn :##left_control :magickeyboard]
+		[:##left_control :##fn :magickeyboard]
 	]
    }
    {:des "Swap non_us_backslash and grave_accent_and_tilde"
 	:rules [
 		[:##grave_accent_and_tilde :##non_us_backslash :macbook :en]
-		[:##grave_accent_and_tilde :##non_us_backslash :magickeyboard :en]
-		[:##grave_accent_and_tilde :##non_us_backslash :magickeyboardwired :en]
+		[:##grave_accent_and_tilde :##non_us_backslash :macbookpro :en]
+		; [:##grave_accent_and_tilde :##non_us_backslash :magickeyboard :en]
 		[:##non_us_backslash :##grave_accent_and_tilde :macbook :en]
-		[:##non_us_backslash :##grave_accent_and_tilde :magickeyboard :en]
-		[:##non_us_backslash :##grave_accent_and_tilde :magickeyboardwired :en]
+		[:##non_us_backslash :##grave_accent_and_tilde :macbookpro :en]
+		; [:##non_us_backslash :##grave_accent_and_tilde :magickeyboard :en]
 	]
    }
    {:des "Disable caps_lock"
-    :rules [:caps_lock :left_control]
+    :rules [:caps_lock :esc]
    }
    {:des "Launch apps"
     :rules [
