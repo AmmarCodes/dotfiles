@@ -17,11 +17,12 @@ Plug 'prettier/vim-prettier', {
 Plug 'Yggdroot/indentLine'
 
 " Colorschemes
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
 " Plug 'morhetz/gruvbox'
 " Plug 'trevordmiller/nova-vim'
 " Plug 'altercation/vim-colors-solarized'
 Plug 'joshdick/onedark.vim'
+Plug 'NLKNguyen/papercolor-theme'
 " Plug 'logico-dev/typewriter'
 Plug 'ayu-theme/ayu-vim'
 Plug 'yarisgutierrez/ayu-lightline'
@@ -153,8 +154,19 @@ endif
 
 syntax enable
 set background=light
-let ayucolor="light" " for mirage version of theme
-colorscheme ayu  "onedark ayu Tomorrow-Night onedark nova OceanicNext
+" let ayucolor="light" " for mirage version of theme
+
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default': {
+  \       'transparent_background': 1,
+  \       'allow_italic': 1
+  \     }
+  \   }
+  \ }
+
+" colorscheme ayu  "onedark ayu Tomorrow-Night onedark nova OceanicNext
+colorscheme PaperColor
 " highlight Normal ctermfg=grey ctermbg=black
 " highlight Comment cterm=italic
 " highlight htmlArg cterm=italic
