@@ -4,8 +4,10 @@ zsh-users/zsh-autosuggestions
 zsh-users/zsh-history-substring-search
 zdharma/fast-syntax-highlighting
 mafredri/zsh-async
-sindresorhus/pure
-# djui/alias-tips
+# sindresorhus/pure
+# bhilburn/powerlevel9k
+romkatv/powerlevel10k
+djui/alias-tips
 # hlissner/zsh-autopair
 # tysonwolker/iterm-tab-colors # this one might be slow
 # sobolevn/wakatime-zsh-plugin
@@ -17,4 +19,5 @@ robbyrussell/oh-my-zsh path:plugins/brew
 # robbyrussell/oh-my-zsh path:plugins/colorize
 # robbyrussell/oh-my-zsh path:plugins/docker
 # robbyrussell/oh-my-zsh path:plugins/docker-compose
-
+# tomsquest/nvm-auto-use.zsh
+desyncr/auto-ls

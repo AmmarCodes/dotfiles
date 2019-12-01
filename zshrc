@@ -11,8 +11,7 @@ promptinit
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-source <(antibody init)
-antibody bundle < ~/.dotfiles/zsh_plugins.txt
+export TERM="xterm-256color"
 
 # binding for history substring search
 bindkey '^[[A' history-substring-search-up
@@ -21,7 +20,9 @@ bindkey '^[[B' history-substring-search-down
 # iterm shell integration
 source ~/.iterm2_shell_integration.zsh
 
-
+if [ -f ~/.private_exports ]; then
+  source ~/.private_exports
+fi
 
 HISTSIZE=10000 # Lines of history to keep in memory for current session
 HISTFILESIZE=10000 # Number of commands to save in the file
@@ -72,7 +73,8 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin/:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # NVM
-export NVM_DIR="$HOME/.nvm"
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 
 # Fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
@@ -118,7 +120,7 @@ alias cat="bat"
 alias ls="ls -Gxh --color=auto"
 alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
-alias gdb="git branch --merged | egrep -v \"(^\*|master|develop|dev|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
+alias gdb="git branch --merged | egrep -v \"(^\*|master|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
 
 alias lastver="git tag -l | gsort -V | tail -n 1"
 alias dep="envoy run deploy && osascript -e 'display notification \"You can check it in the browser, or just ignore the whole thing\" with title \"Deployment finished!\"'"
@@ -137,6 +139,9 @@ alias ..="cd .."
 alias ...="cd ../.."
 alias kara="vim ~/.dotfiles/karabiner.edn"
 alias wm="vim ~/Desktop/working-memory.md" # edit working memory file
+alias wmc="bat --theme OneHalfLight ~/Desktop/working-memory.md" # read working memory file
+alias ee="cd ~/projects/gdk-ee/gitlab"
+alias :q="exit"
 
 # Find in files (search for string and return list of files that contains that string).
 function fif() {
@@ -182,6 +187,21 @@ function search() {
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export BAT_THEME="TwoDark"
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+--color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+--color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B'
+
+j() {
+    if [[ "$#" -ne 0 ]]; then
+        cd $(autojump $@)
+        return
+    fi
+    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
+}
+
 
 source $HOME/.private_aliases
 export PATH="/usr/local/opt/postgresql@10/bin:/usr/local/opt/node@12/bin:$PATH"
@@ -192,3 +212,41 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+
+export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/icu4c/sbin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
+
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_user dir vcs)
+# POWERLEVEL9K_MODE='nerdfont-complete'
+# # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# # POWERLEVEL9K_VCS_GIT_ICON=$'\uf113 '
+# POWERLEVEL9K_VCS_GIT_GITLAB_ICON=$'\uf296 '
+# POWERLEVEL9K_VCS_BRANCH_ICON=''
+# POWERLEVEL9K_VCS_HIDE_TAGS=true
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+
+set-window-title() {
+  window_title="\e]0;${${PWD/#"$HOME"/~}/projects/p}\a"
+  echo -ne "$window_title"
+}
+
+PR_TITLEBAR=''
+set-window-title
+add-zsh-hook precmd set-window-title
+
+
+function auto-ls-ls () {
+  ls -Gxh --color=auto
+}
+
+AUTO_LS_COMMANDS=(ls '[[ -d $PWD/.git ]] && git status')
+
+source <(antibody init)
+antibody bundle < ~/.dotfiles/zsh_plugins.txt
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh

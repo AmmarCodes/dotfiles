@@ -11,13 +11,15 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
 " Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth' " detect indentation of the openned file
 Plug 'dense-analysis/ale'
+Plug 'wellle/context.vim'
 
 Plug 'dyng/ctrlsf.vim'
-
 
 " Colorschemes
 " Plug 'mhartington/oceanic-next'
@@ -46,6 +48,7 @@ Plug 'dustinknopoff/TeaCode-Vim-Extension'
 Plug 'othree/html5.vim'
 Plug 'gregsexton/MatchTag'
 Plug 'tpope/vim-haml'
+Plug 'tpope/vim-rails'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'StanAngeloff/php.vim', {'for' : 'php'}
 " Plug 'shawncplus/phpcomplete.vim'
@@ -178,10 +181,14 @@ set number                   " Show line numbers
 
 set listchars=tab:▷⋅,trail:·
 set list
+" Make it obvious where 80 characters is
+set textwidth=80
+set colorcolumn=+1
+
 
 " if exists('+colorcolumn')
   " Highlight up to 280 columns (this is the current Vim max) beyond 'textwidth'
-  let &l:colorcolumn='80,+' . join(range(0, 279), ',+')
+  " let &l:colorcolumn='80,+' . join(range(0, 279), ',+')
 " endif
 
 
@@ -319,7 +326,9 @@ let g:ale_linters = {
 \	'jsx': ['standard'],
 \	'sass': ['sasslint'],
 \	'scss': ['sasslint'],
-\	'php': ['php']
+\	'php': ['php'],
+\       'ruby': ['solargraph', 'rubocop'],
+\       'haml': ['hamllint']
 \}
 
 " let g:ale_javascript_standard_executable = 'semistandard'
@@ -512,6 +521,15 @@ let g:coc_snippet_next = '<tab>'
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
 
-" Remap hjkl to Colemak
-noremap n j
-noremap e k
+" Tab completion
+" will insert tab at beginning of line,
+" will use completion if not at beginning
+set wildmode=list:longest,list:full
+
+" Switch between the last two files
+" noremap <Leader><Leader> <C-^>
+
+" Always use vertical diffs
+set diffopt+=vertical
+
+
