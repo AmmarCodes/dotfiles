@@ -4,30 +4,6 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" JS plugins
-Plug 'othree/yajs.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
-" Plug 'HerringtonDarkholme/yats.vim'
-" Plug 'neoclide/vim-jsx-improve'
-" Plug 'peitalin/vim-jsx-typescript'
-Plug 'posva/vim-vue'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-Plug 'Yggdroot/indentLine'
-
-" Colorschemes
-" Plug 'mhartington/oceanic-next'
-" Plug 'morhetz/gruvbox'
-" Plug 'trevordmiller/nova-vim'
-" Plug 'altercation/vim-colors-solarized'
-Plug 'joshdick/onedark.vim'
-Plug 'NLKNguyen/papercolor-theme'
-" Plug 'logico-dev/typewriter'
-Plug 'ayu-theme/ayu-vim'
-Plug 'yarisgutierrez/ayu-lightline'
-" Plug 'chriskempson/vim-tomorrow-theme'
-
 " Code
 Plug 'editorconfig/editorconfig-vim'
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -38,15 +14,31 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdcommenter'
 " Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth' " detect indentation of the openned file
-Plug 'w0rp/ale' " Plug 'vim-syntastic/syntastic'
+Plug 'dense-analysis/ale'
 
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dyng/ctrlsf.vim'
 
-" Plug 'raimondi/delimitmate'
+
+" Colorschemes
+" Plug 'mhartington/oceanic-next'
+" Plug 'morhetz/gruvbox'
+" Plug 'trevordmiller/nova-vim'
+" Plug 'altercation/vim-colors-solarized'
+Plug 'arcticicestudio/nord-vim'
+Plug 'owickstrom/vim-colors-paramount'
+" Plug 'lifepillar/vim-solarized8'
+" Plug 'joshdick/onedark.vim'
+" Plug 'NLKNguyen/papercolor-theme'
+" Plug 'logico-dev/typewriter'
+" Plug 'ayu-theme/ayu-vim'
+" Plug 'yarisgutierrez/ayu-lightline'
+" Plug 'chriskempson/vim-tomorrow-theme'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'dustinknopoff/TeaCode-Vim-Extension'
+
+" Plug 'raimondi/deimitmate'
 " Plug 'junegunn/vim-easy-align'
-" Plug 'nathanaelkane/vim-indent-guides'
-Plug 'luochen1990/rainbow'
-Plug 'vim-ruby/vim-ruby'
 
 
 " Languages
@@ -57,38 +49,49 @@ Plug 'tpope/vim-haml'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'StanAngeloff/php.vim', {'for' : 'php'}
 " Plug 'shawncplus/phpcomplete.vim'
-Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
-Plug '2072/vim-syntax-for-PHP', {'for': 'php'}
+" Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
+" Plug '2072/vim-syntax-for-PHP', {'for': 'php'}
 " Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
 " Plug 'phpstan/vim-phpstan', {'for': 'php'}
 Plug 'jwalton512/vim-blade', {'for': 'php'}
-Plug 'gabrielelana/vim-markdown', {'for': 'markdown'}
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
 " Plug 'OmniSharp/omnisharp-vim'
 Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx', 
+" Plug 'mxw/vim-jsx',
+Plug 'othree/yajs.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+" Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'neoclide/vim-jsx-improve'
+" Plug 'peitalin/vim-jsx-typescript'
+Plug 'posva/vim-vue'
+Plug 'vim-ruby/vim-ruby'
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 " UI
-Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'itchyny/lightline.vim'
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Shougo/unite.vim'
 Plug 'Shougo/vimfiler.vim'
-
 Plug 'airblade/vim-gitgutter'
 " Plug 'ryanoasis/vim-devicons'
 Plug 'Yggdroot/indentLine'
 Plug 'ap/vim-buftabline'
 Plug 'myusuf3/numbers.vim'
-" Plug 'liuchengxu/vim-which-key' ", { 'on': ['WhichKey', 'WhichKey!'] }
-
+Plug 'luochen1990/rainbow'
+Plug 'easymotion/vim-easymotion'
+Plug 'rizzatti/dash.vim'
 
 " Uncategorized
 " Plug 'ervandew/supertab'
 " Plug 'valloric/youcompleteme'
 Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'alvan/vim-closetag' " auto close html tags
 Plug 'Valloric/MatchTagAlways'
@@ -102,9 +105,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
-Plug 'vim-airline/vim-airline' | Plug 'vim-airline/vim-airline-themes'
-
-
+Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 
 call plug#end()
 
@@ -124,6 +125,8 @@ set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
 set ignorecase               " Search case insensitive...
 set nocursorcolumn           " speed up syntax highlighting
 set noshowmode               " Hide current mode, it's already shown inside airline/lightline
+
+set hidden
 
 " Copy/paste using clipboard
 set clipboard^=unnamed
@@ -146,9 +149,9 @@ if (empty($TMUX))
   "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
   "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
   " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
+endif
+if (has("termguicolors"))
+  set termguicolors
 endif
 
 
@@ -156,17 +159,18 @@ syntax enable
 set background=light
 " let ayucolor="light" " for mirage version of theme
 
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 1,
-  \       'allow_italic': 1
-  \     }
-  \   }
-  \ }
+" let g:PaperColor_Theme_Options = {
+  " \   'theme': {
+  " \     'default': {
+  " \       'transparent_background': 1,
+  " \       'allow_italic': 1
+  " \     }
+  " \   }
+  " \ }
 
 " colorscheme ayu  "onedark ayu Tomorrow-Night onedark nova OceanicNext
-colorscheme PaperColor
+" colorscheme solarized8
+colorscheme nord
 " highlight Normal ctermfg=grey ctermbg=black
 " highlight Comment cterm=italic
 " highlight htmlArg cterm=italic
@@ -174,6 +178,11 @@ set number                   " Show line numbers
 
 set listchars=tab:▷⋅,trail:·
 set list
+
+" if exists('+colorcolumn')
+  " Highlight up to 280 columns (this is the current Vim max) beyond 'textwidth'
+  let &l:colorcolumn='80,+' . join(range(0, 279), ',+')
+" endif
 
 
 
@@ -187,7 +196,7 @@ set list
 " let g:oceanic_next_terminal_italic = 1
 
 let g:lightline = {
-      \ 'colorscheme': 'PaperColor',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left':  [ [ 'mode', 'paste' ],
       \              [ 'readonly', 'filename', 'modified' ] ],
@@ -210,12 +219,14 @@ let g:lightline = {
     \ }
 
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND= 'rg --files'
+  let $FZF_DEFAULT_COMMAND= 'rg --files --hidden -g "!.git/*"'
 endif
 
 nnoremap <c-p> :Files<cr>
 nnoremap <F3> :NumbersToggle<CR>
 
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 
 " let g:ctrlp_map = '<c-p>'
@@ -234,6 +245,7 @@ let g:NERDSpaceDelims = 1
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
 
+let g:dispatch_handlers = ['job']
 
 " Key mapping
 " -----------------
@@ -249,6 +261,7 @@ nnoremap <leader><space> :nohlsearch<CR>
 
 " Exit insert mode on jk
 imap jf <Esc>
+imap <C-e> <C-o>:call TeaCodeExpand()<CR>
 
 " map <leader>b :NERDTreeToggle<CR>
 map <leader>b :VimFilerExplorer<CR>
@@ -256,7 +269,7 @@ map [b :bp<cr>
 map ]b :bn<cr>
 map <leader>q :bw<cr>
 
-map <leader>e :CtrlPBuffer<cr>
+map <leader>e :Buffers<cr>
 
 if has('nvim')
   map <leader>ec :e ~/.config/nvim/init.vim<cr>
@@ -264,7 +277,7 @@ else
   map <leader>ec :e ~/.vimrc<cr>
 endif
 
-map <cr> :noh<cr>
+nmap <cr> :noh<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -272,45 +285,22 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-nnoremap <silent> <leader> :WhichKey ','<CR>
-set timeoutlen=500
-let g:which_key_map =  {}
-let g:which_key_map['w'] = {
-      \ 'name' : '+windows' ,
-      \ 'w' : ['<C-W>w'     , 'other-window']          ,
-      \ 'd' : ['<C-W>c'     , 'delete-window']         ,
-      \ '-' : ['<C-W>s'     , 'split-window-below']    ,
-      \ '|' : ['<C-W>v'     , 'split-window-right']    ,
-      \ '2' : ['<C-W>v'     , 'layout-double-columns'] ,
-      \ 'h' : ['<C-W>h'     , 'window-left']           ,
-      \ 'j' : ['<C-W>j'     , 'window-below']          ,
-      \ 'l' : ['<C-W>l'     , 'window-right']          ,
-      \ 'k' : ['<C-W>k'     , 'window-up']             ,
-      \ 'H' : ['<C-W>5<'    , 'expand-window-left']    ,
-      \ 'J' : ['resize +5'  , 'expand-window-below']   ,
-      \ 'L' : ['<C-W>5>'    , 'expand-window-right']   ,
-      \ 'K' : ['resize -5'  , 'expand-window-up']      ,
-      \ '=' : ['<C-W>='     , 'balance-window']        ,
-      \ 's' : ['<C-W>s'     , 'split-window-below']    ,
-      \ 'v' : ['<C-W>v'     , 'split-window-below']    ,
-      \ '?' : ['Windows'    , 'fzf-window']            ,
-      \ }
-
 
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
 " Change indent guide color
-let g:indentLine_color_gui = '#4c4c4b'
+" let g:indentLine_color_gui = '#4c4c4b'
 
 " Config for PHPUse
-function! IPhpInsertUse()
-    call PhpInsertUse()
-    call feedkeys('a',  'n')
-endfunction
-autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+" function! IPhpInsertUse()
+    " call PhpInsertUse()
+    " call feedkeys('a',  'n')
+" endfunction
+" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
 
 " Auto source nvimrc
 autocmd BufWritePost init.vim source %
@@ -344,7 +334,6 @@ let g:ale_fixers = {
 \}
 
 let g:ale_linter_aliases = {'jsx': 'css'}
-let g:airline#extensions#ale#enabled = 1
 let g:ale_completion_enabled = 1
 
 let g:ale_fix_on_save = 1
@@ -354,13 +343,11 @@ let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_lint_on_text_changed = 0
 
 
-let g:syntastic_php_checkers = ['php', 'phpcs', 'phpmd']
-
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml,*.php"
 
 let g:OmniSharp_selector_ui = 'ctrlp'
 
-let g:jsx_ext_required = 0
+" let g:jsx_ext_required = 0
 
 " Where to store tag files
 let g:gutentags_cache_dir = '~/.vim/gutentags'
@@ -488,16 +475,14 @@ nmap <leader>rn <Plug>(coc-rename)
 
 let g:vimfiler_as_default_explorer = 1
 
-" Show trailing whitespaces
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
-
 " IndentLine {{
+let g:indentLine_enabled = 1
 " let g:indentLine_char = ''
 " let g:indentLine_first_char = ''
 " let g:indentLine_showFirstIndentLevel = 1
 " let g:indentLine_setColors = 0
-let g:indentLine_color_term = 255
-let g:indentLine_color_gui = '#dddddd'
+" let g:indentLine_color_term = 255
+" let g:indentLine_color_gui = '#dddddd'
 " }}
 
 
@@ -510,3 +495,23 @@ highlight javascriptFuncKeyword gui=italic
 highlight javascriptVariable gui=italic
 highlight javascriptIdentifier gui=italic
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
+
+" Prettier config
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue PrettierAsync
+
+" Remap hjkl to Colemak
+noremap n j
+noremap e k
