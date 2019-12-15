@@ -1,12 +1,13 @@
 if v:progname == 'vi'
-  set noloadplugins
+  set noloadplugins " if vi is being used, don't use plugins
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-" Code
-Plug 'editorconfig/editorconfig-vim'
-" Plug 'ctrlpvim/ctrlp.vim'
+" Utilities
+Plug 'tpope/vim-dispatch'
+
+" Text manipulation
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-fugitive'
@@ -14,62 +15,47 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
-" Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-sleuth' " detect indentation of the openned file
 Plug 'dense-analysis/ale'
 Plug 'wellle/context.vim'
 
-Plug 'dyng/ctrlsf.vim'
+Plug 'dyng/ctrlsf.vim' " code search and view tool, and lets you edit file in-place
+
+Plug 'editorconfig/editorconfig-vim'
 
 " Colorschemes
 " Plug 'mhartington/oceanic-next'
 " Plug 'morhetz/gruvbox'
-" Plug 'trevordmiller/nova-vim'
-" Plug 'altercation/vim-colors-solarized'
 Plug 'arcticicestudio/nord-vim'
-Plug 'owickstrom/vim-colors-paramount'
-" Plug 'lifepillar/vim-solarized8'
-" Plug 'joshdick/onedark.vim'
-" Plug 'NLKNguyen/papercolor-theme'
-" Plug 'logico-dev/typewriter'
-" Plug 'ayu-theme/ayu-vim'
-" Plug 'yarisgutierrez/ayu-lightline'
-" Plug 'chriskempson/vim-tomorrow-theme'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dustinknopoff/TeaCode-Vim-Extension'
 
-" Plug 'raimondi/deimitmate'
-" Plug 'junegunn/vim-easy-align'
+Plug 'Raimondi/delimitMate'
+Plug 'junegunn/vim-easy-align'
+Plug 'gregsexton/MatchTag'
 
 
 " Languages
 " Plug 'elzr/vim-json', {'for' : 'json'}
-Plug 'othree/html5.vim'
-Plug 'gregsexton/MatchTag'
-Plug 'tpope/vim-haml'
 Plug 'tpope/vim-rails'
+Plug 'posva/vim-vue'
+Plug 'tpope/vim-haml'
+Plug 'vim-ruby/vim-ruby'
+Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
-Plug 'StanAngeloff/php.vim', {'for' : 'php'}
-" Plug 'shawncplus/phpcomplete.vim'
-" Plug 'arnaud-lb/vim-php-namespace', {'for': 'php'}
-" Plug '2072/vim-syntax-for-PHP', {'for': 'php'}
-" Plug 'lvht/phpcd.vim', { 'for': 'php', 'do': 'composer install' }
-" Plug 'phpstan/vim-phpstan', {'for': 'php'}
-Plug 'jwalton512/vim-blade', {'for': 'php'}
 Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
-" Plug 'OmniSharp/omnisharp-vim'
-Plug 'tpope/vim-dispatch'
 Plug 'pangloss/vim-javascript'
-" Plug 'mxw/vim-jsx',
 Plug 'othree/yajs.vim'
 Plug 'othree/javascript-libraries-syntax.vim'
 " Plug 'HerringtonDarkholme/yats.vim'
+" Plug 'mxw/vim-jsx',
 " Plug 'neoclide/vim-jsx-improve'
 " Plug 'peitalin/vim-jsx-typescript'
-Plug 'posva/vim-vue'
-Plug 'vim-ruby/vim-ruby'
+" Plug 'StanAngeloff/php.vim', {'for' : 'php'}
+" Plug 'jwalton512/vim-blade', {'for': 'php'}
+
 Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
@@ -88,9 +74,9 @@ Plug 'ap/vim-buftabline'
 Plug 'myusuf3/numbers.vim'
 Plug 'luochen1990/rainbow'
 Plug 'easymotion/vim-easymotion'
-Plug 'rizzatti/dash.vim'
 
 " Uncategorized
+Plug 'rizzatti/dash.vim'
 " Plug 'ervandew/supertab'
 " Plug 'valloric/youcompleteme'
 Plug 'SirVer/ultisnips'
@@ -196,12 +182,6 @@ set colorcolumn=+1
 " Plugins config
 " ------------------
 
-" let g:airline_theme='oceanicnext'
-" let g:airline_powerline_fonts = 1
-
-" let g:oceanic_next_terminal_bold = 1
-" let g:oceanic_next_terminal_italic = 1
-
 let g:lightline = {
       \ 'colorscheme': 'nord',
       \ 'active': {
@@ -236,17 +216,6 @@ nnoremap <F3> :NumbersToggle<CR>
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 
-" let g:ctrlp_map = '<c-p>'
-" let g:ctrlp_cmd = 'CtrlP'
-" let g:ctrlp_max_files=0
-" let g:ctrlp_max_depth=40
-" let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-" let g:ctrlp_custom_ignore = 'vendor\|node_modules\|git'
-" let g:ctrlp_match_window_bottom = 0
-" let g:ctrlp_match_window_reversed = 0
-
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 " Enable trimming of trailing whitespace when uncommenting
@@ -266,8 +235,8 @@ nnoremap <silent> <leader>q :q!<CR>
 nnoremap <leader><space> :nohlsearch<CR>
 
 
-" Exit insert mode on jk
-imap jf <Esc>
+" Exit insert mode on nn
+imap nn <Esc>
 imap <C-e> <C-o>:call TeaCodeExpand()<CR>
 
 " map <leader>b :NERDTreeToggle<CR>
@@ -297,20 +266,12 @@ let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsJumpForwardTrigger='<tab>'
 let g:UltiSnipsJumpBackwardTrigger='<s-tab>'
 
-" Change indent guide color
-" let g:indentLine_color_gui = '#4c4c4b'
 
-" Config for PHPUse
-" function! IPhpInsertUse()
-    " call PhpInsertUse()
-    " call feedkeys('a',  'n')
-" endfunction
-" autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
-" autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+" Auto source (n)vimrc
+autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
 
-
-" Auto source nvimrc
-autocmd BufWritePost init.vim source %
+" Disable continuous comments
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
 
 " Settings for ALE to use stylelint and eslint in JSX
@@ -331,10 +292,6 @@ let g:ale_linters = {
 \       'haml': ['hamllint']
 \}
 
-" let g:ale_javascript_standard_executable = 'semistandard'
-" let g:ale_javascript_standard_use_global = 1
-
-""\	'php': ['phpcbf'],
 let g:ale_fixers = {
 \       'js': ['prettier'],
 \       'jsx': ['prettier'],
@@ -451,14 +408,6 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-" inoremap <silent><expr> <TAB>
-      " \ pumvisible() ? "\<C-n>" :
-      " \ <SID>check_back_space() ? "\<TAB>" :
-      " \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-space> coc#refresh()
 
@@ -472,15 +421,9 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
-" Highlight symbol under cursor on CursorHold
-" autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
-
-" Use `:Format` to format current buffer
-" command! -nargs=0 Format :call CocAction('format')
 
 let g:vimfiler_as_default_explorer = 1
 
@@ -525,9 +468,6 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 " will insert tab at beginning of line,
 " will use completion if not at beginning
 set wildmode=list:longest,list:full
-
-" Switch between the last two files
-" noremap <Leader><Leader> <C-^>
 
 " Always use vertical diffs
 set diffopt+=vertical
