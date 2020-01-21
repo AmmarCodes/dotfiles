@@ -13,8 +13,7 @@
 	   :macbook [{:product_id 627 :vendor_id 1452}]
 	   :macbookpro [{:product_id 636 :vendor_id 1452}]
 	   :magickeyboard [{:product_id 615 :vendor_id 76}]
-	   :ergodox [{:product_id 4871 :vendor_id 65261}]
-	   :applekeyboard [{:product_id 592 :vendor_id 1452}]}
+	   :ergodox [{:product_id 4871 :vendor_id 65261}]}
 
  :main [
 	{

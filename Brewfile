@@ -5,6 +5,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "minio/stable"
 tap "yqrashawn/goku"
 # Search tool like grep, but optimized for programmers
 brew "ack"
@@ -52,6 +53,8 @@ brew "python"
 brew "rbenv"
 # Alternative to backtracking PCRE-style regular expression engines
 brew "re2"
+# Reattach process (e.g., tmux) to background
+brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
 brew "redis", restart_service: true
 # Rename multiple files in a directory
@@ -74,10 +77,13 @@ brew "wifi-password"
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Logs for humans to read.
+# 
 brew "aybabtme/tap/humanlog"
+# High Performance Object Storage compatible with Amazon S3 API
+brew "minio/stable/minio"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
+cask "alacritty"
 cask "alfred"
 cask "appcleaner"
 cask "bartender"
@@ -93,9 +99,11 @@ cask "font-firacode-nerd-font"
 cask "font-hasklig-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ibm-plex"
+cask "font-jetbrains-mono"
 cask "font-victor-mono"
 cask "fork"
 cask "google-chrome"
+cask "iina"
 cask "iterm2-beta"
 cask "itsycal"
 cask "kap"
@@ -105,6 +113,7 @@ cask "keyboard-maestro"
 cask "launchrocket"
 cask "little-snitch"
 cask "ngrok"
+cask "obs"
 cask "qlcolorcode"
 cask "qlstephen"
 cask "quicklook-json"
