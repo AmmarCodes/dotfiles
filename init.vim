@@ -47,6 +47,8 @@ Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'qpkorr/vim-bufkill'
 Plug 'roman/golden-ratio'
+Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
+Plug 'wellle/context.vim'
 
 " Code utilities
 Plug 'editorconfig/editorconfig-vim'
@@ -226,6 +228,7 @@ endif
 
 " Start RipGrep
 nnoremap <Leader>a :Rg<Space>
+nnoremap <Leader>s :Rg <C-r><C-w>
 
 " Show current file in vimfiler
 nnoremap <Leader>f :VimFilerExplorer -find<cr>
@@ -243,9 +246,10 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Buffers
 nnoremap <c-b> :Buffers<cr>
-map bd :BD<cr>
-map bn :BF<cr>
-map bp :BB<cr>
+map <leader>bd :BD<cr>
+map <leader>bn :BF<cr>
+map <leader>bb :BB<cr>
+map <leader>ba :BA<cr>
 " A buffer becomes hidden when it is abandoned
 set hidden
 
@@ -257,7 +261,7 @@ vnoremap $" <esc>`>a"<esc>`<i"<esc>
 vnoremap $' <esc>`>a'<esc>`<i'<esc>
 
 " Use :W to save after asking for password
-command W w !sudo tee "%" > /dev/null
+command! W w !sudo tee "%" > /dev/null
 " }}}
 
 
