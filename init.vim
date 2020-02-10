@@ -32,7 +32,6 @@ endif
 
 " detect indentation of the openned file
 Plug 'tpope/vim-sleuth'
-Plug 'mhinz/vim-signify'
 
 " Vimfiler <leader>b
 Plug 'Shougo/unite.vim'
@@ -48,7 +47,10 @@ Plug 'maximbaz/lightline-ale'
 Plug 'qpkorr/vim-bufkill'
 Plug 'roman/golden-ratio'
 Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
-Plug 'wellle/context.vim'
+" Plug 'wellle/context.vim'
+Plug 'mhinz/vim-signify'
+Plug 'tpope/vim-obsession'
+Plug 'machakann/vim-highlightedyank'
 
 " Code utilities
 Plug 'editorconfig/editorconfig-vim'
@@ -103,7 +105,10 @@ set noshowmode " Hide the mode, since it's already shown by lightline
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 let g:gruvbox_contrast_dark = 'soft'
+set background=dark
 colorscheme gruvbox
+
+
 let g:lightline = {
       \ 'colorscheme': 'gruvbox',
       \ 'active': {
@@ -192,6 +197,12 @@ set listchars=tab:▷⋅,trail:·
 set list
 
 highlight Comment gui=italic
+" Fix the disgusting visual selection colors of gruvbox (thanks @romainl).
+hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
+
+" Set a custom highlight color when yanking text.
+"   This requires having the plugin: machakann/vim-highlightedyank
+hi HighlightedyankRegion cterm=NONE ctermbg=239 guibg=#4e4e4e
 " }}}
 
 
@@ -199,16 +210,11 @@ highlight Comment gui=italic
 " {{{
 let mapleader = ","
 
-" Remap hjkl to hnle for colemak
-noremap n j
-noremap l k
-noremap j e
-noremap e l
-
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
+"
 nnoremap N Nzzzv
-nnoremap k nzzzv
+nnoremap n nzzzv
 
 nnoremap U <C-R>|xnoremap U :<C-U>redo<CR>|
 
@@ -238,7 +244,7 @@ nmap <C-Up> ddlP
 nmap <C-Down> ddp
 
 nnoremap <c-p> :Files<cr>
-map <leader>b :VimFilerExplorer<CR>
+map <leader>t :VimFilerExplorer<CR>
 nnoremap <F3> :NumbersToggle<CR>
 
 " Enable tab for auto completion

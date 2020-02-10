@@ -1,4 +1,5 @@
 tap "aybabtme/tap"
+tap "candid82/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
@@ -46,7 +47,7 @@ brew "noti"
 # Manage compile and link flags for libraries
 brew "pkg-config"
 # Object-relational database system
-brew "postgresql@10", restart_service: true
+brew "postgresql@10"
 # Interpreted, interactive, object-oriented programming language
 brew "python"
 # Ruby version manager
@@ -56,7 +57,7 @@ brew "re2"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
-brew "redis", restart_service: true
+brew "redis"
 # Rename multiple files in a directory
 brew "ren"
 # Search tool like grep and The Silver Searcher
@@ -69,6 +70,8 @@ brew "tig"
 brew "tldr"
 # Terminal multiplexer
 brew "tmux"
+# Manage complex tmux sessions easily
+brew "tmuxinator"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Show the current WiFi network password
@@ -83,7 +86,6 @@ brew "aybabtme/tap/humanlog"
 brew "minio/stable/minio"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
-cask "alacritty"
 cask "alfred"
 cask "appcleaner"
 cask "bartender"
@@ -110,6 +112,7 @@ cask "kap"
 cask "karabiner-elements"
 cask "keepingyouawake"
 cask "keyboard-maestro"
+cask "keycastr"
 cask "launchrocket"
 cask "little-snitch"
 cask "ngrok"

@@ -149,6 +149,7 @@ alias wm="vim ~/Desktop/working-memory.md" # edit working memory file
 alias wmc="bat --theme OneHalfLight ~/Desktop/working-memory.md" # read working memory file
 alias ee="cd ~/projects/gdk-ee/gitlab"
 alias :q="exit"
+alias mux="tmuxinator"
 
 # Find in files (search for string and return list of files that contains that string).
 function fif() {
@@ -198,15 +199,15 @@ export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export BAT_THEME="TwoDark"
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
---color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B'
+--color fg:250,hl:72,fg+:223,bg+:237,hl+:72
+--color pointer:167,info:109,spinner:214,header:214,prompt:175,marker:208'
 
 j() {
     if [[ "$#" -ne 0 ]]; then
         cd $(autojump $@)
         return
     fi
-    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)" 
+    cd "$(autojump -s | sort -k1gr | awk '$1 ~ /[0-9]:/ && $2 ~ /^\// { for (i=2; i<=NF; i++) { print $(i) } }' |  fzf --height 40% --reverse --inline-info)"
 }
 
 

@@ -6,6 +6,7 @@ zdharma/fast-syntax-highlighting
 mafredri/zsh-async
 # sindresorhus/pure
 # bhilburn/powerlevel9k
+lukechilds/zsh-nvm
 romkatv/powerlevel10k
 djui/alias-tips
 # hlissner/zsh-autopair
