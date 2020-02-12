@@ -243,6 +243,10 @@ nnoremap <Leader>f :VimFilerExplorer -find<cr>
 nmap <C-Up> ddlP
 nmap <C-Down> ddp
 
+" ALE moving between errors
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
 nnoremap <c-p> :Files<cr>
 map <leader>t :VimFilerExplorer<CR>
 nnoremap <F3> :NumbersToggle<CR>

@@ -61,6 +61,7 @@ setopt PUSHD_IGNORE_DUPS       # don't push multiple copies of same dir onto sta
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^x' edit-command-line # https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.zshrc#L208
+bindkey -e
 
 
 zstyle ':completion:*' menu select # select completions with arrow keys
