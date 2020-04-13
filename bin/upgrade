@@ -23,9 +23,9 @@ if [ -x "$(command -v pip3)" ]; then
 	pip3 install pip --upgrade
 fi
 
-if [ -x "$(command -v antibody)" ]; then
+if [ -x "$(command -v zplug)" ]; then
 	echo "Upgrading zsh plugins"
-	antibody update
+    zplug update
 fi
 
 if [ -x "$(command -v pip3)" ]; then

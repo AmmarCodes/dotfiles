@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
@@ -9,23 +16,34 @@ fi
 autoload -U promptinit
 promptinit
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
+## PLUGINS
+
+export NVM_LAZY_LOAD=true
+
+source ~/.zplug/init.zsh
+zplug 'zplug/zplug', hook-build:'zplug --self-manage' # To let it manage itself like other plugins
+zplug "zsh-users/zsh-history-substring-search"
+zplug "plugins/git",   from:oh-my-zsh
+zplug "plugins/node",   from:oh-my-zsh
+zplug "djui/alias-tips"
+zplug "lukechilds/zsh-nvm"
+zplug "zdharma/fast-syntax-highlighting"
+zplug "zsh-users/zsh-completions"
+zplug "zsh-users/zsh-autosuggestions"
+zplug "mafredri/zsh-async", from:github
+# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug "romkatv/powerlevel10k", as:theme, depth:1
+
+zplug load
+
+##-----------------------------------------------##
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 export TERM="xterm-256color"
 
-# binding for history substring search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
 # iterm shell integration
-source ~/.iterm2_shell_integration.zsh
+# source ~/.iterm2_shell_integration.zsh
 
 if [ -f ~/.private_exports ]; then
   source ~/.private_exports
@@ -68,9 +86,6 @@ zstyle ':completion:*' menu select # select completions with arrow keys
 zstyle ':completion:*' group-name '' # group results by category
 # zstyle ':completion:::::' completer _expand _complete _ignored _approximate # enable approximate matches for completion
 zstyle ':completion:*' matcher-list '' '+m:{[:lower:]}={[:upper:]}' '+m:{[:upper:]}={[:lower:]}' '+m:{_-}={-_}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # https://github.com/wincent/wincent/blob/master/roles/dotfiles/files/.zshrc#L37
-
-
-
 zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 
 # User configuration
@@ -81,8 +96,8 @@ export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/2.6.0/bin/:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # NVM
-export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
+# export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 
 # Fastlane
 export PATH="$HOME/.fastlane/bin:$PATH"
@@ -129,25 +144,20 @@ alias ls="ls -Gxh --color=auto"
 alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 alias gdb="git branch --merged | egrep -v \"(^\*|master|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
+alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend'" # Push the current branch and create a merge request for it
 
 alias lastver="git tag -l | gsort -V | tail -n 1"
-alias dep="envoy run deploy && osascript -e 'display notification \"You can check it in the browser, or just ignore the whole thing\" with title \"Deployment finished!\"'"
-alias pdep="git push; dep"
-alias ass="ga public && gc -m 'Assets generate'"
 alias t="todo.sh"
 alias vim="nvim"
 alias weather="curl http:\/\/wttr.in\/?Q1n"
-alias لسف="osascript ~/.dotfiles/bin/change_input.scpt U.S. && gst"
 alias doc="docker"
 alias docc="docker-compose"
 alias dcup="docker-compose up"
 alias dcupb="docker-compose up --build -d"
 alias dcd="docker-compose down"
-alias ..="cd .."
-alias ...="cd ../.."
 alias kara="vim ~/.dotfiles/karabiner.edn"
 alias wm="vim ~/Desktop/working-memory.md" # edit working memory file
-alias wmc="bat --theme OneHalfLight ~/Desktop/working-memory.md" # read working memory file
+alias wmc="bat --theme OneHalfDark ~/Desktop/working-memory.md" # read working memory file
 alias ee="cd ~/projects/gdk-ee/gitlab"
 alias :q="exit"
 alias mux="tmuxinator"
@@ -220,6 +230,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
+eval $(thefuck --alias fix)
+
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
 export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
@@ -228,15 +240,6 @@ export PATH="/usr/local/opt/icu4c/sbin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
-
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(custom_user dir vcs)
-# POWERLEVEL9K_MODE='nerdfont-complete'
-# # POWERLEVEL9K_PROMPT_ON_NEWLINE=true
-# # POWERLEVEL9K_VCS_GIT_ICON=$'\uf113 '
-# POWERLEVEL9K_VCS_GIT_GITLAB_ICON=$'\uf296 '
-# POWERLEVEL9K_VCS_BRANCH_ICON=''
-# POWERLEVEL9K_VCS_HIDE_TAGS=true
-# POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
 
 set-window-title() {
   window_title="\e]0;${${PWD/#"$HOME"/~}/projects/p}\a"
@@ -254,9 +257,14 @@ function auto-ls-ls () {
 
 AUTO_LS_COMMANDS=(ls '[[ -d $PWD/.git ]] && git status')
 
-source <(antibody init)
-antibody bundle < ~/.dotfiles/zsh_plugins.txt
+
+# binding for history substring search
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-fpath+=${ZDOTDIR:-~}/.zsh_functions
+# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+# fpath+=${ZDOTDIR:-~}/.zsh_functions
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
