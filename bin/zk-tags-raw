@@ -1,5 +1,0 @@
-#!/bin/bash
-rg -o "@[\w\-_]{3,}" -t md -N --no-filename "$HOME/wiki" |
-    rg -v "^@(notes-|import-)" | \
-    awk ' { tot[$0]++ } END { for (i in tot) print tot[i], "\t", i } ' | \
-    gsort -r --numeric-sort
