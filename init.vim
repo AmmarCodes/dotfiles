@@ -33,43 +33,71 @@ endif
 " detect indentation of the openned file
 Plug 'tpope/vim-sleuth'
 
+" Seamless navigation with tmux
+Plug 'christoomey/vim-tmux-navigator'
+
 " Vimfiler <leader>b
-Plug 'Shougo/unite.vim'
-Plug 'Shougo/vimfiler.vim'
+" Plug 'Shougo/unite.vim'
+" Plug 'Shougo/vimfiler.vim'
+
+if has('nvim')
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
 
 " Colors & UI
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
 Plug 'Yggdroot/indentLine'
-Plug 'myusuf3/numbers.vim'
+" Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
 Plug 'qpkorr/vim-bufkill'
-Plug 'roman/golden-ratio'
+" Plug 'roman/golden-ratio'
 Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
 " Plug 'wellle/context.vim'
 Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-obsession'
 Plug 'machakann/vim-highlightedyank'
+Plug 'unblevable/quick-scope'
+Plug 'psliwka/vim-smoothie'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+Plug 'alok/notational-fzf-vim'
+let g:nv_search_paths = ['~/wiki']
 
 " Code utilities
 Plug 'editorconfig/editorconfig-vim'
 " insert mode auto-completion for quotes, parens, brackets
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+" Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'dense-analysis/ale'
+Plug 'mattn/emmet-vim'
+Plug 'dkarter/bullets.vim'
 
 " highlights the XML/HTML tags that enclose your cursor location
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
 
 " Languages & Syntax
 Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
+" Plug 'posva/vim-vue'
+Plug 'elzr/vim-json'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
+Plug 'wavded/vim-stylus', {'for': 'stylus'}
+Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass', 'stylus', 'vue', 'html']}
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -90,6 +118,7 @@ set ignorecase               " Search case insensitive...
 set clipboard^=unnamed       " Copy/paste using clipboard
 set mouse=a                  " enable mouse
 set foldmethod=marker
+set relativenumber
 
 " Enable filetype plugins
 filetype plugin on
@@ -100,10 +129,11 @@ set wildmenu
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 
 set noshowmode " Hide the mode, since it's already shown by lightline
+set noemoji
 
 " Enable truecolor in iTerm
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
+set termguicolors " this is used to fix Limelight plugin
 let g:gruvbox_contrast_dark = 'soft'
 set background=dark
 colorscheme gruvbox
@@ -115,7 +145,6 @@ let g:lightline = {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
-      \              [ 'percent' ],
       \              [ 'gitbranch', 'filetype' ],
       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos' ] ]
       \ },
@@ -137,10 +166,11 @@ let g:lightline = {
       \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
-let g:vimfiler_force_overwrite_statusline = 0
-call vimfiler#custom#profile('default', 'context', {
-    \ 'safe' : 0,
-    \ })
+" let g:vimfiler_force_overwrite_statusline = 0
+" let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
+" call vimfiler#custom#profile('default', 'context', {
+"     \ 'safe' : 0,
+"     \ })
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -196,6 +226,7 @@ set ruler
 set listchars=tab:▷⋅,trail:·
 set list
 
+
 highlight Comment gui=italic
 " Fix the disgusting visual selection colors of gruvbox (thanks @romainl).
 hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
@@ -216,7 +247,7 @@ let mapleader = ","
 nnoremap N Nzzzv
 nnoremap n nzzzv
 
-nnoremap U <C-R>|xnoremap U :<C-U>redo<CR>|
+nnoremap U <c-R>|xnoremap U :<c-U>redo<CR>|
 
 " Splits
 nnoremap sv :vsplit<cr>
@@ -234,25 +265,101 @@ endif
 
 " Start RipGrep
 nnoremap <Leader>a :Rg<Space>
-nnoremap <Leader>s :Rg <C-r><C-w>
+nnoremap <Leader>s :Rg <c-r><c-w>
 
 " Show current file in vimfiler
 nnoremap <Leader>f :VimFilerExplorer -find<cr>
+nnoremap <Leader>f :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 " Bubbling lines
-nmap <C-Up> ddlP
-nmap <C-Down> ddp
+nmap <c-Up> :m .-2<cr>
+nmap <c-Down> :m .+1<cr>
 
 " ALE moving between errors
-nmap <silent> <C-k> <Plug>(ale_previous_wrap)
-nmap <silent> <C-j> <Plug>(ale_next_wrap)
+nmap <silent> <c-k> <Plug>(ale_previous_wrap)
+nmap <silent> <c-j> <Plug>(ale_next_wrap)
 
 nnoremap <c-p> :Files<cr>
-map <leader>t :VimFilerExplorer<CR>
+" map <leader>t :VimFilerExplorer<CR>
+map <leader>t :Defx -toggle -split=vertical -direction=topleft -winwidth=50<CR>
 nnoremap <F3> :NumbersToggle<CR>
+let g:numbers_exclude = ['goyo_pad']
+
+" Goyo and Limelight config
+autocmd BufLeave goyo_pad setlocal norelativenumber
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+
+autocmd FileType defx call s:defx_my_settings()
+	function! s:defx_my_settings() abort
+	  " Define mappings
+	  nnoremap <silent><buffer><expr> <CR>
+	  \ defx#do_action('drop')
+	  nnoremap <silent><buffer><expr> c
+	  \ defx#do_action('copy')
+	  nnoremap <silent><buffer><expr> m
+	  \ defx#do_action('move')
+	  nnoremap <silent><buffer><expr> p
+	  \ defx#do_action('paste')
+	  nnoremap <silent><buffer><expr> l
+	  \ defx#do_action('open')
+	  nnoremap <silent><buffer><expr> E
+	  \ defx#do_action('open', 'vsplit')
+	  nnoremap <silent><buffer><expr> P
+	  \ defx#do_action('open', 'pedit')
+	  nnoremap <silent><buffer><expr> t
+	  \ defx#do_action('open_or_close_tree')
+	  nnoremap <silent><buffer><expr> K
+	  \ defx#do_action('new_directory')
+	  nnoremap <silent><buffer><expr> N
+	  \ defx#do_action('new_file')
+	  nnoremap <silent><buffer><expr> M
+	  \ defx#do_action('new_multiple_files')
+	  nnoremap <silent><buffer><expr> C
+	  \ defx#do_action('toggle_columns',
+	  \                'mark:indent:icon:filename:type:size:time')
+	  nnoremap <silent><buffer><expr> S
+	  \ defx#do_action('toggle_sort', 'time')
+	  nnoremap <silent><buffer><expr> d
+	  \ defx#do_action('remove')
+	  nnoremap <silent><buffer><expr> r
+	  \ defx#do_action('rename')
+	  nnoremap <silent><buffer><expr> !
+	  \ defx#do_action('execute_command')
+	  nnoremap <silent><buffer><expr> x
+	  \ defx#do_action('execute_system')
+	  nnoremap <silent><buffer><expr> yy
+	  \ defx#do_action('yank_path')
+	  nnoremap <silent><buffer><expr> .
+	  \ defx#do_action('toggle_ignored_files')
+	  nnoremap <silent><buffer><expr> ;
+	  \ defx#do_action('repeat')
+	  nnoremap <silent><buffer><expr> <bs>
+	  \ defx#do_action('cd', ['..'])
+	  nnoremap <silent><buffer><expr> ~
+	  \ defx#do_action('cd')
+	  nnoremap <silent><buffer><expr> q
+	  \ defx#do_action('quit')
+	  nnoremap <silent><buffer><expr> <Space>
+	  \ defx#do_action('toggle_select') . 'j'
+	  nnoremap <silent><buffer><expr> *
+	  \ defx#do_action('toggle_select_all')
+	  nnoremap <silent><buffer><expr> j
+	  \ line('.') == line('$') ? 'gg' : 'j'
+	  nnoremap <silent><buffer><expr> k
+	  \ line('.') == 1 ? 'G' : 'k'
+	  nnoremap <silent><buffer><expr> <C-l>
+	  \ defx#do_action('redraw')
+	  nnoremap <silent><buffer><expr> <C-g>
+	  \ defx#do_action('print')
+	  nnoremap <silent><buffer><expr> cd
+	  \ defx#do_action('change_vim_cwd')
+	endfunction
+<
 
 " Enable tab for auto completion
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<c-n>" : "\<Tab>"
 
 " Buffers
 nnoremap <c-b> :Buffers<cr>
@@ -277,9 +384,25 @@ command! W w !sudo tee "%" > /dev/null
 
 " Auto commands
 " {{{
+" source: https://stackoverflow.com/a/6052704
+function! RestoreSess()
+if filereadable(getcwd() . '/Session.vim')
+    execute 'so ' . getcwd() . '/Session.vim'
+    if bufexists(1)
+        for l in range(1, bufnr('$'))
+            if bufwinnr(l) == -1
+                exec 'sbuffer ' . l
+            endif
+        endfor
+    endif
+endif
+endfunction
+
+" autocmd VimEnter * nested call RestoreSess()
 " Disable continuous comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " }}}
+
 
 " Plugins settings
 " {{{
@@ -287,6 +410,149 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND= 'rg --files --hidden -g "!.git/*"'
 endif
 
+function! s:tags_sink(line)
+  let parts = split(a:line, '\t\zs')
+  let excmd = matchstr(parts[2:], '^.*\ze;"\t')
+  execute 'silent e' parts[1][:-2]
+  let [magic, &magic] = [&magic, 0]
+  execute excmd
+  let &magic = magic
+endfunction
+
+function! s:tags()
+  if empty(tagfiles())
+    echohl WarningMsg
+    echom 'Preparing tags'
+    echohl None
+    call system('ctags -R')
+  endif
+
+  call fzf#run({
+  \ 'source':  'cat '.join(map(tagfiles(), 'fnamemodify(v:val, ":S")')).
+  \            '| grep -v -a ^!',
+  \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+  \ 'down':    '40%',
+  \ 'sink':    function('s:tags_sink')})
+endfunction
+
+command! Tags call s:tags()
+
+function! s:align_lists(lists)
+  let maxes = {}
+  for list in a:lists
+    let i = 0
+    while i < len(list)
+      let maxes[i] = max([get(maxes, i, 0), len(list[i])])
+      let i += 1
+    endwhile
+  endfor
+  for list in a:lists
+    call map(list, "printf('%-'.maxes[v:key].'s', v:val)")
+  endfor
+  return a:lists
+endfunction
+
+function! s:btags_source()
+  let lines = map(split(system(printf(
+    \ 'ctags -f - --sort=no --excmd=number --language-force=%s %s',
+    \ &filetype, expand('%:S'))), "\n"), 'split(v:val, "\t")')
+  if v:shell_error
+    throw 'failed to extract tags'
+  endif
+  return map(s:align_lists(lines), 'join(v:val, "\t")')
+endfunction
+
+function! s:btags_sink(line)
+  execute split(a:line, "\t")[2]
+endfunction
+
+function! s:btags()
+  try
+    call fzf#run({
+    \ 'source':  s:btags_source(),
+    \ 'options': '+m -d "\t" --with-nth 1,4.. -n 1 --tiebreak=index',
+    \ 'down':    '40%',
+    \ 'sink':    function('s:btags_sink')})
+  catch
+    echohl WarningMsg
+    echom v:exception
+    echohl None
+  endtry
+endfunction
+
+command! BTags call s:btags()
+
+" Always show quotes in json
+let g:vim_json_syntax_conceal = 0
+let g:indentLine_concealcursor=""
+
+
 " Use deoplete.
 let g:deoplete#enable_at_startup = 1
+
+" Trigger a unblevable/quick-scope plugin highlight in the appropriate direction when pressing these keys:
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+
+" Highlight vue attribute value as expression instead of string.
+let g:vim_vue_plugin_highlight_vue_attr = 1
+
+" set to 1, the vim will refresh markdown when save the buffer or leave from insert mode
+let g:mkdp_refresh_slow = 1
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 1,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {}
+    \ }
+
+let g:mkdp_markdown_css = expand('~/.dotfiles/markdown.css')
+" }}}
+
+
+" {{{ Zettelkasten - copied over from https://github.com/sirupsen/dotfiles/blob/master/home/.vimrc
+
+function! ZettelkastenSetup()
+  " syn region mkdFootnotes matchgroup=mkdDelimiter start="\[\["    end="\]\]"
+
+  inoremap <expr> <plug>(fzf-complete-path-custom) fzf#vim#complete#path("rg --files -t md \| sed 's/^/[[/g' \| sed 's/$/]]/'")
+  imap <buffer> [[ <plug>(fzf-complete-path-custom)
+
+  function! s:CompleteTagsReducer(lines)
+    if len(a:lines) == 1
+      return "@" . a:lines[0]
+    else
+      return split(a:lines[1], '\t ')[1]
+    end
+  endfunction
+
+  inoremap <expr> <plug>(fzf-complete-tags) fzf#vim#complete(fzf#wrap({
+        \ 'source': 'bash -lc "zk-tags-raw"',
+        \ 'options': '--multi --ansi --nth 2 --print-query --exact --header "Enter without a selection creates new tag"',
+        \ 'reducer': function('<sid>CompleteTagsReducer')
+        \ }))
+  imap <buffer> @ <plug>(fzf-complete-tags)
+
+  " setlocal formatoptions+=a
+  " imap <imap> -- —
+endfunction
+
+" Don't know why I can't get FZF to return {2}
+function! InsertSecondColumn(line)
+  " execute 'read !echo ' .. split(a:e[0], '\t')[1]
+  exe 'normal! o' .. split(a:line, '\t')[1]
+endfunction
+
+command! ZKR call fzf#run(fzf#wrap({
+        \ 'source': 'zk-related"' .. bufname("%") .. '"',
+        \ 'options': '--ansi --exact --nth 2',
+        \ 'sink':    function("InsertSecondColumn")
+      \}))
+
+autocmd BufNew,BufNewFile,BufRead expand('~/wiki/*.md') call ZettelkastenSetup()
+
 " }}}

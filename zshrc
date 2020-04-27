@@ -31,7 +31,7 @@ zplug "zdharma/fast-syntax-highlighting"
 zplug "zsh-users/zsh-completions"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "mafredri/zsh-async", from:github
-# zplug "sindresorhus/pure", use:pure.zsh, from:github, as:theme
+zplug 'changyuheng/zsh-interactive-cd', from:github
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 
 zplug load
@@ -162,6 +162,8 @@ alias ee="cd ~/projects/gdk-ee/gitlab"
 alias :q="exit"
 alias mux="tmuxinator"
 
+alias ctags="`brew --prefix`/bin/ctags"
+
 # Find in files (search for string and return list of files that contains that string).
 function fif() {
   rg $1 . -l ;
@@ -268,3 +270,5 @@ bindkey '^[[B' history-substring-search-down
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+eval $(thefuck --alias)

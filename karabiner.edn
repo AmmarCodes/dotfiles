@@ -20,10 +20,10 @@
 	  :des "New launch mode"
 	  :rules [
 		  [:!CTOSi [:launch "iTerm"]]
-		  [:!CTOSb [:launch "Google Chrome"]]
+		  ; [:!CTOSb [:launch "Google Chrome"]]
 		  [:!CTOSk [:alfred "run" "iansinnott.keyboardmaestro"]]
 		  [:!CTOSr [:launch "RubyMine"]]
-		  [:!CTOSe [:launch "Evernote"]]
+		  ; [:!CTOSe [:launch "Evernote"]]
 		]
 	}
    {:des "Swap fn and left_control"

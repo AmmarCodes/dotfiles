@@ -7,11 +7,10 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "minio/stable"
+tap "mongodb/brew"
 tap "yqrashawn/goku"
 # Search tool like grep, but optimized for programmers
 brew "ack"
-# The fastest shell plugin manager
-brew "antibody"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -20,8 +19,12 @@ brew "bat"
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Reimplementation of ctags(1)
+brew "ctags"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Command-line tool to interact with exercism.io
+brew "exercism"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
 # Command-line fuzzy finder written in Go
@@ -36,6 +39,8 @@ brew "gnupg"
 brew "go"
 # Image processing tools collection
 brew "graphicsmagick"
+# GitHub Markdown previewer
+brew "grip"
 # Conversion library
 brew "libiconv"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -47,9 +52,11 @@ brew "noti"
 # Manage compile and link flags for libraries
 brew "pkg-config"
 # Object-relational database system
-brew "postgresql@10"
+brew "postgresql@10", restart_service: true
 # Interpreted, interactive, object-oriented programming language
 brew "python"
+# Software environment for statistical computing
+brew "r"
 # Ruby version manager
 brew "rbenv"
 # Alternative to backtracking PCRE-style regular expression engines
@@ -57,13 +64,15 @@ brew "re2"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
 # Persistent key-value database, with built-in net interface
-brew "redis"
+brew "redis", restart_service: true
 # Rename multiple files in a directory
 brew "ren"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Collection of tools for managing UNIX services
 brew "runit"
+# Programatically correct mistyped console commands
+brew "thefuck"
 # Text interface for Git repositories
 brew "tig"
 # Simplified and community-driven man pages
@@ -84,9 +93,12 @@ brew "zsh"
 brew "aybabtme/tap/humanlog"
 # High Performance Object Storage compatible with Amazon S3 API
 brew "minio/stable/minio"
+# High-performance, schema-free, document-oriented database
+brew "mongodb/brew/mongodb-community"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 cask "alfred"
+cask "anki"
 cask "appcleaner"
 cask "bartender"
 cask "beardedspice"
@@ -104,6 +116,7 @@ cask "font-ibm-plex"
 cask "font-jetbrains-mono"
 cask "font-victor-mono"
 cask "fork"
+cask "fsnotes"
 cask "google-chrome"
 cask "iina"
 cask "iterm2-beta"
@@ -115,18 +128,19 @@ cask "keyboard-maestro"
 cask "keycastr"
 cask "launchrocket"
 cask "little-snitch"
+cask "mutespotifyads"
+cask "muzzle"
 cask "ngrok"
 cask "obs"
 cask "qlcolorcode"
-cask "qlstephen"
 cask "quicklook-json"
 cask "rectangle"
 cask "rocket"
 cask "rubymine"
 cask "shortcat"
 cask "slack"
-cask "spotifree"
 cask "spotify"
+cask "telegram"
 cask "tomighty"
 cask "typinator"
 cask "typora"
