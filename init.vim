@@ -91,9 +91,8 @@ Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
 
 " Languages & Syntax
 Plug 'pangloss/vim-javascript'
-" Plug 'posva/vim-vue'
+Plug 'posva/vim-vue'
 Plug 'elzr/vim-json'
-Plug 'leafOfTree/vim-vue-plugin'
 Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
@@ -496,6 +495,8 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
 " Highlight vue attribute value as expression instead of string.
 let g:vim_vue_plugin_highlight_vue_attr = 1
+
+let g:vue_pre_processors = ['scss']
 
 " set to 1, the vim will refresh markdown when save the buffer or leave from insert mode
 let g:mkdp_refresh_slow = 1
