@@ -51,6 +51,7 @@ endif
 " Colors & UI
 Plug 'arcticicestudio/nord-vim'
 Plug 'morhetz/gruvbox'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
@@ -136,11 +137,11 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
 let g:gruvbox_contrast_dark = 'soft'
 set background=dark
-colorscheme gruvbox
+colorscheme palenight
 
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'palenight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'filename', 'modified' ] ],
