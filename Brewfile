@@ -8,6 +8,7 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "minio/stable"
 tap "mongodb/brew"
+tap "universal-ctags/universal-ctags"
 tap "yqrashawn/goku"
 # Search tool like grep, but optimized for programmers
 brew "ack"
@@ -19,8 +20,6 @@ brew "bat"
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Reimplementation of ctags(1)
-brew "ctags"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Command-line tool to interact with exercism.io
@@ -89,12 +88,14 @@ brew "wifi-password"
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
-# 
+#
 brew "aybabtme/tap/humanlog"
 # High Performance Object Storage compatible with Amazon S3 API
 brew "minio/stable/minio"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community"
+# Maintained ctags implementation
+brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD", "with-jansson"]
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 cask "alfred"
@@ -128,6 +129,7 @@ cask "keyboard-maestro"
 cask "keycastr"
 cask "launchrocket"
 cask "little-snitch"
+cask "monitorcontrol"
 cask "mutespotifyads"
 cask "muzzle"
 cask "ngrok"

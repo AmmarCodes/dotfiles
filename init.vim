@@ -84,7 +84,7 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'dkarter/bullets.vim'
