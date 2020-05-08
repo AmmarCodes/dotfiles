@@ -161,6 +161,7 @@ alias wmc="bat --theme OneHalfDark ~/Desktop/working-memory.md" # read working m
 alias ee="cd ~/projects/gdk-ee/gitlab"
 alias :q="exit"
 alias mux="tmuxinator"
+alias be="bundle exec"
 
 alias ctags="`brew --prefix`/bin/ctags"
 
@@ -211,9 +212,17 @@ function search() {
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export BAT_THEME="TwoDark"
+# Gruvbox below
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+# --color fg:250,hl:72,fg+:223,bg+:237,hl+:72
+# --color pointer:167,info:109,spinner:214,header:214,prompt:175,marker:208'
+
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color fg:250,hl:72,fg+:223,bg+:237,hl+:72
---color pointer:167,info:109,spinner:214,header:214,prompt:175,marker:208'
+  --color=bg+:#434758,bg:#292D3E,spinner:#89DDFF,hl:#82AAFF
+  --color=fg:#8796B0,header:#82AAFF,info:#FFCB6B,pointer:#89DDFF
+  --color=marker:#89DDFF,fg+:#959DCB,prompt:#FFCB6B,hl+:#82AAFF,marker:#434758
+'
+
 
 j() {
     if [[ "$#" -ne 0 ]]; then
