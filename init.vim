@@ -33,6 +33,9 @@ endif
 " detect indentation of the openned file
 Plug 'tpope/vim-sleuth'
 
+" Manipulate words (change case with crs/cru/cr-)
+Plug 'tpope/vim-abolish'
+
 " Seamless navigation with tmux
 Plug 'christoomey/vim-tmux-navigator'
 
