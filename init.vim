@@ -39,9 +39,6 @@ Plug 'tpope/vim-abolish'
 " Seamless navigation with tmux
 Plug 'christoomey/vim-tmux-navigator'
 
-" Vimfiler <leader>b
-" Plug 'Shougo/unite.vim'
-" Plug 'Shougo/vimfiler.vim'
 
 if has('nvim')
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -53,7 +50,7 @@ endif
 
 " Colors & UI
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
+Plug 'gruvbox-community/gruvbox'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
@@ -83,11 +80,11 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 " Plug 'jiangmiao/auto-pairs'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'dkarter/bullets.vim'
+Plug 'mbbill/undotree'
 
 " highlights the XML/HTML tags that enclose your cursor location
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
@@ -114,6 +111,9 @@ call plug#end()
 set encoding=utf8
 set noswapfile               " Don't use swapfile
 set nobackup                 " Don't create annoying backup files
+set undodir=~/.config/nvim/undodir
+set undofile
+set nowrap
 set splitright               " Split vertical windows right to the current windows
 set splitbelow               " Split horizontal windows below to the current windows
 set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
@@ -146,7 +146,7 @@ let g:lightline = {
       \ 'colorscheme': 'palenight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified' ] ],
+      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
       \   'right': [ [ 'lineinfo' ],
       \              [ 'gitbranch', 'filetype' ],
       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos' ] ]
@@ -161,6 +161,7 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
+      \   'cocstatus': 'coc#status',
       \ },
       \ 'component': {
       \   'filename': '%F',
@@ -282,6 +283,10 @@ nmap <c-Down> :m .+1<cr>
 nmap <silent> <c-k> <Plug>(ale_previous_wrap)
 nmap <silent> <c-j> <Plug>(ale_next_wrap)
 
+" Show Fugitive Git status
+nmap <leader>gs :Gstatus<cr>
+nmap <leader>gp :Gpush<cr>
+
 nnoremap <c-p> :Files<cr>
 " map <leader>t :VimFilerExplorer<CR>
 map <leader>t :Defx -toggle -split=vertical -direction=topleft -winwidth=50<CR>
@@ -361,8 +366,55 @@ autocmd FileType defx call s:defx_my_settings()
 	endfunction
 <
 
-" Enable tab for auto completion
-inoremap <expr> <Tab> pumvisible() ? "\<c-n>" : "\<Tab>"
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use <c-space> to trigger completion.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use `[g` and `]g` to navigate diagnostics
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Apply AutoFix to problem on the current line.
+nmap <leader>qf  <Plug>(coc-fix-current)
+
+" Remap keys for applying codeAction to the current line.
+nmap <leader>ca  <Plug>(coc-codeaction)
+
+nnoremap <silent> <leader>p  :<C-u>CocList commands<cr>
 
 " Buffers
 nnoremap <c-b> :Buffers<cr>
@@ -491,7 +543,7 @@ let g:indentLine_concealcursor=""
 
 
 " Use deoplete.
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " Trigger a unblevable/quick-scope plugin highlight in the appropriate direction when pressing these keys:
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']

@@ -40,6 +40,8 @@ brew "go"
 brew "graphicsmagick"
 # GitHub Markdown previewer
 brew "grip"
+# Configurable static site generator
+brew "hugo"
 # Conversion library
 brew "libiconv"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -88,7 +90,7 @@ brew "wifi-password"
 brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
-#
+# 
 brew "aybabtme/tap/humanlog"
 # High Performance Object Storage compatible with Amazon S3 API
 brew "minio/stable/minio"
@@ -106,6 +108,7 @@ cask "beardedspice"
 cask "betterzip"
 cask "bitbar"
 cask "chromedriver"
+cask "darktable"
 cask "dropbox"
 cask "flux"
 cask "font-cascadia"
@@ -139,7 +142,6 @@ cask "quicklook-json"
 cask "rectangle"
 cask "rocket"
 cask "rubymine"
-cask "shortcat"
 cask "slack"
 cask "spotify"
 cask "telegram"
