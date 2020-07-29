@@ -26,6 +26,8 @@ brew "curl"
 brew "exercism"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Distributed revision control system
@@ -53,9 +55,7 @@ brew "noti"
 # Manage compile and link flags for libraries
 brew "pkg-config"
 # Object-relational database system
-brew "postgresql@10", restart_service: true
-# Interpreted, interactive, object-oriented programming language
-brew "python"
+brew "postgresql@11", restart_service: true
 # Software environment for statistical computing
 brew "r"
 # Ruby version manager
@@ -117,10 +117,12 @@ cask "font-firacode-nerd-font"
 cask "font-hasklig-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ibm-plex"
+cask "font-inconsolata"
 cask "font-jetbrains-mono"
 cask "font-victor-mono"
 cask "fork"
 cask "fsnotes"
+cask "gimp"
 cask "google-chrome"
 cask "iina"
 cask "iterm2-beta"
@@ -136,6 +138,7 @@ cask "monitorcontrol"
 cask "mutespotifyads"
 cask "muzzle"
 cask "ngrok"
+cask "notion"
 cask "obs"
 cask "qlcolorcode"
 cask "quicklook-json"

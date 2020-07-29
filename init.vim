@@ -35,6 +35,8 @@ Plug 'tpope/vim-sleuth'
 
 " Manipulate words (change case with crs/cru/cr-)
 Plug 'tpope/vim-abolish'
+Plug 'AndrewRadev/tagalong.vim' " Change closing tag automatically
+Plug 'terryma/vim-multiple-cursors'
 
 " Seamless navigation with tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -67,6 +69,9 @@ Plug 'unblevable/quick-scope'
 Plug 'psliwka/vim-smoothie'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
+Plug 'jmckiern/vim-venter'
+Plug 'kristijanhusak/defx-icons'
+
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 Plug 'alok/notational-fzf-vim'
@@ -85,6 +90,7 @@ Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'dkarter/bullets.vim'
 Plug 'mbbill/undotree'
+Plug 'itchyny/vim-cursorword'
 
 " highlights the XML/HTML tags that enclose your cursor location
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
@@ -96,11 +102,12 @@ Plug 'elzr/vim-json'
 Plug 'tpope/vim-haml'
 Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
 Plug 'wavded/vim-stylus', {'for': 'stylus'}
-Plug 'ap/vim-css-color', {'for': ['css', 'scss', 'sass', 'stylus', 'vue', 'html']}
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'rhysd/committia.vim'
 
 call plug#end()
 " }}}
@@ -137,13 +144,13 @@ set noemoji
 " Enable truecolor in iTerm
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
-let g:gruvbox_contrast_dark = 'soft'
+" let g:gruvbox_contrast_dark = 'soft'
 set background=dark
-colorscheme palenight
+colorscheme gruvbox
 
 
 let g:lightline = {
-      \ 'colorscheme': 'palenight',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
@@ -275,6 +282,10 @@ nnoremap <Leader>s :Rg <c-r><c-w>
 nnoremap <Leader>f :VimFilerExplorer -find<cr>
 nnoremap <Leader>f :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
+" yank file path/name
+nnoremap yp :let @*=expand("%")<CR>      " Mnemonic: yank file relative path
+nnoremap yfp :let @*=expand("%:p")<CR>    " Mnemonic: Yank file absolute path
+
 " Bubbling lines
 nmap <c-Up> :m .-2<cr>
 nmap <c-Down> :m .+1<cr>
@@ -289,7 +300,7 @@ nmap <leader>gp :Gpush<cr>
 
 nnoremap <c-p> :Files<cr>
 " map <leader>t :VimFilerExplorer<CR>
-map <leader>t :Defx -toggle -split=vertical -direction=topleft -winwidth=50<CR>
+map <leader>t :Defx -columns=icons:indent:filename:type -toggle -split=vertical -direction=topleft -winwidth=50<CR>
 nnoremap <F3> :NumbersToggle<CR>
 let g:numbers_exclude = ['goyo_pad']
 
@@ -421,7 +432,9 @@ nnoremap <c-b> :Buffers<cr>
 map <leader>bd :BD<cr>
 map <leader>bn :BF<cr>
 map <leader>bb :BB<cr>
-map <leader>ba :BA<cr>
+map <leader>b, :BA<cr>
+" delete all buffers
+map <leader>ba :bufdo BD<cr>
 " A buffer becomes hidden when it is abandoned
 set hidden
 
@@ -464,6 +477,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 if executable('rg')
   let $FZF_DEFAULT_COMMAND= 'rg --files --hidden -g "!.git/*"'
 endif
+let $FZF_DEFAULT_OPTS='--reverse'
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 function! s:tags_sink(line)
   let parts = split(a:line, '\t\zs')
@@ -568,5 +583,28 @@ let g:mkdp_preview_options = {
     \ }
 
 let g:mkdp_markdown_css = expand('~/.dotfiles/markdown.css')
+let g:cursorword_delay = 1500
+
+let g:Hexokinase_highlighters = ['sign_column'] " possible interesting value: 'backgroundfull'
+
+let g:committia_hooks = {}
+function! g:committia_hooks.edit_open(info)
+    " Additional settings
+    setlocal spell
+
+    " If no commit message, start with insert mode
+    if a:info.vcs ==# 'git' && getline(1) ==# ''
+        startinsert
+    endif
+
+    " Scroll the diff window from insert mode
+    " Map <C-n> and <C-p>
+    imap <buffer><C-n> <Plug>(committia-scroll-diff-down-half)
+    imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
+endfunction
+
 " }}}
+
+" Highlight the search with different colors than the cursor - seems a palenight issue
+hi Search guibg=peru  guifg=wheat cterm=NONE ctermfg=grey ctermbg=blue
 

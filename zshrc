@@ -145,6 +145,7 @@ alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 alias gdb="git branch --merged | egrep -v \"(^\*|master|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
 alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend'" # Push the current branch and create a merge request for it
+alias gps="git push -o ci.skip" # push with skip ci option
 
 alias lastver="git tag -l | gsort -V | tail -n 1"
 alias t="todo.sh"
@@ -162,6 +163,7 @@ alias ee="cd ~/projects/gdk-ee/gitlab"
 alias :q="exit"
 alias mux="tmuxinator"
 alias be="bundle exec"
+alias ll="ls -lah"
 
 alias ctags="`brew --prefix`/bin/ctags"
 
@@ -234,7 +236,7 @@ j() {
 
 
 source $HOME/.private_aliases
-export PATH="/usr/local/opt/postgresql@10/bin:/usr/local/opt/node@12/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@11/bin:/usr/local/opt/node@12/bin:$PATH"
 
 # Ruby stuff
 export PATH="$HOME/.rbenv/bin:$PATH"
