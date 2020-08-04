@@ -16,28 +16,6 @@ fi
 autoload -U promptinit
 promptinit
 
-## PLUGINS
-
-export NVM_LAZY_LOAD=true
-
-source ~/.zplug/init.zsh
-zplug 'zplug/zplug', hook-build:'zplug --self-manage' # To let it manage itself like other plugins
-zplug "zsh-users/zsh-history-substring-search"
-zplug "plugins/git",   from:oh-my-zsh
-zplug "plugins/node",   from:oh-my-zsh
-zplug "djui/alias-tips"
-zplug "lukechilds/zsh-nvm"
-zplug "zdharma/fast-syntax-highlighting"
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "mafredri/zsh-async", from:github
-zplug 'changyuheng/zsh-interactive-cd', from:github
-zplug "romkatv/powerlevel10k", as:theme, depth:1
-
-zplug load
-
-##-----------------------------------------------##
-
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
 export TERM="xterm-256color"
@@ -219,11 +197,14 @@ export BAT_THEME="TwoDark"
 # --color fg:250,hl:72,fg+:223,bg+:237,hl+:72
 # --color pointer:167,info:109,spinner:214,header:214,prompt:175,marker:208'
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color=bg+:#434758,bg:#292D3E,spinner:#89DDFF,hl:#82AAFF
-  --color=fg:#8796B0,header:#82AAFF,info:#FFCB6B,pointer:#89DDFF
-  --color=marker:#89DDFF,fg+:#959DCB,prompt:#FFCB6B,hl+:#82AAFF,marker:#434758
-'
+# palenight
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#   --color=bg+:#434758,bg:#292D3E,spinner:#89DDFF,hl:#82AAFF
+#   --color=fg:#8796B0,header:#82AAFF,info:#FFCB6B,pointer:#89DDFF
+#   --color=marker:#89DDFF,fg+:#959DCB,prompt:#FFCB6B,hl+:#82AAFF,marker:#434758
+# '
+# gruvbox
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
 
 
 j() {
@@ -238,12 +219,6 @@ j() {
 source $HOME/.private_aliases
 export PATH="/usr/local/opt/postgresql@11/bin:/usr/local/opt/node@12/bin:$PATH"
 
-# Ruby stuff
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-eval "$(rbenv init -)"
-
-eval $(thefuck --alias fix)
 
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
@@ -270,16 +245,64 @@ function auto-ls-ls () {
 
 AUTO_LS_COMMANDS=(ls '[[ -d $PWD/.git ]] && git status')
 
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+
+### Added by Zinit's installer
+if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
+    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
+    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+        print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
+        print -P "%F{160}▓▒░ The clone has failed.%f%b"
+fi
+
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+
+# Load a few important annexes, without Turbo
+# (this is currently required for annexes)
+zinit light-mode for \
+    zinit-zsh/z-a-rust \
+    zinit-zsh/z-a-as-monitor \
+    zinit-zsh/z-a-patch-dl \
+    zinit-zsh/z-a-bin-gem-node
+
+# zinit light "zdharma/fast-syntax-highlighting"
+zinit snippet OMZP::git # Oh My Zsh Git Plugin
+
+zinit load "djui/alias-tips"
+zinit load "zsh-users/zsh-history-substring-search"
+zinit load "zsh-users/zsh-completions"
+# zinit load "mafredri/zsh-async"
+zinit load "changyuheng/zsh-interactive-cd"
+
+
+# fast-syntax-highlighting
+zinit ice wait"1" lucid
+zinit light zdharma/fast-syntax-highlighting
+
+# zsh-autosuggestions
+zinit ice wait lucid atload"!_zsh_autosuggest_start"
+zinit load zsh-users/zsh-autosuggestions
+
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+
+### End of Zinit's installer chunk
 
 # binding for history substring search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-# [[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-# fpath+=${ZDOTDIR:-~}/.zsh_functions
+# Ruby stuff
+export PATH="$HOME/.rbenv/bin:$PATH"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+if which rbenv >/dev/null 2>&1; then
+  rbenv() {
+    eval "$(command rbenv init -)"
+    rbenv "$@"
+  }
+fi
 
-eval $(thefuck --alias)
