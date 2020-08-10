@@ -132,9 +132,12 @@ set splitbelow               " Split horizontal windows below to the current win
 set fileformats=unix,dos,mac " Prefer Unix over Windows over OS 9 formats
 set ignorecase               " Search case insensitive...
 set clipboard^=unnamed       " Copy/paste using clipboard
-set mouse=a                  " enable mouse
+set foldenable
+set foldlevel=99
 set foldmethod=marker
+set foldmarker={,}
 set relativenumber
+set cursorline              " Highlight current line
 
 " Enable filetype plugins
 filetype plugin on
@@ -229,8 +232,30 @@ set expandtab
 " 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
-set ai "Auto indent
-set si "Smart indent
+set autoindent "Auto indent
+set smartindent "Smart indent
+
+" Change cursor shape for iTerm2 on macOS {
+  " bar in Insert mode
+  " inside iTerm2
+  if $TERM_PROGRAM =~# 'iTerm'
+    let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+    let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+    let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+  endif
+
+  " inside tmux
+  if exists('$TMUX') && $TERM != 'xterm-kitty'
+    let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+    let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
+    let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+  endif
+
+  " inside neovim
+  if has('nvim')
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
+  endif
+" }
 
 "}}}
 
@@ -240,7 +265,7 @@ syntax enable
 set background=dark
 set number                   " Show line numbers
 set ruler
-set listchars=tab:▷⋅,trail:·
+set listchars=tab:▷⋅,trail:·,extends:↷,precedes:↶
 set list
 
 
@@ -251,6 +276,7 @@ hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
 " Set a custom highlight color when yanking text.
 "   This requires having the plugin: machakann/vim-highlightedyank
 hi HighlightedyankRegion cterm=NONE ctermbg=239 guibg=#4e4e4e
+highlight clear SignColumn  " SignColumn should match background
 " }}}
 
 
@@ -258,6 +284,25 @@ hi HighlightedyankRegion cterm=NONE ctermbg=239 guibg=#4e4e4e
 " {{{
 let mapleader = ","
 
+" jj | escaping
+inoremap jj <Esc>
+cnoremap jj <C-c>
+
+" Yank to the end of line
+nnoremap Y y$
+" Fold {
+nnoremap <silent> <Leader>f0 :set foldlevel=0<CR>
+nnoremap <silent> <Leader>f1 :set foldlevel=1<CR>
+nnoremap <silent> <Leader>f2 :set foldlevel=2<CR>
+nnoremap <silent> <Leader>f3 :set foldlevel=3<CR>
+nnoremap <silent> <Leader>f4 :set foldlevel=4<CR>
+nnoremap <silent> <Leader>f5 :set foldlevel=5<CR>
+nnoremap <silent> <Leader>f6 :set foldlevel=6<CR>
+nnoremap <silent> <Leader>f7 :set foldlevel=7<CR>
+nnoremap <silent> <Leader>f8 :set foldlevel=8<CR>
+nnoremap <silent> <Leader>f9 :set foldlevel=9<CR>
+nnoremap <silent> <Leader>fa zA<CR>
+" }
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
 "
@@ -284,9 +329,8 @@ endif
 nnoremap <Leader>a :Rg<Space>
 nnoremap <Leader>s :Rg <c-r><c-w>
 
-" Show current file in vimfiler
-nnoremap <Leader>f :VimFilerExplorer -find<cr>
-nnoremap <Leader>f :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+" Show current file in file explorer (defx)
+nnoremap <Leader>sf :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 " yank file path/name
 nnoremap <Leader>yp :let @*=expand("%")<CR>       " Mnemonic: yank file relative path
@@ -307,7 +351,6 @@ nmap <leader>gp :Gpush<cr>
 nmap <leader>gs :Gstatus<cr>
 
 nnoremap <c-p> :Files<cr>
-" map <leader>t :VimFilerExplorer<CR>
 map <leader>t :Defx -columns=icons:indent:filename:type -toggle -split=vertical -direction=topleft -winwidth=50<CR>
 nnoremap <F3> :NumbersToggle<CR>
 let g:numbers_exclude = ['goyo_pad']
@@ -639,10 +682,23 @@ let g:which_key_map['a'] = {
 let g:which_key_map['b'] = {
       \ 'name' : '+buffers' ,
       \ }
-let g:which_key_map['g'] = {
-      \ 'name' : '+git'
+let g:which_key_map['f'] = {
+      \ 'name' : '+fold',
+      \ '0': 'set foldlevel to 0',
+      \ '1': 'set foldlevel to 1',
+      \ '2': 'set foldlevel to 2',
+      \ '3': 'set foldlevel to 3',
+      \ '4': 'set foldlevel to 4',
+      \ '5': 'set foldlevel to 5',
+      \ '6': 'set foldlevel to 6',
+      \ '7': 'set foldlevel to 7',
+      \ '8': 'set foldlevel to 8',
+      \ '9': 'set foldlevel to 9',
+      \ 'a': 'toggle fold'
       \ }
-
+let g:which_key_map['s'] = {
+      \ 'name': '+show'
+      \ }
 let g:which_key_map['y'] = {
       \ 'name' : '+yank',
       \ 'p'    : ['yp', 'relative path'],
@@ -659,8 +715,8 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 
-nnoremap <silent> <leader>: <c-u>WhichKey ','<CR>
-vnoremap <silent> <leader>: <c-u>WhichKeyVisual ','<CR>
+nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
 " }}}
 " }}}
 
