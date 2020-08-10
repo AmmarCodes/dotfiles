@@ -29,6 +29,8 @@ else
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
   Plug 'junegunn/fzf.vim'
 endif
+Plug 'dyng/ctrlsf.vim'
+Plug 'junegunn/vim-easy-align'
 
 " detect indentation of the openned file
 Plug 'tpope/vim-sleuth'
@@ -51,9 +53,9 @@ else
 endif
 
 " Colors & UI
-Plug 'arcticicestudio/nord-vim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
-Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
@@ -71,6 +73,9 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'jmckiern/vim-venter'
 Plug 'kristijanhusak/defx-icons'
+Plug 'liuchengxu/vim-which-key'
+
+
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
@@ -90,7 +95,8 @@ Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'dkarter/bullets.vim'
 Plug 'mbbill/undotree'
-Plug 'itchyny/vim-cursorword'
+" Plug 'itchyny/vim-cursorword'
+Plug 'ruanyl/vim-gh-line'
 
 " highlights the XML/HTML tags that enclose your cursor location
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
@@ -283,8 +289,8 @@ nnoremap <Leader>f :VimFilerExplorer -find<cr>
 nnoremap <Leader>f :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 " yank file path/name
-nnoremap yp :let @*=expand("%")<CR>      " Mnemonic: yank file relative path
-nnoremap yfp :let @*=expand("%:p")<CR>    " Mnemonic: Yank file absolute path
+nnoremap <Leader>yp :let @*=expand("%")<CR>       " Mnemonic: yank file relative path
+nnoremap <Leader>yfp :let @*=expand("%:p")<CR>    " Mnemonic: Yank file full path
 
 " Bubbling lines
 nmap <c-Up> :m .-2<cr>
@@ -295,8 +301,10 @@ nmap <silent> <c-k> <Plug>(ale_previous_wrap)
 nmap <silent> <c-j> <Plug>(ale_next_wrap)
 
 " Show Fugitive Git status
-nmap <leader>gs :Gstatus<cr>
+nmap <leader>gb :Gblame<cr>
+nmap <leader>gc :Gcommit<cr>
 nmap <leader>gp :Gpush<cr>
+nmap <leader>gs :Gstatus<cr>
 
 nnoremap <c-p> :Files<cr>
 " map <leader>t :VimFilerExplorer<CR>
@@ -435,6 +443,11 @@ map <leader>bb :BB<cr>
 map <leader>b, :BA<cr>
 " delete all buffers
 map <leader>ba :bufdo BD<cr>
+" <Leader>b[1-9] move to buffer [1-9] source: https://github.com/liuchengxu/dotfiles/blob/b20342f6ad133f44ad1006865cf0e970c4c13625/vimrc#L88
+for s:i in range(1, 9)
+  execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
+endfor
+
 " A buffer becomes hidden when it is abandoned
 set hidden
 
@@ -447,6 +460,16 @@ vnoremap $' <esc>`>a'<esc>`<i'<esc>
 
 " Use :W to save after asking for password
 command! W w !sudo tee "%" > /dev/null
+
+let g:gh_line_map_default = 0
+let g:gh_line_blame_map_default = 0
+
+let g:gh_line_map = '<leader>rl' " remote link
+let g:gh_line_blame_map = '<leader>rb' " remote blame
+
+nmap <leader>a <Plug>(EasyAlign)
+xmap <leader>a <Plug>(EasyAlign)
+
 " }}}
 
 
@@ -603,6 +626,42 @@ function! g:committia_hooks.edit_open(info)
     imap <buffer><C-p> <Plug>(committia-scroll-diff-up-half)
 endfunction
 
+" Settings for vim-which-key
+" {{{
+set timeoutlen=500
+
+call which_key#register(',', "g:which_key_map")
+
+let g:which_key_map = {}
+let g:which_key_map['a'] = {
+      \ 'name' : '+align' ,
+      \ }
+let g:which_key_map['b'] = {
+      \ 'name' : '+buffers' ,
+      \ }
+let g:which_key_map['g'] = {
+      \ 'name' : '+git'
+      \ }
+
+let g:which_key_map['y'] = {
+      \ 'name' : '+yank',
+      \ 'p'    : ['yp', 'relative path'],
+      \ 'f'    : ['yfp', 'full path']
+      \ }
+let g:which_key_map['r'] = {
+      \ 'name' : '+remote',
+      \ 'l'    : 'remote file link',
+      \ 'b'    : 'remote file blame link',
+      \}
+
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+
+nnoremap <silent> <leader>: <c-u>WhichKey ','<CR>
+vnoremap <silent> <leader>: <c-u>WhichKeyVisual ','<CR>
+" }}}
 " }}}
 
 " Highlight the search with different colors than the cursor - seems a palenight issue

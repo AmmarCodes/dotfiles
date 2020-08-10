@@ -72,8 +72,6 @@ brew "ren"
 brew "ripgrep"
 # Collection of tools for managing UNIX services
 brew "runit"
-# Programatically correct mistyped console commands
-brew "thefuck"
 # Text interface for Git repositories
 brew "tig"
 # Simplified and community-driven man pages

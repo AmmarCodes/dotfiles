@@ -23,9 +23,10 @@ if [ -x "$(command -v pip3)" ]; then
 	pip3 install pip --upgrade
 fi
 
-if [ -x "$(command -v zplug)" ]; then
+if [ -x "$(command -v zinit)" ]; then
 	echo "Upgrading zsh plugins"
-    zplug update
+	zinit self-update
+	zinit update --all
 fi
 
 if [ -x "$(command -v pip3)" ]; then

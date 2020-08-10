@@ -300,9 +300,6 @@ bindkey '^[[B' history-substring-search-down
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 if which rbenv >/dev/null 2>&1; then
-  rbenv() {
-    eval "$(command rbenv init -)"
-    rbenv "$@"
-  }
+  eval "$(rbenv init -)"
 fi
 
