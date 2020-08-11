@@ -135,7 +135,7 @@ set clipboard^=unnamed       " Copy/paste using clipboard
 set foldenable
 set foldlevel=99
 set foldmethod=marker
-set foldmarker={,}
+set foldmarker={{{,}}}
 set relativenumber
 set cursorline              " Highlight current line
 
@@ -301,7 +301,7 @@ nnoremap <silent> <Leader>f6 :set foldlevel=6<CR>
 nnoremap <silent> <Leader>f7 :set foldlevel=7<CR>
 nnoremap <silent> <Leader>f8 :set foldlevel=8<CR>
 nnoremap <silent> <Leader>f9 :set foldlevel=9<CR>
-nnoremap <silent> <Leader>fa zA<CR>
+nnoremap <silent> <Leader>fa zA<CR> " toggle fold
 " }
 " Search mappings: These will make it so that going to the next one in a
 " search will center on the line it's found in.
@@ -326,8 +326,8 @@ else
 endif
 
 " Start RipGrep
-nnoremap <Leader>a :Rg<Space>
-nnoremap <Leader>s :Rg <c-r><c-w>
+nnoremap <Leader>s :Rg<Space>
+nnoremap <Leader>sw :Rg <c-r><c-w>
 
 " Show current file in file explorer (defx)
 nnoremap <Leader>sf :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
