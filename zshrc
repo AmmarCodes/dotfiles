@@ -296,10 +296,4 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# Ruby stuff
-export PATH="$HOME/.rbenv/bin:$PATH"
-
-if which rbenv >/dev/null 2>&1; then
-  eval "$(rbenv init -)"
-fi
-
+. /usr/local/opt/asdf/asdf.sh

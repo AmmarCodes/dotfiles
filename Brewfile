@@ -12,14 +12,16 @@ tap "universal-ctags/universal-ctags"
 tap "yqrashawn/goku"
 # Search tool like grep, but optimized for programmers
 brew "ack"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
+# Extendable version manager with support for Ruby, Node.js, Erlang & more
+brew "asdf"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Cross-platform make
 brew "cmake"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
 # Command-line tool to interact with exercism.io
@@ -36,8 +38,6 @@ brew "git"
 brew "git-lfs"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Open source programming language to build simple/reliable/efficient software
-brew "go"
 # Image processing tools collection
 brew "graphicsmagick"
 # GitHub Markdown previewer
@@ -48,8 +48,6 @@ brew "hugo"
 brew "libiconv"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Platform built on V8 to build network applications
-brew "node"
 # Trigger notifications when a process completes
 brew "noti"
 # Manage compile and link flags for libraries
@@ -84,11 +82,8 @@ brew "tmuxinator"
 brew "tree"
 # Show the current WiFi network password
 brew "wifi-password"
-# JavaScript package manager
-brew "yarn"
 # UNIX shell (command interpreter)
 brew "zsh"
-# 
 brew "aybabtme/tap/humanlog"
 # High Performance Object Storage compatible with Amazon S3 API
 brew "minio/stable/minio"
