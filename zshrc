@@ -5,6 +5,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+# load asdf
+. /usr/local/opt/asdf/asdf.sh
+
+# append asdf completions to fpath
+fpath=(${ASDF_DIR}/completions $fpath)
+
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
 if [ $(date +'%j') != $updated_at ]; then
@@ -71,7 +77,6 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 # Paths
 export PATH="/Users/nose/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/lib/ruby/gems/2.6.0/bin/:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # NVM
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
@@ -96,11 +101,6 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 # emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 
-
-export GOPATH=$HOME/golang
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
 
 export PATH="/usr/local/sbin:$PATH"
 export PATH="$PATH:$HOME/.dotfiles/bin"
@@ -217,15 +217,14 @@ j() {
 
 
 source $HOME/.private_aliases
-export PATH="/usr/local/opt/postgresql@11/bin:/usr/local/opt/node@12/bin:$PATH"
+export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
 
 export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
 export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/sbin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
@@ -296,4 +295,3 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-. /usr/local/opt/asdf/asdf.sh

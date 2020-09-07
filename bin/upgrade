@@ -8,10 +8,10 @@ if [ -x "$(command -v brew)" ]; then
 	brew bundle dump --force --all --describe --file=~/.dotfiles/Brewfile
 fi
 
-if [ -x "$(command -v npm)" ]; then
-	echo "Upgrading npm"
-	npm install -g npm && npm update -g
-fi
+# if [ -x "$(command -v npm)" ]; then
+# 	echo "Updating npm packages"
+# 	npm install -g && npm update -g
+# fi
 
 if [ -x "$(command -v composer)" ]; then
 	echo "Upgrading composer packages"

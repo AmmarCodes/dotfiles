@@ -55,6 +55,7 @@ endif
 " Colors & UI
 " Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 " Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
@@ -78,9 +79,6 @@ Plug 'liuchengxu/vim-which-key'
 
 
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-Plug 'alok/notational-fzf-vim'
-let g:nv_search_paths = ['~/wiki']
 
 " Code utilities
 Plug 'editorconfig/editorconfig-vim'
@@ -113,7 +111,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
 " Git
 Plug 'tpope/vim-fugitive'
-Plug 'rhysd/committia.vim'
+" Plug 'rhysd/committia.vim'
 
 call plug#end()
 " }}}
@@ -138,6 +136,7 @@ set foldmethod=marker
 set foldmarker={{{,}}}
 set relativenumber
 set cursorline              " Highlight current line
+set mouse=a
 
 " Enable filetype plugins
 filetype plugin on
@@ -155,11 +154,14 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
 " let g:gruvbox_contrast_dark = 'soft'
 set background=dark
-colorscheme gruvbox
+let g:gruvbox_material_background = 'medium'
+let g:gruvbox_material_enable_italic = 1
+
+colorscheme gruvbox-material
 
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'gruvbox_material',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
@@ -541,7 +543,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Plugins settings
 " {{{
 if executable('rg')
-  let $FZF_DEFAULT_COMMAND= 'rg --files --hidden -g "!.git/*"'
+  let $FZF_DEFAULT_COMMAND= 'rg --files --follow --hidden -g "!.git/*"'
 endif
 let $FZF_DEFAULT_OPTS='--reverse'
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }

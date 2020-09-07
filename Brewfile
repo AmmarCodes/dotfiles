@@ -14,6 +14,8 @@ tap "yqrashawn/goku"
 brew "ack"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
 # Extendable version manager with support for Ruby, Node.js, Erlang & more
 brew "asdf"
 # Shell extension to jump to frequently used directories
@@ -24,6 +26,8 @@ brew "bat"
 brew "cmake"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Command-line interface for SQLite
+brew "sqlite"
 # Command-line tool to interact with exercism.io
 brew "exercism"
 # Perl lib for reading and writing EXIF metadata
@@ -36,6 +40,8 @@ brew "fzf"
 brew "git"
 # Git extension for versioning large files
 brew "git-lfs"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Image processing tools collection
@@ -44,20 +50,22 @@ brew "graphicsmagick"
 brew "grip"
 # Configurable static site generator
 brew "hugo"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c"
 # Conversion library
 brew "libiconv"
+# Mac App Store command-line interface
+brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Trigger notifications when a process completes
 brew "noti"
-# Manage compile and link flags for libraries
-brew "pkg-config"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
 # Object-relational database system
 brew "postgresql@11", restart_service: true
 # Software environment for statistical computing
 brew "r"
-# Ruby version manager
-brew "rbenv"
 # Alternative to backtracking PCRE-style regular expression engines
 brew "re2"
 # Reattach process (e.g., tmux) to background
@@ -147,3 +155,23 @@ cask "typora"
 cask "visual-studio-code"
 cask "webpquicklook"
 cask "zoomus"
+mas "ColorSlurp", id: 1287239339
+mas "Dato", id: 1470584107
+mas "Fastest VPN", id: 1480208488
+mas "GarageBand", id: 682658836
+mas "Glance", id: 1513574319
+mas "Hand Mirror", id: 1502839586
+mas "Horo", id: 1437226581
+mas "iA Writer", id: 775737590
+mas "Keynote", id: 409183694
+mas "Lungo", id: 1263070803
+mas "Noizio", id: 928871589
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "PopClip", id: 445189367
+mas "QuickLens", id: 827686482
+mas "Spark", id: 1176895641
+mas "Take a Break", id: 1457158844
+mas "Todoist", id: 585829637
+mas "Tweetbot", id: 1384080005
+mas "Xcode", id: 497799835

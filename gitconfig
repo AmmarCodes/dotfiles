@@ -1,0 +1,47 @@
+[user]
+	name = Ammar Alakkad
+	email = am.alakkad@gmail.com
+[color]
+	ui = true
+[push]
+	default = current
+	followTags = true
+[status]
+	showUntrackedFiles = all
+[pager]
+	diff = diff-so-fancy | less --tabs=4 -RFX
+	show = diff-so-fancy | less --tabs=4 -RFX
+[core]
+	# Use custom `.gitignore` and `.gitattributes`
+	excludesfile = ~/.gitignore
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	ignorecase = false
+[alias]
+	prune = fetch --prune
+	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+	append = commit --amend --no-edit
+	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	standup = !"git log --reverse --branches --since=yesterday --author=$(git config --get user.email) --format=format:'-%Creset %s' --date=local | grep -v 'Assets generate' | grep -v 'Merge'"
+[gc]
+	autoDetach = false
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = yellow
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[diff-so-fancy]
+	useUnicodeRuler = true
+	changeHunkIndicators = true
+	stripLeadingSymbols = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
