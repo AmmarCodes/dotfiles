@@ -84,8 +84,6 @@ brew "tig"
 brew "tldr"
 # Terminal multiplexer
 brew "tmux"
-# Manage complex tmux sessions easily
-brew "tmuxinator"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Show the current WiFi network password
@@ -161,7 +159,6 @@ mas "Fastest VPN", id: 1480208488
 mas "GarageBand", id: 682658836
 mas "Glance", id: 1513574319
 mas "Hand Mirror", id: 1502839586
-mas "Horo", id: 1437226581
 mas "iA Writer", id: 775737590
 mas "Keynote", id: 409183694
 mas "Lungo", id: 1263070803
