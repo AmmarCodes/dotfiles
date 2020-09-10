@@ -1,0 +1,40 @@
+{
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnSaveFiletypes": ["javascript"],
+  "coc.preferences.hoverTarget": "float",
+
+  "codeLens.enable": true,
+
+  "css.validate": false,
+
+  "diagnostic.displayByAle": true,
+
+  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
+
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": ["javascript", "vue", "typescript"],
+  "eslint.options": {"configFile": "/Users/ammar/projects/customers-gitlab-com/.eslintrc.yml"},
+  "eslint.packageManager": "yarn",
+
+  "less.validate": false,
+
+  "markdownlint.config": {"line-length": false},
+
+  "scss.validate": false,
+
+  "solargraph.definitions": true,
+  "solargraph.diagnostics": true,
+  "solargraph.formatting": true,
+  "solargraph.references": true,
+
+  "stylelintplus.autoFixOnFormat": true,
+
+  "suggest.autoTrigger": "none",
+  "suggest.echodocSupport": true,
+
+  "tsserver.npm": "/usr/local/bin/npm",
+
+  "wxss.validate": false,
+
+  "yaml.format.enable": true
+}
