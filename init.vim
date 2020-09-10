@@ -32,9 +32,6 @@ endif
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-easy-align'
 
-" detect indentation of the openned file
-Plug 'tpope/vim-sleuth'
-
 " Manipulate words (change case with crs/cru/cr-)
 Plug 'tpope/vim-abolish'
 Plug 'AndrewRadev/tagalong.vim' " Change closing tag automatically
@@ -55,7 +52,6 @@ endif
 " Colors & UI
 " Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
-Plug 'sainnhe/gruvbox-material'
 " Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
@@ -100,12 +96,8 @@ Plug 'ruanyl/vim-gh-line'
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
 
 " Languages & Syntax
-Plug 'pangloss/vim-javascript'
-Plug 'posva/vim-vue'
-Plug 'elzr/vim-json'
-Plug 'tpope/vim-haml'
-Plug 'cakebaker/scss-syntax.vim', {'for': 'scss'}
-Plug 'wavded/vim-stylus', {'for': 'stylus'}
+let g:polyglot_disabled = []
+Plug 'sheerun/vim-polyglot'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
@@ -152,16 +144,13 @@ set noemoji
 " Enable truecolor in iTerm
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
-" let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_dark = 'medium'
 set background=dark
-let g:gruvbox_material_background = 'medium'
-let g:gruvbox_material_enable_italic = 1
-
-colorscheme gruvbox-material
+colorscheme gruvbox
 
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox_material',
+      \ 'colorscheme': 'gruvbox',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
@@ -209,6 +198,8 @@ let g:ale_fixers = {
 \       'vue': ['prettier'],
 \}
 
+
+let g:ale_disable_lsp = 1 " Disable ALE LSP in favor of CoC.vim
 let g:ale_fix_on_save = 1
 let g:ale_sign_error = '●' " Less aggressive than the default '>>'
 let g:ale_sign_warning = '!' " Less aggressive than the default '>>'
