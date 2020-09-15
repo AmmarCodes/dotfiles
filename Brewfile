@@ -56,10 +56,16 @@ brew "icu4c"
 brew "libiconv"
 # Mac App Store command-line interface
 brew "mas"
+# NCurses Disk Usage
+brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Trigger notifications when a process completes
 brew "noti"
+# Terminal multiplexer
+brew "tmux"
+# Process manager for Procfile-based applications and tmux
+brew "overmind"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Object-relational database system
@@ -82,8 +88,6 @@ brew "runit"
 brew "tig"
 # Simplified and community-driven man pages
 brew "tldr"
-# Terminal multiplexer
-brew "tmux"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Show the current WiFi network password
@@ -120,7 +124,6 @@ cask "font-inconsolata"
 cask "font-jetbrains-mono"
 cask "font-victor-mono"
 cask "fork"
-cask "fsnotes"
 cask "gimp"
 cask "google-chrome"
 cask "iina"

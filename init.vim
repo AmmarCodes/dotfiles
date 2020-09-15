@@ -20,6 +20,21 @@ if !filereadable(vimplug_exists)
   autocmd VimEnter * PlugInstall
 endif
 
+let g:coc_global_extensions = [
+			\ 'coc-tabnine',
+			\ 'coc-stylelintplus',
+			\ 'coc-eslint',
+			\ 'coc-emmet',
+			\ 'coc-css',
+			\ 'coc-cssmodules',
+			\ 'coc-yaml',
+			\ 'coc-html',
+			\ 'coc-vetur',
+			\ 'coc-tsserver',
+			\ 'coc-solargraph',
+			\ 'coc-markdownlint'
+			\ ]
+
 call plug#begin('~/.local/share/nvim/plugged')
 
 " Utilities
@@ -83,8 +98,9 @@ Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-sleuth' " set indentation
 " Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
 Plug 'dkarter/bullets.vim'
@@ -98,6 +114,7 @@ Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
 " Languages & Syntax
 let g:polyglot_disabled = []
 Plug 'sheerun/vim-polyglot'
+Plug 'kevinoid/vim-jsonc'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 
@@ -182,6 +199,7 @@ let g:lightline = {
 " call vimfiler#custom#profile('default', 'context', {
 "     \ 'safe' : 0,
 "     \ })
+
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],

@@ -1,9 +1,10 @@
 {
+  "codeLens.enable": true,
+
+
   "coc.preferences.extensionUpdateCheck": "daily",
   "coc.preferences.formatOnSaveFiletypes": ["javascript"],
   "coc.preferences.hoverTarget": "float",
-
-  "codeLens.enable": true,
 
   "css.validate": false,
 
@@ -26,6 +27,7 @@
   "solargraph.diagnostics": true,
   "solargraph.formatting": true,
   "solargraph.references": true,
+  "solargraph.useBundler": true,
 
   "stylelintplus.autoFixOnFormat": true,
 
