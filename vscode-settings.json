@@ -49,7 +49,7 @@
 	"editor.tabSize": 2,
 	"javascript.updateImportsOnFileMove.enabled": "always",
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": true,
+		"source.organizeImports": false,
 		"source.fixAll.eslint": true,
 		"source.fixAll.stylelint": true
 	},
@@ -177,5 +177,7 @@
 		"<C-d>": false,
 		"<C-r>": true
 	},
-	"workbench.colorTheme": "Palenight Operator"
+	"vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+	"vetur.validation.interpolation": false,
+	"workbench.colorTheme": "GitHub Dark"
 }

@@ -190,8 +190,8 @@ function search() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-export BAT_THEME="TwoDark"
+export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+# export BAT_THEME="TwoDark"
 # Gruvbox below
 # export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # --color fg:250,hl:72,fg+:223,bg+:237,hl+:72
@@ -224,7 +224,7 @@ export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
 export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 

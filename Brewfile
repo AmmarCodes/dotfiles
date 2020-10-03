@@ -59,7 +59,7 @@ brew "mas"
 # NCurses Disk Usage
 brew "ncdu"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Trigger notifications when a process completes
 brew "noti"
 # Terminal multiplexer
@@ -136,7 +136,6 @@ cask "keyboard-maestro"
 cask "keycastr"
 cask "launchrocket"
 cask "little-snitch"
-cask "monitorcontrol"
 cask "mutespotifyads"
 cask "muzzle"
 cask "ngrok"

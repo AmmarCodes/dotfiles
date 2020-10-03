@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+MAIN=staging
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+HAS_LOCAL_CHANGES=false
+
+if ! git diff-index --quiet HEAD --; then
+    echo "Repository has uncommited changes, adding them to stash.."
+    HAS_LOCAL_CHANGES=true
+    git stash --include-untracked
+fi
+
+git checkout $MAIN
+git pull origin staging
+git checkout $BRANCH
+git rebase $MAIN >/dev/null 2>&1
+
+if [ -z $HAS_LOCAL_CHANGES ]; then
+    git stash pop
+fi

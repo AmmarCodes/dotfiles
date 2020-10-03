@@ -46,6 +46,7 @@ else
 endif
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-easy-align'
+Plug 'wfxr/minimap.vim'
 
 " Manipulate words (change case with crs/cru/cr-)
 Plug 'tpope/vim-abolish'
@@ -92,7 +93,7 @@ Plug 'liuchengxu/vim-which-key'
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 " Code utilities
-Plug 'editorconfig/editorconfig-vim'
+" Plug 'editorconfig/editorconfig-vim'
 " insert mode auto-completion for quotes, parens, brackets
 Plug 'Raimondi/delimitMate'
 Plug 'tpope/vim-commentary'
@@ -107,6 +108,7 @@ Plug 'dkarter/bullets.vim'
 Plug 'mbbill/undotree'
 " Plug 'itchyny/vim-cursorword'
 Plug 'ruanyl/vim-gh-line'
+Plug 'wsdjeg/vim-fetch' " jump to specified line/column when opening a file
 
 " highlights the XML/HTML tags that enclose your cursor location
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}

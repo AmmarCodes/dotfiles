@@ -63,7 +63,8 @@
      [:p [:launch "PhpStorm"]]
      [:r [:launch "RubyMine"]]
      [:n [:launch "Notion"]]
-     [:o :!CTSo] ; launch km palettes palette
+     [:o [:launch "Obsidian"]]
+     ; [:o :!CTSo] ; launch km palettes palette
     ]
    }
    ; {:des "Launch Alfred workflows"
