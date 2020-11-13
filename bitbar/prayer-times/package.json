@@ -1,0 +1,8 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "bitbar": "^1.3.1",
+    "luxon": "^1.25.0",
+    "node-fetch": "^2.6.1"
+  }
+}
