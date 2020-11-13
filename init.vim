@@ -46,7 +46,6 @@ else
 endif
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-easy-align'
-Plug 'wfxr/minimap.vim'
 
 " Manipulate words (change case with crs/cru/cr-)
 Plug 'tpope/vim-abolish'
@@ -68,6 +67,8 @@ endif
 " Colors & UI
 " Plug 'arcticicestudio/nord-vim'
 Plug 'gruvbox-community/gruvbox'
+Plug 'adrian5/oceanic-next-vim'
+Plug 'NieTiger/halcyon-neovim'
 " Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
@@ -119,6 +120,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'kevinoid/vim-jsonc'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
+Plug 'jparise/vim-graphql'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -164,12 +166,15 @@ set noemoji
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
 let g:gruvbox_contrast_dark = 'medium'
+let g:oceanic_italic_comments = 1
+let g:oceanic_for_polyglot = 1
+
 set background=dark
-colorscheme gruvbox
+colorscheme oceanicnext
 
 
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'oceanicnext',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
@@ -284,7 +289,7 @@ set list
 
 highlight Comment gui=italic
 " Fix the disgusting visual selection colors of gruvbox (thanks @romainl).
-hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
+" hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
 
 " Set a custom highlight color when yanking text.
 "   This requires having the plugin: machakann/vim-highlightedyank

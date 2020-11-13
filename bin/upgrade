@@ -4,7 +4,7 @@ set -euo pipefail
 if [ -x "$(command -v brew)" ]; then
 	echo "Upgrading Homebrew packages"
 	brew update && brew upgrade --ignore-pinned
-	brew cask upgrade && brew cleanup
+	brew upgrade --cask && brew cleanup
 	brew bundle dump --force --all --describe --file=~/.dotfiles/Brewfile
 fi
 

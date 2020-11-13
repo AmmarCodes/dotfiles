@@ -23,6 +23,7 @@
 		  ; [:!CTOSb [:launch "Google Chrome"]]
 		  [:!CTOSk [:alfred "run" "iansinnott.keyboardmaestro"]]
 		  [:!CTOSr [:launch "RubyMine"]]
+		  [:!CTOSf [:launch "Obsidian"]]
 		  ; [:!CTOSe [:launch "Evernote"]]
 		]
 	}

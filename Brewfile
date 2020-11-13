@@ -1,3 +1,4 @@
+tap "arkweid/lefthook"
 tap "aybabtme/tap"
 tap "candid82/brew"
 tap "homebrew/bundle"
@@ -12,22 +13,20 @@ tap "universal-ctags/universal-ctags"
 tap "yqrashawn/goku"
 # Search tool like grep, but optimized for programmers
 brew "ack"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
-# Extendable version manager with support for Ruby, Node.js, Erlang & more
-brew "asdf"
+# Command-line interface for SQLite
+brew "sqlite"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Cross-platform make
 brew "cmake"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Command-line interface for SQLite
-brew "sqlite"
 # Command-line tool to interact with exercism.io
 brew "exercism"
 # Perl lib for reading and writing EXIF metadata
@@ -52,6 +51,8 @@ brew "grip"
 brew "hugo"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
+# Audio and video processing tools
+brew "libav", link: false
 # Conversion library
 brew "libiconv"
 # Mac App Store command-line interface
@@ -76,8 +77,6 @@ brew "r"
 brew "re2"
 # Reattach process (e.g., tmux) to background
 brew "reattach-to-user-namespace"
-# Persistent key-value database, with built-in net interface
-brew "redis", restart_service: true
 # Rename multiple files in a directory
 brew "ren"
 # Search tool like grep and The Silver Searcher
@@ -90,13 +89,17 @@ brew "tig"
 brew "tldr"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Syntax-aware linter for prose
+brew "vale"
+# Internet file retriever
+brew "wget"
 # Show the current WiFi network password
 brew "wifi-password"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Lefthook a single dependency-free binary to manage all your git hooks that works with any language in any environment, and in all common team workflows
+brew "arkweid/lefthook/lefthook"
 brew "aybabtme/tap/humanlog"
-# High Performance Object Storage compatible with Amazon S3 API
-brew "minio/stable/minio"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community"
 # Maintained ctags implementation
@@ -141,6 +144,7 @@ cask "muzzle"
 cask "ngrok"
 cask "notion"
 cask "obs"
+cask "popcorn-time"
 cask "qlcolorcode"
 cask "quicklook-json"
 cask "rectangle"

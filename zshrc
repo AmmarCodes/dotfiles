@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # load asdf
-. /usr/local/opt/asdf/asdf.sh
+. ~/.asdf/asdf.sh
 
 # append asdf completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
@@ -295,3 +295,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
+
+# Added by GDK bootstrap
+export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:${PKG_CONFIG_PATH}"
+
+# Added by GDK bootstrap
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1 --with-readline-dir=/usr/local/opt/readline"

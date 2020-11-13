@@ -1,7 +1,7 @@
 {
-	"editor.fontSize": 17,
-	"editor.fontWeight": "400",
-	"editor.fontFamily": "'Operator Mono', 'Monaco', 'Fira Code', 'Dank Mono'",
+	"editor.fontSize": 16,
+	"editor.fontWeight": "500",
+	"editor.fontFamily": "'IBM Plex Mono', 'Dank Mono'",
 	"editor.renderWhitespace": "none",
 	"files.autoSave": "off",
 	"explorer.openEditors.visible": 10,
@@ -90,7 +90,8 @@
 		"editor.formatOnSave": true
 	},
 	"[vue]": {
-		"editor.formatOnSave": true
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"telemetry.enableTelemetry": false,
 	"update.mode": "manual",
@@ -120,6 +121,7 @@
 	"solargraph.autoformat": true,
 	"solargraph.diagnostics": true,
 	"solargraph.formatting": true,
+	"solargraph.bundlerPath": "/Users/ammar/.asdf/shims/bundle",
 	"editor.accessibilitySupport": "off",
 	"workbench.settings.editor": "json",
 	"workbench.editor.showIcons": false,
@@ -127,7 +129,7 @@
 	"window.newWindowDimensions": "maximized",
 	"search.quickOpen.includeHistory": false,
 	"workbench.list.horizontalScrolling": true,
-	"workbench.activityBar.visible": true,
+	"workbench.activityBar.visible": false,
 	"window.autoDetectColorScheme": true,
 	"zenMode.fullScreen": false,
 	"diffEditor.ignoreTrimWhitespace": false,
@@ -179,5 +181,6 @@
 	},
 	"vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
 	"vetur.validation.interpolation": false,
-	"workbench.colorTheme": "GitHub Dark"
+	"workbench.colorTheme": "Gruvbox Dark Medium",
+	"editor.renameOnType": true
 }
