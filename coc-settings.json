@@ -14,7 +14,7 @@
 
   "eslint.autoFixOnSave": true,
   "eslint.filetypes": ["javascript", "vue", "typescript"],
-  "eslint.options": {"configFile": "/Users/ammar/projects/customers-gitlab-com/.eslintrc.yml"},
+  // "eslint.options": {"configFile": "/Users/ammar/projects/customers-gitlab-com/.eslintrc.yml"},
   "eslint.packageManager": "yarn",
 
   "less.validate": false,
@@ -34,7 +34,7 @@
   "suggest.autoTrigger": "none",
   "suggest.echodocSupport": true,
 
-  "tsserver.npm": "/usr/local/bin/npm",
+  "tsserver.npm": "/Users/ammar/.asdf/shims/npm",
 
   "wxss.validate": false,
 

@@ -105,5 +105,5 @@ function outputData() {
 		...bitbarItems,
 	];
 
-	bitbar(bitbarOutput, { font: "IBM Plex Mono", size: "15" });
+	bitbar(bitbarOutput, { font: "IBM Plex Mono", size: "12" });
 }

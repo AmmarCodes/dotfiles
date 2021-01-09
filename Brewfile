@@ -7,6 +7,7 @@ tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "leipert-projects/git-recon", "https://gitlab.com/leipert-projects/git-recon.git"
 tap "minio/stable"
 tap "mongodb/brew"
 tap "universal-ctags/universal-ctags"
@@ -17,6 +18,8 @@ brew "ack"
 brew "openssl@1.1"
 # Command-line interface for SQLite
 brew "sqlite"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -52,7 +55,7 @@ brew "hugo"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
 # Audio and video processing tools
-brew "libav", link: false
+brew "libav"
 # Conversion library
 brew "libiconv"
 # Mac App Store command-line interface
@@ -81,6 +84,8 @@ brew "reattach-to-user-namespace"
 brew "ren"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Install various Ruby versions and implementations
+brew "ruby-build"
 # Collection of tools for managing UNIX services
 brew "runit"
 # Text interface for Git repositories
@@ -100,12 +105,15 @@ brew "zsh"
 # Lefthook a single dependency-free binary to manage all your git hooks that works with any language in any environment, and in all common team workflows
 brew "arkweid/lefthook/lefthook"
 brew "aybabtme/tap/humanlog"
+# Reconcile your local git repositories
+brew "leipert-projects/git-recon/git-recon"
 # High-performance, schema-free, document-oriented database
 brew "mongodb/brew/mongodb-community"
 # Maintained ctags implementation
 brew "universal-ctags/universal-ctags/universal-ctags", args: ["HEAD", "with-jansson"]
 # karabiner configurator
 brew "yqrashawn/goku/goku"
+cask "alacritty"
 cask "alfred"
 cask "anki"
 cask "appcleaner"
@@ -114,7 +122,6 @@ cask "beardedspice"
 cask "betterzip"
 cask "bitbar"
 cask "chromedriver"
-cask "darktable"
 cask "dropbox"
 cask "flux"
 cask "font-cascadia"
@@ -137,6 +144,7 @@ cask "karabiner-elements"
 cask "keepingyouawake"
 cask "keyboard-maestro"
 cask "keycastr"
+cask "kitty"
 cask "launchrocket"
 cask "little-snitch"
 cask "mutespotifyads"
@@ -158,17 +166,14 @@ cask "typinator"
 cask "typora"
 cask "visual-studio-code"
 cask "webpquicklook"
-cask "zoomus"
+cask "zoom"
 mas "ColorSlurp", id: 1287239339
-mas "Dato", id: 1470584107
 mas "Fastest VPN", id: 1480208488
-mas "GarageBand", id: 682658836
 mas "Glance", id: 1513574319
 mas "Hand Mirror", id: 1502839586
 mas "iA Writer", id: 775737590
 mas "Keynote", id: 409183694
 mas "Lungo", id: 1263070803
-mas "Noizio", id: 928871589
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "PopClip", id: 445189367
@@ -176,5 +181,6 @@ mas "QuickLens", id: 827686482
 mas "Spark", id: 1176895641
 mas "Take a Break", id: 1457158844
 mas "Todoist", id: 585829637
+mas "TV Streams", id: 1181863013
 mas "Tweetbot", id: 1384080005
 mas "Xcode", id: 497799835

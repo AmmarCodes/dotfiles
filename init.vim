@@ -21,19 +21,20 @@ if !filereadable(vimplug_exists)
 endif
 
 let g:coc_global_extensions = [
-			\ 'coc-tabnine',
+			\ 'coc-kite',
 			\ 'coc-stylelintplus',
 			\ 'coc-eslint',
-			\ 'coc-emmet',
 			\ 'coc-css',
 			\ 'coc-cssmodules',
 			\ 'coc-yaml',
 			\ 'coc-html',
 			\ 'coc-vetur',
-			\ 'coc-tsserver',
 			\ 'coc-solargraph',
 			\ 'coc-markdownlint'
 			\ ]
+
+let g:vimade = { "fadelevel": 0.7 }
+
 
 call plug#begin('~/.local/share/nvim/plugged')
 
@@ -66,10 +67,10 @@ endif
 
 " Colors & UI
 " Plug 'arcticicestudio/nord-vim'
-Plug 'gruvbox-community/gruvbox'
-Plug 'adrian5/oceanic-next-vim'
-Plug 'NieTiger/halcyon-neovim'
-" Plug 'drewtempelmeyer/palenight.vim'
+" Plug 'gruvbox-community/gruvbox'
+" Plug 'adrian5/oceanic-next-vim'
+" Plug 'NieTiger/halcyon-neovim'
+Plug 'drewtempelmeyer/palenight.vim'
 Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
@@ -79,15 +80,14 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
 " Plug 'wellle/context.vim'
 Plug 'mhinz/vim-signify'
-Plug 'tpope/vim-obsession'
+" Plug 'tpope/vim-obsession'
 Plug 'machakann/vim-highlightedyank'
 Plug 'unblevable/quick-scope'
-Plug 'psliwka/vim-smoothie'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'jmckiern/vim-venter'
-Plug 'kristijanhusak/defx-icons'
 Plug 'liuchengxu/vim-which-key'
+" Plug 'TaDaa/vimade'
 
 
 
@@ -102,9 +102,9 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth' " set indentation
 " Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': { -> coc#util#install() }}
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'dense-analysis/ale'
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
 Plug 'dkarter/bullets.vim'
 Plug 'mbbill/undotree'
 " Plug 'itchyny/vim-cursorword'
@@ -116,7 +116,11 @@ Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
 
 " Languages & Syntax
 let g:polyglot_disabled = []
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+
+Plug 'posva/vim-vue'
+let g:vue_pre_processors = 'detect_on_enter'
+
 Plug 'kevinoid/vim-jsonc'
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
@@ -170,11 +174,11 @@ let g:oceanic_italic_comments = 1
 let g:oceanic_for_polyglot = 1
 
 set background=dark
-colorscheme oceanicnext
+colorscheme palenight
 
 
 let g:lightline = {
-      \ 'colorscheme': 'oceanicnext',
+      \ 'colorscheme': 'palenight',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
@@ -211,10 +215,11 @@ let g:lightline = {
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'vue': ['eslint'],
+\   'css': ['stylelint'],
 \   'sass': ['stylelint'],
 \   'scss': ['stylelint'],
 \   'ruby': ['solargraph', 'rubocop'],
-\   'haml': ['hamllint']
+\   'haml': ['haml-lint']
 \}
 
 let g:ale_fixers = {
@@ -362,7 +367,9 @@ nmap <c-Down> :m .+1<cr>
 nmap <silent> <c-k> <Plug>(ale_previous_wrap)
 nmap <silent> <c-j> <Plug>(ale_next_wrap)
 
-" Show Fugitive Git status
+" Fugitive Git shortcuts
+nmap <leader>ga :Gwrite<cr>
+nmap <leader>gc :Gcommit<cr>
 nmap <leader>gb :Gblame<cr>
 nmap <leader>gc :Gcommit<cr>
 nmap <leader>gp :Gpush<cr>

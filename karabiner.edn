@@ -19,7 +19,7 @@
 	{
 	  :des "New launch mode"
 	  :rules [
-		  [:!CTOSi [:launch "iTerm"]]
+		  [:!CTOSi [:launch "Alacritty"]]
 		  ; [:!CTOSb [:launch "Google Chrome"]]
 		  [:!CTOSk [:alfred "run" "iansinnott.keyboardmaestro"]]
 		  [:!CTOSr [:launch "RubyMine"]]

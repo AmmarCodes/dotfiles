@@ -1,7 +1,7 @@
 {
 	"editor.fontSize": 16,
-	"editor.fontWeight": "500",
-	"editor.fontFamily": "'IBM Plex Mono', 'Dank Mono'",
+	"editor.fontWeight": "400",
+	"editor.fontFamily": "'Cascadia Code', 'IBM Plex Mono', 'Dank Mono'",
 	"editor.renderWhitespace": "none",
 	"files.autoSave": "off",
 	"explorer.openEditors.visible": 10,
@@ -32,13 +32,12 @@
 	"editor.tabCompletion": "on",
 	"terminal.integrated.lineHeight": 1.4,
 	"emmet.triggerExpansionOnTab": true,
-	"editor.multiCursorModifier": "ctrlCmd",
+	"editor.multiCursorModifier": "alt",
 	"editor.renderControlCharacters": true,
 	"editor.showFoldingControls": "always",
 	"debug.openDebug": "neverOpen",
 	"debug.internalConsoleOptions": "neverOpen",
 	"debug.showInStatusBar": "never",
-	"extensions.showRecommendationsOnlyOnDemand": true,
 	"breadcrumbs.enabled": false,
 	"editor.lineHeight": 28,
 	"git.confirmSync": false,
@@ -55,7 +54,6 @@
 	},
 	"breadcrumbs.symbolPath": "off",
 	"git.path": "/usr/local/bin/git",
-	"explorer.autoReveal": "focusNoScroll",
 	"workbench.editor.revealIfOpen": true,
 	"editor.glyphMargin": true,
 	"editor.cursorStyle": "line",
@@ -80,7 +78,7 @@
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
 	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "vscode.html-language-features"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -125,7 +123,7 @@
 	"editor.accessibilitySupport": "off",
 	"workbench.settings.editor": "json",
 	"workbench.editor.showIcons": false,
-	"workbench.statusBar.visible": true,
+	"workbench.statusBar.visible": false,
 	"window.newWindowDimensions": "maximized",
 	"search.quickOpen.includeHistory": false,
 	"workbench.list.horizontalScrolling": true,
@@ -159,11 +157,6 @@
 	"workbench.iconTheme": "material-icon-theme",
 	"explorer.confirmDragAndDrop": false,
 	"gitlens.hovers.currentLine.over": "line",
-	"gitlens.views.repositories.location": "gitlens",
-	"gitlens.views.fileHistory.location": "gitlens",
-	"gitlens.views.lineHistory.location": "gitlens",
-	"gitlens.views.compare.location": "gitlens",
-	"gitlens.views.search.location": "gitlens",
 	"explorer.confirmDelete": false,
 	"git.autofetch": true,
 	"vsicons.dontShowNewVersionMessage": true,
@@ -179,8 +172,13 @@
 		"<C-d>": false,
 		"<C-r>": true
 	},
-	"vscode-neovim.neovimExecutablePaths.darwin": "/usr/local/bin/nvim",
+
 	"vetur.validation.interpolation": false,
-	"workbench.colorTheme": "Gruvbox Dark Medium",
-	"editor.renameOnType": true
+	"workbench.colorTheme": "Palenight Theme",
+	"editor.linkedEditing": true,
+	"kite.showWelcomeNotificationOnStartup": false,
+	"gitlens.advanced.messages": {
+		"suppressCommitNotFoundWarning": true
+	},
+	"typescript.disableAutomaticTypeAcquisition": false
 }
