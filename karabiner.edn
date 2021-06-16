@@ -24,6 +24,7 @@
 		  [:!CTOSk [:alfred "run" "iansinnott.keyboardmaestro"]]
 		  [:!CTOSr [:launch "RubyMine"]]
 		  [:!CTOSf [:launch "Obsidian"]]
+		  [:!CTOSs [:launch "Slack"]]
 		  ; [:!CTOSe [:launch "Evernote"]]
 		]
 	}
@@ -54,8 +55,7 @@
      [:d [:launch "Dynalist"]]
      [:b [:launch "Google Chrome"]]
      [:f [:launch "Firefox Developer Edition"]]
-     ; [:s [:launch "Safari"]]
-     [:c [:launch "Slack"]]
+     [:s [:launch "Slack"]]
      [:a [:launch "Airmail"]]
      [:i [:launch "iTerm"]]
      [:t [:launch "Tweetbot"]]

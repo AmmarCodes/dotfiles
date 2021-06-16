@@ -28,8 +28,6 @@ let g:coc_global_extensions = [
 			\ 'coc-cssmodules',
 			\ 'coc-yaml',
 			\ 'coc-html',
-			\ 'coc-vetur',
-			\ 'coc-solargraph',
 			\ 'coc-markdownlint'
 			\ ]
 
@@ -66,7 +64,7 @@ else
 endif
 
 " Colors & UI
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 " Plug 'gruvbox-community/gruvbox'
 " Plug 'adrian5/oceanic-next-vim'
 " Plug 'NieTiger/halcyon-neovim'
@@ -75,6 +73,7 @@ Plug 'Yggdroot/indentLine'
 " Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
+Plug 'mengelbrecht/lightline-bufferline'
 Plug 'qpkorr/vim-bufkill'
 " Plug 'roman/golden-ratio'
 Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
@@ -101,6 +100,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth' " set indentation
+Plug 'tpope/vim-markdown'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'dense-analysis/ale'
@@ -128,6 +128,7 @@ Plug 'jparise/vim-graphql'
 
 " Git
 Plug 'tpope/vim-fugitive'
+Plug 'shumphrey/fugitive-gitlab.vim'
 " Plug 'rhysd/committia.vim'
 
 call plug#end()
@@ -154,6 +155,7 @@ set foldmarker={{{,}}}
 set relativenumber
 set cursorline              " Highlight current line
 set mouse=a
+set showtabline=2
 
 " Enable filetype plugins
 filetype plugin on
@@ -175,6 +177,8 @@ let g:oceanic_for_polyglot = 1
 
 set background=dark
 colorscheme palenight
+let g:nord_italic = 1
+
 
 
 let g:lightline = {
@@ -186,13 +190,19 @@ let g:lightline = {
       \              [ 'gitbranch', 'filetype' ],
       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos' ] ]
       \ },
+  \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
       \ 'component_expand': {
       \  'linter_warnings': 'lightline#ale#warnings',
       \  'linter_errors': 'lightline#ale#errors',
+      \   'buffers': 'lightline#bufferline#buffers',
       \ },
       \ 'component_type': {
       \     'linter_warnings': 'warning',
       \     'linter_errors': 'error',
+      \     'buffers': 'tabsel',
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
@@ -202,7 +212,7 @@ let g:lightline = {
       \   'filename': '%F',
       \ },
       \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
+      \ 'subseparator': { 'left': '', 'right': '' },
       \ }
 
 " let g:vimfiler_force_overwrite_statusline = 0
@@ -211,6 +221,19 @@ let g:lightline = {
 "     \ 'safe' : 0,
 "     \ })
 
+let g:lightline#bufferline#show_number  = 2
+let g:lightline#bufferline#enable_nerdfont = 1
+
+nmap <Leader>1 <Plug>lightline#bufferline#go(1)
+nmap <Leader>2 <Plug>lightline#bufferline#go(2)
+nmap <Leader>3 <Plug>lightline#bufferline#go(3)
+nmap <Leader>4 <Plug>lightline#bufferline#go(4)
+nmap <Leader>5 <Plug>lightline#bufferline#go(5)
+nmap <Leader>6 <Plug>lightline#bufferline#go(6)
+nmap <Leader>7 <Plug>lightline#bufferline#go(7)
+nmap <Leader>8 <Plug>lightline#bufferline#go(8)
+nmap <Leader>9 <Plug>lightline#bufferline#go(9)
+nmap <Leader>0 <Plug>lightline#bufferline#go(10)
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -236,6 +259,7 @@ let g:ale_sign_warning = '!' " Less aggressive than the default '>>'
 let g:ale_lint_on_enter = 0 " Less distracting when opening a new file
 let g:ale_lint_on_text_changed = 0
 
+let g:markdown_fenced_languages = ['html', 'javascript', 'vue', 'ruby', 'bash=sh']
 
 
 " Tab completion
@@ -293,6 +317,9 @@ set list
 
 
 highlight Comment gui=italic
+highlight Keyword gui=italic
+highlight Function gui=italic
+highlight htmlArg gui=italic
 " Fix the disgusting visual selection colors of gruvbox (thanks @romainl).
 " hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
 
@@ -569,6 +596,7 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND= 'rg --files --follow --hidden -g "!.git/*"'
 endif
 let $FZF_DEFAULT_OPTS='--reverse'
+let $BAT_THEME="base16"
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 function! s:tags_sink(line)

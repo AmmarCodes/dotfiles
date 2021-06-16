@@ -121,8 +121,8 @@ alias cat="bat"
 alias ls="ls -Gxh --color=auto"
 alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
-alias gdb="git branch --merged | egrep -v \"(^\*|master|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
-alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend'" # Push the current branch and create a merge request for it
+alias gdb="git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
+alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment'" # Push the current branch and create a merge request for it
 alias gps="git push -o ci.skip" # push with skip ci option
 
 alias lastver="git tag -l | gsort -V | tail -n 1"
@@ -190,7 +190,8 @@ function search() {
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_OPTS=""
+# export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 # export BAT_THEME="TwoDark"
 # Gruvbox below
 # export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
@@ -198,14 +199,12 @@ export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --theme={} --color=alwa
 # --color pointer:167,info:109,spinner:214,header:214,prompt:175,marker:208'
 
 # palenight
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-#   --color=bg+:#434758,bg:#292D3E,spinner:#89DDFF,hl:#82AAFF
-#   --color=fg:#8796B0,header:#82AAFF,info:#FFCB6B,pointer:#89DDFF
-#   --color=marker:#89DDFF,fg+:#959DCB,prompt:#FFCB6B,hl+:#82AAFF,marker:#434758
-# '
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+  --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
+'
 # gruvbox
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
-
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
 
 j() {
     if [[ "$#" -ne 0 ]]; then

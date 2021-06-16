@@ -1,7 +1,7 @@
 {
 	"editor.fontSize": 16,
-	"editor.fontWeight": "400",
-	"editor.fontFamily": "'Cascadia Code', 'IBM Plex Mono', 'Dank Mono'",
+	"editor.fontWeight": "500",
+	"editor.fontFamily": "'IBM Plex Mono', 'Dank Mono'",
 	"editor.renderWhitespace": "none",
 	"files.autoSave": "off",
 	"explorer.openEditors.visible": 10,
@@ -12,6 +12,7 @@
 		".idea/": true,
 		".vscode": true,
 		".bundle": true,
+		"tags": true,
 		"**/.DS_Store": true,
 		"**/.git": true,
 		"**/.hg": true,
@@ -39,7 +40,6 @@
 	"debug.internalConsoleOptions": "neverOpen",
 	"debug.showInStatusBar": "never",
 	"breadcrumbs.enabled": false,
-	"editor.lineHeight": 28,
 	"git.confirmSync": false,
 	"typescript.updateImportsOnFileMove.enabled": "always",
 	"window.openFoldersInNewWindow": "on",
@@ -174,11 +174,12 @@
 	},
 
 	"vetur.validation.interpolation": false,
-	"workbench.colorTheme": "Palenight Theme",
 	"editor.linkedEditing": true,
 	"kite.showWelcomeNotificationOnStartup": false,
 	"gitlens.advanced.messages": {
 		"suppressCommitNotFoundWarning": true
 	},
-	"typescript.disableAutomaticTypeAcquisition": false
+	"typescript.disableAutomaticTypeAcquisition": false,
+	"jestrunner.jestCommand": "yarn test",
+	"workbench.colorTheme": "Palenight Operator"
 }

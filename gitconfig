@@ -6,6 +6,8 @@
 [push]
 	default = current
 	followTags = true
+[branch]
+	sort=-committerdate
 [status]
 	showUntrackedFiles = all
 [pager]
@@ -21,7 +23,9 @@
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	append = commit --amend --no-edit
 	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+	cb = !sh -c 'git checkout $(git branch | fzf | tr -d "[:space:]")'
 	standup = !"git log --reverse --branches --since=yesterday --author=$(git config --get user.email) --format=format:'-%Creset %s' --date=local | grep -v 'Assets generate' | grep -v 'Merge'"
+	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 [gc]
 	autoDetach = false
 [color "diff-highlight"]
@@ -49,3 +53,5 @@
 	rebase = false
 [rebase]
 	autosquash = true
+[init]
+	defaultBranch = main
