@@ -148,8 +148,6 @@ cask "betterzip"
 cask "bitbar"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
-# Developer platform
-cask "dotnet-sdk"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Screen color temperature controller

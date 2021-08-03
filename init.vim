@@ -21,7 +21,7 @@ if !filereadable(vimplug_exists)
 endif
 
 let g:coc_global_extensions = [
-			\ 'coc-kite',
+			\ 'coc-tabnine',
 			\ 'coc-stylelintplus',
 			\ 'coc-eslint',
 			\ 'coc-css',
@@ -130,6 +130,9 @@ Plug 'jparise/vim-graphql'
 Plug 'tpope/vim-fugitive'
 Plug 'shumphrey/fugitive-gitlab.vim'
 " Plug 'rhysd/committia.vim'
+
+Plug 'phaazon/hop.nvim'
+
 
 call plug#end()
 " }}}
@@ -775,4 +778,8 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
 
 " Highlight the search with different colors than the cursor - seems a palenight issue
 hi Search guibg=peru  guifg=wheat cterm=NONE ctermfg=grey ctermbg=blue
+
+" Hop config
+lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
+lua vim.api.nvim_set_keymap('n', '<c-j>', "<cmd>lua require'hop'.hint_words()<cr>", {})
 
