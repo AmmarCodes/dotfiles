@@ -10,7 +10,6 @@
           }
  :simlayers {:launch-mode {:key :caps_lock}} ; :alfred-mode {:key :k}}
  :devices {
-	   :macbook [{:product_id 627 :vendor_id 1452}]
 	   :macbookpro [{:product_id 636 :vendor_id 1452}]
 	   :magickeyboard [{:product_id 615 :vendor_id 76}]
 	   :ergodox [{:product_id 4871 :vendor_id 65261}]}
@@ -38,12 +37,9 @@
    }
    {:des "Swap non_us_backslash and grave_accent_and_tilde"
 	:rules [
-		[:##grave_accent_and_tilde :##non_us_backslash :macbook :en]
-		; [:##grave_accent_and_tilde :##non_us_backslash :macbookpro :en]
-		; [:##grave_accent_and_tilde :##non_us_backslash :magickeyboard :en]
-		[:##non_us_backslash :##grave_accent_and_tilde :macbook :en]
-		; [:##non_us_backslash :##grave_accent_and_tilde :macbookpro :en]
-		; [:##non_us_backslash :##grave_accent_and_tilde :magickeyboard :en]
+		[:##grave_accent_and_tilde :##non_us_backslash :macbookpro :en]
+		[:##non_us_backslash :##grave_accent_and_tilde :macbookpro :en]
+		[:##caps_lock :##left_shift :macbookpro]
 	]
    }
    {:des "Disable caps_lock"

@@ -6,7 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # load asdf
-. ~/.asdf/asdf.sh
+if [ -f ~/.asdf/asdf.sh ]; then
+  . ~/.asdf/asdf.sh
+fi
 
 # append asdf completions to fpath
 fpath=(${ASDF_DIR}/completions $fpath)
@@ -75,15 +77,11 @@ zstyle ':completion:*' matcher-list '' 'm:{[:lower:][:upper:]}={[:upper:][:lower
 # User configuration
 
 # Paths
-export PATH="/Users/nose/.composer/vendor/bin:$PATH"
 export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 # NVM
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
-
-# Fastlane
-export PATH="$HOME/.fastlane/bin:$PATH"
 
 export ANT_HOME=/usr/local/opt/ant
 export MAVEN_HOME=/usr/local/opt/maven
@@ -144,6 +142,7 @@ alias be="bundle exec"
 alias ll="ls -lah"
 
 alias ctags="`brew --prefix`/bin/ctags"
+alias focus="cd ~/projects/focus && vim README.md"
 
 # Find in files (search for string and return list of files that contains that string).
 function fif() {
@@ -215,7 +214,10 @@ j() {
 }
 
 
-source $HOME/.private_aliases
+if [ -f ~/.private_aliases ]; then
+  source $HOME/.private_aliases
+fi
+
 export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
 
 
@@ -223,6 +225,7 @@ export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
 
 export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
 export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"

@@ -1,42 +1,20 @@
 {
-  "codeLens.enable": true,
-
-
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.formatOnSaveFiletypes": ["javascript"],
-  "coc.preferences.hoverTarget": "float",
-
-  "css.validate": false,
-
-  "diagnostic.displayByAle": true,
-
-  "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
-
-  "eslint.autoFixOnSave": true,
-  "eslint.filetypes": ["javascript", "vue", "typescript"],
-  // "eslint.options": {"configFile": "/Users/ammar/projects/customers-gitlab-com/.eslintrc.yml"},
-  "eslint.packageManager": "yarn",
-
-  "less.validate": false,
-
-  "markdownlint.config": {"line-length": false},
-
-  "scss.validate": false,
-
-  "solargraph.definitions": true,
-  "solargraph.diagnostics": true,
-  "solargraph.formatting": true,
-  "solargraph.references": true,
-  "solargraph.useBundler": true,
-
-  "stylelintplus.autoFixOnFormat": true,
-
-  "suggest.autoTrigger": "none",
-  "suggest.echodocSupport": true,
-
-  "tsserver.npm": "/Users/ammar/.asdf/shims/npm",
-
-  "wxss.validate": false,
-
-  "yaml.format.enable": true
+    "codeLens.enable": true,
+    "snippets.extends": {
+        "vue": ["javascript", "html"]
+    },
+    "diagnostic.errorSign": "●",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "",
+    "coc.preferences.formatOnSaveFiletypes": ["javascript", "html", "vue"],
+    "coc.preferences.extensionUpdateCheck": "daily",
+    "diagnostic.displayByAle": true,
+    "eslint.autoFixOnSave": true,
+    "emmet.includeLanguages": {"vue-html": "html", "javascript": "javascriptreact"},
+    "eslint.format.enable": true,
+    "eslint.packageManager": "yarn",
+    "stylelintplus.autoFixOnFormat": true,
+    "suggest.autoTrigger": "none",
+    "suggest.echodocSupport": true,
+    "wxss.validate": false,
 }

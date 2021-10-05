@@ -24,11 +24,17 @@ let g:coc_global_extensions = [
 			\ 'coc-tabnine',
 			\ 'coc-stylelintplus',
 			\ 'coc-eslint',
+			\ 'coc-prettier',
 			\ 'coc-css',
 			\ 'coc-cssmodules',
 			\ 'coc-yaml',
+			\ 'coc-tsserver',
+			\ 'coc-vetur',
 			\ 'coc-html',
-			\ 'coc-markdownlint'
+			\ 'coc-emmet',
+			\ 'coc-markdownlint',
+			\ 'coc-json',
+			\ 'coc-snippets'
 			\ ]
 
 let g:vimade = { "fadelevel": 0.7 }
@@ -45,6 +51,9 @@ else
 endif
 Plug 'dyng/ctrlsf.vim'
 Plug 'junegunn/vim-easy-align'
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 " Manipulate words (change case with crs/cru/cr-)
 Plug 'tpope/vim-abolish'
@@ -103,6 +112,7 @@ Plug 'tpope/vim-sleuth' " set indentation
 Plug 'tpope/vim-markdown'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
 Plug 'dkarter/bullets.vim'
@@ -110,6 +120,8 @@ Plug 'mbbill/undotree'
 " Plug 'itchyny/vim-cursorword'
 Plug 'ruanyl/vim-gh-line'
 Plug 'wsdjeg/vim-fetch' " jump to specified line/column when opening a file
+Plug 'vim-test/vim-test'
+Plug 'jebaum/vim-tmuxify'
 
 " highlights the XML/HTML tags that enclose your cursor location
 Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
@@ -122,7 +134,7 @@ Plug 'posva/vim-vue'
 let g:vue_pre_processors = 'detect_on_enter'
 
 Plug 'kevinoid/vim-jsonc'
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
+" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
 Plug 'jparise/vim-graphql'
 
@@ -386,8 +398,8 @@ nnoremap <Leader>sw :Rg <c-r><c-w>
 nnoremap <Leader>sf :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
 
 " yank file path/name
-nnoremap <Leader>yp :let @*=expand("%")<CR>       " Mnemonic: yank file relative path
-nnoremap <Leader>yfp :let @*=expand("%:p")<CR>    " Mnemonic: Yank file full path
+nnoremap <Leader>yf :let @*=expand("%")<CR>       " Mnemonic: yank file relative path
+nnoremap <Leader>yff :let @*=expand("%:p")<CR>    " Mnemonic: Yank file full path
 
 " Bubbling lines
 nmap <c-Up> :m .-2<cr>
@@ -398,12 +410,19 @@ nmap <silent> <c-k> <Plug>(ale_previous_wrap)
 nmap <silent> <c-j> <Plug>(ale_next_wrap)
 
 " Fugitive Git shortcuts
-nmap <leader>ga :Gwrite<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gb :Gblame<cr>
-nmap <leader>gc :Gcommit<cr>
-nmap <leader>gp :Gpush<cr>
-nmap <leader>gs :Gstatus<cr>
+nmap <leader>ga :Git add<cr>
+nmap <leader>gb :Git blame<cr>
+nmap <leader>gc :Git commit<cr>
+nmap <leader>gp :Git push<cr>
+nmap <leader>gs :Git status<cr>
+
+" vim-test shortcuts
+
+nmap <silent> <leader>tt :TestNearest<CR> " Mnemonic: test nearest (double t is faster)
+nmap <silent> <leader>tf :TestFile<CR>    " Mnemonic: test file
+nmap <silent> <leader>ts :TestSuite<CR>   " Mnemonic: test suite
+nmap <silent> <leader>tl :TestLast<CR>    " Mnemonic: test last
+nmap <silent> <leader>tv :TestVisit<CR>   " Mnemonic: test visit
 
 nnoremap <c-p> :Files<cr>
 map <leader>t :Defx -columns=icons:indent:filename:type -toggle -split=vertical -direction=topleft -winwidth=50<CR>
@@ -486,10 +505,23 @@ autocmd FileType defx call s:defx_my_settings()
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
+      \ pumvisible() ? coc#_select_confirm() :
+      \ coc#expandableOrJumpable() ? "\<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump',''])\<CR>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_snippet_next = '<tab>'
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
@@ -782,4 +814,9 @@ hi Search guibg=peru  guifg=wheat cterm=NONE ctermfg=grey ctermbg=blue
 " Hop config
 lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
 lua vim.api.nvim_set_keymap('n', '<c-j>', "<cmd>lua require'hop'.hint_words()<cr>", {})
+
+" vim-test config
+let g:test#javascript#runner = 'jest'
+let g:tmuxify_custom_command = 'tmux split-window -h'
+let test#strategy = "neovim"
 

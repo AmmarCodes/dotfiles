@@ -11,12 +11,12 @@
 [status]
 	showUntrackedFiles = all
 [pager]
-	diff = diff-so-fancy | less --tabs=4 -RFX
-	show = diff-so-fancy | less --tabs=4 -RFX
+	diff = delta #diff-so-fancy | less --tabs=4 -RFX
+	show = delta #diff-so-fancy | less --tabs=4 -RFX
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta # diff-so-fancy | less --tabs=4 -RFX
 	ignorecase = false
 [alias]
 	prune = fetch --prune
@@ -55,3 +55,11 @@
 	autosquash = true
 [init]
 	defaultBranch = main
+[delta]
+	line-numbers = true
+	side-by-side = true
+	; line-numbers-left-format = ""
+	; line-numbers-right-format = "│ "
+	; minus-style = "syntax bold #ef5350"
+	; plus-style = "syntax bold #99b76d"
+	syntax-theme = Material-Theme-Palenight
