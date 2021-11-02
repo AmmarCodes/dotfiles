@@ -58,7 +58,7 @@ Plug 'nvim-telescope/telescope.nvim'
 " Manipulate words (change case with crs/cru/cr-)
 Plug 'tpope/vim-abolish'
 Plug 'AndrewRadev/tagalong.vim' " Change closing tag automatically
-Plug 'terryma/vim-multiple-cursors'
+Plug 'mg979/vim-visual-multi'
 
 " Seamless navigation with tmux
 Plug 'christoomey/vim-tmux-navigator'
@@ -78,11 +78,13 @@ Plug 'arcticicestudio/nord-vim'
 " Plug 'adrian5/oceanic-next-vim'
 " Plug 'NieTiger/halcyon-neovim'
 Plug 'drewtempelmeyer/palenight.vim'
-Plug 'Yggdroot/indentLine'
+Plug 'lukas-reineke/indent-blankline.nvim'
 " Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'maximbaz/lightline-ale'
-Plug 'mengelbrecht/lightline-bufferline'
+" Plug 'mengelbrecht/lightline-bufferline'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'akinsho/bufferline.nvim'
 Plug 'qpkorr/vim-bufkill'
 " Plug 'roman/golden-ratio'
 Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
@@ -110,9 +112,12 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-sleuth' " set indentation
 Plug 'tpope/vim-markdown'
+Plug 'Raimondi/delimitMate'
 " Plug 'jiangmiao/auto-pairs'
 Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'JoosepAlviste/nvim-ts-context-commentstring'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
 Plug 'dkarter/bullets.vim'
@@ -144,7 +149,9 @@ Plug 'shumphrey/fugitive-gitlab.vim'
 " Plug 'rhysd/committia.vim'
 
 Plug 'phaazon/hop.nvim'
+Plug 'dhruvasagar/vim-table-mode'
 
+Plug 'norcalli/nvim-colorizer.lua'
 
 call plug#end()
 " }}}
@@ -566,7 +573,7 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 nnoremap <silent> <leader>p  :<C-u>CocList commands<cr>
 
 " Buffers
-nnoremap <c-b> :Buffers<cr>
+nnoremap <c-b> :Telescope buffers<cr>
 map <leader>bd :BD<cr>
 map <leader>bn :BF<cr>
 map <leader>bb :BB<cr>
@@ -708,8 +715,6 @@ command! BTags call s:btags()
 
 " Always show quotes in json
 let g:vim_json_syntax_conceal = 0
-let g:indentLine_concealcursor=""
-
 
 " Use deoplete.
 " let g:deoplete#enable_at_startup = 1
@@ -820,3 +825,30 @@ let g:test#javascript#runner = 'jest'
 let g:tmuxify_custom_command = 'tmux split-window -h'
 let test#strategy = "neovim"
 
+
+lua <<EOF
+require'colorizer'.setup()
+require("bufferline").setup{}
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+}
+
+-- enable comments in treesitter - for nvim-ts-context-commentstring
+require'nvim-treesitter.configs'.setup {
+  context_commentstring = {
+    enable = true
+  },
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,
+    use_languagetree = true
+  },
+  indent = {enable = false},
+  query_linter = {
+    enable = true,
+    use_virtual_text = true,
+    lint_events = {"BufWrite", "CursorHold"}
+  }
+}
+EOF
