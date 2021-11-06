@@ -154,6 +154,8 @@ Plug 'dhruvasagar/vim-table-mode'
 
 Plug 'norcalli/nvim-colorizer.lua'
 
+Plug 'mrjones2014/dash.nvim', { 'do': 'make install' }
+
 call plug#end()
 " }}}
 
