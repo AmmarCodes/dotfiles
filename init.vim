@@ -126,6 +126,7 @@ Plug 'mbbill/undotree'
 Plug 'ruanyl/vim-gh-line'
 Plug 'wsdjeg/vim-fetch' " jump to specified line/column when opening a file
 Plug 'vim-test/vim-test'
+Plug 'jgdavey/tslime.vim'
 Plug 'jebaum/vim-tmuxify'
 
 " highlights the XML/HTML tags that enclose your cursor location
@@ -822,6 +823,8 @@ lua vim.api.nvim_set_keymap('n', '<c-j>', "<cmd>lua require'hop'.hint_words()<cr
 
 " vim-test config
 let g:test#javascript#runner = 'jest'
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
 let g:tmuxify_custom_command = 'tmux split-window -h'
 let test#strategy = "neovim"
 
