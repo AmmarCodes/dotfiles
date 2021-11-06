@@ -857,3 +857,7 @@ require'nvim-treesitter.configs'.setup {
   }
 }
 EOF
+
+" Disable mapping vim-visual-multi (except ctrl-n for selecting next matching text)
+let g:VM_default_mappings = 0
+
