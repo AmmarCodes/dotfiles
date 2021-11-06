@@ -1,0 +1,21 @@
+- defaults:
+    link:
+        relink: true
+        create: true
+
+- link:
+    ~/.alacritty.yml: alacritty.yml
+    ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
+    ~/.config/karabiner.edn: karabiner.edn
+    ~/.config/nvim/init.vim:
+        path: init.vim
+        force: true
+    ~/.config/nvim/coc-settings.json: coc-settings.json
+
+- create:
+    - ~/.config/nvim/undodir
+
+- shell:
+    - [git submodule update --init --recursive, Installing submodules]
+    - [if command -v brew > /dev/null; then brew bundle; fi, Installing brew packages using ~/.dotfiles/Brewfile]
