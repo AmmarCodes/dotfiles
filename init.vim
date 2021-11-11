@@ -126,7 +126,6 @@ Plug 'mbbill/undotree'
 Plug 'ruanyl/vim-gh-line'
 Plug 'wsdjeg/vim-fetch' " jump to specified line/column when opening a file
 Plug 'vim-test/vim-test'
-Plug 'jgdavey/tslime.vim'
 Plug 'jebaum/vim-tmuxify'
 
 " highlights the XML/HTML tags that enclose your cursor location
@@ -259,6 +258,9 @@ nmap <Leader>7 <Plug>lightline#bufferline#go(7)
 nmap <Leader>8 <Plug>lightline#bufferline#go(8)
 nmap <Leader>9 <Plug>lightline#bufferline#go(9)
 nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+
+" Use double esc to exit terminal insert mode (to normal mode)
+tnoremap <Esc><Esc> <C-\><C-n>
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -828,7 +830,7 @@ let g:test#javascript#runner = 'jest'
 let g:tslime_always_current_session = 1
 let g:tslime_always_current_window = 1
 let g:tmuxify_custom_command = 'tmux split-window -h'
-let test#strategy = "neovim"
+let test#strategy = "tmuxify"
 
 
 lua <<EOF

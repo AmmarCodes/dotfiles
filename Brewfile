@@ -100,6 +100,7 @@ cask "little-snitch"
 cask "mutespotifyads"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+cask "qbserve"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Emoji picker optimized for blind people
@@ -116,6 +117,8 @@ cask "stretchly"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Configurable document editor that supports Markdown
+cask "typora"
 # View output from scripts in the menu bar
 cask "xbar"
 # Video communication and virtual meeting platform
