@@ -8,13 +8,15 @@
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
     ~/.config/karabiner.edn: karabiner.edn
-    ~/.config/nvim/init.vim:
-        path: init.vim
+    ~/.config/nvim/:
+        glob: true
         force: true
-    ~/.config/nvim/coc-settings.json: coc-settings.json
+        path: nvim/**
+        relink: true
 
 - create:
     - ~/.config/nvim/undodir
+    - ~/.config/nvim/lua
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
