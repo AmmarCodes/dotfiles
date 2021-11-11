@@ -2,23 +2,17 @@ if v:progname == 'vi'
   set noloadplugins " if vi is being used, don't use plugins
 endif
 
-" Plugins
-" {{{
-" The next lines is to ensure vim plug is installd
-let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+" Plugins (packer.nvim)
+lua require('plugins')
 
-if !filereadable(vimplug_exists)
-  if !executable("curl")
-    echoerr "You have to install curl or first install vim-plug yourself!"
-    execute "q!"
-  endif
-  echo "Installing Vim-Plug..."
-  echo ""
-  silent exec "!\curl -fLo " . vimplug_exists . " --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
-  let g:not_finish_vimplug = "yes"
+augroup packer_user_config
+  autocmd!
+  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+augroup end
 
-  autocmd VimEnter * PlugInstall
-endif
+
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+
 
 let g:coc_global_extensions = [
 			\ 'coc-tabnine',
@@ -39,125 +33,8 @@ let g:coc_global_extensions = [
 
 let g:vimade = { "fadelevel": 0.7 }
 
-
-call plug#begin('~/.local/share/nvim/plugged')
-
-" Utilities
-if isdirectory('/usr/local/opt/fzf')
-  Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-else
-  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-  Plug 'junegunn/fzf.vim'
-endif
-Plug 'dyng/ctrlsf.vim'
-Plug 'junegunn/vim-easy-align'
-
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-
-" Manipulate words (change case with crs/cru/cr-)
-Plug 'tpope/vim-abolish'
-Plug 'AndrewRadev/tagalong.vim' " Change closing tag automatically
-Plug 'mg979/vim-visual-multi'
-
-" Seamless navigation with tmux
-Plug 'christoomey/vim-tmux-navigator'
-
-
-if has('nvim')
-  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/defx.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
-" Colors & UI
-Plug 'arcticicestudio/nord-vim'
-" Plug 'gruvbox-community/gruvbox'
-" Plug 'adrian5/oceanic-next-vim'
-" Plug 'NieTiger/halcyon-neovim'
-Plug 'drewtempelmeyer/palenight.vim'
-Plug 'lukas-reineke/indent-blankline.nvim'
-" Plug 'myusuf3/numbers.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
-" Plug 'mengelbrecht/lightline-bufferline'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'akinsho/bufferline.nvim'
-Plug 'qpkorr/vim-bufkill'
-" Plug 'roman/golden-ratio'
-Plug 'farmergreg/vim-lastplace' " reopen files at your last edit position
-" Plug 'wellle/context.vim'
-Plug 'mhinz/vim-signify'
-" Plug 'tpope/vim-obsession'
-Plug 'machakann/vim-highlightedyank'
-Plug 'unblevable/quick-scope'
-Plug 'junegunn/goyo.vim'
-Plug 'junegunn/limelight.vim'
-Plug 'jmckiern/vim-venter'
-Plug 'liuchengxu/vim-which-key'
-" Plug 'TaDaa/vimade'
-
-
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-" Code utilities
-" Plug 'editorconfig/editorconfig-vim'
-" insert mode auto-completion for quotes, parens, brackets
-Plug 'Raimondi/delimitMate'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-sleuth' " set indentation
-Plug 'tpope/vim-markdown'
-Plug 'Raimondi/delimitMate'
-" Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-Plug 'JoosepAlviste/nvim-ts-context-commentstring'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
-Plug 'dense-analysis/ale'
-Plug 'mattn/emmet-vim', {'for': ['html', 'vue']}
-Plug 'dkarter/bullets.vim'
-Plug 'mbbill/undotree'
-" Plug 'itchyny/vim-cursorword'
-Plug 'ruanyl/vim-gh-line'
-Plug 'wsdjeg/vim-fetch' " jump to specified line/column when opening a file
-Plug 'vim-test/vim-test'
-Plug 'jebaum/vim-tmuxify'
-
-" highlights the XML/HTML tags that enclose your cursor location
-Plug 'Valloric/MatchTagAlways', {'for': ['html', 'xml', 'xhtml', 'vue']}
-
-" Languages & Syntax
 let g:polyglot_disabled = []
-" Plug 'sheerun/vim-polyglot'
-
-Plug 'posva/vim-vue'
 let g:vue_pre_processors = 'detect_on_enter'
-
-Plug 'kevinoid/vim-jsonc'
-" Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' }
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } }
-Plug 'jparise/vim-graphql'
-
-" Git
-Plug 'tpope/vim-fugitive'
-Plug 'shumphrey/fugitive-gitlab.vim'
-" Plug 'rhysd/committia.vim'
-
-Plug 'phaazon/hop.nvim'
-Plug 'dhruvasagar/vim-table-mode'
-
-Plug 'norcalli/nvim-colorizer.lua'
-
-Plug 'mrjones2014/dash.nvim', { 'do': 'make install' }
-
-call plug#end()
-" }}}
-
 
 " Settings
 " {{{
@@ -845,6 +722,10 @@ require("indent_blankline").setup {
 require'nvim-treesitter.configs'.setup {
   context_commentstring = {
     enable = true
+  },
+  matchup = {                   -- config for vim-matchup
+    enable = true,              -- mandatory, false will disable the whole extension
+    disable = { "c", "ruby" },  -- optional, list of language that will be disabled
   },
   ensure_installed = "maintained",
   highlight = {
