@@ -10,8 +10,11 @@ if fn.empty(fn.glob(install_path)) > 0 then
     return
 end
 
+vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
+
     -- Plugins
     use {'junegunn/fzf', dir = '~/.fzf', run = './install --all' }
     use {'junegunn/fzf.vim'}
@@ -37,6 +40,22 @@ return require('packer').startup(function(use)
         'lukas-reineke/headlines.nvim',
         config = function() require('headlines').setup() end
     }
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {'kyazdani42/nvim-web-devicons', opt = true},
+        config = function() require('lualine').setup {
+            options = {theme = 'palenight'},
+            sections = {lualine_a = {
+                'mode',
+                'diff',
+                {
+                    'diagnostics',
+                    sources = {'ale', 'coc'},
+                    sections = {'error', 'warn', 'info', 'hint'},
+                }
+            }, lualine_x = {'filetype'}}
+        } end
+    }
 
 
     -- mix
@@ -47,8 +66,9 @@ return require('packer').startup(function(use)
         requires = 'kyazdani42/nvim-web-devicons',
         config = function() require'nvim-tree'.setup {} end
     }
-    use 'itchyny/lightline.vim'
-    use 'maximbaz/lightline-ale'
+    -- use 'itchyny/lightline.vim'
+    -- use 'maximbaz/lightline-ale'
+
     use 'kyazdani42/nvim-web-devicons'
     use 'akinsho/bufferline.nvim'
     use 'qpkorr/vim-bufkill'

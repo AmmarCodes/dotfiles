@@ -82,39 +82,39 @@ colorscheme material
 
 
 
-let g:lightline = {
-      \ 'colorscheme': 'palenight',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-      \   'right': [ [ 'lineinfo' ],
-      \              [ 'gitbranch', 'filetype' ],
-      \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos' ] ]
-      \ },
-  \ 'tabline': {
-      \   'left': [ ['buffers'] ],
-      \   'right': [ ['close'] ]
-      \ },
-      \ 'component_expand': {
-      \  'linter_warnings': 'lightline#ale#warnings',
-      \  'linter_errors': 'lightline#ale#errors',
-      \   'buffers': 'lightline#bufferline#buffers',
-      \ },
-      \ 'component_type': {
-      \     'linter_warnings': 'warning',
-      \     'linter_errors': 'error',
-      \     'buffers': 'tabsel',
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'fugitive#head',
-      \   'cocstatus': 'coc#status',
-      \ },
-      \ 'component': {
-      \   'filename': '%F',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' },
-      \ }
+" let g:lightline = {
+"       \ 'colorscheme': 'palenight',
+"       \ 'active': {
+"       \   'left': [ [ 'mode', 'paste' ],
+"       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+"       \   'right': [ [ 'lineinfo' ],
+"       \              [ 'gitbranch', 'filetype' ],
+"       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos' ] ]
+"       \ },
+"       \ 'tabline': {
+"       \   'left': [ ['buffers'] ],
+"       \   'right': [ ['close'] ]
+"       \ },
+"       \ 'component_expand': {
+"       \  'linter_warnings': 'lightline#ale#warnings',
+"       \  'linter_errors': 'lightline#ale#errors',
+"       \   'buffers': 'lightline#bufferline#buffers',
+"       \ },
+"       \ 'component_type': {
+"       \     'linter_warnings': 'warning',
+"       \     'linter_errors': 'error',
+"       \     'buffers': 'tabsel',
+"       \ },
+"       \ 'component_function': {
+"       \   'gitbranch': 'fugitive#head',
+"       \   'cocstatus': 'coc#status',
+"       \ },
+"       \ 'component': {
+"       \   'filename': '%F',
+"       \ },
+"       \ 'separator': { 'left': '', 'right': '' },
+"       \ 'subseparator': { 'left': '', 'right': '' },
+"       \ }
 
 " let g:vimfiler_force_overwrite_statusline = 0
 " let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
@@ -122,19 +122,19 @@ let g:lightline = {
 "     \ 'safe' : 0,
 "     \ })
 
-let g:lightline#bufferline#show_number  = 2
-let g:lightline#bufferline#enable_nerdfont = 1
+" let g:lightline#bufferline#show_number  = 2
+" let g:lightline#bufferline#enable_nerdfont = 1
 
-nmap <Leader>1 <Plug>lightline#bufferline#go(1)
-nmap <Leader>2 <Plug>lightline#bufferline#go(2)
-nmap <Leader>3 <Plug>lightline#bufferline#go(3)
-nmap <Leader>4 <Plug>lightline#bufferline#go(4)
-nmap <Leader>5 <Plug>lightline#bufferline#go(5)
-nmap <Leader>6 <Plug>lightline#bufferline#go(6)
-nmap <Leader>7 <Plug>lightline#bufferline#go(7)
-nmap <Leader>8 <Plug>lightline#bufferline#go(8)
-nmap <Leader>9 <Plug>lightline#bufferline#go(9)
-nmap <Leader>0 <Plug>lightline#bufferline#go(10)
+" nmap <Leader>1 :BufferlineGoToBuffer 1<cr>
+" nmap <Leader>2 :BufferlineGoToBuffer 2<cr>
+" nmap <Leader>3 :BufferlineGoToBuffer 3<cr>
+" nmap <Leader>4 :BufferlineGoToBuffer 4<cr>
+" nmap <Leader>5 :BufferlineGoToBuffer 5<cr>
+" nmap <Leader>6 :BufferlineGoToBuffer 6<cr>
+" nmap <Leader>7 :BufferlineGoToBuffer 7<cr>
+" nmap <Leader>8 :BufferlineGoToBuffer 8<cr>
+" nmap <Leader>9 :BufferlineGoToBuffer 9<cr>
+" nmap <Leader>0 :BufferlineGoToBuffer 10<cr>
 
 " Use double esc to exit terminal insert mode (to normal mode)
 tnoremap <Esc><Esc> <C-\><C-n>
@@ -454,7 +454,7 @@ nmap <leader>ca  <Plug>(coc-codeaction)
 nnoremap <silent> <leader>p  :<C-u>CocList commands<cr>
 
 " Buffers
-nnoremap <c-b> :Telescope buffers<cr>
+nnoremap <c-b> :Buffers<cr>
 map <leader>bd :BD<cr>
 map <leader>bn :BF<cr>
 map <leader>bb :BB<cr>
