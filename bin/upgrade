@@ -31,7 +31,7 @@ fi
 
 if [ -x "$(command -v pip3)" ]; then
 	echo "Upgrading Vim & its plugins"
-	pip3 install neovim --upgrade && nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
+	pip3 install neovim --upgrade && nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' #nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
 fi
 
 if [ -x "$(command -v mas)" ]; then
