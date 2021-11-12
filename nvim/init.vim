@@ -24,7 +24,8 @@ let g:coc_global_extensions = [
 			\ 'coc-emmet',
 			\ 'coc-markdownlint',
 			\ 'coc-json',
-			\ 'coc-snippets'
+			\ 'coc-snippets',
+			\ 'coc-sumneko-lua'
 			\ ]
 
 let g:vimade = { "fadelevel": 0.7 }
@@ -40,6 +41,7 @@ lua require'nvim-tree'.setup {}
 set encoding=utf8
 set noswapfile               " Don't use swapfile
 set nobackup                 " Don't create annoying backup files
+set nowritebackup
 set undodir=~/.config/nvim/undodir
 set undofile
 set nowrap
@@ -393,10 +395,6 @@ autocmd FileType defx call s:defx_my_settings()
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
-" inoremap <silent><expr> <TAB>
-"       \ pumvisible() ? "\<C-n>" :
-"       \ <SID>check_back_space() ? "\<TAB>" :
-"       \ coc#refresh()
 
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? coc#_select_confirm() :
@@ -404,12 +402,34 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+
 function! s:check_back_space() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 let g:coc_snippet_next = '<tab>'
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Give more space for displaying messages.
+set cmdheight=2
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 

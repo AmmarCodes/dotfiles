@@ -97,7 +97,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-sleuth' -- set indentation
     use 'tpope/vim-markdown'
     use {'andymass/vim-matchup', event = 'VimEnter'}
-    use {'neoclide/coc.nvim', branch = 'release'}
+    use {'neoclide/coc.nvim', branch = 'release', requires = 'honza/vim-snippets'}
 
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
