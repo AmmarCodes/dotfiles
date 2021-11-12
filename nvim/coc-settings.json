@@ -17,4 +17,5 @@
     "suggest.autoTrigger": "none",
     "suggest.echodocSupport": true,
     "wxss.validate": false,
+    "vetur.ignoreProjectWarning": true,
 }

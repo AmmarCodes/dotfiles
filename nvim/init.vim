@@ -10,10 +10,6 @@ augroup packer_user_config
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
 augroup end
 
-
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-
 let g:coc_global_extensions = [
 			\ 'coc-tabnine',
 			\ 'coc-stylelintplus',
@@ -35,6 +31,9 @@ let g:vimade = { "fadelevel": 0.7 }
 
 let g:polyglot_disabled = []
 let g:vue_pre_processors = 'detect_on_enter'
+
+let g:nvim_tree_gitignore = 1
+lua require'nvim-tree'.setup {}
 
 " Settings
 " {{{
@@ -77,8 +76,9 @@ let g:oceanic_italic_comments = 1
 let g:oceanic_for_polyglot = 1
 
 set background=dark
-colorscheme palenight
 let g:nord_italic = 1
+let g:material_style = 'palenight'
+colorscheme material
 
 
 
@@ -201,11 +201,6 @@ set smartindent "Smart indent
     let &t_SR = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=2\x7\<Esc>\\"
     let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
   endif
-
-  " inside neovim
-  if has('nvim')
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=2
-  endif
 " }
 
 "}}}
@@ -275,6 +270,7 @@ nnoremap <cr> :nohlsearch<CR>
 " Open vim config with <leader>ec (edit config)
 if has('nvim')
   map <leader>ec :e ~/.config/nvim/init.vim<cr>
+  map <leader>ep :e ~/.config/nvim/lua/plugins.lua<cr>
 else
   map <leader>ec :e ~/.vimrc<cr>
 endif
@@ -284,7 +280,9 @@ nnoremap <Leader>s :Rg<Space>
 nnoremap <Leader>sw :Rg <c-r><c-w>
 
 " Show current file in file explorer (defx)
-nnoremap <Leader>sf :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+" nnoremap <Leader>sf :Defx `expand('%:p:h')` -search=`expand('%:p')`<cr>
+
+nnoremap <Leader>sf :NvimTreeFindFile<cr>
 
 " yank file path/name
 nnoremap <Leader>yf :let @*=expand("%")<CR>       " Mnemonic: yank file relative path
@@ -314,8 +312,9 @@ nmap <silent> <leader>tl :TestLast<CR>    " Mnemonic: test last
 nmap <silent> <leader>tv :TestVisit<CR>   " Mnemonic: test visit
 
 nnoremap <c-p> :Files<cr>
-map <leader>t :Defx -columns=icons:indent:filename:type -toggle -split=vertical -direction=topleft -winwidth=50<CR>
-nnoremap <F3> :NumbersToggle<CR>
+" map <leader>t :Defx -columns=icons:indent:filename:type -toggle -split=vertical -direction=topleft -winwidth=50<CR>
+map <leader>t :NvimTreeToggle<cr>
+
 let g:numbers_exclude = ['goyo_pad']
 
 " Goyo and Limelight config
@@ -648,7 +647,7 @@ endfunction
 " {{{
 set timeoutlen=500
 
-call which_key#register(',', "g:which_key_map")
+" call which_key#register(',', "g:which_key_map")
 
 let g:which_key_map = {}
 let g:which_key_map['a'] = {
@@ -690,12 +689,12 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
 
-nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
+" nnoremap <silent> <leader> :<c-u>WhichKey ','<CR>
+" vnoremap <silent> <leader> :<c-u>WhichKeyVisual ','<CR>
 " }}}
 " }}}
 
-" Highlight the search with different colors than the cursor - seems a palenight issue
+" Highlight the search with different colors than the cursor
 hi Search guibg=peru  guifg=wheat cterm=NONE ctermfg=grey ctermbg=blue
 
 " Hop config

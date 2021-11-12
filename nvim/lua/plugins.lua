@@ -21,6 +21,7 @@ return require('packer').startup(function(use)
     -- colorscheme
     use 'drewtempelmeyer/palenight.vim'
     use 'arcticicestudio/nord-vim'
+    use 'marko-cerovac/material.nvim'
 
     -- text manipulation
 
@@ -32,10 +33,20 @@ return require('packer').startup(function(use)
     -- visuals
     use 'lukas-reineke/indent-blankline.nvim'
     use 'machakann/vim-highlightedyank'
+    use {
+        'lukas-reineke/headlines.nvim',
+        config = function() require('headlines').setup() end
+    }
+
 
     -- mix
     use 'christoomey/vim-tmux-navigator'
-    use { 'Shougo/defx.nvim', cmd = 'UpdateRemotePlugins' }
+    -- use { 'Shougo/defx.nvim', run = ':UpdateRemotePlugins' }
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons',
+        config = function() require'nvim-tree'.setup {} end
+    }
     use 'itchyny/lightline.vim'
     use 'maximbaz/lightline-ale'
     use 'kyazdani42/nvim-web-devicons'
@@ -47,7 +58,18 @@ return require('packer').startup(function(use)
     use 'junegunn/goyo.vim'
     use 'junegunn/limelight.vim'
     use 'jmckiern/vim-venter'
-    use 'liuchengxu/vim-which-key'
+    -- use 'liuchengxu/vim-which-key'
+    use {
+        "folke/which-key.nvim",
+        config = function()
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
+
     use 'Raimondi/delimitMate'
     use 'tpope/vim-commentary'
     use 'tpope/vim-surround'
@@ -87,7 +109,6 @@ return require('packer').startup(function(use)
 
     use 'norcalli/nvim-colorizer.lua'
 
-    use { 'mrjones2014/dash.nvim', cmd = 'make install' }
     -- consider deleting
     use 'dyng/ctrlsf.vim'
 
