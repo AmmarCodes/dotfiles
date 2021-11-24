@@ -13,10 +13,16 @@
         force: true
         path: nvim/**
         relink: true
+    ~/.config/coc/ultisnips/:
+        glob: true
+        force: true
+        path: snippets/**
+        relink: true
 
 - create:
     - ~/.config/nvim/undodir
     - ~/.config/nvim/lua
+    - ~/.config/coc/ultisnips
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
