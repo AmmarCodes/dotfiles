@@ -19,6 +19,11 @@
         force: true
         path: snippets/**
         relink: true
+    ~/.config/kitty/:
+        glob: true
+        force: true
+        path: kitty/**
+        relink: true
 
 - create:
     - ~/.config/nvim/undodir
