@@ -45,15 +45,28 @@ return require('packer').startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function() require('lualine').setup {
             options = {theme = 'palenight'},
-            sections = {lualine_a = {
-                'mode',
-                'diff',
-                {
-                    'diagnostics',
-                    sources = {'ale', 'coc'},
-                    sections = {'error', 'warn', 'info', 'hint'},
-                }
-            }, lualine_x = {'filetype'}}
+            sections = {
+                lualine_a = {
+                    'mode',
+                },
+                lualine_b = {
+                    'branch',
+                    'diff',
+                    {
+                        'diagnostics',
+                        sources = {'ale', 'coc'},
+                        sections = {'error', 'warn', 'info', 'hint'},
+                    }
+                },
+                lualine_c = {
+                    {
+                        'filename',
+                        file_status = true,
+                        path = 1
+                    },
+                },
+                lualine_x = {'filetype'}
+            }
         } end
     }
 
@@ -63,17 +76,24 @@ return require('packer').startup(function(use)
     -- use { 'Shougo/defx.nvim', run = ':UpdateRemotePlugins' }
     use {
         'kyazdani42/nvim-tree.lua',
-        requires = 'kyazdani42/nvim-web-devicons',
-        config = function() require'nvim-tree'.setup {} end
+        requires = 'kyazdani42/nvim-web-devicons'
     }
     -- use 'itchyny/lightline.vim'
     -- use 'maximbaz/lightline-ale'
-
+    use 'junegunn/vim-after-object'
     use 'kyazdani42/nvim-web-devicons'
     use 'akinsho/bufferline.nvim'
     use 'qpkorr/vim-bufkill'
     use 'farmergreg/vim-lastplace' -- reopen files at your last edit position
-    use 'mhinz/vim-signify'
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        config = function()
+            require('gitsigns').setup()
+        end
+    }
     use 'unblevable/quick-scope'
     use 'junegunn/goyo.vim'
     use 'junegunn/limelight.vim'
@@ -92,6 +112,7 @@ return require('packer').startup(function(use)
 
     use 'Raimondi/delimitMate'
     use 'tpope/vim-commentary'
+    use 'tpope/vim-projectionist'
     use 'tpope/vim-surround'
     use 'tpope/vim-endwise'
     use 'tpope/vim-sleuth' -- set indentation
@@ -125,7 +146,6 @@ return require('packer').startup(function(use)
     use 'shumphrey/fugitive-gitlab.vim'
 
     use 'phaazon/hop.nvim'
-    use 'dhruvasagar/vim-table-mode'
 
     use 'norcalli/nvim-colorizer.lua'
 

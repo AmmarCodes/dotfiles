@@ -18,4 +18,5 @@
     "suggest.echodocSupport": true,
     "wxss.validate": false,
     "vetur.ignoreProjectWarning": true,
+    "javascript.suggest.enabled": false,
 }

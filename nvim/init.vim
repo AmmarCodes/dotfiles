@@ -33,8 +33,17 @@ let g:vimade = { "fadelevel": 0.7 }
 let g:polyglot_disabled = []
 let g:vue_pre_processors = 'detect_on_enter'
 
-let g:nvim_tree_gitignore = 1
-lua require'nvim-tree'.setup {}
+lua << EOF
+require'nvim-tree'.setup {
+  view = {
+    width = 50
+  },
+  filters = {
+    dotfiles = true,
+    custom = {"tmp"}
+  }
+}
+EOF
 
 " Settings
 " {{{
@@ -58,6 +67,8 @@ set relativenumber
 set cursorline              " Highlight current line
 set mouse=a
 set showtabline=2
+set scrolloff=8
+set sidescrolloff=8
 
 " Enable filetype plugins
 filetype plugin on
@@ -73,16 +84,22 @@ set noemoji
 " Enable truecolor in iTerm
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
-let g:gruvbox_contrast_dark = 'medium'
-let g:oceanic_italic_comments = 1
-let g:oceanic_for_polyglot = 1
-
 set background=dark
-let g:nord_italic = 1
+
 let g:material_style = 'palenight'
+lua << EOF
+require('material').setup({
+    borders = true,
+    italics = {
+        comments = true, -- Enable italic comments
+        keywords = true, -- Enable italic keywords
+        functions = true, -- Enable italic functions
+        strings = true, -- Enable italic strings
+        variables = true -- Enable italic variables
+    },
+})
+EOF
 colorscheme material
-
-
 
 " let g:lightline = {
 "       \ 'colorscheme': 'palenight',
@@ -217,10 +234,10 @@ set listchars=tab:▷⋅,trail:·,extends:↷,precedes:↶
 set list
 
 
-highlight Comment gui=italic
-highlight Keyword gui=italic
-highlight Function gui=italic
-highlight htmlArg gui=italic
+" highlight Comment gui=italic
+" highlight Keyword gui=italic
+" highlight Function gui=italic
+" highlight htmlArg gui=italic
 " Fix the disgusting visual selection colors of gruvbox (thanks @romainl).
 " hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
 
@@ -239,8 +256,6 @@ let mapleader = ","
 inoremap jj <Esc>
 cnoremap jj <C-c>
 
-" Yank to the end of line
-nnoremap Y y$
 " Fold {
 nnoremap <silent> <Leader>f0 :set foldlevel=0<CR>
 nnoremap <silent> <Leader>f1 :set foldlevel=1<CR>
@@ -486,8 +501,6 @@ for s:i in range(1, 9)
   execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'
 endfor
 
-" A buffer becomes hidden when it is abandoned
-set hidden
 
 " Surround the visual selection in parenthesis/brackets/etc.
 vnoremap $( <esc>`>a)<esc>`<i(<esc>
@@ -527,6 +540,9 @@ if filereadable(getcwd() . '/Session.vim')
 endif
 endfunction
 
+" settings for junegunn/vim-after-object
+" use like: va= visual after =
+autocmd VimEnter * call after_object#enable('=', ':', '-', '#', ' ')
 " autocmd VimEnter * nested call RestoreSess()
 " Disable continuous comments
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -719,7 +735,7 @@ hi Search guibg=peru  guifg=wheat cterm=NONE ctermfg=grey ctermbg=blue
 
 " Hop config
 lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', term_seq_bias = 0.5 }
-lua vim.api.nvim_set_keymap('n', '<c-j>', "<cmd>lua require'hop'.hint_words()<cr>", {})
+lua vim.api.nvim_set_keymap('n', 'f', "<cmd>lua require'hop'.hint_words()<cr>", {})
 
 " vim-test config
 let g:test#javascript#runner = 'jest'

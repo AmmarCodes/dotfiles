@@ -36,6 +36,8 @@ brew "git-lfs"
 brew "pkg-config"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Library access to GnuPG
+brew "gpgme"
 # Image processing tools collection
 brew "graphicsmagick"
 # C/C++ and Java libraries for Unicode and globalization
@@ -93,6 +95,8 @@ cask "itsycal"
 cask "karabiner-elements"
 # Automation software
 cask "keyboard-maestro"
+# GPU-based terminal emulator
+cask "kitty"
 # Sound clear in online meetings
 cask "krisp"
 # Host-based application firewall
@@ -121,12 +125,11 @@ cask "telegram"
 cask "typora"
 # View output from scripts in the menu bar
 cask "xbar"
-# Video communication and virtual meeting platform
-cask "zoom"
 mas "Be Focused Pro", id: 961632517
 mas "ColorSlurp", id: 1287239339
 mas "GIPHY CAPTURE", id: 668208984
 mas "Hand Mirror", id: 1502839586
 mas "Lungo", id: 1263070803
+mas "Numbers", id: 409203825
 mas "Spark", id: 1176895641
 mas "Todoist", id: 585829637
