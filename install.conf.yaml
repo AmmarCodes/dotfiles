@@ -7,6 +7,7 @@
     ~/.alacritty.yml: alacritty.yml
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
+    ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/nvim/:
         glob: true
