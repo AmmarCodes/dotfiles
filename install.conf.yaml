@@ -7,6 +7,7 @@
     ~/.alacritty.yml: alacritty.yml
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
+    ~/.tmux.conf: tmux.conf
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/nvim/:
@@ -33,3 +34,4 @@
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
     - [if command -v brew > /dev/null; then brew bundle; fi, Installing brew packages using ~/.dotfiles/Brewfile]
+    - [if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi, Installing tmuxu plugin manager]
