@@ -99,7 +99,7 @@ require('material').setup({
     },
 })
 EOF
-colorscheme material
+colorscheme kanagawa " material
 
 " let g:lightline = {
 "       \ 'colorscheme': 'palenight',
@@ -555,7 +555,7 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND= 'rg --files --follow --hidden -g "!.git/*"'
 endif
 let $FZF_DEFAULT_OPTS='--reverse'
-let $BAT_THEME="base16"
+let $BAT_THEME= "gruvbox-dark"
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 function! s:tags_sink(line)

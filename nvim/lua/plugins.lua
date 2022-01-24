@@ -23,6 +23,7 @@ return require('packer').startup(function(use)
 
     -- colorscheme
     use 'drewtempelmeyer/palenight.vim'
+    use 'rebelot/kanagawa.nvim'
     use 'arcticicestudio/nord-vim'
     use 'marko-cerovac/material.nvim'
 
@@ -139,7 +140,7 @@ return require('packer').startup(function(use)
     use 'posva/vim-vue'
 
     use 'kevinoid/vim-jsonc'
-    use { 'iamcco/markdown-preview.nvim', ft = {'markdown'}, cmd = 'MarkdownPreview' }
+    use { 'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', ft = {'markdown'}, cmd = 'MarkdownPreview' }
     use 'jparise/vim-graphql'
 
     use 'tpope/vim-fugitive'

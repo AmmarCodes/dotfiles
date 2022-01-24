@@ -4,6 +4,12 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "yqrashawn/goku"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
+# Library for command-line editing
+brew "readline"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -14,6 +20,8 @@ brew "cmake"
 brew "coreutils"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Text processing system for reStructuredText
+brew "docutils"
 # Debian package management system
 brew "dpkg"
 # More intuitive version of du in rust
@@ -50,6 +58,8 @@ brew "mas"
 brew "neovim"
 # Trigger notifications when a process completes
 brew "noti"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Terminal multiplexer
 brew "tmux"
 # Process manager for Procfile-based applications and tmux
@@ -58,12 +68,16 @@ brew "overmind"
 brew "re2"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Install various Ruby versions and implementations
+brew "ruby-build"
 # Collection of tools for managing UNIX services
 brew "runit"
 # Modern SSH server for teams managing distributed infrastructure
 brew "teleport"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
+# Syntax-aware linter for prose
+brew "vale"
 # Internet file retriever
 brew "wget"
 # UNIX shell (command interpreter)
@@ -105,6 +119,12 @@ cask "mutespotifyads"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 cask "qbserve"
+# QuickLook plug-in that renders source code with syntax highlighting
+cask "qlcolorcode"
+# QuickLook generator for Markdown files
+cask "qlmarkdown"
+cask "qlstephen"
+cask "quicklook-json"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Emoji picker optimized for blind people
