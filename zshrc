@@ -260,48 +260,41 @@ AUTO_LS_COMMANDS=(ls '[[ -d $PWD/.git ]] && git status')
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 
-### Added by Zinit's installer
-if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
-    print -P "%F{33}▓▒░ %F{220}Installing %F{33}DHARMA%F{220} Initiative Plugin Manager (%F{33}zdharma/zinit%F{220})…%f"
-    command mkdir -p "$HOME/.zinit" && command chmod g-rwX "$HOME/.zinit"
-    command git clone https://github.com/zdharma/zinit "$HOME/.zinit/bin" && \
+if [[ ! -d $HOME/.zi/bin ]]; then
+    print -P "%F{33}▓▒░ %F{220}Installing ZI…%f"
+    command mkdir -p "$HOME/.zi" && command chmod g-rwX "$HOME/.zi"
+    command git clone https://github.com/z-shell/zi.git "$HOME/.zi/bin" && \
         print -P "%F{33}▓▒░ %F{34}Installation successful.%f%b" || \
         print -P "%F{160}▓▒░ The clone has failed.%f%b"
 fi
 
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
+source "$HOME/.zi/bin/zi.zsh"
 
-# Load a few important annexes, without Turbo
-# (this is currently required for annexes)
-zinit light-mode for \
-    zinit-zsh/z-a-rust \
-    zinit-zsh/z-a-as-monitor \
-    zinit-zsh/z-a-patch-dl \
-    zinit-zsh/z-a-bin-gem-node
+autoload -Uz _zi
+(( ${+_comps} )) && _comps[zi]=_zi
 
-# zinit light "zdharma/fast-syntax-highlighting"
-zinit snippet OMZP::git # Oh My Zsh Git Plugin
+zi snippet OMZP::git # Oh My Zsh Git Plugin
 
-zinit load "djui/alias-tips"
-zinit load "zsh-users/zsh-history-substring-search"
-zinit load "zsh-users/zsh-completions"
-# zinit load "mafredri/zsh-async"
-zinit load "changyuheng/zsh-interactive-cd"
+zi load "djui/alias-tips"
+zi load "zsh-users/zsh-history-substring-search"
+zi ice lucid wait as'completion'
+zi light "zsh-users/zsh-completions"
+zi load "changyuheng/zsh-interactive-cd"
 
 
-# fast-syntax-highlighting
-zinit ice wait"1" lucid
-zinit light zdharma/fast-syntax-highlighting
+# fast-syntax-highlighting and zsh-autosuggestions
+zi wait lucid for \
+ atinit"ZI[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" \
+    z-shell/fast-syntax-highlighting \
+ blockf \
+    zsh-users/zsh-completions \
+ atload"!_zsh_autosuggest_start" \
+    zsh-users/zsh-autosuggestions
 
-# zsh-autosuggestions
-zinit ice wait lucid atload"!_zsh_autosuggest_start"
-zinit load zsh-users/zsh-autosuggestions
 
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+zi ice depth=1; zi light romkatv/powerlevel10k
 
-### End of Zinit's installer chunk
+### End of zi's installer chunk
 
 # binding for history substring search
 bindkey '^[[A' history-substring-search-up
