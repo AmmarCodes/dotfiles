@@ -120,7 +120,7 @@ alias ls="ls -Gxh --color=auto"
 alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 alias gdb="git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
-alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment'" # Push the current branch and create a merge request for it
+alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment' -o merge_request.label='group::utilization'" # Push the current branch and create a merge request for it
 alias gps="git push -o ci.skip" # push with skip ci option
 
 alias lastver="git tag -l | gsort -V | tail -n 1"

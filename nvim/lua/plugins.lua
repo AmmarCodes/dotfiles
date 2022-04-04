@@ -22,16 +22,17 @@ return require('packer').startup(function(use)
     use 'junegunn/vim-easy-align'
 
     -- colorscheme
-    use 'drewtempelmeyer/palenight.vim'
-    use 'rebelot/kanagawa.nvim'
-    use 'arcticicestudio/nord-vim'
-    use 'marko-cerovac/material.nvim'
+    -- use 'drewtempelmeyer/palenight.vim'
+    use { 'EdenEast/nightfox.nvim' }
+    -- use 'rebelot/kanagawa.nvim'
+    -- use 'arcticicestudio/nord-vim'
+    -- use 'marko-cerovac/material.nvim'
 
     -- text manipulation
 
     use 'tpope/vim-abolish'
     use 'AndrewRadev/tagalong.vim' -- Change closing tag automatically
-    use 'alvan/vim-closetag'
+    use 'windwp/nvim-ts-autotag'
     use 'mg979/vim-visual-multi'
 
     -- visuals
@@ -45,7 +46,11 @@ return require('packer').startup(function(use)
         'nvim-lualine/lualine.nvim',
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function() require('lualine').setup {
-            options = {theme = 'palenight'},
+            options = {
+                theme = 'nightfox',
+                section_separators = { left = '', right = '' },
+                component_separators = { left = '', right = '' }
+},
             sections = {
                 lualine_a = {
                     'mode',
@@ -85,6 +90,7 @@ return require('packer').startup(function(use)
     use 'kyazdani42/nvim-web-devicons'
     use 'akinsho/bufferline.nvim'
     use 'qpkorr/vim-bufkill'
+    use 'lewis6991/impatient.nvim'
     use 'farmergreg/vim-lastplace' -- reopen files at your last edit position
     use {
         'lewis6991/gitsigns.nvim',
@@ -112,7 +118,7 @@ return require('packer').startup(function(use)
     }
 
     use 'Raimondi/delimitMate'
-    use 'tpope/vim-commentary'
+    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
     use 'tpope/vim-projectionist'
     use 'tpope/vim-surround'
     use 'tpope/vim-endwise'

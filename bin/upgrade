@@ -43,7 +43,7 @@ if [ -x "$(command -v mas)" ]; then
 fi
 
 
-if [ test -d ~/.tmux/plugins/tpm ]; then
+if [ -d ~/.tmux/plugins/tpm ]; then
 	echo "Updating tmux plugins"
-	~/.tmux/plugins/tpm/bin/update_plugins
+	~/.tmux/plugins/tpm/bin/update_plugins all
 fi

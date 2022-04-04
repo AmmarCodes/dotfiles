@@ -3,6 +3,8 @@ tap "homebrew/bundle"
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
 tap "yqrashawn/goku"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
@@ -50,6 +52,8 @@ brew "gpgme"
 brew "graphicsmagick"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Conversion library
 brew "libiconv"
 # Mac App Store command-line interface
@@ -143,6 +147,8 @@ cask "tableplus"
 cask "telegram"
 # Configurable document editor that supports Markdown
 cask "typora"
+# Open-source code editor
+cask "visual-studio-code"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Be Focused Pro", id: 961632517
@@ -151,5 +157,7 @@ mas "GIPHY CAPTURE", id: 668208984
 mas "Hand Mirror", id: 1502839586
 mas "Lungo", id: 1263070803
 mas "Numbers", id: 409203825
+mas "One Thing", id: 1604176982
 mas "Spark", id: 1176895641
+mas "TestFlight", id: 899247664
 mas "Todoist", id: 585829637

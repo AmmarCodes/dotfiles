@@ -8,7 +8,10 @@ lua require('plugins')
 augroup packer_user_config
   autocmd!
   autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  autocmd BufWritePost plugins.lua source <afile> | LuaCacheClear
 augroup end
+
+lua require('impatient')
 
 let g:coc_global_extensions = [
 			\ 'coc-tabnine',
@@ -86,20 +89,20 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
 set background=dark
 
-let g:material_style = 'palenight'
-lua << EOF
-require('material').setup({
-    borders = true,
-    italics = {
-        comments = true, -- Enable italic comments
-        keywords = true, -- Enable italic keywords
-        functions = true, -- Enable italic functions
-        strings = true, -- Enable italic strings
-        variables = true -- Enable italic variables
-    },
-})
-EOF
-colorscheme kanagawa " material
+" let g:material_style = 'palenight'
+" lua << EOF
+" require('material').setup({
+"     borders = true,
+"     italics = {
+"         comments = true, -- Enable italic comments
+"         keywords = true, -- Enable italic keywords
+"         functions = true, -- Enable italic functions
+"         strings = true, -- Enable italic strings
+"         variables = true -- Enable italic variables
+"     },
+" })
+" EOF
+colorscheme nightfox " material
 
 " let g:lightline = {
 "       \ 'colorscheme': 'palenight',

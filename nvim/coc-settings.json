@@ -19,4 +19,9 @@
     "wxss.validate": false,
     "vetur.ignoreProjectWarning": true,
     "javascript.suggest.enabled": false,
+    "Lua.telemetry.enable": false,
+    // "tsserver.trace.server": "verbose",
+    "tsserver.disableAutomaticTypeAcquisition": false,
+    "tsserver.npm": "~/.asdf/shims/npm",
+    "tsserver.ignoreLocalTsserver": true,
 }
