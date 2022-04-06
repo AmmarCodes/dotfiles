@@ -57,9 +57,6 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 # Allow quiting Finder
 defaults write com.apple.finder QuitMenuItem -bool true
 
-# Enable AirDrop over Ethernet and on unsupported Macs running Lion
-defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
-
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
@@ -101,10 +98,7 @@ defaults write com.apple.LaunchServices LSQuarantine -bool false
 # Disable smart dashes as they’re annoying when typing code
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
+mkdir ~/Desktop/Screenshots
 # Change screenshots folder location
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
-
-# Symlink files
-mkdir ~/.config
-ln -s karabiner.edn ~/.config/
