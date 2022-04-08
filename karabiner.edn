@@ -10,7 +10,7 @@
           }
  :simlayers {:launch-mode {:key :caps_lock}} ; :alfred-mode {:key :k}}
  :devices {
-	   :macbookpro [{:product_id 636 :vendor_id 1452}]
+	   :macbookpro [{:product_id 835 :vendor_id 1452}]
 	   :magickeyboard [{:product_id 615 :vendor_id 76}]
 	   :ergodox [{:product_id 4871 :vendor_id 65261}]}
 
