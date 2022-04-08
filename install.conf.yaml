@@ -4,34 +4,36 @@
         create: true
 
 - link:
-    ~/.alacritty.yml: alacritty.yml
-    ~/.gitconfig: gitconfig
-    ~/.zshrc: zshrc
-    ~/.tmux.conf: tmux.conf
-    ~/.ripgreprc: ripgreprc
-    ~/.config/karabiner.edn: karabiner.edn
-    ~/.config/nvim/:
-        glob: true
-        force: true
-        path: nvim/**
-        relink: true
-    ~/.config/coc/ultisnips/:
-        glob: true
-        force: true
-        path: snippets/**
-        relink: true
-    ~/.config/kitty/:
-        glob: true
-        force: true
-        path: kitty/**
-        relink: true
+    # ~/.alacritty.yml: alacritty.yml
+    # ~/.gitconfig: gitconfig
+    # ~/.zshrc: zshrc
+    # ~/.tmux.conf: tmux.conf
+    # ~/.ripgreprc: ripgreprc
+    # ~/.config/karabiner.edn: karabiner.edn
+    ~/.config/bat/themes/Material-Theme-Palenight.tmTheme: bat/themes/Material-Theme-Palenight.tmTheme
+    # ~/.config/nvim/:
+    #     glob: true
+    #     force: true
+    #     path: nvim/**
+    #     relink: true
+    # ~/.config/coc/ultisnips/:
+    #     glob: true
+    #     force: true
+    #     path: snippets/**
+    #     relink: true
+    # ~/.config/kitty/:
+    #     glob: true
+    #     force: true
+    #     path: kitty/**
+    #     relink: true
 
-- create:
-    - ~/.config/nvim/undodir
-    - ~/.config/nvim/lua
-    - ~/.config/coc/ultisnips
+# - create:
+#     - ~/.config/nvim/undodir
+#     - ~/.config/nvim/lua
+#     - ~/.config/coc/ultisnips
+#     - ~/.config/bat/themes
 
-- shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    - [if command -v brew > /dev/null; then brew bundle; fi, Installing brew packages using ~/.dotfiles/Brewfile]
-    - [if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi, Installing tmuxu plugin manager]
+# - shell:
+#     - [git submodule update --init --recursive, Installing submodules]
+#     - [if command -v brew > /dev/null; then brew bundle; fi, Installing brew packages using ~/.dotfiles/Brewfile]
+#     - [if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi, Installing tmuxu plugin manager]
