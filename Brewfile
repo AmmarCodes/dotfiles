@@ -130,8 +130,6 @@ cask "spotify"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
-# Configurable document editor that supports Markdown
-cask "typora"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Be Focused Pro", id: 961632517

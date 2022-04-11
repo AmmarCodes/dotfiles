@@ -5,6 +5,7 @@
 
 - link:
     ~/.gitconfig: gitconfig
+    ~/.gitignore: gitignore
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
     ~/.ripgreprc: ripgreprc

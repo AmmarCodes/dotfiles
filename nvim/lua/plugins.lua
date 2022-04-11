@@ -15,8 +15,8 @@ return require('packer').startup(function(use)
     use 'junegunn/vim-easy-align'
 
     -- colorscheme
-    -- use 'drewtempelmeyer/palenight.vim'
-    use { 'EdenEast/nightfox.nvim' }
+    use 'drewtempelmeyer/palenight.vim'
+    -- use { 'EdenEast/nightfox.nvim' }
     -- use 'rebelot/kanagawa.nvim'
     -- use 'arcticicestudio/nord-vim'
     -- use 'marko-cerovac/material.nvim'
@@ -40,7 +40,7 @@ return require('packer').startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function() require('lualine').setup {
             options = {
-                theme = 'nightfox',
+                theme = 'palenight',
                 section_separators = { left = '', right = '' },
                 component_separators = { left = '', right = '' }
 },
