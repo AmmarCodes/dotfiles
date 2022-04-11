@@ -87,6 +87,8 @@ cask "bartender"
 cask "chromedriver"
 # Allows switching between application windows
 cask "contexts"
+# API documentation browser and code snippet manager
+cask "dash"
 # Screen color temperature controller
 cask "flux"
 # Website and application blocker
@@ -98,6 +100,8 @@ cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
 # Web browser
 cask "google-chrome"
+# iPhone management application
+cask "imazing"
 # System monitoring app
 cask "istat-menus"
 # Keyboard customizer
@@ -134,6 +138,7 @@ mas "Be Focused Pro", id: 961632517
 mas "ColorSlurp", id: 1287239339
 mas "GIPHY CAPTURE", id: 668208984
 mas "Hand Mirror", id: 1502839586
+mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Lungo", id: 1263070803
