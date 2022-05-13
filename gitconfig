@@ -62,4 +62,4 @@
 	; line-numbers-right-format = "│ "
 	; minus-style = "syntax bold #ef5350"
 	; plus-style = "syntax bold #99b76d"
-	syntax-theme = Material-Theme-Palenight
+	syntax-theme = Nord
