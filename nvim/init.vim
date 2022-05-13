@@ -64,7 +64,9 @@ set ignorecase               " Search case insensitive...
 set clipboard^=unnamed       " Copy/paste using clipboard
 set foldenable
 set foldlevel=99
-set foldmethod=marker
+" set foldmethod=marker
+" set foldmethod=expr
+" set foldexpr=nvim_treesitter#foldexpr()
 set foldmarker={{{,}}}
 set relativenumber
 set cursorline              " Highlight current line
@@ -87,7 +89,6 @@ set noemoji
 " Enable truecolor in iTerm
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 set termguicolors " this is used to fix Limelight plugin
-set background=dark
 
 " let g:material_style = 'palenight'
 " lua << EOF
@@ -102,50 +103,13 @@ set background=dark
 "     },
 " })
 " EOF
-colorscheme palenight " material
 
-" let g:lightline = {
-"       \ 'colorscheme': 'palenight',
-"       \ 'active': {
-"       \   'left': [ [ 'mode', 'paste' ],
-"       \             [ 'cocstatus', 'readonly', 'filename', 'modified' ] ],
-"       \   'right': [ [ 'lineinfo' ],
-"       \              [ 'gitbranch', 'filetype' ],
-"       \              [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos' ] ]
-"       \ },
-"       \ 'tabline': {
-"       \   'left': [ ['buffers'] ],
-"       \   'right': [ ['close'] ]
-"       \ },
-"       \ 'component_expand': {
-"       \  'linter_warnings': 'lightline#ale#warnings',
-"       \  'linter_errors': 'lightline#ale#errors',
-"       \   'buffers': 'lightline#bufferline#buffers',
-"       \ },
-"       \ 'component_type': {
-"       \     'linter_warnings': 'warning',
-"       \     'linter_errors': 'error',
-"       \     'buffers': 'tabsel',
-"       \ },
-"       \ 'component_function': {
-"       \   'gitbranch': 'fugitive#head',
-"       \   'cocstatus': 'coc#status',
-"       \ },
-"       \ 'component': {
-"       \   'filename': '%F',
-"       \ },
-"       \ 'separator': { 'left': '', 'right': '' },
-"       \ 'subseparator': { 'left': '', 'right': '' },
-"       \ }
-
-" let g:vimfiler_force_overwrite_statusline = 0
-" let g:vimfiler_ignore_pattern = '^\%(\.git\|\.DS_Store\)$'
-" call vimfiler#custom#profile('default', 'context', {
-"     \ 'safe' : 0,
-"     \ })
-
-" let g:lightline#bufferline#show_number  = 2
-" let g:lightline#bufferline#enable_nerdfont = 1
+set background=dark
+" let g:gruvbox_italic=1
+" let g:gruvbox_contrast_light="hard"
+let $BAT_THEME= "Nord"
+" let ayucolor="light"
+colorscheme onenord "ayu gruvbox material ayu palenight
 
 " nmap <Leader>1 :BufferlineGoToBuffer 1<cr>
 " nmap <Leader>2 :BufferlineGoToBuffer 2<cr>
@@ -230,17 +194,16 @@ set smartindent "Smart indent
 " UI
 " {{{
 syntax enable
-set background=dark
 set number                   " Show line numbers
 set ruler
 set listchars=tab:▷⋅,trail:·,extends:↷,precedes:↶
 set list
 
 
-" highlight Comment gui=italic
-" highlight Keyword gui=italic
+highlight Comment gui=italic
+highlight Keyword gui=italic
 " highlight Function gui=italic
-" highlight htmlArg gui=italic
+highlight htmlArg gui=italic
 " Fix the disgusting visual selection colors of gruvbox (thanks @romainl).
 " hi Visual cterm=NONE ctermfg=NONE ctermbg=237 guibg=#5a5a5a
 
@@ -330,6 +293,13 @@ nmap <silent> <leader>tf :TestFile<CR>    " Mnemonic: test file
 nmap <silent> <leader>ts :TestSuite<CR>   " Mnemonic: test suite
 nmap <silent> <leader>tl :TestLast<CR>    " Mnemonic: test last
 nmap <silent> <leader>tv :TestVisit<CR>   " Mnemonic: test visit
+
+" vim-ultest stuff
+let g:ultest_use_pty = 1
+let g:ultest_running_sign = "⁖"
+
+nmap ]t <Plug>(ultest-next-fail)
+nmap [t <Plug>(ultest-prev-fail)
 
 nnoremap <c-p> :Files<cr>
 " map <leader>t :Defx -columns=icons:indent:filename:type -toggle -split=vertical -direction=topleft -winwidth=50<CR>
@@ -506,11 +476,11 @@ endfor
 
 
 " Surround the visual selection in parenthesis/brackets/etc.
-vnoremap $( <esc>`>a)<esc>`<i(<esc>
-vnoremap $[ <esc>`>a]<esc>`<i[<esc>
-vnoremap ${ <esc>`>a}<esc>`<i{<esc>
-vnoremap $" <esc>`>a"<esc>`<i"<esc>
-vnoremap $' <esc>`>a'<esc>`<i'<esc>
+" vnoremap $( <esc>`>a)<esc>`<i(<esc>
+" vnoremap $[ <esc>`>a]<esc>`<i[<esc>
+" vnoremap ${ <esc>`>a}<esc>`<i{<esc>
+" vnoremap $" <esc>`>a"<esc>`<i"<esc>
+" vnoremap $' <esc>`>a'<esc>`<i'<esc>
 
 " Use :W to save after asking for password
 command! W w !sudo tee "%" > /dev/null
@@ -558,7 +528,6 @@ if executable('rg')
   let $FZF_DEFAULT_COMMAND= 'rg --files --follow --hidden -g "!.git/*"'
 endif
 let $FZF_DEFAULT_OPTS='--reverse'
-let $BAT_THEME= "gruvbox-dark"
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 function! s:tags_sink(line)
@@ -750,7 +719,14 @@ let test#strategy = "tmuxify"
 
 lua <<EOF
 require'colorizer'.setup()
-require("bufferline").setup{}
+require("bufferline").setup{
+    options = {
+      max_name_length = 25,
+      separator_style = 'slant',
+      show_close_icon = false,
+      show_buffer_close_icons = false,
+    }
+}
 require("indent_blankline").setup {
     space_char_blankline = " ",
     show_current_context = true,
@@ -765,7 +741,7 @@ require'nvim-treesitter.configs'.setup {
     enable = true,              -- mandatory, false will disable the whole extension
     disable = { "c", "ruby" },  -- optional, list of language that will be disabled
   },
-  ensure_installed = "all",
+  ensure_installed = {"bash", "comment", "css", "graphql", "html", "javascript", "jsdoc", "json", "json5", "jsonc", "lua", "ruby", "scss", "typescript", "vim", "vue", "yaml"},
   highlight = {
     enable = true,
     use_languagetree = true
@@ -781,4 +757,3 @@ EOF
 
 " Disable mapping vim-visual-multi (except ctrl-n for selecting next matching text)
 let g:VM_default_mappings = 0
-

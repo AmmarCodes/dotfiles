@@ -25,6 +25,8 @@ brew "docutils"
 brew "dpkg"
 # More intuitive version of du in rust
 brew "dust"
+# Modern replacement for 'ls'
+brew "exa"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
 # Command-line fuzzy finder written in Go
@@ -45,6 +47,8 @@ brew "gpgme"
 brew "graphicsmagick"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
+# Simple terminal UI for git commands
+brew "lazygit"
 # Conversion library
 brew "libiconv"
 # Mac App Store command-line interface
@@ -95,9 +99,16 @@ cask "flux"
 cask "focus"
 # Monospaced font that includes programming ligatures
 cask "font-cascadia-code"
+# Version of Cascadia Code with embedded Powerline symbols
+cask "font-cascadia-code-pl"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
+# Typeface made for developers
+cask "font-jetbrains-mono"
+cask "font-jetbrains-mono-nerd-font"
+# Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
+cask "font-sf-mono-for-powerline"
 # Web browser
 cask "google-chrome"
 # iPhone management application
@@ -114,7 +125,8 @@ cask "kitty"
 cask "krisp"
 # Host-based application firewall
 cask "little-snitch"
-cask "mutespotifyads"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
 cask "qbserve"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
@@ -134,11 +146,13 @@ cask "telegram"
 cask "xbar"
 mas "Be Focused Pro", id: 961632517
 mas "ColorSlurp", id: 1287239339
+mas "Dark Noise", id: 1465439395
 mas "GIPHY CAPTURE", id: 668208984
 mas "Hand Mirror", id: 1502839586
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
+mas "LanguageTool", id: 1534275760
 mas "Lungo", id: 1263070803
 mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
@@ -146,3 +160,5 @@ mas "Pages", id: 409201541
 mas "Spark", id: 1176895641
 mas "TestFlight", id: 899247664
 mas "Todoist", id: 585829637
+mas "Tweetbot", id: 1384080005
+mas "Velja", id: 1607635845

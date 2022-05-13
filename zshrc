@@ -82,11 +82,11 @@ export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 # export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 
-export ANT_HOME=/usr/local/opt/ant
-export MAVEN_HOME=/usr/local/opt/maven
-export GRADLE_HOME=/usr/local/opt/gradle
+export ANT_HOME=/opt/homebrew/opt/ant
+export MAVEN_HOME=/opt/homebrew/opt/maven
+export GRADLE_HOME=/opt/homebrew/opt/gradle
 export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-export ANDROID_NDK_HOME=/usr/local/opt/android-ndk
+export ANDROID_NDK_HOME=/opt/homebrew/opt/android-ndk
 
 export PATH=$ANT_HOME/bin:$PATH
 export PATH=$MAVEN_HOME/bin:$PATH
@@ -99,7 +99,7 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
 
 
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/opt/homebrew/sbin:$PATH"
 export PATH="$PATH:$HOME/.dotfiles/bin"
 
 
@@ -115,7 +115,7 @@ export EDITOR="nvim"
 alias zshconfig="vim ~/.zshrc"
 alias cat="bat"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="ls -Gxh --color=auto"
+alias ls="exa --icons"
 alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 alias gdb="git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
@@ -133,8 +133,7 @@ alias dcupb="docker-compose up --build -d"
 alias dcd="docker-compose down"
 alias kara="vim ~/.dotfiles/karabiner.edn"
 alias wm="vim ~/Desktop/working-memory.md" # edit working memory file
-alias wmc="bat --theme OneHalfDark ~/Desktop/working-memory.md" # read working memory file
-alias ee="cd ~/projects/gdk-ee/gitlab"
+alias wmc="bat ~/Desktop/working-memory.md" # read working memory file
 alias :q="exit"
 alias mux="tmuxinator"
 alias be="bundle exec"
@@ -200,17 +199,23 @@ function search() {
 export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_DEFAULT_OPTS=""
 # export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-# export BAT_THEME="TwoDark"
+export BAT_THEME="Nord"
 # Gruvbox below
 # export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # --color fg:250,hl:72,fg+:223,bg+:237,hl+:72
 # --color pointer:167,info:109,spinner:214,header:214,prompt:175,marker:208'
 
 # palenight
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#   --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
+#   --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B'
+
+# nord
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-  --color fg:#D8DEE9,bg:#2E3440,hl:#A3BE8C,fg+:#D8DEE9,bg+:#434C5E,hl+:#A3BE8C
-  --color pointer:#BF616A,info:#4C566A,spinner:#4C566A,header:#4C566A,prompt:#81A1C1,marker:#EBCB8B
-'
+    --color=fg:#e5e9f0,bg:#3b4252,hl:#81a1c1
+    --color=fg+:#e5e9f0,bg+:#3b4252,hl+:#81a1c1
+    --color=info:#eacb8a,prompt:#bf6069,pointer:#b48dac
+    --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
 # gruvbox
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
 
@@ -227,15 +232,15 @@ if [ -f ~/.private_aliases ]; then
   source $HOME/.private_aliases
 fi
 
-export PATH="/usr/local/opt/postgresql@11/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@11/bin:$PATH"
 
 
-export PATH="/usr/local/opt/qt@5.5/bin:$PATH"
+export PATH="/opt/homebrew/opt/qt@5.5/bin:$PATH"
 
 export PATH="$HOME/Qt5.5.0/5.5/clang_64/bin:$PATH"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
-export PATH="/usr/local/opt/python@3.9/libexec/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig"
+export PATH="/opt/homebrew/opt/icu4c/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 
@@ -301,7 +306,8 @@ bindkey '^[[B' history-substring-search-down
 
 
 # Added by GDK bootstrap
-export PKG_CONFIG_PATH="/usr/local/opt/icu4c/lib/pkgconfig:${PKG_CONFIG_PATH}"
+export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig:${PKG_CONFIG_PATH}"
 
 # Added by GDK bootstrap
-export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/usr/local/opt/openssl@1.1 --with-readline-dir=/usr/local/opt/readline"
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --with-readline-dir=/opt/homebrew/opt/readline"
+

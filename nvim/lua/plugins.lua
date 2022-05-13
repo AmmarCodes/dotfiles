@@ -15,7 +15,10 @@ return require('packer').startup(function(use)
     use 'junegunn/vim-easy-align'
 
     -- colorscheme
-    use 'drewtempelmeyer/palenight.vim'
+    -- use 'drewtempelmeyer/palenight.vim'
+    -- use 'ayu-theme/ayu-vim'
+    -- use 'gruvbox-community/gruvbox'
+    use 'rmehri01/onenord.nvim'
     -- use { 'EdenEast/nightfox.nvim' }
     -- use 'rebelot/kanagawa.nvim'
     -- use 'arcticicestudio/nord-vim'
@@ -24,12 +27,14 @@ return require('packer').startup(function(use)
     -- text manipulation
 
     use 'tpope/vim-abolish'
+    use 'arthurxavierx/vim-caser' -- Easily change word casing with motions, text objects or visual mode
     use 'AndrewRadev/tagalong.vim' -- Change closing tag automatically
     use 'windwp/nvim-ts-autotag'
     use 'mg979/vim-visual-multi'
 
     -- visuals
     use 'lukas-reineke/indent-blankline.nvim'
+    use 'RRethy/vim-illuminate'
     use 'machakann/vim-highlightedyank'
     use {
         'lukas-reineke/headlines.nvim',
@@ -40,7 +45,7 @@ return require('packer').startup(function(use)
         requires = {'kyazdani42/nvim-web-devicons', opt = true},
         config = function() require('lualine').setup {
             options = {
-                theme = 'palenight',
+                theme = 'nord',
                 section_separators = { left = '', right = '' },
                 component_separators = { left = '', right = '' }
 },
@@ -60,8 +65,8 @@ return require('packer').startup(function(use)
                 lualine_c = {
                     {
                         'filename',
+                        show_filename_only = true,
                         file_status = true,
-                        path = 1
                     },
                 },
                 lualine_x = {'filetype'}
@@ -80,7 +85,6 @@ return require('packer').startup(function(use)
     -- use 'itchyny/lightline.vim'
     -- use 'maximbaz/lightline-ale'
     use 'junegunn/vim-after-object'
-    use 'kyazdani42/nvim-web-devicons'
     use 'akinsho/bufferline.nvim'
     use 'qpkorr/vim-bufkill'
     use 'lewis6991/impatient.nvim'
@@ -131,6 +135,7 @@ return require('packer').startup(function(use)
     use 'ruanyl/vim-gh-line'
     use 'wsdjeg/vim-fetch' -- jump to specified line/column when opening a file
     use 'vim-test/vim-test'
+    use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
     use 'jebaum/vim-tmuxify'
 
     use { 'Valloric/MatchTagAlways', ft = {'html', 'xml', 'xhtml', 'vue'} }
