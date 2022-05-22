@@ -78,12 +78,13 @@ function outputData() {
 	};
 
 	let remaining = null;
+	let diffInSeconds = null;
 	Object.keys(times).forEach((key) => {
 		const time = DateTime.fromISO(times[key]);
 		times[key] = time;
 
 		const diff = time.diff(DateTime.local(), "seconds");
-		const diffInSeconds = diff.values.seconds;
+		diffInSeconds = diff.values.seconds;
 		bitbarItems.push(key.padEnd(20) + time.toFormat("HH:mm:ss"));
 
 		if (!remaining && diffInSeconds > 0) {
@@ -97,8 +98,8 @@ function outputData() {
 
 	const bitbarOutput = [
 		{
-			text: `⏰ ${remainingString}`,
-			color: darkMode ? "white" : "red",
+			text: `🕌 ${remainingString}`,
+			color: diffInSeconds < 1800 ? "red" : darkMode ? "#fff" : "#aaaaaa",
 			dropdown: false,
 		},
 		separator,
