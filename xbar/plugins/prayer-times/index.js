@@ -1,4 +1,4 @@
-#!/usr/bin/env /Users/ammar/.asdf/shims/node
+#!/usr/bin/env /Users/aalakkad/.asdf/shims/node
 // <bitbar.title>Title goes here</bitbar.title>
 // <bitbar.version>v1.0</bitbar.version>
 // <bitbar.author>Your Name</bitbar.author>
@@ -8,14 +8,14 @@
 // <bitbar.dependencies>python,ruby,node</bitbar.dependencies>
 // <bitbar.abouturl>http://url-to-about.com/</bitbar.abouturl>
 
-const bitbar = require("bitbar");
-const fetch = require("node-fetch");
-const fs = require("fs");
-const { DateTime, Duration } = require("luxon");
+import bitbar, { darkMode, separator } from "bitbar";
+import fetch from "node-fetch";
+import { writeFileSync, existsSync, readFileSync } from "fs";
+import { DateTime, Duration } from "luxon";
 
 const ilceCode = 17866;
 const URL = `https://ezanvakti.herokuapp.com/vakitler?ilce=${ilceCode}`;
-const tmpFile = __dirname + "/prayer-data.json";
+const tmpFile = "./.prayer-data.json";
 const bitbarItems = [];
 
 let json;
@@ -24,7 +24,7 @@ let prayerData;
 const getDate = () => new Date().toJSON().slice(0, 10).replace(/-/g, "/");
 const writeToFile = (content) => {
 	const jsonContent = JSON.stringify(content, " ", 2);
-	fs.writeFileSync(tmpFile, jsonContent, "utf8", (err) => {
+	writeFileSync(tmpFile, jsonContent, "utf8", (err) => {
 		if (err) {
 			console.error(
 				"Encountered an error while writing content to the temp file"
@@ -36,13 +36,13 @@ const writeToFile = (content) => {
 const sampleTmpFileContent = { date: "", data: {} };
 
 // ensure tmp file exists
-if (!fs.existsSync(tmpFile)) {
+if (!existsSync(tmpFile)) {
 	writeToFile(JSON.stringify(sampleTmpFileContent, " ", 2));
 }
 
 // read tmp file content
 try {
-	json = JSON.parse(fs.readFileSync(tmpFile));
+	json = JSON.parse(readFileSync(tmpFile));
 } catch (err) {
 	console.error(`Error encountered while reading ${tmpFile}`);
 }
@@ -59,7 +59,7 @@ if (!prayerData) {
 		.then((res) => res.json())
 		.then((json) => {
 			// -- replace json and date in tmp file
-			newTmpContent = { date: getDate(), data: json };
+			const newTmpContent = { date: getDate(), data: json };
 			prayerData = json;
 			writeToFile(newTmpContent);
 			outputData();
@@ -82,8 +82,8 @@ function outputData() {
 		const time = DateTime.fromISO(times[key]);
 		times[key] = time;
 
-		diff = time.diff(DateTime.local(), "seconds");
-		diffInSeconds = diff.values.seconds;
+		const diff = time.diff(DateTime.local(), "seconds");
+		const diffInSeconds = diff.values.seconds;
 		bitbarItems.push(key.padEnd(20) + time.toFormat("HH:mm:ss"));
 
 		if (!remaining && diffInSeconds > 0) {
@@ -98,10 +98,10 @@ function outputData() {
 	const bitbarOutput = [
 		{
 			text: `⏰ ${remainingString}`,
-			color: bitbar.darkMode ? "white" : "red",
+			color: darkMode ? "white" : "red",
 			dropdown: false,
 		},
-		bitbar.separator,
+		separator,
 		...bitbarItems,
 	];
 

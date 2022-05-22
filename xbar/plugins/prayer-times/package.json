@@ -1,8 +1,10 @@
 {
   "main": "index.js",
+  "type": "module",
   "dependencies": {
-    "bitbar": "^1.3.1",
-    "luxon": "^1.25.0",
-    "node-fetch": "^3.1.1"
+	"bitbar": "^1.3.1",
+	"luxon": "^1.25.0",
+	"node-fetch": "^3.1.1",
+	"config": "^3.3.7"
   }
 }

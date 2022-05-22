@@ -26,12 +26,18 @@
         force: true
         path: kitty/**
         relink: true
+    ~/Library/Application Support/xbar:
+        glob: true
+        force: true
+        path: xbar/**
+        relink: true
 
 - create:
     - ~/.config/nvim/undodir
     - ~/.config/nvim/lua
     - ~/.config/coc/ultisnips
     - ~/.config/bat/themes
+    - ~/Library/Application Support/xbar
 
 - shell:
     - [git submodule update --init --recursive, Installing submodules]
