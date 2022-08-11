@@ -86,7 +86,7 @@ return require('packer').startup(function(use)
     -- use 'maximbaz/lightline-ale'
     use 'junegunn/vim-after-object'
     use 'akinsho/bufferline.nvim'
-    use 'qpkorr/vim-bufkill'
+    use 'moll/vim-bbye'
     use 'lewis6991/impatient.nvim'
     use 'farmergreg/vim-lastplace' -- reopen files at your last edit position
     use {
@@ -115,7 +115,12 @@ return require('packer').startup(function(use)
     }
 
     use 'Raimondi/delimitMate'
-    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
     use 'tpope/vim-projectionist'
     use 'tpope/vim-surround'
     use 'tpope/vim-endwise'
@@ -134,8 +139,28 @@ return require('packer').startup(function(use)
     use 'mbbill/undotree'
     use 'ruanyl/vim-gh-line'
     use 'wsdjeg/vim-fetch' -- jump to specified line/column when opening a file
-    use 'vim-test/vim-test'
-    use { "rcarriga/vim-ultest", requires = {"vim-test/vim-test"}, run = ":UpdateRemotePlugins" }
+    use {
+        "nvim-neotest/neotest",
+        requires = {
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
+            'antoinemadec/FixCursorHold.nvim',
+            'haydenmeade/neotest-jest',
+            'olimorris/neotest-rspec',
+            'vim-test/vim-test'
+        },
+        config = function()
+            require('neotest').setup({
+                adapters = {
+                    require('neotest-jest')({
+                        jestCommand = "yarn jest "
+                    }),
+                    require('neotest-rspec'),
+                    -- require("neotest-vim-test")({ ignore_filetypes = { "javascript", "ruby" } }),
+                }
+    })
+        end
+    }
     use 'jebaum/vim-tmuxify'
 
     use { 'Valloric/MatchTagAlways', ft = {'html', 'xml', 'xhtml', 'vue'} }

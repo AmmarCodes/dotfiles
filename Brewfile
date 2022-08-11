@@ -1,3 +1,4 @@
+tap "altinity/clickhouse"
 tap "candid82/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask"
@@ -13,6 +14,8 @@ brew "sqlite"
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -29,6 +32,10 @@ brew "dust"
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c"
+# Play, record, convert, and stream audio and video
+brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Distributed revision control system
@@ -37,18 +44,16 @@ brew "git"
 brew "git-delta"
 # Git extension for versioning large files
 brew "git-lfs"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Library access to GnuPG
 brew "gpgme"
 # Image processing tools collection
 brew "graphicsmagick"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Audio and video processing tools
+brew "libav"
 # Conversion library
 brew "libiconv"
 # Mac App Store command-line interface
@@ -79,8 +84,14 @@ brew "teleport"
 brew "tmuxinator"
 # Internet file retriever
 brew "wget"
+# Linter for YAML files
+brew "yamllint"
+# Download YouTube videos from the command-line
+brew "youtube-dl"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Free analytics DBMS for big data with SQL interface
+brew "altinity/clickhouse/clickhouse@22.3", link: true
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Application launcher and productivity software
@@ -109,6 +120,8 @@ cask "font-jetbrains-mono"
 cask "font-jetbrains-mono-nerd-font"
 # Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
 cask "font-sf-mono-for-powerline"
+# Displays all your GitLab activities in one place
+cask "gitdock"
 # Web browser
 cask "google-chrome"
 # iPhone management application
@@ -127,6 +140,7 @@ cask "krisp"
 cask "little-snitch"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Automatic time tracker
 cask "qbserve"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
@@ -142,18 +156,23 @@ cask "spotify"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Multimedia player
+cask "vlc"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Be Focused Pro", id: 961632517
 mas "ColorSlurp", id: 1287239339
 mas "Dark Noise", id: 1465439395
+mas "Drafts", id: 1435957248
 mas "GIPHY CAPTURE", id: 668208984
 mas "Hand Mirror", id: 1502839586
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
+mas "Journey", id: 1300202543
 mas "Keynote", id: 409183694
 mas "LanguageTool", id: 1534275760
 mas "Lungo", id: 1263070803
+mas "NordLayer", id: 1488888843
 mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541

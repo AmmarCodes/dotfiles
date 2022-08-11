@@ -74,6 +74,7 @@ set mouse=a
 set showtabline=2
 set scrolloff=8
 set sidescrolloff=8
+set timeoutlen=1000
 
 " Enable filetype plugins
 filetype plugin on
@@ -286,17 +287,10 @@ nmap <leader>gc :Git commit<cr>
 nmap <leader>gp :Git push<cr>
 nmap <leader>gs :Git status<cr>
 
-" vim-test shortcuts
+" neotest binding
 
-nmap <silent> <leader>tt :TestNearest<CR> " Mnemonic: test nearest (double t is faster)
-nmap <silent> <leader>tf :TestFile<CR>    " Mnemonic: test file
-nmap <silent> <leader>ts :TestSuite<CR>   " Mnemonic: test suite
-nmap <silent> <leader>tl :TestLast<CR>    " Mnemonic: test last
-nmap <silent> <leader>tv :TestVisit<CR>   " Mnemonic: test visit
-
-" vim-ultest stuff
-let g:ultest_use_pty = 1
-let g:ultest_running_sign = "⁖"
+nmap <silent> <leader>tt :lua require("neotest").run.run()<CR> " Mnemonic: test nearest (double t is faster)
+nmap <silent> <leader>tf :lua require("neotest").run.run(vim.fn.expand("%"))<CR>    " Mnemonic: test file
 
 nmap ]t <Plug>(ultest-next-fail)
 nmap [t <Plug>(ultest-prev-fail)
@@ -463,12 +457,10 @@ nnoremap <silent> <leader>p  :<C-u>CocList commands<cr>
 
 " Buffers
 nnoremap <c-b> :Buffers<cr>
-map <leader>bd :BD<cr>
-map <leader>bn :BF<cr>
-map <leader>bb :BB<cr>
-map <leader>b, :BA<cr>
+map <leader>bd :Bdelete<cr>
+map <leader>b, :b#<cr>
 " delete all buffers
-map <leader>ba :bufdo BD<cr>
+map <leader>ba :bufdo Bdelete<cr>
 " <Leader>b[1-9] move to buffer [1-9] source: https://github.com/liuchengxu/dotfiles/blob/b20342f6ad133f44ad1006865cf0e970c4c13625/vimrc#L88
 for s:i in range(1, 9)
   execute 'nnoremap <Leader>b' . s:i . ' :b' . s:i . '<CR>'

@@ -24,6 +24,7 @@
 		  [:!CTOSr [:launch "RubyMine"]]
 		  [:!CTOSf [:launch "Obsidian"]]
 		  [:!CTOSs [:launch "Slack"]]
+		  [:!CTOSn [:launch "Notes"]]
 		  ; [:!CTOSe [:launch "Evernote"]]
 		]
 	}
