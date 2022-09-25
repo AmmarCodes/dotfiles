@@ -35,7 +35,6 @@
 - create:
     - ~/.config/nvim/undodir
     - ~/.config/nvim/lua
-    - ~/.config/coc/ultisnips
     - ~/.config/bat/themes
     - ~/Library/Application Support/xbar
 

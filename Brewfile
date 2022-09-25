@@ -8,6 +8,8 @@ tap "homebrew/services"
 tap "yqrashawn/goku"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
+# Library for command-line editing
+brew "readline"
 # Command-line interface for SQLite
 brew "sqlite"
 # Shell extension to jump to frequently used directories
@@ -20,6 +22,8 @@ brew "pkg-config"
 brew "cmake"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Text processing system for reStructuredText
@@ -32,18 +36,24 @@ brew "dust"
 brew "exa"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU compiler collection
+brew "gcc"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Git extension for versioning large files
 brew "git-lfs"
+# Blazing fast terminal-ui for git written in rust
+brew "gitui"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Library access to GnuPG
@@ -56,12 +66,16 @@ brew "lazygit"
 brew "libav"
 # Conversion library
 brew "libiconv"
+# YAML Parser
+brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Trigger notifications when a process completes
 brew "noti"
+# ISO-C API and CLI for generating UUIDs
+brew "ossp-uuid"
 # Terminal multiplexer
 brew "tmux"
 # Process manager for Procfile-based applications and tmux
@@ -82,12 +96,18 @@ brew "runit"
 brew "teleport"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
+# Syntax-aware linter for prose
+brew "vale"
 # Internet file retriever
 brew "wget"
 # Linter for YAML files
 brew "yamllint"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
+# General-purpose lossless data-compression library
+brew "zlib"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
 # Free analytics DBMS for big data with SQL interface
@@ -112,11 +132,13 @@ cask "focus"
 cask "font-cascadia-code"
 # Version of Cascadia Code with embedded Powerline symbols
 cask "font-cascadia-code-pl"
+# Fork of the Cascadia Code typeface
 cask "font-caskaydia-cove-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
 # Typeface made for developers
 cask "font-jetbrains-mono"
+# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
 cask "font-sf-mono-for-powerline"
@@ -138,6 +160,8 @@ cask "kitty"
 cask "krisp"
 # Host-based application firewall
 cask "little-snitch"
+# Silence embarrassing notifications while screensharing
+cask "muzzle"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Automatic time tracker
@@ -148,6 +172,8 @@ cask "rectangle"
 cask "rocket"
 # Ruby on Rails IDE
 cask "rubymine"
+# Screenshot measurement and annotation tool
+cask "shottr"
 # Team communication and collaboration software
 cask "slack"
 # Music streaming service
@@ -156,6 +182,8 @@ cask "spotify"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Pomodoro desktop timer
+cask "tomighty"
 # Multimedia player
 cask "vlc"
 # View output from scripts in the menu bar
@@ -176,6 +204,7 @@ mas "NordLayer", id: 1488888843
 mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
+mas "Peek", id: 1554235898
 mas "Spark", id: 1176895641
 mas "TestFlight", id: 899247664
 mas "Todoist", id: 585829637

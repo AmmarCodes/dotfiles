@@ -11,13 +11,19 @@
 [status]
 	showUntrackedFiles = all
 [pager]
-	diff = delta #diff-so-fancy | less --tabs=4 -RFX
-	show = delta #diff-so-fancy | less --tabs=4 -RFX
+	diff = delta
+	show = delta
 [core]
 	# Use custom `.gitignore` and `.gitattributes`
 	excludesfile = ~/.gitignore
-	pager = delta # diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 	ignorecase = false
+[interactive]
+    diffFilter = delta --color-only --features=interactive
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [alias]
 	prune = fetch --prune
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -40,10 +46,6 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
-[diff-so-fancy]
-	useUnicodeRuler = true
-	changeHunkIndicators = true
-	stripLeadingSymbols = true
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
