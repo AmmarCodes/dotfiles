@@ -16,11 +16,6 @@
         force: true
         path: nvim/**
         relink: true
-    ~/.config/coc/ultisnips/:
-        glob: true
-        force: true
-        path: snippets/**
-        relink: true
     ~/.config/kitty/:
         glob: true
         force: true
@@ -33,8 +28,6 @@
         relink: true
 
 - create:
-    - ~/.config/nvim/undodir
-    - ~/.config/nvim/lua
     - ~/.config/bat/themes
     - ~/Library/Application Support/xbar
 
