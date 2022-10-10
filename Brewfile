@@ -188,6 +188,7 @@ cask "tomighty"
 cask "vlc"
 # View output from scripts in the menu bar
 cask "xbar"
+mas "Actions", id: 1586435171
 mas "Be Focused Pro", id: 961632517
 mas "ColorSlurp", id: 1287239339
 mas "Dark Noise", id: 1465439395

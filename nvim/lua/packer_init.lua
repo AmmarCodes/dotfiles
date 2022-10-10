@@ -84,8 +84,10 @@ return packer.startup(function(use)
 	-- Auto close html tags
 	use({ "windwp/nvim-ts-autotag", require = "nvim-treesitter/nvim-treesitter" })
 
-	-- Commenting
+	-- Better %
+	use("andymass/vim-matchup")
 
+	-- Commenting
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -127,8 +129,8 @@ return packer.startup(function(use)
 				},
 
 				italics = {
-					comments = false, -- Enable italic comments
-					keywords = false, -- Enable italic keywords
+					comments = true, -- Enable italic comments
+					keywords = true, -- Enable italic keywords
 					functions = false, -- Enable italic functions
 					strings = false, -- Enable italic strings
 					variables = false, -- Enable italic variables
@@ -202,10 +204,18 @@ return packer.startup(function(use)
 	})
 
 	use({
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			require("lsp_signature").setup({})
+		end,
+	})
+
+	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		event = { "BufRead", "BufNewFile" },
 		config = function()
 			local null_ls = require("null-ls")
+			local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 			require("null-ls").setup({
 				sources = {
 					null_ls.builtins.formatting.stylua,
@@ -213,20 +223,6 @@ return packer.startup(function(use)
 					null_ls.builtins.diagnostics.eslint,
 					null_ls.builtins.diagnostics.stylelint,
 				},
-				on_attach = function(client)
-					local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-					if client.server_capabilities.document_formatting then
-						vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-						vim.api.nvim_create_autocmd("BufWritePre", {
-							group = augroup,
-							buffer = bufnr,
-							callback = function()
-								-- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-								vim.lsp.buf.formatting_sync()
-							end,
-						})
-					end
-				end,
 			})
 		end,
 	})
@@ -389,6 +385,7 @@ return packer.startup(function(use)
 		"rmagatti/auto-session",
 		config = function()
 			require("auto-session").setup({
+				log_level = "error",
 				auto_session_suppress_dirs = { "~/", "~/Downloads", "~/.config/nvim", "/" },
 				auto_session_use_git_branch = true,
 			})
@@ -447,6 +444,23 @@ return packer.startup(function(use)
 					-- list of mode / prefixes that should never be hooked by WhichKey
 					i = { "j", "k" },
 					v = { "j", "k" },
+				},
+			})
+		end,
+	})
+
+	-- Open alternative file
+	use({
+		"rgroli/other.nvim",
+		config = function()
+			require("other-nvim").setup({
+				mappings = {
+					"rails",
+					{
+						pattern = "/app/(.*)/.*.js$",
+						target = "/spec/%1/",
+						transformer = "lowercase",
+					},
 				},
 			})
 		end,

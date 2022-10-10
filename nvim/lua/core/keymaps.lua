@@ -2,12 +2,12 @@
 -- Define keymaps of Neovim and installed plugins.
 -----------------------------------------------------------
 
-local function map(mode, lhs, rhs, opts)
-  local options = { noremap = true, silent = true }
-  if opts then
+local function map(mode, keymap, command, opts)
+	local options = { noremap = true, silent = true }
+	if opts then
 		options = vim.tbl_extend("force", options, opts)
-  end
-  vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+	end
+	vim.api.nvim_set_keymap(mode, keymap, command, options)
 end
 
 -- Change leader to a comma
@@ -43,7 +43,7 @@ map("n", "<leader>ec", ":e ~/.config/nvim/init.lua<CR>")
 map("n", "<leader>ep", ":e ~/.config/nvim/lua/packer_init.lua<CR>")
 
 -- yank file name / path
-map("n", "<leader>yf", ':let @*=expand("%")<CR>')
+map("n", "<leader>yrf", ':let @*=expand("%")<CR>')
 map("n", "<leader>yff", ':let @*=expand("%:p")<CR>')
 
 -- Bubbling lines
@@ -73,7 +73,7 @@ map("n", "<leader>s", ":Rg ") -- search for (start Rg)
 map("n", "<leader>ss", ":Rg <c-r><c-w><CR>") -- search for word under cursor
 
 map("n", "<leader>bd", ":Bdelete<CR>") -- delete current buffer
-map("n", "<leader>ba", ":Bwipeout<CR>") -- delete all buffer
+map("n", "<leader>ba", ":bufdo Bdelete<CR>") -- delete all buffer
 
 -- vim-visual-multi disable all mappings except ctrl-n
 vim.g.VM_default_mappings = 0
