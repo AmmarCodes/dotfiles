@@ -12,12 +12,16 @@ brew "openssl@1.1"
 brew "readline"
 # Command-line interface for SQLite
 brew "sqlite"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.10"
 # Shell extension to jump to frequently used directories
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Manage compile and link flags for libraries
 brew "pkg-config"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -40,6 +44,8 @@ brew "exiftool"
 brew "fd"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
+# OpenType text shaping engine
+brew "harfbuzz"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
@@ -98,6 +104,8 @@ brew "teleport"
 brew "tmuxinator"
 # Syntax-aware linter for prose
 brew "vale"
+# Secures, stores, and tightly controls access to secrets
+brew "vault"
 # Internet file retriever
 brew "wget"
 # Linter for YAML files

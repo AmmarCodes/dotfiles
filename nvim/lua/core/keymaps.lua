@@ -43,7 +43,7 @@ map("n", "<leader>ec", ":e ~/.config/nvim/init.lua<CR>")
 map("n", "<leader>ep", ":e ~/.config/nvim/lua/packer_init.lua<CR>")
 
 -- yank file name / path
-map("n", "<leader>yrf", ':let @*=expand("%")<CR>')
+map("n", "<leader>yfr", ':let @*=expand("%")<CR>')
 map("n", "<leader>yff", ':let @*=expand("%:p")<CR>')
 
 -- Bubbling lines
@@ -65,9 +65,12 @@ map("v", ">", ">gv")
 map("n", "<leader>t", ":NvimTreeToggle<CR>") -- open/close
 map("n", "<leader>sf", ":NvimTreeFindFile<CR>") -- show file in NvimTree
 
+-- telescope
+-- map("n", "<C-p>", ":Telescope find_files<CR>")
+map("n", "<C-b>", ":Telescope buffers<CR>")
 -- fzf
 map("n", "<C-p>", ":Files<CR>")
-map("n", "<C-b>", ":Buffers<CR>")
+-- map("n", "<C-b>", ":Buffers<CR>")
 
 map("n", "<leader>s", ":Rg ") -- search for (start Rg)
 map("n", "<leader>ss", ":Rg <c-r><c-w><CR>") -- search for word under cursor

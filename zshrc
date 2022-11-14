@@ -45,6 +45,7 @@ setopt append_history # Append history to the history file (no overwriting)
 setopt share_history # Share history across terminals
 setopt inc_append_history # Immediately append to the history file, not just when a term is killed
 setopt extended_glob # Use extended globbing syntax
+setopt HIST_IGNORE_SPACE # Prefix a command with space to exclude it from history
 
 
 setopt correct # autocorrect commands
@@ -197,8 +198,7 @@ eval "$(zoxide init zsh)"
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND="rg --files"
-export FZF_DEFAULT_OPTS=""
-# export FZF_DEFAULT_OPTS="--preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_OPTS="--layout=reverse --border --preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export BAT_THEME="Nord"
 # Gruvbox below
 # export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'

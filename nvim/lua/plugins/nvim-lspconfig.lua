@@ -41,7 +41,7 @@ vim.cmd([[
 -- Add additional capabilities supported by nvim-cmp
 -- See: https://github.com/neovim/nvim-lspconfig/wiki/Autocompletion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
 
 capabilities.textDocument.completion.completionItem.documentationFormat = { "markdown", "plaintext" }
 capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -131,7 +131,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 	-- buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-	-- buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+	buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 	navic.attach(client, bufnr)
 end

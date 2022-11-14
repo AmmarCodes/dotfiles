@@ -20,7 +20,7 @@ opt.undofile = true -- Enable undo file
 opt.timeoutlen = 400 -- update timeout, useful for which-key plugin
 opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
 opt.shell = "zsh" -- shell to use for `!`, `:!`, `system()` etc.
-opt.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
 
 -----------------------------------------------------------
 -- Neovim UI
@@ -69,7 +69,7 @@ opt.smartindent = true -- Autoindent new lines
 -----------------------------------------------------------
 opt.hidden = true -- Enable background buffers
 opt.history = 100 -- Remember N lines in history
-opt.lazyredraw = true -- Faster scrolling
+-- opt.lazyredraw = true -- Faster scrolling
 opt.synmaxcol = 240 -- Max column for syntax highlight
 opt.updatetime = 700 -- ms to wait for trigger an event
 
@@ -81,35 +81,35 @@ opt.shortmess:append("sI")
 
 -- -- Disable builtin plugins
 local disabled_built_ins = {
-   "2html_plugin",
-   "getscript",
-   "getscriptPlugin",
-   "gzip",
-   "logipat",
-   "netrw",
-   "netrwPlugin",
-   "netrwSettings",
-   "netrwFileHandlers",
-   "matchit",
-   "tar",
-   "tarPlugin",
-   "rrhelper",
-   "spellfile_plugin",
-   "vimball",
-   "vimballPlugin",
-   "zip",
-   "zipPlugin",
-   "tutor",
-   "rplugin",
-   "synmenu",
-   "optwin",
-   "compiler",
-   "bugreport",
-   "ftplugin",
+	"2html_plugin",
+	"getscript",
+	"getscriptPlugin",
+	"gzip",
+	"logipat",
+	"netrw",
+	"netrwPlugin",
+	"netrwSettings",
+	"netrwFileHandlers",
+	"matchit",
+	"tar",
+	"tarPlugin",
+	"rrhelper",
+	"spellfile_plugin",
+	"vimball",
+	"vimballPlugin",
+	"zip",
+	"zipPlugin",
+	"tutor",
+	"rplugin",
+	"synmenu",
+	"optwin",
+	"compiler",
+	"bugreport",
+	"ftplugin",
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-   g["loaded_" .. plugin] = 1
+	g["loaded_" .. plugin] = 1
 end
 
 -----------------------------------------------------------
