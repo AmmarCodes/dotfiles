@@ -32,6 +32,7 @@
 	cb = !sh -c 'git checkout $(git branch | fzf | tr -d "[:space:]")'
 	standup = !"git log --reverse --branches --since=yesterday --author=$(git config --get user.email) --format=format:'-%Creset %s' --date=local | grep -v 'Assets generate' | grep -v 'Merge'"
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+	affected = !sh -c 'git --no-pager diff --name-only $(git rev-parse HEAD) $(git rev-parse HEAD~1)'
 [gc]
 	autoDetach = false
 [color "diff-highlight"]
