@@ -67,7 +67,11 @@ map("n", "<leader>sf", ":NvimTreeFindFile<CR>") -- show file in NvimTree
 
 -- telescope
 -- map("n", "<C-p>", ":Telescope find_files<CR>")
-map("n", "<C-b>", ":Telescope buffers<CR>")
+map(
+	"n",
+	"<C-b>",
+	":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, only_cwd = true })<CR>"
+)
 -- fzf
 map("n", "<C-p>", ":Files<CR>")
 -- map("n", "<C-b>", ":Buffers<CR>")

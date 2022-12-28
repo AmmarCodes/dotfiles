@@ -9,102 +9,49 @@
 // <bitbar.abouturl>http://url-to-about.com/</bitbar.abouturl>
 
 import bitbar, { darkMode, separator } from "bitbar";
-import fetch from "node-fetch";
-import { writeFileSync, existsSync, readFileSync } from "fs";
 import { DateTime, Duration } from "luxon";
+import { Coordinates, CalculationMethod, PrayerTimes, Prayer } from "adhan";
 
-const ilceCode = 17866;
-const URL = `https://ezanvakti.herokuapp.com/vakitler?ilce=${ilceCode}`;
-const tmpFile = "./.prayer-data.json";
+const coordinates = new Coordinates(41.09798187627378, -331.20895385742193);
+const params = CalculationMethod.Turkey();
+const prayerTimes = new PrayerTimes(coordinates, new Date(), params);
+
 const bitbarItems = [];
 
-let json;
-let prayerData;
-
-const getDate = () => new Date().toJSON().slice(0, 10).replace(/-/g, "/");
-const writeToFile = (content) => {
-	const jsonContent = JSON.stringify(content, " ", 2);
-	writeFileSync(tmpFile, jsonContent, "utf8", (err) => {
-		if (err) {
-			console.error(
-				"Encountered an error while writing content to the temp file"
-			);
-		}
-	});
+const times = {
+	fajr: prayerTimes.fajr,
+	sunrise: prayerTimes.sunrise,
+	dhuhr: prayerTimes.dhuhr,
+	asr: prayerTimes.asr,
+	maghrib: prayerTimes.maghrib,
+	isha: prayerTimes.isha,
 };
 
-const sampleTmpFileContent = { date: "", data: {} };
+let remaining = null;
+let diffInSeconds = null;
+Object.keys(times).forEach((key) => {
+	const time = DateTime.fromJSDate(times[key]);
+	times[key] = time;
 
-// ensure tmp file exists
-if (!existsSync(tmpFile)) {
-	writeToFile(JSON.stringify(sampleTmpFileContent, " ", 2));
-}
+	const diff = time.diff(DateTime.local(), "seconds");
+	diffInSeconds = diff.values.seconds;
+	bitbarItems.push(key.padEnd(30) + time.toFormat("HH:mm"));
 
-// read tmp file content
-try {
-	json = JSON.parse(readFileSync(tmpFile));
-} catch (err) {
-	console.error(`Error encountered while reading ${tmpFile}`);
-}
+	if (!remaining && diffInSeconds > 0) {
+		remaining = diffInSeconds;
+	}
+});
 
-if (json.date === getDate()) {
-	// -- get json from file
-	prayerData = Object.keys(json.data).length ? json.data : null;
-}
+const remainingString = Duration.fromMillis(remaining * 1000).toFormat("hh:mm");
 
-if (!prayerData) {
-	// -- fetch new data
-	console.log("will fetch");
-	fetch(URL)
-		.then((res) => res.json())
-		.then((json) => {
-			// -- replace json and date in tmp file
-			const newTmpContent = { date: getDate(), data: json };
-			prayerData = json;
-			writeToFile(newTmpContent);
-			outputData();
-		});
-} else {
-	outputData();
-}
+const bitbarOutput = [
+	{
+		text: `🕌 ${remainingString}`,
+		color: diffInSeconds < 1800 ? "red" : darkMode ? "#ffffff" : "#333333",
+		dropdown: false,
+	},
+	separator,
+	...bitbarItems,
+];
 
-function outputData() {
-	const times = {
-		fajr: prayerData[0].Imsak,
-		dhuhr: prayerData[0].Ogle,
-		asr: prayerData[0].Ikindi,
-		maghrib: prayerData[0].Aksam,
-		isha: prayerData[0].Yatsi,
-	};
-
-	let remaining = null;
-	let diffInSeconds = null;
-	Object.keys(times).forEach((key) => {
-		const time = DateTime.fromISO(times[key]);
-		times[key] = time;
-
-		const diff = time.diff(DateTime.local(), "seconds");
-		diffInSeconds = diff.values.seconds;
-		bitbarItems.push(key.padEnd(20) + time.toFormat("HH:mm:ss"));
-
-		if (!remaining && diffInSeconds > 0) {
-			remaining = diffInSeconds;
-		}
-	});
-
-	const remainingString = Duration.fromMillis(remaining * 1000).toFormat(
-		"hh:mm"
-	);
-
-	const bitbarOutput = [
-		{
-			text: `🕌 ${remainingString}`,
-			color: diffInSeconds < 1800 ? "red" : darkMode ? "#fff" : "#aaaaaa",
-			dropdown: false,
-		},
-		separator,
-		...bitbarItems,
-	];
-
-	bitbar(bitbarOutput, { font: "IBM Plex Mono", size: "12" });
-}
+bitbar(bitbarOutput, { font: "Monaco", size: "12" });

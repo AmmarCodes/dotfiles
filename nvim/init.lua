@@ -21,3 +21,11 @@ require("plugins/mason")
 require("plugins/nvim-lspconfig")
 require("plugins/nvim-treesitter")
 require("plugins/alpha-nvim")
+
+vim.api.nvim_create_user_command("Fold", function()
+	-- Fold current buffer based on treesitter
+	-- https://www.jmaguire.tech/posts/treesitter_folding/
+	local opt = vim.opt
+	opt.foldmethod = "expr"
+	opt.foldexpr = "nvim_treesitter#foldexpr()"
+end, {})

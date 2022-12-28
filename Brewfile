@@ -1,3 +1,4 @@
+tap "1password/tap"
 tap "altinity/clickhouse"
 tap "candid82/brew"
 tap "homebrew/bundle"
@@ -5,6 +6,7 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "ttscoff/thelab"
 tap "yqrashawn/goku"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
@@ -58,14 +60,20 @@ brew "git"
 brew "git-delta"
 # Git extension for versioning large files
 brew "git-lfs"
+# Audit git repos for secrets
+brew "gitleaks"
 # Blazing fast terminal-ui for git written in rust
 brew "gitui"
+# Open-source GitLab command-line tool
+brew "glab"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Library access to GnuPG
 brew "gpgme"
 # Image processing tools collection
 brew "graphicsmagick"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Audio and video processing tools
@@ -94,6 +102,8 @@ brew "re2"
 brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Prevent committing secret keys into your source code
+brew "ripsecrets"
 # Install various Ruby versions and implementations
 brew "ruby-build"
 # Collection of tools for managing UNIX services
@@ -120,8 +130,12 @@ brew "zoxide"
 brew "zsh"
 # Free analytics DBMS for big data with SQL interface
 brew "altinity/clickhouse/clickhouse@22.3", link: true
+# Readability and Markdown utility for saving web urls and HTML text
+brew "ttscoff/thelab/gather-cli"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
+# Command-line helper for the 1Password password manager
+cask "1password-cli"
 # Application launcher and productivity software
 cask "alfred"
 # Menu bar icon organizer
@@ -140,7 +154,7 @@ cask "focus"
 cask "font-cascadia-code"
 # Version of Cascadia Code with embedded Powerline symbols
 cask "font-cascadia-code-pl"
-# Fork of the Cascadia Code typeface
+# Developer targeted fonts with a high number of glyphs
 cask "font-caskaydia-cove-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
@@ -197,9 +211,12 @@ cask "vlc"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Actions", id: 1586435171
+mas "AdGuard for Safari", id: 1440147259
 mas "Be Focused Pro", id: 961632517
+mas "Bear", id: 1091189122
 mas "ColorSlurp", id: 1287239339
 mas "Dark Noise", id: 1465439395
+mas "Day One", id: 1055511498
 mas "Drafts", id: 1435957248
 mas "GIPHY CAPTURE", id: 668208984
 mas "Hand Mirror", id: 1502839586
@@ -214,8 +231,7 @@ mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
 mas "Peek", id: 1554235898
-mas "Spark", id: 1176895641
-mas "TestFlight", id: 899247664
 mas "Todoist", id: 585829637
 mas "Tweetbot", id: 1384080005
 mas "Velja", id: 1607635845
+mas "Xcode", id: 497799835

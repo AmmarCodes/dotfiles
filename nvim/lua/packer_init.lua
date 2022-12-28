@@ -114,7 +114,8 @@ return packer.startup(function(use)
 
 	-- Color schemes
 	-- use("rmehri01/onenord.nvim")
-	use("shaunsingh/nord.nvim")
+	-- use("shaunsingh/nord.nvim")
+	use("neanias/everforest-nvim")
 	-- use({ "RRethy/nvim-base16" })
 	-- use({
 	-- 	"marko-cerovac/material.nvim",
@@ -191,6 +192,20 @@ return packer.startup(function(use)
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
+	})
+
+	use("onsails/lspkind.nvim")
+
+	use({
+		"weilbith/nvim-code-action-menu",
+		cmd = "CodeActionMenu",
+	})
+
+	use({
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("symbols-outline").setup()
+		end,
 	})
 
 	use({
@@ -483,6 +498,15 @@ return packer.startup(function(use)
 
 	-- editorconfig
 	use("gpanders/editorconfig.nvim")
+
+	-- markdown preview
+
+	use({
+		"iamcco/markdown-preview.nvim", -- markdown preview plugin for (neo)vim
+		run = function()
+			vim.fn["mkdp#util#install"]() -- install without yarn or npm
+		end,
+	})
 
 	-- Copy file location with current line
 	use({

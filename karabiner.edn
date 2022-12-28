@@ -19,6 +19,7 @@
 								 [:!!o [:launch "Obsidian"]]
 								 [:!!s [:launch "Slack"]]
 								 [:!!n [:launch "Notes"]]
+								 [:!!f [:launch "Firefox"]]
 								 [:!!p [:launch "Spark"]]
 								 [:!!k [:alfred "run" "iansinnott.keyboardmaestro"]]
 								 ]

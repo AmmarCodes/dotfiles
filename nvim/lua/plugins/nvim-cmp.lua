@@ -15,6 +15,8 @@ if not luasnip_status_ok then
 	return
 end
 
+local lspkind = require("lspkind")
+
 --- LuaSnip setup
 luasnip.config.set_config({
 	history = false, -- If true, Snippets that were exited can still be jumped back into.
@@ -82,5 +84,13 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "path" },
 		{ name = "buffer" },
+	},
+
+	formatting = {
+		format = lspkind.cmp_format({
+			mode = "symbol", -- show only symbol annotations
+			maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+			ellipsis_char = "...", -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+		}),
 	},
 })
