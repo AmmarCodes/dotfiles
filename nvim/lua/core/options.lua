@@ -17,6 +17,7 @@ opt.clipboard = "unnamedplus" -- Copy/paste to system clipboard
 opt.swapfile = false -- Don't use swapfile
 opt.completeopt = "menuone,noinsert,noselect" -- Autocomplete options
 opt.undofile = true -- Enable undo file
+opt.timeout = true
 opt.timeoutlen = 400 -- update timeout, useful for which-key plugin
 opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
 opt.shell = "zsh" -- shell to use for `!`, `:!`, `system()` etc.

@@ -32,6 +32,8 @@ brew "coreutils"
 brew "curl"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Pack, ship and run any application as a lightweight container
+brew "docker"
 # Text processing system for reStructuredText
 brew "docutils"
 # Debian package management system
@@ -162,6 +164,7 @@ cask "font-ia-writer-quattro"
 cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
+cask "font-noto-sans-arabic"
 # Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
 cask "font-sf-mono-for-powerline"
 # Displays all your GitLab activities in one place
@@ -219,6 +222,7 @@ mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "Drafts", id: 1435957248
 mas "GIPHY CAPTURE", id: 668208984
+mas "GoodNotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434

@@ -34,8 +34,8 @@ if [ -x "$(command -v pip3)" ]; then
 	pip3 install neovim --upgrade
 fi
 
-echo "Upgrading nvim plugins"
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' #nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
+# echo "Upgrading nvim plugins"
+# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' #nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
 
 if [ -x "$(command -v mas)" ]; then
 	echo "Upgrading Mac App Store apps"

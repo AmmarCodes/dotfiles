@@ -2,10 +2,10 @@
 -- Color schemes configuration file
 -----------------------------------------------------------
 
-local everforest_ok, everforest = pcall(require, "everforest")
-if everforest_ok then
-	vim.api.nvim_command("colorscheme everforest")
-end
+-- local everforest_ok, everforest = pcall(require, "everforest")
+-- if everforest_ok then
+-- 	vim.api.nvim_command("colorscheme everforest")
+-- end
 
 -- local onenord_ok, onenord = pcall(require, "onenord")
 -- if onenord_ok then
@@ -31,3 +31,5 @@ end
 -- if base16_ok then
 -- 	vim.api.nvim_command("colorscheme base16-gruvbox-material-dark-medium")
 -- end
+
+-- vim.cmd([[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]])
