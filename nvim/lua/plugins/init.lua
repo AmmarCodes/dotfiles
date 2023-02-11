@@ -1,11 +1,21 @@
 return {
+	-- {
+	-- 	"neanias/everforest-nvim",
+	-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
+	-- 	priority = 1000, -- make sure to load this before all the other start plugins
+	-- 	config = function()
+	-- 		vim.cmd([[colorscheme everforest]])
+	-- 		vim.cmd([[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]])
+	-- 	end,
+	-- },
 	{
-		"neanias/everforest-nvim",
+		"catppuccin/nvim",
+		name = "catppuccin",
 		lazy = false, -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
 		config = function()
-			vim.cmd([[colorscheme everforest]])
-			vim.cmd([[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]])
+			vim.cmd([[colorscheme catppuccin-frappe]])
+			-- vim.cmd([[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]])
 		end,
 	},
 	{
