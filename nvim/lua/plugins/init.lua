@@ -39,7 +39,7 @@ return {
 		dependencies = {
 			{ "junegunn/fzf", build = "./install --bin" },
 		},
-		cmd = { "Files" },
+		cmd = { "Files", "Rg" },
 	},
 	{
 		-- Better %
@@ -99,18 +99,18 @@ return {
 		"lewis6991/gitsigns.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
 		config = true,
-		lazy = true,
+		event = "BufReadPre",
 	},
 	{
 		-- Indentation detection
-		"Darazaki/indent-o-matic",
-		event = "BufReadPost",
-		config = function()
-			require("indent-o-matic").setup({})
-		end,
+		-- "Darazaki/indent-o-matic",
+		-- event = "BufReadPost",
+		-- config = function()
+		-- 	require("indent-o-matic").setup({})
+		-- end,
 	},
 	-- multi cursors / selection
-	{ "mg979/vim-visual-multi", lazy = true },
+	{ "mg979/vim-visual-multi" },
 	-- Improve nvim UI
 	{ "stevearc/dressing.nvim" },
 
@@ -188,4 +188,24 @@ return {
 	{ "j-hui/fidget.nvim", config = true, cmd = { "VeryLazy" } },
 	{ "tpope/vim-sleuth", lazy = true },
 	{ "williamboman/mason.nvim", cmd = "Mason", config = true },
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		dependencies = {
+			"MunifTanjim/nui.nvim",
+		},
+		opts = {
+			lsp = {
+				override = {
+					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+					["vim.lsp.util.stylize_markdown"] = true,
+				},
+			},
+			presets = {
+				bottom_search = true,
+				command_palette = true,
+				long_message_to_split = true,
+			},
+		},
+	},
 }

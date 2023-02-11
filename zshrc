@@ -114,6 +114,7 @@ export EDITOR="nvim"
 
 # Aliases
 alias zshconfig="vim ~/.zshrc"
+alias vimconfig="cd ~/.config/nvim && nvim"
 alias cat="bat"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="exa --icons"
@@ -219,6 +220,8 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # gruvbox
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
 
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
+
 if [ -f ~/.private_aliases ]; then
   source $HOME/.private_aliases
 fi
@@ -302,7 +305,7 @@ export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig:${PKG_CONFIG_PATH}
 # Added by GDK bootstrap
 export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --with-readline-dir=/opt/homebrew/opt/readline"
 
-source /Users/aalakkad/.config/op/plugins.sh
+# source /Users/aalakkad/.config/op/plugins.sh
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/aalakkad/.rd/bin:$PATH"

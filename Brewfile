@@ -8,8 +8,6 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@1.1"
 # Library for command-line editing
 brew "readline"
 # Command-line interface for SQLite
@@ -74,6 +72,8 @@ brew "gnupg"
 brew "gpgme"
 # Image processing tools collection
 brew "graphicsmagick"
+# Free Kerberos 5 implementation
+brew "heimdal"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Simple terminal UI for git commands
@@ -209,6 +209,8 @@ cask "tableplus"
 cask "telegram"
 # Pomodoro desktop timer
 cask "tomighty"
+# Run commands and display their output on the desktop
+cask "ubersicht"
 # Multimedia player
 cask "vlc"
 # View output from scripts in the menu bar

@@ -45,7 +45,7 @@ function M.config()
 		dashboard.button("f", "🔎 Find word", ":Rg<CR>"),
 		dashboard.button("r", "  Recent", ":History<CR>"),
 		dashboard.button("s", "  Settings", ":e $MYVIMRC<CR>"),
-		dashboard.button("u", "✅ Update plugins", ":PackerUpdate<CR>"),
+		dashboard.button("u", "✅ Update plugins", ":Lazy!sync<CR>"),
 		dashboard.button("q", "🛑 Quit", ":qa<CR>"),
 	}
 
