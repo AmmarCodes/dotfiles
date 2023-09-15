@@ -34,9 +34,6 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
--- Open configuration file
-map("n", "<leader>ec", ":e ~/.config/nvim/init.lua<CR>")
-
 -- yank file name / path
 map("n", "<leader>yfr", ':let @*=expand("%")<CR>', { desc = "Yank file relative path" })
 map("n", "<leader>yff", ':let @*=expand("%:p")<CR>', { desc = "Yank file full path" })
@@ -66,8 +63,8 @@ map("v", ">", ">gv")
 -----------------------------------------------------------
 
 -- NvimTree
-map("n", "<leader>t", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" }) -- open/close
-map("n", "<leader>sf", ":NvimTreeFindFile<CR>", { desc = "Show current file in NvimTree" }) -- show file in NvimTree
+map("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" }) -- open/close
+map("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Show current file in NvimTree" }) -- show file in NvimTree
 
 -- telescope
 -- map("n", "<C-p>", ":Telescope find_files<CR>")
@@ -80,11 +77,11 @@ map(
 map("n", "<C-p>", ":Files<CR>")
 -- map("n", "<C-b>", ":Buffers<CR>")
 
-map("n", "<leader>s", ":Rg ", { desc = "Search for something (using Rg)" }) -- search for (start Rg)
--- map("n", "<leader>ss", ":Rg <c-r><c-w><CR>") -- search for word under cursor
+map("n", "<leader>sw", ":Rg ", { desc = "Search for something (using Rg)" })
+map("n", "<leader>ss", ":Rg <c-r><c-w><CR>", { desc = "Search for current word under cursor" })
 
-map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" }) -- delete current buffer
-map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" }) -- delete all buffer
+map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" })
+map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" })
 
 -- vim-visual-multi disable all mappings except ctrl-n
 vim.g.VM_default_mappings = 0
@@ -101,30 +98,40 @@ map("n", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("n")<cr>')
 map("v", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>')
 
 -- phaazon/hop.nvim
-map(
-	"",
-	"f",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
-	{}
-)
-map(
-	"",
-	"F",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
-	{}
-)
-map(
-	"",
-	"t",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>",
-	{}
-)
-map(
-	"",
-	"T",
-	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
-	{}
-)
+-- map(
+-- 	"",
+-- 	"f",
+-- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
+-- 	{}
+-- )
+-- map(
+-- 	"",
+-- 	"F",
+-- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
+-- 	{}
+-- )
+-- map(
+-- 	"",
+-- 	"t",
+-- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>",
+-- 	{}
+-- )
+-- map(
+-- 	"",
+-- 	"T",
+-- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
+-- 	{}
+-- )
 
 -- Which-key
 -- map("n", "<Leader>", ":WhichKey\r<leader>") -- temporary until the plugin is fixed https://github.com/folke/which-key.nvim/issues/309
+
+-- Move to specific window, credits: https://www.reddit.com/r/neovim/comments/115dcvy/tip_jump_to_any_window_with_just_two_keystrokes/
+for i = 1, 6 do
+	local lhs = "<leader>" .. i
+	local rhs = i .. "<c-w>w"
+	vim.keymap.set("n", lhs, rhs, { desc = "Move to window " .. i })
+end
+
+-- Exit insert mode in Terminal
+map("t", "<C-o>", "<C-\\><C-n>")

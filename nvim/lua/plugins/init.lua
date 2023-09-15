@@ -19,6 +19,20 @@ return {
 		end,
 	},
 	{
+		"ellisonleao/gruvbox.nvim",
+		lazy = false,
+		priority = 1000,
+		enabled = false,
+		config = function()
+			require("gruvbox").setup({
+				-- invert_selection = true,
+				-- inverse = false,
+			})
+			-- vim.cmd([[background dark]])
+			vim.cmd([[colorscheme gruvbox]])
+		end,
+	},
+	{
 		-- Bufferline
 		"akinsho/bufferline.nvim",
 		dependencies = { "kyazdani42/nvim-web-devicons" },
@@ -133,16 +147,73 @@ return {
 	-- Motions
 	{
 		"phaazon/hop.nvim",
-		config = function()
-			-- you can configure Hop the way you like here; see :h hop-config
-			require("hop").setup({ keys = "etovxqpdygfblzhckisuran" })
-		end,
+		enabled = false,
+		-- you can configure Hop the way you like here; see :h hop-config
+		opts = { keys = "etovxqpdygfblzhckisuran" },
+	},
+	{
+		"folke/flash.nvim",
+		event = "VeryLazy",
+		opts = {
+			modes = {
+				search = {
+					-- when `true`, flash will be activated during regular search by default.
+					-- You can always toggle when searching with `require("flash").toggle()`
+					enabled = false,
+				},
+			},
+		},
+		keys = {
+			{
+				"s",
+				mode = { "n", "x", "o" },
+				function()
+					require("flash").jump()
+				end,
+				desc = "Flash",
+			},
+			{
+				"S",
+				mode = { "n", "o", "x" },
+				function()
+					require("flash").treesitter()
+				end,
+				desc = "Flash Treesitter",
+			},
+			{
+				"r",
+				mode = "o",
+				function()
+					require("flash").remote()
+				end,
+				desc = "Remote Flash",
+			},
+			{
+				"R",
+				mode = { "o", "x" },
+				function()
+					require("flash").treesitter_search()
+				end,
+				desc = "Flash Treesitter Search",
+			},
+			{
+				"<c-s>",
+				mode = { "c" },
+				function()
+					require("flash").toggle()
+				end,
+				desc = "Toggle Flash Search",
+			},
+		},
 	},
 
 	-- Projectionist
-	{ "tpope/vim-projectionist", lazy = true },
+	{ "tpope/vim-projectionist", event = "BufReadPre" },
 	-- They say this gives nicer notifications
-	{ "rcarriga/nvim-notify" },
+	{
+		"rcarriga/nvim-notify",
+		opts = { max_width = 50 },
+	},
 
 	-- editorconfig
 	{ "gpanders/editorconfig.nvim", event = "BufReadPre" },
@@ -166,28 +237,43 @@ return {
 	{
 		"ruifm/gitlinker.nvim",
 		dependencies = { "nvim-lua/plenary.nvim" },
-		config = function()
-			require("gitlinker").setup({ mappings = nil })
-		end,
+		opts = { mappings = nil },
 		lazy = true,
 	},
 	-- Session manager
 	{
 		"rmagatti/auto-session",
-		config = function()
-			require("auto-session").setup({
-				log_level = "error",
-				auto_session_suppress_dirs = { "~/", "~/Downloads", "~/.config/nvim", "/" },
-				auto_session_use_git_branch = true,
-			})
-		end,
+		opts = {
+			log_level = "error",
+			auto_session_suppress_dirs = { "~/", "~/Downloads", "~/.config/nvim", "/" },
+			auto_session_use_git_branch = true,
+		},
 	},
 	"SmiteshP/nvim-navic",
 	{ "folke/which-key.nvim", config = true, event = "VeryLazy" },
 	{ "dstein64/vim-startuptime", cmd = { "StartupTime" } },
 	{ "j-hui/fidget.nvim", config = true, cmd = { "VeryLazy" } },
 	{ "tpope/vim-sleuth", lazy = true },
-	{ "williamboman/mason.nvim", cmd = "Mason", config = true },
+	{
+		"williamboman/mason.nvim",
+		cmd = "Mason",
+		config = true,
+		opt = {
+			"luacheck",
+			"rubocop",
+			"ruby-lsp",
+			"vetur-vls",
+			"typescript-language-server",
+			"lua-language-server",
+			"bash-language-server",
+			"css-lsp",
+			"eslint-lsp",
+			"html-lsp",
+			"prettierd",
+			"stylelint-lsp",
+			"stylua",
+		},
+	},
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
@@ -195,17 +281,40 @@ return {
 			"MunifTanjim/nui.nvim",
 		},
 		opts = {
+			max_width = 50,
 			lsp = {
 				override = {
 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
 					["vim.lsp.util.stylize_markdown"] = true,
+					["cmp.entry.get_documentation"] = true,
 				},
+			},
+			popupmenu = {
+				enabled = false,
 			},
 			presets = {
 				bottom_search = true,
 				command_palette = true,
 				long_message_to_split = true,
+				inc_rename = false, -- enables an input dialog for inc-rename.nvim
+				lsp_doc_border = false, -- add a border to hover docs and signature help
 			},
 		},
 	},
+	{
+		"vim-test/vim-test",
+		cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
+		keys = {
+			{ "<leader>ta", "<cmd>TestSuite<cr>", desc = "Test suite" },
+			{ "<leader>tf", "<cmd>TestFile<cr>", desc = "Test file" },
+			{ "<leader>tt", "<cmd>TestNearest<cr>", desc = "Test nearest" },
+			{ "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
+		},
+		config = function()
+			vim.g["test#strategy"] = "neovim"
+			vim.g["test#neovim#start_normal"] = 1
+			vim.g["test#neovim#term_position"] = "vert botright"
+		end,
+	},
+	{ "akinsho/git-conflict.nvim", version = "*", config = true },
 }

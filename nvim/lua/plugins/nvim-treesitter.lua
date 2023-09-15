@@ -11,6 +11,7 @@ return {
 	event = "BufReadPost",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
+		"windwp/nvim-ts-autotag",
 	},
 	config = function()
 		require("nvim-treesitter.configs").setup({
@@ -61,6 +62,9 @@ return {
 				},
 			},
 			matchup = {
+				enable = true,
+			},
+			autotag = {
 				enable = true,
 			},
 		})

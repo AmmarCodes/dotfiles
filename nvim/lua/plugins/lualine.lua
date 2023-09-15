@@ -31,6 +31,7 @@ return {
 						"filename",
 						show_filename_only = false,
 						file_status = true,
+						path = 1,
 					},
 					{ navic.get_location, cond = navic.is_available },
 				},

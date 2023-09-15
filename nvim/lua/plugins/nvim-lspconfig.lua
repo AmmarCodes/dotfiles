@@ -136,19 +136,19 @@ function M.config()
 		buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 		buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 		-- buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-		buf_set_keymap("n", "<leader>f", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+		buf_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
 
 		navic.attach(client, bufnr)
 
 		require("mason-lspconfig").setup({
 			ensure_installed = {
-				"sumneko_lua",
+				"lua_ls",
 				"bashls",
 				"cssls",
 				"eslint",
 				"html",
 				"tsserver",
-				-- "solargraph",
+				"solargraph",
 				"stylelint_lsp",
 				"vuels",
 			},
@@ -182,7 +182,7 @@ function M.config()
 	-- Use a loop to conveniently call 'setup' on multiple servers and
 	-- map buffer local keybindings when the language server attaches.
 	-- Add your language server below:
-	local servers = { "solargraph", "bashls", "html", "cssls", "tsserver", "vuels", "sumneko_lua" }
+	local servers = { "solargraph", "bashls", "html", "cssls", "tsserver", "vuels", "lua_ls" }
 
 	local config = {
 		vuels = {
@@ -193,7 +193,7 @@ function M.config()
 			},
 		},
 
-		sumneko_lua = {
+		lua_ls = {
 			settings = {
 				Lua = {
 					diagnostics = {

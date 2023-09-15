@@ -14,5 +14,8 @@ return {
 		"kyazdani42/nvim-web-devicons",
 	},
 	cmd = "NvimTreeToggle",
-	config = true,
+	opts = {
+		hijack_cursor = true, -- keeps the cursor on the first letter of filename while navigating.
+		hijack_unnamed_buffer_when_opening = true, -- Opens in place of the unnamed buffer if it's empty
+	},
 }
