@@ -21,6 +21,8 @@
 								 [:!!n [:launch "Notes"]]
 								 [:!!f [:launch "Firefox"]]
 								 [:!!p [:launch "Spark"]]
+								 [:!!v [:launch "Visual Studio Code"]]
+								 [:!!w [:alfred "run" "aalakkad.openwebsite"]]
 								 [:!!k [:alfred "run" "iansinnott.keyboardmaestro"]]
 								 ]
 				 }
