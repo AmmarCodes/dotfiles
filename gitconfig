@@ -1,6 +1,6 @@
 [user]
 	name = Ammar Alakkad
-	email = aalakkad@gitlab.com
+	email = am.alakkad@gmail.com
 [color]
 	ui = true
 [push]
@@ -66,3 +66,9 @@
 	; minus-style = "syntax bold #ef5350"
 	; plus-style = "syntax bold #99b76d"
 	syntax-theme = Nord
+
+# The contents of this file are included only for GitLab.com URLs
+[includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
+
+path = ~/.gitconfig-gitlab
+
