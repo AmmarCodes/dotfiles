@@ -14,7 +14,7 @@
 				{
 				 :des "New launch mode"
 				 :rules [
-								 [:!!i [:launch "kitty"]]
+								 [:!!i [:launch "WezTerm"]]
 								 [:!!r [:launch "RubyMine"]]
 								 [:!!o [:launch "Obsidian"]]
 								 [:!!s [:launch "Slack"]]
