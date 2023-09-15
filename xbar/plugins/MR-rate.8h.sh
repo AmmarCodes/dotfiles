@@ -12,6 +12,4 @@ export PATH='/opt/homebrew/bin:/opt/homebrew/opt/coreutils/libexec/gnubin/:$PATH
 
 count=$(glab api "merge_requests?author_username=aalakkad&created_after=$(date -d "-1 month" +%Y-%m-%d)T00:00:00Z" | jq length)
 
-# echo $(glab api "merge_requests?author_username=aalakkad")
-
-echo "MRs: $count/10"
+echo "MRs: $count"
