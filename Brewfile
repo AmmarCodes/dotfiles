@@ -6,8 +6,11 @@ tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "jdxcode/tap"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@1.1"
 # Library for command-line editing
 brew "readline"
 # Command-line interface for SQLite
@@ -58,6 +61,8 @@ brew "gcc"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Quickly rewrite git repository history
+brew "git-filter-repo"
 # Git extension for versioning large files
 brew "git-lfs"
 # Audit git repos for secrets
@@ -74,20 +79,26 @@ brew "gpgme"
 brew "graphicsmagick"
 # Free Kerberos 5 implementation
 brew "heimdal"
+# Process manager for Procfile-based applications
+brew "hivemind"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Helps you navigate your file system faster by learning your habits
+brew "jump"
 # Simple terminal UI for git commands
 brew "lazygit"
-# Audio and video processing tools
-brew "libav"
 # Conversion library
 brew "libiconv"
+# Postgres C API library
+brew "libpq"
 # YAML Parser
 brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim", args: ["HEAD"]
+# Install NodeJS versions
+brew "node-build"
 # Trigger notifications when a process completes
 brew "noti"
 # ISO-C API and CLI for generating UUIDs
@@ -97,7 +108,7 @@ brew "tmux"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Object-relational database system
-brew "postgresql@10", restart_service: true
+brew "postgresql@12", restart_service: true
 # Alternative to backtracking PCRE-style regular expression engines
 brew "re2"
 # Persistent key-value database, with built-in net interface
@@ -132,6 +143,8 @@ brew "zoxide"
 brew "zsh"
 # Free analytics DBMS for big data with SQL interface
 brew "altinity/clickhouse/clickhouse@22.3", link: true
+# Multi-language runtime manager
+brew "jdxcode/tap/rtx"
 # Readability and Markdown utility for saving web urls and HTML text
 brew "ttscoff/thelab/gather-cli"
 # karabiner configurator
@@ -146,8 +159,12 @@ cask "bartender"
 cask "chromedriver"
 # Allows switching between application windows
 cask "contexts"
+# Calendar for professionals and teams
+cask "cron"
 # API documentation browser and code snippet manager
 cask "dash"
+# Utilities designed to make common development tasks easier
+cask "devtoys"
 # Screen color temperature controller
 cask "flux"
 # Website and application blocker
@@ -167,8 +184,6 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-noto-sans-arabic"
 # Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
 cask "font-sf-mono-for-powerline"
-# Displays all your GitLab activities in one place
-cask "gitdock"
 # Web browser
 cask "google-chrome"
 # iPhone management application
@@ -181,14 +196,12 @@ cask "karabiner-elements"
 cask "keyboard-maestro"
 # GPU-based terminal emulator
 cask "kitty"
-# Sound clear in online meetings
+# Noise cancelling application
 cask "krisp"
 # Host-based application firewall
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
-# Reverse proxy, secure introspectable tunnels to localhost
-cask "ngrok"
 # Automatic time tracker
 cask "qbserve"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -207,12 +220,16 @@ cask "spotify"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
+# Menu bar pomodoro timer
+cask "tomatobar"
 # Pomodoro desktop timer
 cask "tomighty"
 # Run commands and display their output on the desktop
 cask "ubersicht"
 # Multimedia player
 cask "vlc"
+# GPU-accelerated cross-platform terminal emulator and multiplexer
+cask "wezterm"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Actions", id: 1586435171
@@ -224,11 +241,11 @@ mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "Drafts", id: 1435957248
 mas "GIPHY CAPTURE", id: 668208984
-mas "GoodNotes", id: 1444383602
+mas "Goodnotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
+mas "HP Smart", id: 1474276998
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
-mas "Journey", id: 1300202543
 mas "Keynote", id: 409183694
 mas "LanguageTool", id: 1534275760
 mas "Lungo", id: 1263070803
@@ -238,6 +255,29 @@ mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
 mas "Peek", id: 1554235898
 mas "Todoist", id: 585829637
-mas "Tweetbot", id: 1384080005
 mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
+vscode "arcticicestudio.nord-visual-studio-code"
+vscode "castwide.solargraph"
+vscode "Catppuccin.catppuccin-vsc"
+vscode "christian-kohler.path-intellisense"
+vscode "dbaeumer.vscode-eslint"
+vscode "Equinusocio.vsc-community-material-theme"
+vscode "esbenp.prettier-vscode"
+vscode "formulahendry.auto-close-tag"
+vscode "formulahendry.auto-rename-tag"
+vscode "GitLab.gitlab-workflow"
+vscode "isudox.vscode-jetbrains-keybindings"
+vscode "jdinhlife.gruvbox"
+vscode "kaiwood.endwise"
+vscode "mikestead.dotenv"
+vscode "noku.rails-run-spec-vscode"
+vscode "Orta.vscode-jest"
+vscode "rebornix.ruby"
+vscode "Shopify.ruby-lsp"
+vscode "vayan.haml"
+vscode "vscodevim.vim"
+vscode "Vue.volar"
+vscode "Vue.vscode-typescript-vue-plugin"
+vscode "wingrunr21.vscode-ruby"
+vscode "yzhang.markdown-all-in-one"
