@@ -196,8 +196,6 @@ function search() {
   command ag --pager="less -iFMRSX" --color-path=34\;3 --color-line-number=35 --color-match=35\;1\;4 "$@"
 }
 
-eval "$(zoxide init zsh)"
-
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export FZF_DEFAULT_COMMAND="rg --files"
@@ -239,6 +237,8 @@ export PATH="/opt/homebrew/opt/python@3.9/libexec/bin:$PATH"
 export PKG_CONFIG_PATH="/opt/homebrew/opt/icu4c/lib/pkgconfig"
 
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
+export BROWSERSLIST_IGNORE_OLD_DATA=true
 
 set-window-title() {
   window_title="\e]0;${${PWD/#"$HOME"/~}/projects/p}\a"
@@ -312,3 +312,8 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --w
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/aalakkad/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+eval "$(zoxide init zsh)"
+
+eval "$(jump shell)"
+
