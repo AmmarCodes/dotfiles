@@ -5,9 +5,11 @@
 
 - link:
     ~/.gitconfig: gitconfig
+    ~/.gitconfig-gitlab: gitconfig-gitlab
     ~/.gitignore: gitignore
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
+    ~/.wezterm.lua: wezterm.lua
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/bat/themes/Material-Theme-Palenight.tmTheme: bat/themes/Material-Theme-Palenight.tmTheme
