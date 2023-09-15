@@ -6,12 +6,14 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # load asdf
-if [ -f ~/.asdf/asdf.sh ]; then
-  . ~/.asdf/asdf.sh
-fi
+# if [ -f ~/.asdf/asdf.sh ]; then
+#   . ~/.asdf/asdf.sh
+# fi
 
 # append asdf completions to fpath
-fpath=(${ASDF_DIR}/completions $fpath)
+# fpath=(${ASDF_DIR}/completions $fpath)
+
+eval "$(/opt/homebrew/bin/rtx activate zsh)"
 
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)
