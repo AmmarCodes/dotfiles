@@ -14,8 +14,6 @@ require("lazy_init")
 require("core/options")
 require("core/autocmds")
 require("core/keymaps")
-require("core/colors")
-require("core/statusline")
 
 vim.api.nvim_create_user_command("Fold", function()
 	-- Fold current buffer based on treesitter
