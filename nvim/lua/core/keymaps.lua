@@ -82,6 +82,7 @@ map("n", "<leader>ss", ":Rg <c-r><c-w><CR>", { desc = "Search for current word u
 
 map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" })
 map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" })
+map("n", "<leader>bo", ":%bd | e#<CR>", { desc = "Delete other buffers" })
 
 -- vim-visual-multi disable all mappings except ctrl-n
 vim.g.VM_default_mappings = 0
