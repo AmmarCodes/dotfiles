@@ -8,7 +8,8 @@
 return {
 	"nvim-treesitter/nvim-treesitter",
 	build = ":TSUpdate",
-	event = "BufReadPost",
+	event = "VeryLazy",
+	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"windwp/nvim-ts-autotag",
@@ -46,7 +47,7 @@ return {
 			sync_install = false,
 			auto_install = false,
 			highlight = { enable = true },
-			indent = { enable = false },
+			indent = { enable = true },
 			context_commentstring = { enable = true, enable_autocmd = false },
 			textobjects = {
 				select = {

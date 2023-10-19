@@ -1,13 +1,4 @@
 return {
-	-- {
-	-- 	"neanias/everforest-nvim",
-	-- 	lazy = false, -- make sure we load this during startup if it is your main colorscheme
-	-- 	priority = 1000, -- make sure to load this before all the other start plugins
-	-- 	config = function()
-	-- 		vim.cmd([[colorscheme everforest]])
-	-- 		vim.cmd([[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]])
-	-- 	end,
-	-- },
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -123,8 +114,19 @@ return {
 	},
 	{
 		"windwp/nvim-autopairs",
-		config = true,
-		lazy = true,
+		event = "InsertEnter",
+		config = function()
+			local npairs = require("nvim-autopairs")
+			local Rule = require("nvim-autopairs.rule")
+			local ts_conds = require("nvim-autopairs.ts-conds")
+
+			npairs.setup({
+				check_ts = true,
+			})
+			npairs.add_rules({
+				Rule("{{", "  }", "vue"):set_end_pair_length(2):with_pair(ts_conds.is_ts_node("text")),
+			})
+		end,
 	},
 	{
 		--  Add/change/delete surrounding delimiter pairs with ease.
@@ -138,21 +140,13 @@ return {
 		config = true,
 		event = "BufReadPre",
 	},
-	{
-		-- Indentation detection
-		-- "Darazaki/indent-o-matic",
-		-- event = "BufReadPost",
-		-- config = function()
-		-- 	require("indent-o-matic").setup({})
-		-- end,
-	},
 	-- multi cursors / selection
 	{ "mg979/vim-visual-multi" },
 	-- Improve nvim UI
 	{ "stevearc/dressing.nvim" },
 
 	-- Tmux navigator
-	{ "christoomey/vim-tmux-navigator", lazy = true },
+	{ "christoomey/vim-tmux-navigator", lazy = true, event = "BufReadPost" },
 
 	-- Highlight current word uses
 	{
@@ -165,15 +159,9 @@ return {
 	},
 
 	-- Automatic lists
-	{ "dkarter/bullets.vim", lazy = true },
+	{ "dkarter/bullets.vim" },
 
 	-- Motions
-	{
-		"phaazon/hop.nvim",
-		enabled = false,
-		-- you can configure Hop the way you like here; see :h hop-config
-		opts = { keys = "etovxqpdygfblzhckisuran" },
-	},
 	{
 		"folke/flash.nvim",
 		event = "VeryLazy",
@@ -232,11 +220,6 @@ return {
 
 	-- Projectionist
 	{ "tpope/vim-projectionist", event = "BufReadPre" },
-	-- They say this gives nicer notifications
-	{
-		"rcarriga/nvim-notify",
-		opts = { max_width = 50 },
-	},
 
 	-- editorconfig
 	{ "gpanders/editorconfig.nvim", event = "BufReadPre" },
@@ -248,6 +231,7 @@ return {
 			vim.fn["mkdp#util#install"]() -- install without yarn or npm
 		end,
 		cmd = { "MarkdownPreview" },
+		lazy = true,
 	},
 
 	-- Copy file location with current line
@@ -276,7 +260,7 @@ return {
 	{ "folke/which-key.nvim", config = true, event = "VeryLazy" },
 	{ "dstein64/vim-startuptime", cmd = { "StartupTime" } },
 	{ "j-hui/fidget.nvim", config = true, cmd = { "VeryLazy" } },
-	{ "tpope/vim-sleuth", lazy = true },
+	{ "tpope/vim-sleuth", event = "VeryLazy" },
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
@@ -340,4 +324,9 @@ return {
 		end,
 	},
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
+	{
+		"folke/todo-comments.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		config = true,
+	},
 }
