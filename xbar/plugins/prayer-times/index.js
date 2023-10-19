@@ -12,7 +12,7 @@ import bitbar, { darkMode, separator } from "bitbar";
 import { DateTime, Duration } from "luxon";
 import { Coordinates, CalculationMethod, PrayerTimes, Prayer } from "adhan";
 
-const coordinates = new Coordinates(41.09798187627378, -331.20895385742193);
+const coordinates = new Coordinates(41.09798187627378, 28.7729281);
 const params = CalculationMethod.Turkey();
 const prayerTimes = new PrayerTimes(coordinates, new Date(), params);
 
