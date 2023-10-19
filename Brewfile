@@ -2,11 +2,10 @@ tap "1password/tap"
 tap "altinity/clickhouse"
 tap "candid82/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "jdxcode/tap"
+tap "oven-sh/bun"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
 # Cryptography and SSL/TLS Toolkit
@@ -23,8 +22,6 @@ brew "autojump"
 brew "bat"
 # Manage compile and link flags for libraries
 brew "pkg-config"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.9"
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -96,7 +93,7 @@ brew "libyaml"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -109,6 +106,10 @@ brew "tmux"
 brew "overmind"
 # Object-relational database system
 brew "postgresql@12", restart_service: true
+# Object-relational database system
+brew "postgresql@13"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.9"
 # Alternative to backtracking PCRE-style regular expression engines
 brew "re2"
 # Persistent key-value database, with built-in net interface
@@ -149,12 +150,14 @@ brew "jdxcode/tap/rtx"
 brew "ttscoff/thelab/gather-cli"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
-# Command-line helper for the 1Password password manager
+# Command-line interface for 1Password
 cask "1password-cli"
 # Application launcher and productivity software
 cask "alfred"
 # Menu bar icon organizer
 cask "bartender"
+# Display management tool
+cask "betterdisplay"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
 # Allows switching between application windows
@@ -194,6 +197,8 @@ cask "istat-menus"
 cask "karabiner-elements"
 # Automation software
 cask "keyboard-maestro"
+# Open-source keystroke visualizer
+cask "keycastr"
 # GPU-based terminal emulator
 cask "kitty"
 # Noise cancelling application
@@ -220,8 +225,6 @@ cask "spotify"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
-# Menu bar pomodoro timer
-cask "tomatobar"
 # Pomodoro desktop timer
 cask "tomighty"
 # Run commands and display their output on the desktop
@@ -254,6 +257,7 @@ mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
 mas "Peek", id: 1554235898
+mas "Session", id: 1521432881
 mas "Todoist", id: 585829637
 mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
@@ -272,6 +276,7 @@ vscode "jdinhlife.gruvbox"
 vscode "kaiwood.endwise"
 vscode "mikestead.dotenv"
 vscode "noku.rails-run-spec-vscode"
+vscode "octref.vetur"
 vscode "Orta.vscode-jest"
 vscode "rebornix.ruby"
 vscode "Shopify.ruby-lsp"
