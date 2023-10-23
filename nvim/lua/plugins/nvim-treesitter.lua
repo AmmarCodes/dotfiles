@@ -7,6 +7,7 @@
 
 return {
 	"nvim-treesitter/nvim-treesitter",
+	version = false,
 	build = ":TSUpdate",
 	event = "VeryLazy",
 	cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
@@ -51,14 +52,17 @@ return {
 			context_commentstring = { enable = true, enable_autocmd = false },
 			textobjects = {
 				select = {
-					enable = false,
+					enable = true,
 					lookahead = true,
 					keymaps = {
 						-- You can use the capture groups defined in textobjects.scm
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = "@class.inner",
+						["af"] = { query = "@function.outer", desc = "outer" },
+						["if"] = { query = "@function.inner", desc = "function inner" },
+						["ab"] = { query = "@block.outer", desc = "block outer" },
+						["ib"] = { query = "@block.inner", desc = "block inner" },
+						["ac"] = { query = "@class.outer", desc = "outer class" },
+						["ic"] = { query = "@class.inner", desc = "inner class" },
+						["as"] = { query = "@scope", desc = "Select language scope" },
 					},
 				},
 			},
