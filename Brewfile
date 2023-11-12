@@ -22,6 +22,8 @@ brew "autojump"
 brew "bat"
 # Manage compile and link flags for libraries
 brew "pkg-config"
+# Free analytics DBMS for big data with SQL interface
+brew "clickhouse@22.3", link: true
 # Cross-platform make
 brew "cmake"
 # GNU File, Shell, and Text utilities
@@ -142,8 +144,6 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Free analytics DBMS for big data with SQL interface
-brew "altinity/clickhouse/clickhouse@22.3", link: true
 # Multi-language runtime manager
 brew "jdxcode/tap/rtx"
 # Readability and Markdown utility for saving web urls and HTML text
@@ -184,6 +184,8 @@ cask "font-ia-writer-quattro"
 cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
+# Superfamily of fonts for code
+cask "font-monaspace"
 cask "font-noto-sans-arabic"
 # Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
 cask "font-sf-mono-for-powerline"
