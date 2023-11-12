@@ -7,20 +7,19 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = "Catppuccin Frappe"
+config.color_scheme = "Catppuccin Latte"
+config.colors = { background = "#FFFFFF" }
 config.hide_tab_bar_if_only_one_tab = true
-config.font = wezterm.font({ family = "CaskaydiaCove Nerd Font Mono", harfbuzz_features = { "calt", "ss01", "ss02" } })
+config.font = wezterm.font("Monaspace Neon", { weight = "Regular" })
+config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" }
 
 config.font_rules = {
 	{
-		intensity = "Half",
-		font = wezterm.font_with_fallback({
-			family = "CaskaydiaCove Nerd Font Mono",
-			weight = "SemiLight",
-		}),
+		italic = true,
+		font = wezterm.font("Monaspace Radon", { weight = "Medium" }),
 	},
 }
-config.font_size = 15
+config.font_size = 14
 config.line_height = 1.5
 config.window_decorations = "RESIZE"
 config.window_padding = {
@@ -33,7 +32,7 @@ config.adjust_window_size_when_changing_font_size = false
 config.window_close_confirmation = "NeverPrompt"
 
 -- maximize window on start
-wezterm.on("gui-attached", function(domain)
+wezterm.on("gui-attached", function()
 	-- maximize all displayed windows on startup
 	local workspace = mux.get_active_workspace()
 	for _, window in ipairs(mux.all_windows()) do
