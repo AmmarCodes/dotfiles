@@ -71,14 +71,19 @@ map("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Show current file in N
 map(
 	"n",
 	"<C-b>",
-	":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, only_cwd = true })<CR>"
+	":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, only_cwd = true })<CR>",
+	{ desc = "Find current buffers" }
 )
 -- fzf
-map("n", "<C-p>", ":Files<CR>")
+map("n", "<C-p>", require("telescope.builtin").find_files, { desc = "Find files" })
+-- map("n", "<C-b>", require("telescope.builtin").buffers, { desc = "Find current buffers" })
+-- map("n", "<C-p>", ":Files<CR>")
 -- map("n", "<C-b>", ":Buffers<CR>")
 
-map("n", "<leader>sw", ":Rg ", { desc = "Search for something (using Rg)" })
-map("n", "<leader>ss", ":Rg <c-r><c-w><CR>", { desc = "Search for current word under cursor" })
+-- map("n", "<leader>sw", ":Rg ", { desc = "Search for something (using Rg)" })
+-- map("n", "<leader>ss", ":Rg <c-r><c-w><CR>", { desc = "Search for current word under cursor" })
+map("n", "<leader>sw", require("telescope.builtin").live_grep, { desc = "Search for something (using Rg)" })
+map("n", "<leader>ss", require("telescope.builtin").grep_string, { desc = "Search for current word under cursor" })
 
 map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" })
 map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" })
@@ -88,34 +93,18 @@ map("n", "<leader>bo", ":%bd | e#<CR>", { desc = "Delete other buffers" })
 vim.g.VM_default_mappings = 0
 
 -- ruifm/gitlinker.nvim
-map("n", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("n")<cr>')
-map("v", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>')
-
--- phaazon/hop.nvim
--- map(
--- 	"",
--- 	"f",
--- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true })<cr>",
--- 	{}
--- )
--- map(
--- 	"",
--- 	"F",
--- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true })<cr>",
--- 	{}
--- )
--- map(
--- 	"",
--- 	"t",
--- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.AFTER_CURSOR, current_line_only = true, hint_offset = -1 })<cr>",
--- 	{}
--- )
--- map(
--- 	"",
--- 	"T",
--- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
--- 	{}
--- )
+map(
+	"n",
+	"<leader>rl",
+	':lua require"gitlinker".get_buf_range_url("n")<cr>',
+	{ desc = "Copy remote git link of the current file" }
+)
+map(
+	"v",
+	"<leader>rl",
+	':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>',
+	{ desc = "Copy remote git link of the current selection" }
+)
 
 -- Move to specific window, credits: https://www.reddit.com/r/neovim/comments/115dcvy/tip_jump_to_any_window_with_just_two_keystrokes/
 for i = 1, 6 do
