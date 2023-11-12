@@ -87,13 +87,6 @@ map("n", "<leader>bo", ":%bd | e#<CR>", { desc = "Delete other buffers" })
 -- vim-visual-multi disable all mappings except ctrl-n
 vim.g.VM_default_mappings = 0
 
--- ruanyl/vim-gh-line
--- vim.g.gh_line_map_default = 0
--- vim.g.gh_line_blame_map_default = 0
---
--- vim.g.gh_line_map = "<leader>rl" -- remote link
--- vim.g.gh_line_blame_map = "<leader>rb" -- remote blame
-
 -- ruifm/gitlinker.nvim
 map("n", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("n")<cr>')
 map("v", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>')
@@ -123,9 +116,6 @@ map("v", "<leader>rl", ':lua require"gitlinker".get_buf_range_url("v", {silent =
 -- 	"<cmd>lua require'hop'.hint_char1({ direction = require'hop.hint'.HintDirection.BEFORE_CURSOR, current_line_only = true, hint_offset = 1 })<cr>",
 -- 	{}
 -- )
-
--- Which-key
--- map("n", "<Leader>", ":WhichKey\r<leader>") -- temporary until the plugin is fixed https://github.com/folke/which-key.nvim/issues/309
 
 -- Move to specific window, credits: https://www.reddit.com/r/neovim/comments/115dcvy/tip_jump_to_any_window_with_just_two_keystrokes/
 for i = 1, 6 do

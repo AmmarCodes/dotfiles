@@ -10,7 +10,6 @@ vim.g.maplocalleader = ","
 
 -- Import Lua modules
 require("lazy_init")
--- require("packer_init")
 require("core/options")
 require("core/autocmds")
 require("core/keymaps")

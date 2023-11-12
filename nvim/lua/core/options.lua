@@ -112,7 +112,3 @@ local disabled_built_ins = {
 for _, plugin in pairs(disabled_built_ins) do
 	g["loaded_" .. plugin] = 1
 end
-
------------------------------------------------------------
--- Plugins
------------------------------------------------------------
