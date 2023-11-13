@@ -173,7 +173,12 @@ return {
 	},
 
 	-- Automatic lists
-	{ "dkarter/bullets.vim" },
+	{
+		"dkarter/bullets.vim",
+		config = function()
+			vim.g["bullets_set_mappings"] = 0
+		end,
+	},
 
 	-- Motions
 	{
@@ -271,7 +276,43 @@ return {
 		},
 	},
 	"SmiteshP/nvim-navic",
-	{ "folke/which-key.nvim", config = true, event = "VeryLazy" },
+	{
+		"folke/which-key.nvim",
+		event = "VeryLazy",
+		init = function()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+		end,
+		config = function(_, opts)
+			local wk = require("which-key")
+			wk.register({
+				["<leader>"] = {
+					l = {
+						name = "LSP",
+						n = {
+							require("illuminate").goto_prev_reference,
+							"Jump to next occurance of symbol under cursor",
+						},
+						b = {
+							require("illuminate").goto_prev_reference,
+							"Jump to previous occurance of symbol under cursor",
+						},
+					},
+					y = {
+						name = "Yank",
+						r = { name = "Remote link" },
+						f = { name = "File" },
+					},
+					t = {
+						name = "Test",
+					},
+					s = { name = "Search" },
+					e = { name = "NvimTree" },
+					b = { name = "Buffers" },
+				},
+			}, opts)
+		end,
+	},
 	{ "dstein64/vim-startuptime", cmd = { "StartupTime" } },
 	{ "j-hui/fidget.nvim", config = true, cmd = { "VeryLazy" } },
 	{ "tpope/vim-sleuth", event = "VeryLazy" },

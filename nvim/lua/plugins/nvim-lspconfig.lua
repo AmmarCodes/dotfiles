@@ -136,7 +136,12 @@ function M.config()
 		buf_set_keymap("n", "[d", "<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>", opts)
 		buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
 		-- buf_set_keymap("n", "<leader>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
-		buf_set_keymap("n", "<leader>p", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+		buf_set_keymap(
+			"n",
+			"<leader>p",
+			"<cmd>lua vim.lsp.buf.format()<CR>",
+			vim.tbl_deep_extend("keep", opts, { desc = "Format document using LSP" })
+		)
 
 		navic.attach(client, bufnr)
 

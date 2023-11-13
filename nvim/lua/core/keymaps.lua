@@ -95,13 +95,13 @@ vim.g.VM_default_mappings = 0
 -- ruifm/gitlinker.nvim
 map(
 	"n",
-	"<leader>rl",
+	"<leader>yrl",
 	':lua require"gitlinker".get_buf_range_url("n")<cr>',
 	{ desc = "Copy remote git link of the current file" }
 )
 map(
 	"v",
-	"<leader>rl",
+	"<leader>yrl",
 	':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>',
 	{ desc = "Copy remote git link of the current selection" }
 )
@@ -115,3 +115,17 @@ end
 
 -- Exit insert mode in Terminal
 map("t", "<C-o>", "<C-\\><C-n>")
+
+-- map(
+-- 	"n",
+-- 	"<leader>ln",
+-- 	require("illuminate").goto_next_reference,
+-- 	{ desc = "Jump to next occurance of symbol under cursor" }
+-- )
+--
+-- map(
+-- 	"n",
+-- 	"<leader>lb",
+-- 	require("illuminate").goto_prev_reference,
+-- 	{ desc = "Jump to previous occurance of symbol under cursor" }
+-- )
