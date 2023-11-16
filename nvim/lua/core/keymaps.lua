@@ -66,28 +66,16 @@ map("v", ">", ">gv")
 map("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" }) -- open/close
 map("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Show current file in NvimTree" }) -- show file in NvimTree
 
--- telescope
--- map("n", "<C-p>", ":Telescope find_files<CR>")
-map(
-	"n",
-	"<C-b>",
-	":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, only_cwd = true })<CR>",
-	{ desc = "Find current buffers" }
-)
--- fzf
-map("n", "<C-p>", require("telescope.builtin").find_files, { desc = "Find files" })
--- map("n", "<C-b>", require("telescope.builtin").buffers, { desc = "Find current buffers" })
--- map("n", "<C-p>", ":Files<CR>")
--- map("n", "<C-b>", ":Buffers<CR>")
+-- fzf-lua
+map("n", "<C-p>", require("fzf-lua").files, { desc = "Find files" })
+map("n", "<C-b>", require("fzf-lua").buffers, { desc = "Find current buffers" })
 
--- map("n", "<leader>sw", ":Rg ", { desc = "Search for something (using Rg)" })
--- map("n", "<leader>ss", ":Rg <c-r><c-w><CR>", { desc = "Search for current word under cursor" })
-map("n", "<leader>sw", require("telescope.builtin").live_grep, { desc = "Search for something (using Rg)" })
-map("n", "<leader>ss", require("telescope.builtin").grep_string, { desc = "Search for current word under cursor" })
+map("n", "<leader>sw", require("fzf-lua").grep, { desc = "Search for something (using Rg)" })
+map("n", "<leader>ss", require("fzf-lua").grep_cword, { desc = "Search for current word under cursor" })
 
 map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" })
 map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" })
-map("n", "<leader>bo", ":%bd | e#<CR>", { desc = "Delete other buffers" })
+map("n", "<leader>bo", '<cmd>%bdelete | e# | normal `"<CR>', { desc = "Delete other buffers" })
 
 -- vim-visual-multi disable all mappings except ctrl-n
 vim.g.VM_default_mappings = 0

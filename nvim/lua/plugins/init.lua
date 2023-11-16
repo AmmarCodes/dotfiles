@@ -17,7 +17,6 @@ return {
 					mason = true,
 					notify = true,
 					nvimtree = true,
-					telescope = true,
 					gitsigns = true,
 				},
 				color_overrides = {
@@ -63,11 +62,25 @@ return {
 		cmd = { "Bdelete", "Bwipeout" },
 	},
 	{
-		"junegunn/fzf.vim",
-		dependencies = {
-			{ "junegunn/fzf", build = "./install --bin" },
-		},
-		cmd = { "Files", "Rg" },
+		"ibhagwan/fzf-lua",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			local actions = require("fzf-lua.actions")
+			require("fzf-lua").setup({
+				actions = {
+					files = {
+						-- instead of the default action 'actions.file_edit_or_qf'
+						-- it's important to define all other actions here as this
+						-- table does not get merged with the global defaults
+						["default"] = actions.file_edit,
+						["ctrl-s"] = actions.file_split,
+						["ctrl-v"] = actions.file_vsplit,
+						["ctrl-t"] = actions.file_tabedit,
+						["alt-q"] = actions.file_sel_to_qf,
+					},
+				},
+			})
+		end,
 	},
 	{
 		-- Better %
@@ -373,7 +386,7 @@ return {
 			{ "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
 		},
 		config = function()
-			vim.g["test#strategy"] = "neovim"
+			vim.g["test#strategy"] = "neovim_sticky"
 			vim.g["test#neovim#start_normal"] = 1
 			vim.g["test#neovim#term_position"] = "vert botright"
 		end,
