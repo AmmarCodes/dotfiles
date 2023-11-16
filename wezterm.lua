@@ -10,7 +10,7 @@ local config = wezterm.config_builder()
 config.color_scheme = "Catppuccin Latte"
 config.colors = { background = "#FFFFFF" }
 config.hide_tab_bar_if_only_one_tab = true
-config.font = wezterm.font("Monaspace Neon", { weight = "Regular" })
+config.font = wezterm.font("Monaspace Neon", { weight = "Medium" })
 config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" }
 
 config.font_rules = {
