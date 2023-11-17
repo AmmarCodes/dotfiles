@@ -1,53 +1,68 @@
 {
- :templates {
-						 :alfred "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
-						 :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
-						 :launch "open -a '%s'"
-						 }
- :devices {
-					 :macbookpro [{:product_id 835 :vendor_id 1452}]
-					 :magickeyboard [{:product_id 615 :vendor_id 76}]
-					 :ergodox [{:product_id 4871 :vendor_id 65261}]
-					 :mxmini [{:product_id 45929 :vendor_id 1133}]
-					 }
- :main [
-				{
-				 :des "New launch mode"
-				 :rules [
-								 [:!!i [:launch "WezTerm"]]
-								 [:!!r [:launch "RubyMine"]]
-								 [:!!o [:launch "Obsidian"]]
-								 [:!!s [:launch "Slack"]]
-								 [:!!n [:launch "Notes"]]
-								 [:!!f [:launch "Firefox"]]
-								 [:!!p [:launch "Spark"]]
-								 [:!!v [:launch "Visual Studio Code"]]
-								 [:!!w [:alfred "run" "aalakkad.openwebsite"]]
-								 [:!!k [:alfred "run" "iansinnott.keyboardmaestro"]]
-								 ]
-				 }
-				{
-				 :des "Swap fn and left_control"
-				 :rules [
-								 [:##fn :##left_control :macbookpro]
-								 [:##left_control :##fn :macbookpro]
-								 [:##fn :##left_control :magickeyboard]
-								 [:##left_control :##fn :magickeyboard]
-								 ]
-				 }
-				{
-				 :des "Swap non_us_backslash and grave_accent_and_tilde"
-				 :rules [
-								 [:##grave_accent_and_tilde :##non_us_backslash :macbookpro]
-								 [:##non_us_backslash :##grave_accent_and_tilde :macbookpro]
-								 [:##grave_accent_and_tilde :##non_us_backslash :mxmini]
-								 [:##non_us_backslash :##grave_accent_and_tilde :mxmini]
-								 ]
-				 }
-				{
-				 :des "Apple keyboards caps_lock to Hyperkey"
-				 :rules [[:##caps_lock :!CTOleft_shift nil {:alone :escape}]]
-				 }
-				]
- }
+	:templates {
+		:alfred "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
+		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
+		:launch "open -a '%s'"
+	}
+	:devices {
+		:macbookpro [{:product_id 835 :vendor_id 1452}]
+		:magickeyboard [{:product_id 615 :vendor_id 76}]
+		:ergodox [{:product_id 4871 :vendor_id 65261}]
+		:mxmini [{:product_id 45929 :vendor_id 1133}]
+	}
+	:main [
+		{
+			:des "New launch mode"
+			:rules [
+				[:!!i [:launch "WezTerm"]]
+				[:!!r [:launch "RubyMine"]]
+				[:!!o [:launch "Obsidian"]]
+				[:!!s [:launch "Slack"]]
+				[:!!n [:launch "Notes"]]
+				[:!!f [:launch "Firefox"]]
+				[:!!p [:launch "Spark"]]
+				[:!!v [:launch "Visual Studio Code"]]
+				[:!!w [:alfred "run" "aalakkad.openwebsite"]]
+				[:!!k [:alfred "run" "iansinnott.keyboardmaestro"]]
+			]
+		}
+		{
+			:des "Swap fn and left_control"
+			:rules [
+				[:##fn :##left_control :macbookpro]
+				[:##left_control :##fn :macbookpro]
+				[:##fn :##left_control :magickeyboard]
+				[:##left_control :##fn :magickeyboard]
+			]
+		}
+		{
+			:des "Swap non_us_backslash and grave_accent_and_tilde"
+			:rules [
+				[:##grave_accent_and_tilde :##non_us_backslash :macbookpro]
+				[:##non_us_backslash :##grave_accent_and_tilde :macbookpro]
+				[:##grave_accent_and_tilde :##non_us_backslash :mxmini]
+				[:##non_us_backslash :##grave_accent_and_tilde :mxmini]
+			]
+		}
+		{
+			:des "Apple keyboards caps_lock to Hyperkey"
+			:rules [[:##caps_lock :!CTOleft_shift nil {:alone :escape}]]
+		}
+		{
+		 :des "Tmux"
+		 :rules [
+			 [:backslash ["tmux-mode" 1] nil {:afterup ["tmux-mode" 0] :alone :backslash}]
+		   [:c [:!Ta :c] ["tmux-mode" 1]]  ;; new window
+		   [:s [:!Ta :hyphen] ["tmux-mode" 1]]  ;; horizontal split
+		   [:v [:!Ta :backslash] ["tmux-mode" 1]]  ;; horizontal split
+		   [:1 [:!Ta :1] ["tmux-mode" 1]]  ;; move to window #1
+		   [:2 [:!Ta :2] ["tmux-mode" 1]]  ;; move to window #2
+		   [:3 [:!Ta :3] ["tmux-mode" 1]]  ;; move to window #3
+		   [:4 [:!Ta :4] ["tmux-mode" 1]]  ;; move to window #4
+		   [:5 [:!Ta :5] ["tmux-mode" 1]]  ;; move to window #5
+		   [:6 [:!Ta :6] ["tmux-mode" 1]]  ;; move to window #6
+	   ]
+		}
+	]
+}
 
