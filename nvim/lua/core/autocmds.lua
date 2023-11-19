@@ -7,6 +7,7 @@
 
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 local autocmd = vim.api.nvim_create_autocmd -- Create autocommand
+local api = vim.api
 
 -- Highlight on yank
 augroup("YankHighlight", { clear = true })
@@ -47,6 +48,18 @@ autocmd("TermOpen", {
 	pattern = "*",
 	command = "startinsert",
 })
+
+-- show cursor line only in active window
+local cursorGrp = api.nvim_create_augroup("CursorLine", { clear = true })
+api.nvim_create_autocmd({ "InsertLeave", "WinEnter" }, {
+	pattern = "*",
+	command = "set cursorline",
+	group = cursorGrp,
+})
+api.nvim_create_autocmd(
+	{ "InsertEnter", "WinLeave" },
+	{ pattern = "*", command = "set nocursorline", group = cursorGrp }
+)
 
 -- Close terminal buffer on process exit
 autocmd("BufLeave", {
@@ -104,3 +117,6 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
 	end,
 })
+
+-- resize neovim split when terminal is resized
+vim.api.nvim_command("autocmd VimResized * wincmd =")

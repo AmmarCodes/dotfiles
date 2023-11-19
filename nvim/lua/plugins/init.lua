@@ -89,7 +89,10 @@ return {
 	},
 	{
 		"JoosepAlviste/nvim-ts-context-commentstring",
-		dependencies = { "nvim-treesitter/nvim-treesitter" },
+		config = function()
+			-- skip backwards compatibility routines and speed up loading.
+			vim.g.skip_ts_context_commentstring_module = true
+		end,
 		lazy = true,
 	},
 	{
@@ -300,17 +303,27 @@ return {
 			local wk = require("which-key")
 			wk.register({
 				["<leader>"] = {
+					w = { ":w!<cr>", "Save" },
 					l = {
 						name = "LSP",
 						n = {
-							require("illuminate").goto_prev_reference,
+							require("illuminate").goto_next_reference,
 							"Jump to next occurance of symbol under cursor",
 						},
 						b = {
 							require("illuminate").goto_prev_reference,
 							"Jump to previous occurance of symbol under cursor",
 						},
+						a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
+						d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
+						D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
+						i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
+						r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename all references" },
+						f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format document" },
+						K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
+						l = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
 					},
+					p = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format document" },
 					y = {
 						name = "Yank",
 						r = { name = "Remote link" },
@@ -322,6 +335,18 @@ return {
 					s = { name = "Search" },
 					e = { name = "NvimTree" },
 					b = { name = "Buffers" },
+					g = {
+						name = "Git",
+						l = {
+							"<cmd>lua require 'gitsigns'.blame_line()<cr>",
+							"Blame line",
+						},
+					},
+				},
+				["g"] = {
+					d = "Go to definition",
+					D = "Go to declaration",
+					r = "Show references",
 				},
 			}, opts)
 		end,

@@ -56,6 +56,7 @@ opt.fillchars = {
 	fold = "·", -- MIDDLE DOT (U+00B7, UTF-8: C2 B7)
 	vert = "│", -- window border when window splits vertically ─ ┴ ┬ ┤ ├ ┼
 }
+opt.cursorline = true
 
 -----------------------------------------------------------
 -- Tabs, indent

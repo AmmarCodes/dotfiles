@@ -20,13 +20,13 @@ map("i", "kk", "<Esc>")
 -- Clear search highlighting with enter
 map("n", "<cr>", ":nohl<CR>")
 
--- Toggle auto-indenting for code paste
--- map('n', '<F2>', ':set invpaste paste?<CR>')
--- vim.opt.pastetoggle = '<F2>'
-
 -- Change split orientation
 -- map("n", "<leader>tk", "<C-w>t<C-w>K") -- change vertical to horizontal
 -- map("n", "<leader>th", "<C-w>t<C-w>H") -- change horizontal to vertical
+
+-- paste over currently selected text without yanking it
+map("v", "p", '"_dp')
+map("v", "P", '"_dP')
 
 -- Move around splits using Ctrl + {h,j,k,l}
 map("n", "<C-h>", "<C-w>h")
@@ -73,12 +73,10 @@ map("n", "<C-b>", require("fzf-lua").buffers, { desc = "Find current buffers" })
 map("n", "<leader>sw", require("fzf-lua").grep, { desc = "Search for something (using Rg)" })
 map("n", "<leader>ss", require("fzf-lua").grep_cword, { desc = "Search for current word under cursor" })
 
+-- Buffers and famiu/bufdelete.nvim
 map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" })
 map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" })
 map("n", "<leader>bo", '<cmd>%bdelete | e# | normal `"<CR>', { desc = "Delete other buffers" })
-
--- vim-visual-multi disable all mappings except ctrl-n
-vim.g.VM_default_mappings = 0
 
 -- ruifm/gitlinker.nvim
 map(
@@ -94,26 +92,5 @@ map(
 	{ desc = "Copy remote git link of the current selection" }
 )
 
--- Move to specific window, credits: https://www.reddit.com/r/neovim/comments/115dcvy/tip_jump_to_any_window_with_just_two_keystrokes/
-for i = 1, 6 do
-	local lhs = "<leader>" .. i
-	local rhs = i .. "<c-w>w"
-	vim.keymap.set("n", lhs, rhs, { desc = "Move to window " .. i })
-end
-
 -- Exit insert mode in Terminal
 map("t", "<C-o>", "<C-\\><C-n>")
-
--- map(
--- 	"n",
--- 	"<leader>ln",
--- 	require("illuminate").goto_next_reference,
--- 	{ desc = "Jump to next occurance of symbol under cursor" }
--- )
---
--- map(
--- 	"n",
--- 	"<leader>lb",
--- 	require("illuminate").goto_prev_reference,
--- 	{ desc = "Jump to previous occurance of symbol under cursor" }
--- )
