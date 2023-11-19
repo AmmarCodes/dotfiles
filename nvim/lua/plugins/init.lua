@@ -389,6 +389,8 @@ return {
 			vim.g["test#strategy"] = "neovim_sticky"
 			vim.g["test#neovim#start_normal"] = 1
 			vim.g["test#neovim#term_position"] = "vert botright"
+			vim.g["test#neovim_sticky#kill_previous"] = 1
+			vim.g["test#preserve_screen"] = 0
 		end,
 	},
 	{ "akinsho/git-conflict.nvim", version = "*", config = true },
