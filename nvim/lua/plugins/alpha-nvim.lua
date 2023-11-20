@@ -9,7 +9,7 @@
 local M = {
 	"goolord/alpha-nvim",
 	dependencies = {
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 	},
 }
 
@@ -42,9 +42,8 @@ function M.config()
 	-- Menu
 	dashboard.section.buttons.val = {
 		dashboard.button("e", "📝 New file", ":ene <BAR> startinsert<CR>"),
-		dashboard.button("f", "🔎 Find word", ":Rg<CR>"),
-		dashboard.button("r", "  Recent", ":History<CR>"),
-		dashboard.button("s", "  Settings", ":e $MYVIMRC<CR>"),
+		dashboard.button("f", "🔎 Find word", ':lua require("fzf-lua").grep()<CR>'),
+		dashboard.button("s", "  Settings", ':exec \'edit \'. stdpath("config") . "/lua/plugins/init.lua"<CR>'),
 		dashboard.button("u", "✅ Update plugins", ":Lazy!sync<CR>"),
 		dashboard.button("q", "🛑 Quit", ":qa<CR>"),
 	}

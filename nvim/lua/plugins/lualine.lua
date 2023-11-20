@@ -2,7 +2,7 @@
 return {
 	"nvim-lualine/lualine.nvim",
 	event = "VeryLazy",
-	dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
+	dependencies = { "nvim-tree/nvim-web-devicons", lazy = true },
 	config = function()
 		local navic = require("nvim-navic")
 

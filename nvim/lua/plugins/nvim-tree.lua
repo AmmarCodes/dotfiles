@@ -3,15 +3,15 @@
 -----------------------------------------------------------
 
 -- Plugin: nvim-tree
--- url: https://github.com/kyazdani42/nvim-tree.lua
+-- url: https://github.com/nvim-tree/nvim-tree.lua
 
 -- Keybindings are defined in `core/keymaps.lua`:
--- https://github.com/kyazdani42/nvim-tree.lua#keybindings
+-- https://github.com/nvim-tree/nvim-tree.lua#keybindings
 
 return {
-	"kyazdani42/nvim-tree.lua",
+	"nvim-tree/nvim-tree.lua",
 	dependencies = {
-		"kyazdani42/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 	},
 	cmd = "NvimTreeToggle",
 	opts = {

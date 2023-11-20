@@ -17,6 +17,12 @@ local M = {
 		{ "folke/neodev.nvim", config = true },
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
+		{
+			"pmizio/typescript-tools.nvim",
+			config = function()
+				require("typescript-tools").setup({})
+			end,
+		},
 	},
 }
 
@@ -103,7 +109,7 @@ function M.config()
 				"cssls",
 				"eslint",
 				"html",
-				"tsserver",
+				-- "tsserver",
 				"solargraph",
 				"stylelint_lsp",
 				"vuels",
@@ -138,7 +144,15 @@ function M.config()
 	-- Use a loop to conveniently call 'setup' on multiple servers and
 	-- map buffer local keybindings when the language server attaches.
 	-- Add your language server below:
-	local servers = { "solargraph", "bashls", "html", "cssls", "tsserver", "vuels", "lua_ls" }
+	local servers = {
+		"solargraph",
+		"bashls",
+		"html",
+		"cssls",
+		-- "tsserver",
+		"vuels",
+		"lua_ls",
+	}
 
 	local config = {
 		vuels = {

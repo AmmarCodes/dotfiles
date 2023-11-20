@@ -48,7 +48,7 @@ return {
 	{
 		-- Bufferline
 		"akinsho/bufferline.nvim",
-		dependencies = { "kyazdani42/nvim-web-devicons" },
+		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = true,
 	},
 	{
@@ -379,6 +379,7 @@ return {
 		event = "VeryLazy",
 		dependencies = {
 			"MunifTanjim/nui.nvim",
+			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
 			max_width = 50,
