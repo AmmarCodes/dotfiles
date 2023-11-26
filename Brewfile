@@ -92,10 +92,12 @@ brew "libiconv"
 brew "libpq"
 # YAML Parser
 brew "libyaml"
+# Parsing Expression Grammars For Lua
+brew "lpeg"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -156,8 +158,6 @@ cask "1password-cli"
 cask "alfred"
 # Menu bar icon organizer
 cask "bartender"
-# Display management tool
-cask "betterdisplay"
 # Automated testing of webapps for Google Chrome
 cask "chromedriver"
 # Allows switching between application windows
@@ -172,23 +172,17 @@ cask "devtoys"
 cask "flux"
 # Website and application blocker
 cask "focus"
-# Monospaced font that includes programming ligatures
-cask "font-cascadia-code"
-# Version of Cascadia Code with embedded Powerline symbols
-cask "font-cascadia-code-pl"
 # Developer targeted fonts with a high number of glyphs
 cask "font-caskaydia-cove-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
-# Typeface made for developers
-cask "font-jetbrains-mono"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Superfamily of fonts for code
 cask "font-monaspace"
 cask "font-noto-sans-arabic"
-# Apple's SF Mono font patched with the Nerd Fonts patcher for Powerline support
-cask "font-sf-mono-for-powerline"
+# GIT client
+cask "fork"
 # Web browser
 cask "google-chrome"
 # iPhone management application
@@ -201,8 +195,6 @@ cask "karabiner-elements"
 cask "keyboard-maestro"
 # Open-source keystroke visualizer
 cask "keycastr"
-# GPU-based terminal emulator
-cask "kitty"
 # Noise cancelling application
 cask "krisp"
 # Host-based application firewall
@@ -217,8 +209,6 @@ cask "rectangle"
 cask "rocket"
 # Ruby on Rails IDE
 cask "rubymine"
-# Screenshot measurement and annotation tool
-cask "shottr"
 # Team communication and collaboration software
 cask "slack"
 # Music streaming service
@@ -229,8 +219,6 @@ cask "tableplus"
 cask "telegram"
 # Pomodoro desktop timer
 cask "tomighty"
-# Run commands and display their output on the desktop
-cask "ubersicht"
 # Multimedia player
 cask "vlc"
 # GPU-accelerated cross-platform terminal emulator and multiplexer
