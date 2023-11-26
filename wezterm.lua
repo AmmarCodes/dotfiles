@@ -7,8 +7,8 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 
-config.color_scheme = "Catppuccin Latte"
-config.colors = { background = "#FFFFFF" }
+config.color_scheme =  "Everforest Light (Gogh)" -- Catppuccin Latte"
+-- config.colors = { background = "#FFFFFF" }
 config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("MonoLisa", { weight = "Medium" })
 config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss06", "ss07", "ss08", "ss10", "ss15", "ss16" }

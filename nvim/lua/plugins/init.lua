@@ -2,9 +2,9 @@ return {
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
-		lazy = false, -- make sure we load this during startup if it is your main colorscheme
+		lazy = false,  -- make sure we load this during startup if it is your main colorscheme
 		priority = 1000, -- make sure to load this before all the other start plugins
-		enabled = true,
+		enabled = false,
 		config = function()
 			require("catppuccin").setup({
 				bg = {
@@ -21,7 +21,7 @@ return {
 				},
 				color_overrides = {
 					latte = {
-						base = "#FFFFFF",
+						-- base = "#FFFFFF",
 					},
 				},
 			})
@@ -30,6 +30,19 @@ return {
 			vim.cmd([[colorscheme catppuccin]])
 			-- vim.cmd([[highlight IndentBlanklineContextChar guifg=#C678DD gui=nocombine]])
 		end,
+	},
+	{
+		"sainnhe/everforest",
+		config = function()
+			vim.g.everforest_better_performance = 1
+			vim.cmd([[set background=light]])
+			vim.cmd([[colorscheme everforest]])
+		end
+	},
+	{
+		'shaunsingh/solarized.nvim',
+		lazy = false,
+		priority = 1000,
 	},
 	{
 		"ellisonleao/gruvbox.nvim",
@@ -254,7 +267,7 @@ return {
 	},
 
 	-- Projectionist
-	{ "tpope/vim-projectionist", event = "BufReadPre" },
+	{ "tpope/vim-projectionist",    event = "BufReadPre" },
 
 	-- editorconfig
 	{ "gpanders/editorconfig.nvim", event = "BufReadPre" },
@@ -352,8 +365,8 @@ return {
 		end,
 	},
 	{ "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-	{ "j-hui/fidget.nvim", config = true, cmd = { "VeryLazy" } },
-	{ "tpope/vim-sleuth", event = "VeryLazy" },
+	{ "j-hui/fidget.nvim",        config = true,          cmd = { "VeryLazy" } },
+	{ "tpope/vim-sleuth",         event = "VeryLazy" },
 	{
 		"williamboman/mason.nvim",
 		cmd = "Mason",
@@ -406,10 +419,10 @@ return {
 		"vim-test/vim-test",
 		cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
 		keys = {
-			{ "<leader>ta", "<cmd>TestSuite<cr>", desc = "Test suite" },
-			{ "<leader>tf", "<cmd>TestFile<cr>", desc = "Test file" },
+			{ "<leader>ta", "<cmd>TestSuite<cr>",   desc = "Test suite" },
+			{ "<leader>tf", "<cmd>TestFile<cr>",    desc = "Test file" },
 			{ "<leader>tt", "<cmd>TestNearest<cr>", desc = "Test nearest" },
-			{ "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
+			{ "<leader>tl", "<cmd>TestLast<cr>",    desc = "Test last" },
 		},
 		config = function()
 			vim.g["test#strategy"] = "neovim_sticky"
@@ -439,18 +452,18 @@ return {
 				padding = false,
 				action_keys = {
 					-- key mappings for actions in the trouble list
-					close = "q", -- close the list
-					cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
-					refresh = "r", -- manually refresh
+					close = "q",           -- close the list
+					cancel = "<esc>",      -- cancel the preview and get back to your last window / buffer / cursor
+					refresh = "r",         -- manually refresh
 					jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
 					open_split = { "<c-x>" }, -- open buffer in new split
 					open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
 					open_tab = { "<c-t>" }, -- open buffer in new tab
-					jump_close = { "o" }, -- jump to the diagnostic and close the list
-					toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
-					toggle_preview = "P", -- toggle auto_preview
-					hover = "K", -- opens a small popup with the full multiline message
-					preview = "p", -- preview the diagnostic location
+					jump_close = { "o" },  -- jump to the diagnostic and close the list
+					toggle_mode = "m",     -- toggle between "workspace" and "document" diagnostics mode
+					toggle_preview = "P",  -- toggle auto_preview
+					hover = "K",           -- opens a small popup with the full multiline message
+					preview = "p",         -- preview the diagnostic location
 					close_folds = { "zM" }, -- close all folds
 					open_folds = { "zR" }, -- open all folds
 					toggle_fold = { "za" }, -- toggle fold of current file
@@ -460,4 +473,5 @@ return {
 			})
 		end,
 	},
+	{
 }
