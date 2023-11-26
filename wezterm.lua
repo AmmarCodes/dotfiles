@@ -10,17 +10,11 @@ local config = wezterm.config_builder()
 config.color_scheme = "Catppuccin Latte"
 config.colors = { background = "#FFFFFF" }
 config.hide_tab_bar_if_only_one_tab = true
-config.font = wezterm.font("Monaspace Neon", { weight = "Medium" })
-config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" }
+config.font = wezterm.font("MonoLisa", { weight = "Medium" })
+config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss06", "ss07", "ss08", "ss10", "ss15", "ss16" }
 
-config.font_rules = {
-	{
-		italic = true,
-		font = wezterm.font("Monaspace Radon", { weight = "Medium" }),
-	},
-}
 config.font_size = 14
-config.line_height = 1.5
+config.line_height = 1.2
 config.window_decorations = "RESIZE"
 config.window_padding = {
 	bottom = 0,
