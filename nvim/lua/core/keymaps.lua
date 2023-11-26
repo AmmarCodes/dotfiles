@@ -25,8 +25,7 @@ map("n", "<cr>", ":nohl<CR>")
 -- map("n", "<leader>th", "<C-w>t<C-w>H") -- change horizontal to vertical
 
 -- paste over currently selected text without yanking it
-map("v", "p", '"_dp')
-map("v", "P", '"_dP')
+map("v", "p", '"_dP')
 
 -- Move around splits using Ctrl + {h,j,k,l}
 map("n", "<C-h>", "<C-w>h")
@@ -63,7 +62,7 @@ map("v", ">", ">gv")
 -----------------------------------------------------------
 
 -- NvimTree
-map("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" }) -- open/close
+map("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })                 -- open/close
 map("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Show current file in NvimTree" }) -- show file in NvimTree
 
 -- fzf-lua
@@ -94,3 +93,8 @@ map(
 
 -- Exit insert mode in Terminal
 map("t", "<C-o>", "<C-\\><C-n>")
+
+-- Increment/decrement
+vim.keymap.set('n', '+', '<C-a>')
+vim.keymap.set('n', '-', '<C-x>')
+

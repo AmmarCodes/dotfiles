@@ -317,6 +317,7 @@ return {
 			wk.register({
 				["<leader>"] = {
 					w = { ":w!<cr>", "Save" },
+					q = { ":q<cr>", "Quit" },
 					l = {
 						name = "LSP",
 						n = {
