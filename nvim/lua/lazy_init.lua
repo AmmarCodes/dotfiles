@@ -20,7 +20,6 @@ vim.opt.runtimepath:prepend(lazypath)
 
 require("lazy").setup("plugins", {
 	defaults = { version = false },
-	checker = { enabled = true }, -- automatically check for plugin updates
 	performance = {
 		rtp = {
 			-- disable some rtp plugins
