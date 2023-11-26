@@ -475,4 +475,43 @@ return {
 		end,
 	},
 	{
+		config = function()
+	{
+		'kosayoda/nvim-lightbulb',
+		config = function()
+			require('nvim-lightbulb').setup({
+				autocmd = { enabled = true }
+			})
+		end
+	},
+	{
+		'NvChad/nvim-colorizer.lua',
+		config = function()
+			require 'colorizer'.setup {
+				filetypes = {
+					'css',
+					'javascript',
+					'vue',
+					'html',
+				},
+			}
+		end
+	},
+	{
+		'epwalsh/obsidian.nvim',
+		version = "*",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+		},
+		lazy = true,
+		ft = "markdown",
+		opts = {
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian",
+				},
+			},
+		},
+	},
 }
