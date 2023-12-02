@@ -97,7 +97,7 @@ brew "lpeg"
 # Mac App Store command-line interface
 brew "mas"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -230,8 +230,10 @@ mas "AdGuard for Safari", id: 1440147259
 mas "Be Focused Pro", id: 961632517
 mas "Bear", id: 1091189122
 mas "ColorSlurp", id: 1287239339
+mas "Command X", id: 6448461551
 mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
+mas "Day Progress", id: 6450280202
 mas "Drafts", id: 1435957248
 mas "GIPHY CAPTURE", id: 668208984
 mas "Goodnotes", id: 1444383602
