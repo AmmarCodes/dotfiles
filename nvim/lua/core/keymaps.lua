@@ -3,11 +3,11 @@
 -----------------------------------------------------------
 
 local function map(mode, keymap, command, opts)
-	local options = { noremap = true, silent = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.keymap.set(mode, keymap, command, options)
+  local options = { noremap = true, silent = true }
+  if opts then
+    options = vim.tbl_extend("force", options, opts)
+  end
+  vim.keymap.set(mode, keymap, command, options)
 end
 
 -----------------------------------------------------------
@@ -37,21 +37,15 @@ map("n", "<C-l>", "<C-w>l")
 map("n", "<leader>yfr", ':let @*=expand("%")<CR>', { desc = "Yank file relative path" })
 map("n", "<leader>yff", ':let @*=expand("%:p")<CR>', { desc = "Yank file full path" })
 map(
-	"n",
-	"<leader>yfl",
-	"<cmd>lua NvimFileLocation.copy_file_location()<cr>",
-	{ desc = "Yank file path with line number" }
+  "n",
+  "<leader>yfl",
+  "<cmd>lua NvimFileLocation.copy_file_location()<cr>",
+  { desc = "Yank file path with line number" }
 )
 
 -- Bubbling lines
 map("n", "<c-Up>", ":m .-2<cr>")
 map("n", "<c-Down>", ":m .+1<cr>")
-
--- Switch to previous buffer
-map("n", "<leader>b<leader>", ":b#<CR>", { desc = "Switch to previous buffer" })
--- Switch buffers with <shift> hl
-map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
-map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- easier moving of code blocks
 map("v", "<", "<gv")
@@ -62,7 +56,7 @@ map("v", ">", ">gv")
 -----------------------------------------------------------
 
 -- NvimTree
-map("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" })                 -- open/close
+map("n", "<leader>ee", ":NvimTreeToggle<CR>", { desc = "Toggle NvimTree" }) -- open/close
 map("n", "<leader>ef", ":NvimTreeFindFile<CR>", { desc = "Show current file in NvimTree" }) -- show file in NvimTree
 
 -- fzf-lua
@@ -75,26 +69,31 @@ map("n", "<leader>ss", require("fzf-lua").grep_cword, { desc = "Search for curre
 -- Buffers and famiu/bufdelete.nvim
 map("n", "<leader>bd", ":Bdelete<CR>", { desc = "Delete current buffer" })
 map("n", "<leader>ba", ":bufdo Bdelete<CR>", { desc = "Delete all buffers" })
-map("n", "<leader>bo", '<cmd>%bdelete | e# | normal `"<CR>', { desc = "Delete other buffers" })
+-- map("n", "<leader>bo", '<cmd>%bdelete | e# | normal `"<CR>', { desc = "Delete other buffers" })
+map("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", { desc = "Delete other buffers" })
+-- Switch to previous buffer
+map("n", "<leader>b<leader>", ":b#<CR>", { desc = "Switch to previous buffer" })
+-- Switch buffers with <shift> hl
+map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- ruifm/gitlinker.nvim
 map(
-	"n",
-	"<leader>yrl",
-	':lua require"gitlinker".get_buf_range_url("n")<cr>',
-	{ desc = "Copy remote git link of the current file" }
+  "n",
+  "<leader>yrl",
+  ':lua require"gitlinker".get_buf_range_url("n")<cr>',
+  { desc = "Copy remote git link of the current file" }
 )
 map(
-	"v",
-	"<leader>yrl",
-	':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>',
-	{ desc = "Copy remote git link of the current selection" }
+  "v",
+  "<leader>yrl",
+  ':lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>',
+  { desc = "Copy remote git link of the current selection" }
 )
 
 -- Exit insert mode in Terminal
 map("t", "<C-o>", "<C-\\><C-n>")
 
 -- Increment/decrement
-vim.keymap.set('n', '+', '<C-a>')
-vim.keymap.set('n', '-', '<C-x>')
-
+vim.keymap.set("n", "+", "<C-a>")
+vim.keymap.set("n", "-", "<C-x>")
