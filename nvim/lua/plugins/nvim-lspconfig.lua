@@ -112,6 +112,12 @@ function M.config()
         -- "tsserver",
         -- "solargraph",
         "vuels",
+        "rubocop",
+        "vale",
+        "eslint_d",
+        "prettierd",
+        "luacheck",
+        "stylelint_lsp",
       },
     })
   end

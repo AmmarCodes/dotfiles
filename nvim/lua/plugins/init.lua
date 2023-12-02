@@ -389,4 +389,192 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
     config = true,
   },
+  {
+    "folke/trouble.nvim",
+    cmd = { "TroubleToggle", "Trouble" },
+    lazy = true,
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    keys = {
+      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
+      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
+      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
+      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+      {
+        "[q",
+        function()
+          if require("trouble").is_open() then
+            require("trouble").previous({ skip_groups = true, jump = true })
+          else
+            local ok, err = pcall(vim.cmd.cprev)
+            if not ok then
+              vim.notify(err, vim.log.levels.ERROR)
+            end
+          end
+        end,
+        desc = "Previous trouble/quickfix item",
+      },
+      {
+        "]q",
+        function()
+          if require("trouble").is_open() then
+            require("trouble").next({ skip_groups = true, jump = true })
+          else
+            local ok, err = pcall(vim.cmd.cnext)
+            if not ok then
+              vim.notify(err, vim.log.levels.ERROR)
+            end
+          end
+        end,
+        desc = "Next trouble/quickfix item",
+      },
+    },
+    config = function()
+      require("trouble").setup({
+        -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
+        mode = "workspace_diagnostics",
+        position = "bottom", -- position of the list can be: bottom, top, left, right
+        height = 15,
+        padding = false,
+        action_keys = {
+          -- key mappings for actions in the trouble list
+          -- close = "q", -- close the list
+          cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
+          refresh = "r", -- manually refresh
+          jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
+          open_split = { "<c-x>" }, -- open buffer in new split
+          open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
+          open_tab = { "<c-t>" }, -- open buffer in new tab
+          jump_close = { "o" }, -- jump to the diagnostic and close the list
+          toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
+          toggle_preview = "P", -- toggle auto_preview
+          hover = "K", -- opens a small popup with the full multiline message
+          preview = "p", -- preview the diagnostic location
+          close_folds = { "zM" }, -- close all folds
+          open_folds = { "zR" }, -- open all folds
+          toggle_fold = { "za" }, -- toggle fold of current file
+        },
+        auto_jump = {},
+        use_diagnostic_signs = true,
+      })
+    end,
+  },
+  {
+    "stevearc/conform.nvim",
+    dependencies = { "mason.nvim" },
+    event = { "BufWritePre", "BufNewFile" },
+    -- enabled = false,
+    cmd = "ConformInfo",
+    keys = {
+      {
+        "<leader>p",
+        function()
+          require("conform").format({ async = true, lsp_fallback = true })
+        end,
+        mode = { "n", "v" },
+        desc = "Format Injected Langs",
+      },
+    },
+    config = function()
+      require("conform").setup({
+        formatters_by_ft = {
+          lua = { "stylua" },
+          javascript = { { "prettierd", "prettier" } }, -- will use the first available formatter
+          vue = { { "prettierd", "prettier" } }, -- will use the first available formatter
+          html = { { "prettierd", "prettier" } }, -- will use the first available formatter
+          eruby = { "htmlbeautifier" }, -- will use the first available formatter
+          ruby = { "rubocop" },
+        },
+        formatters = {
+          -- rubocop = {
+          -- 	command = "/Users/aalakkad/.local/share/rtx/shims/rubocop",
+          -- 	prepend_args = { "--lsp" },
+          -- },
+        },
+        format_on_save = function(bufnr)
+          -- Disable autoformat on certain filetypes
+          local ignore_filetypes = { "sql", "ruby" }
+          if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
+            return
+          end
+          -- Disable with a global or buffer-local variable
+          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
+            return
+          end
+          -- Disable autoformat for files in a certain path
+          local bufname = vim.api.nvim_buf_get_name(bufnr)
+          if bufname:match("/node_modules/") then
+            return
+          end
+          -- ...additional logic...
+          return { timeout_ms = 500, lsp_fallback = true, async = false }
+        end,
+      })
+    end,
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = {
+      "BufReadPre",
+      "BufNewFile",
+    },
+    config = function()
+      local rubocop = require("lint").linters.rubocop
+      -- rubocop. args = {'--format', 'json', '--force-exclusion'},
+      rubocop.args = { "--lsp" }
+
+      require("lint").linters_by_ft = {
+        markdown = { "vale" },
+        javascript = { "eslint_d" },
+        vue = { "eslint_d" },
+        ruby = { "rubocop" },
+        css = { "stylelint" },
+        scss = { "stylelint" },
+        lua = { "luacheck" },
+      }
+
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+        callback = function()
+          require("lint").try_lint()
+        end,
+      })
+    end,
+  },
+  {
+    "kosayoda/nvim-lightbulb",
+    config = function()
+      require("nvim-lightbulb").setup({
+        autocmd = { enabled = true },
+      })
+    end,
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        filetypes = {
+          "css",
+          "javascript",
+          "vue",
+          "html",
+        },
+      })
+    end,
+  },
+  {
+    "epwalsh/obsidian.nvim",
+    version = "*",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    lazy = true,
+    ft = "markdown",
+    opts = {
+      workspaces = {
+        {
+          name = "personal",
+          path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian",
+        },
+      },
+    },
+  },
 }
