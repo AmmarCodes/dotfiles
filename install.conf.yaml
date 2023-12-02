@@ -13,6 +13,7 @@
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/bat/themes/Material-Theme-Palenight.tmTheme: bat/themes/Material-Theme-Palenight.tmTheme
+    ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/nvim/:
         glob: true
         force: true
