@@ -120,6 +120,7 @@ alias vimconfig="cd ~/.config/nvim && nvim"
 alias wezconfig="vim ~/.wezterm.lua"
 alias cat="bat"
 alias e="exit"
+alias q="exit"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="exa --icons"
 alias gri="git rebase -i"
@@ -144,9 +145,15 @@ alias :q="exit"
 alias mux="tmuxinator"
 alias be="bundle exec"
 alias ll="ls -lah"
+alias upgrade-nvim="brew unlink neovim && brew install --fetch-HEAD --HEAD neovim && brew link neovim"
 
 alias ctags="`brew --prefix`/bin/ctags"
 alias focus="cd ~/projects/focus && vim README.md"
+
+function tmux-gitlab() {
+  cd ~/projects/gitlab-development-kit/gitlab
+  tmux new -n editor 'nvim'
+}
 
 # Find in files (search for string and return list of files that contains that string).
 function fif() {
