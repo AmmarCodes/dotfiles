@@ -41,12 +41,10 @@ defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 # Open blank file in textedit instead of open file dialog
 defaults write -g NSShowAppCentricOpenPanelInsteadOfUntitledFile -bool false
 
-
 # Enable snap-to-grid for icons on the desktop and in other icon views
 /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :FK_StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
 /usr/libexec/PlistBuddy -c "Set :StandardViewSettings:IconViewSettings:arrangeBy grid" ~/Library/Preferences/com.apple.finder.plist
-
 
 # Disable the warning before emptying the Trash
 defaults write com.apple.finder WarnOnEmptyTrash -bool false
@@ -102,3 +100,5 @@ mkdir ~/Desktop/Screenshots
 # Change screenshots folder location
 defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
+# Disable macOS Sonoma Text Insertion Point (bubble) - https://stackoverflow.com/a/77296786
+sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist redesigned_text_cursor -dict-add Enabled -bool NO
