@@ -1,7 +1,7 @@
 - defaults:
     link:
-        relink: true
-        create: true
+      relink: true
+      create: true
 
 - link:
     ~/.gitconfig: gitconfig
@@ -9,33 +9,39 @@
     ~/.gitignore: gitignore
     ~/.zshrc: zshrc
     ~/.tmux.conf: tmux.conf
-    ~/.wezterm.lua: wezterm.lua
+    ~/.wezterm.lua: wezterm/wezterm.lua
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/bat/themes/Material-Theme-Palenight.tmTheme: bat/themes/Material-Theme-Palenight.tmTheme
     ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/nvim/:
-        glob: true
-        force: true
-        path: nvim/**
-        relink: true
+      glob: true
+      force: true
+      path: nvim/**
+      relink: true
     ~/.config/kitty/:
-        glob: true
-        force: true
-        path: kitty/**
-        relink: true
+      glob: true
+      force: true
+      path: kitty/**
+      relink: true
     ~/Library/Application Support/xbar:
-        glob: true
-        force: true
-        path: xbar/**
-        relink: true
+      glob: true
+      force: true
+      path: xbar/**
+      relink: true
 
 - create:
     - ~/.config/bat/themes
     - ~/Library/Application Support/xbar
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
-    - [if command -v brew > /dev/null; then brew bundle; fi, Installing brew packages using ~/.dotfiles/Brewfile]
-    - [pip3 install pynvim --upgrade]
-    - [if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi, Installing tmuxu plugin manager]
+    - description: "Installing wezterm terminfo file"
+      command: "sh wezterm/install"
+    - description: "Installing submodules"
+      command: "git submodule update --init --recursive"
+    - description: "Installing brew packages using ~/.dotfiles/Brewfile"
+      command: "if command -v brew > /dev/null; then brew bundle; fi"
+    - description: "Install pynvim"
+      command: pip3 install pynvim --upgrade
+    - description: "Installing tmuxu plugin manager"
+      command: "if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi"
