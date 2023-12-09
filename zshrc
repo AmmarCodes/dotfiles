@@ -28,8 +28,6 @@ promptinit
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 
-export TERM="xterm-256color"
-
 # iterm shell integration
 # source ~/.iterm2_shell_integration.zsh
 
