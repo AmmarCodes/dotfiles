@@ -131,6 +131,9 @@ return {
               name = "+file",
             },
           },
+          t = {
+            name = "+test",
+          },
         },
       },
     },

@@ -166,6 +166,23 @@ return {
     },
   },
   {
+    "vim-test/vim-test",
+    cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
+    keys = {
+      { "<leader>ta", "<cmd>TestSuite<cr>", desc = "Test suite" },
+      { "<leader>tf", "<cmd>TestFile<cr>", desc = "Test file" },
+      { "<leader>tt", "<cmd>TestNearest<cr>", desc = "Test nearest" },
+      { "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
+    },
+    config = function()
+      vim.g["test#strategy"] = "neovim"
+      vim.g["test#neovim#start_normal"] = 1
+      vim.g["test#neovim#term_position"] = "vert botright"
+      vim.g["test#neovim_sticky#kill_previous"] = 1
+      vim.g["test#preserve_screen"] = 0
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "everforest",
