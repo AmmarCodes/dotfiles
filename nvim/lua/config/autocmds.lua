@@ -45,3 +45,11 @@ autocmd({ "InsertLeave", "WinEnter" }, {
   group = cursorGrp,
 })
 autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = cursorGrp })
+
+-- Disable concealing in some file formats
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.opt.conceallevel = 0
+  end,
+})

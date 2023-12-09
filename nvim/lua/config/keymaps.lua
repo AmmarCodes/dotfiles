@@ -30,3 +30,5 @@ map("n", "<leader>yff", ':let @*=expand("%:p")<CR>', { desc = "Yank file full pa
 map("t", "<C-o>", "<C-\\><C-n>")
 
 map("n", "<leader>ba", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete non-pinned buffers" })
+
+map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
