@@ -1,24 +1,170 @@
 return {
   {
-    -- Bufferline
-    "akinsho/bufferline.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    "sainnhe/everforest",
+    config = function()
+      vim.g.everforest_better_performance = 1
+      vim.cmd([[set background=light]])
+    end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      ensure_installed = {
+        "bash",
+        "comment",
+        "css",
+        "diff",
+        "git_rebase",
+        "gitattributes",
+        "gitignore",
+        "graphql",
+        "html",
+        "http",
+        "javascript",
+        "jsdoc",
+        "json",
+        "jsonc",
+        "lua",
+        "markdown",
+        "markdown_inline",
+        "regex",
+        "ruby",
+        "scss",
+        "toml",
+        "tsx",
+        "typescript",
+        "vim",
+        "vue",
+        "yaml",
+      },
+    },
+  },
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      servers = {
+        -- "prettierd",
+        vale_ls = {},
+        emmet_language_server = {
+          filetypes = { "vue", "eruby", "html", "haml", "javascript" },
+        },
+        stylelint_lsp = {
+          filetypes = { "css", "scss" },
+        },
+      },
+    },
+  },
+  {
+    "andymass/vim-matchup",
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("nvim-treesitter.configs").setup({
+        endwise = {
+          enable = true,
+        },
+      })
+    end,
+  },
+  {
+    "RRethy/nvim-treesitter-endwise",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    ft = { "ruby", "eruby", "vim", "lua", "bash" },
+    config = function()
+      ---@diagnostic disable-next-line: missing-fields
+      require("nvim-treesitter.configs").setup({
+        endwise = {
+          enable = true,
+        },
+      })
+    end,
+  },
+  {
+    "weilbith/nvim-code-action-menu",
+    cmd = "CodeActionMenu",
+  },
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "VeryLazy",
+  },
+  {
+    "dkarter/bullets.vim",
+    ft = { "markdown", "text" },
+    config = function()
+      vim.g["bullets_set_mappings"] = 0
+    end,
+  },
+  {
+    "tpope/vim-projectionist",
+    event = "BufReadPre",
+    ft = { "javascript", "ruby", "typescript", "vue" },
+  },
+  {
+    "gpanders/editorconfig.nvim",
+    event = "BufReadPre",
+  },
+  {
+    -- markdown preview
+    "iamcco/markdown-preview.nvim",
+    build = function()
+      vim.fn["mkdp#util#install"]() -- install without yarn or npm
+    end,
+    cmd = { "MarkdownPreview" },
+    ft = "markdown",
+  },
+  -- Open file on remote website
+  {
+    "ruifm/gitlinker.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = { mappings = nil },
+    keys = {
+      {
+        "<leader>yr",
+        '<cmd>lua require("gitlinker").get_buf_range_url("n")<cr>',
+        desc = "Copy remote git link of the current file",
+      },
+      {
+        "<leader>yr",
+        '<cmd>lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>',
+        mode = "v",
+        desc = "Copy remote git link of the current selection",
+      },
+    },
+  },
+  {
+    "NvChad/nvim-colorizer.lua",
+    ft = { "css", "javascript", "vue", "html" },
     config = true,
   },
   {
-    -- Automatically move to last place in the opened file
-    "ethanholz/nvim-lastplace",
-    config = true,
-  },
-  {
-    -- Better buffer deletion
-    "famiu/bufdelete.nvim",
-    cmd = { "Bdelete", "Bwipeout" },
+    "nvim-telescope/telescope.nvim",
+    -- stylua: ignore
+    keys = {
+      -- disable the keymap to grep files
+      { "<leader><space>", false },
+      { "<leader>,",       false },
+      { "<leader>fF",      false },
+      -- git
+      { "<leader>gc",      false },
+      { "<leader>gs",      false },
+      -- search
+      { "<leader>sb",      false },
+      { "<leader>sG",      false },
+      { "<leader>so",      false },
+      { "<leader>sW",      false },
+      { "<leader>sw",      false },
+      { "<leader>sW",      false, mode = "v" },
+    },
   },
   {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
+    event = "VeryLazy",
     config = function()
+      -- add Rg command to mimic the old Rg
+      vim.api.nvim_create_user_command("Rg", function(opts)
+        require("fzf-lua").grep({ search = opts.args })
+      end, { bang = true, nargs = "?", desc = "Rg command, but from fzf-lua" })
+
       local actions = require("fzf-lua.actions")
       require("fzf-lua").setup({
         actions = {
@@ -35,84 +181,121 @@ return {
         },
       })
     end,
+    -- stylua: ignore
+    keys = {
+      { "<C-p>"     , "<cmd>FzfLua files<cr>",                                                     desc = "Find files" },
+      { "<C-b>"     , "<cmd>FzfLua buffers<cr>",                                                   desc = "Find current buffers" },
+      { "<leader>sw", "<cmd>FzfLua grep<cr>",                                                      desc = "Search for something (using Rg)" },
+      { "<leader>ss", "<cmd>FzfLua grep_cword<cr>",                                                desc = "Search for current word under cursor" },
+      -- replacing lazyvim telescope keys with fzf-lua
+      { "<leader>/" , "<cmd>FzfLua live_grep<cr>",                                                 desc = "Grep" },
+      { "<leader>:" , "<cmd>FzfLua command_history<cr>",                                           desc = "Command History" },
+      { "<leader>," , "<cmd>FzfLua files<cr>",                                                     desc = "Find Files" },
+      -- find
+      { "<leader>fb", "<cmd>FzfLua buffers<cr>",                                                   desc = "Buffers" },
+      { "<leader>fc", '<cmd>lua require("fzf-lua").files({ cwd = vim.fn.stdpath("config") })<cr>', desc = "Find Config File", },
+      { "<leader>ff", "<cmd>FzfLua files<cr>",                                                     desc = "Find files" },
+      { "<leader>fr", "<cmd>FzfLua oldfiles",                                                      desc = "Recent" },
+      -- search
+      { '<leader>s"', "<cmd>FzfLua registers<cr>",                                                 desc = "Registers" },
+      { "<leader>sa", "<cmd>FzfLua autocmd<cr>",                                                   desc = "Auto Commands" },
+      { "<leader>sc", "<cmd>FzfLua command_history<cr>",                                           desc = "Command History" },
+      { "<leader>sC", "<cmd>FzfLua commands<cr>",                                                  desc = "Commands" },
+      { "<leader>sd", "<cmd>FzfLua diagnostics_document<cr>",                                      desc = "Document diagnostics" },
+      { "<leader>sD", "<cmd>FzfLua diagnostics_workspac<cr>",                                      desc = "Workspace diagnostics" },
+      { "<leader>sg", "<cmd>FzfLua grep<cr>",                                                      desc = "Grep" },
+      { "<leader>sh", "<cmd>FzfLua help_tags<cr>",                                                 desc = "Help Pages" },
+      { "<leader>sH", "<cmd>FzfLua highlights<cr>",                                                desc = "Search Highlight Groups" },
+      { "<leader>sk", "<cmd>FzfLua keymaps<cr>",                                                   desc = "Key Maps" },
+      { "<leader>sM", "<cmd>FzfLua man_pages<cr>",                                                 desc = "Man Pages" },
+      { "<leader>sm", "<cmd>FzfLua marks<cr>",                                                     desc = "Jump to Mark" },
+      { "<leader>sR", "<cmd>FzfLua resume<cr>",                                                    desc = "Resume" },
+      { "<leader>sw", "<cmd>FzfLua grep_cword<cr>",                                                desc = "Word under cursor" },
+      { "<leader>sw", "<cmd>FzfLua grep_visual<cr>",                                               desc = "Selection", mode = "v"  },
+      { "<leader>uC", "<cmd>FzfLua colorschemes<cr>",                                              desc = "Colorscheme" },
+      { "<leader>ss", "<cmd>FzfLua lsp_document_symbols<cr>",                                      desc = "Goto Symbol" },
+      { "<leader>sS", "<cmd>FzfLua lsp_workspace_symbols<cr>",                                     desc = "Goto Symbol (Workspace)" },
+    },
   },
   {
-    -- Better %
-    "andymass/vim-matchup",
-    config = true,
-  },
-  {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    config = function()
-      -- skip backwards compatibility routines and speed up loading.
-      vim.g.skip_ts_context_commentstring_module = true
-    end,
-    lazy = true,
-  },
-  {
-    -- Add end to close functions
-    "RRethy/nvim-treesitter-endwise",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    lazy = true,
-  },
-  {
-    -- Color brackets and paranthesis
-    "p00f/nvim-ts-rainbow",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    lazy = true,
-  },
-  {
-    -- Auto close html tags
-    "windwp/nvim-ts-autotag",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    lazy = true,
-  },
-  {
-    "simrat39/symbols-outline.nvim",
-    config = true,
-    lazy = true,
-  },
-  {
-    "ray-x/lsp_signature.nvim",
-    config = true,
-    lazy = true,
-  },
-  {
-    "weilbith/nvim-code-action-menu",
-    cmd = "CodeActionMenu",
-    lazy = true,
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-      local npairs = require("nvim-autopairs")
-      local Rule = require("nvim-autopairs.rule")
-      local ts_conds = require("nvim-autopairs.ts-conds")
+    "nvimdev/dashboard-nvim",
+    opts = function()
+      local logo = [[
+           ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
+           ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
+           ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
+           ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
+           ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
+           ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
+      ]]
 
-      npairs.setup({
-        check_ts = true,
-      })
-      npairs.add_rules({
-        Rule("{{", "  }", "vue"):set_end_pair_length(2):with_pair(ts_conds.is_ts_node("text")),
-      })
+      logo = string.rep("\n", 8) .. logo .. "\n\n"
+
+      local opts = {
+        theme = "doom",
+        hide = {
+          -- this is taken care of by lualine
+          -- enabling this messes up the actual laststatus setting after loading a file
+          statusline = false,
+        },
+        config = {
+          header = vim.split(logo, "\n"),
+          -- stylua: ignore
+          center = {
+            { action = "FzfLua files",                                                  desc = " Find file",       icon = " ", key = "f" },
+            { action = "ene | startinsert",                                             desc = " New file",        icon = " ", key = "n" },
+            { action = "FzfLua oldfiles",                                               desc = " Recent files",    icon = " ", key = "r" },
+            { action = "FzfLua live_grep",                                              desc = " Find text",       icon = " ", key = "g" },
+            { action = [[require('fzf-lua').files({cwd = vim.fn.stdpath("config") })]], desc= " Config",           icon = " ", key = "c" },
+            { action = 'lua require("persistence").load()',                             desc = " Restore Session", icon = " ", key = "s" },
+            -- { action = "LazyExtras",                                                    desc = " Lazy Extras",     icon = " ", key = "x" },
+            { action = "Lazy",                                                          desc = " Lazy",            icon = "󰒲 ", key = "l" },
+            { action = "qa",                                                            desc = " Quit",            icon = " ", key = "q" },
+          },
+          footer = function()
+            local stats = require("lazy").stats()
+            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+            return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          end,
+        },
+      }
+
+      for _, button in ipairs(opts.config.center) do
+        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
+        button.key_format = "  %s"
+      end
+
+      -- close Lazy and re-open when the dashboard is ready
+      if vim.o.filetype == "lazy" then
+        vim.cmd.close()
+        vim.api.nvim_create_autocmd("User", {
+          pattern = "DashboardLoaded",
+          callback = function()
+            require("lazy").show()
+          end,
+        })
+      end
+
+      return opts
     end,
   },
   {
-    --  Add/change/delete surrounding delimiter pairs with ease.
-    "kylechui/nvim-surround",
-    event = "InsertEnter",
-    config = true,
+    "folke/which-key.nvim",
+    opts = {
+      defaults = {
+        ["<leader>"] = {
+          y = {
+            name = "+yank",
+            f = {
+              name = "+file",
+            },
+          },
+        },
+      },
+    },
   },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = true,
-    event = "BufReadPre",
-  },
-  -- multi cursors / selection
   {
     "smoka7/multicursors.nvim",
-    event = "VeryLazy",
     opts = {},
     dependencies = {
       "smoka7/hydra.nvim",
@@ -121,460 +304,44 @@ return {
     keys = {
       {
         mode = { "v", "n" },
-        "<Leader>m",
+        "<leader>m",
         "<cmd>MCstart<cr>",
         desc = "Create a selection for selected text or word under the cursor",
       },
     },
   },
-  -- Improve nvim UI
-  { "stevearc/dressing.nvim" },
-
-  -- Tmux navigator
-  { "christoomey/vim-tmux-navigator", lazy = true, event = "BufReadPost" },
-
-  -- Highlight current word uses
+  { "folke/tokyonight.nvim", enabled = false },
+  { "catppuccin", enabled = false },
   {
-    "RRethy/vim-illuminate",
-    event = "BufReadPost",
-    opts = { delay = 200 },
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    opts = {
+      options = {
+        highlight = { underline = true, sp = "blue" }, -- Optional
+        always_show_bufferline = true,
+        hover = {
+          enabled = true,
+          delay = 200,
+          reveal = { "close" },
+        },
+      },
+    },
     config = function(_, opts)
-      require("illuminate").configure(opts)
-
-      vim.keymap.set("n", "]]", function()
-        require("illuminate").goto_next_reference(false)
-      end, { desc = "Go to next reference" })
-
-      vim.keymap.set("n", "[[", function()
-        require("illuminate").goto_prev_reference(false)
-      end, { desc = "Go to prev reference" })
-    end,
-  },
-
-  -- Automatic lists
-  {
-    "dkarter/bullets.vim",
-    config = function()
-      vim.g["bullets_set_mappings"] = 0
-    end,
-  },
-
-  -- Motions
-  {
-    "folke/flash.nvim",
-    event = "VeryLazy",
-    opts = {
-      modes = {
-        search = {
-          -- when `true`, flash will be activated during regular search by default.
-          -- You can always toggle when searching with `require("flash").toggle()`
-          enabled = false,
-        },
-      },
-    },
-    keys = {
-      {
-        "s",
-        mode = { "n", "x", "o" },
-        function()
-          require("flash").jump()
-        end,
-        desc = "Flash",
-      },
-      {
-        "S",
-        mode = { "n", "o", "x" },
-        function()
-          require("flash").treesitter()
-        end,
-        desc = "Flash Treesitter",
-      },
-      {
-        "r",
-        mode = "o",
-        function()
-          require("flash").remote()
-        end,
-        desc = "Remote Flash",
-      },
-      {
-        "R",
-        mode = { "o", "x" },
-        function()
-          require("flash").treesitter_search()
-        end,
-        desc = "Flash Treesitter Search",
-      },
-      {
-        "<c-s>",
-        mode = { "c" },
-        function()
-          require("flash").toggle()
-        end,
-        desc = "Toggle Flash Search",
-      },
-    },
-  },
-
-  -- Projectionist
-  { "tpope/vim-projectionist", event = "BufReadPre" },
-
-  -- editorconfig
-  { "gpanders/editorconfig.nvim", event = "BufReadPre" },
-
-  -- markdown preview
-  {
-    "iamcco/markdown-preview.nvim",
-    build = function()
-      vim.fn["mkdp#util#install"]() -- install without yarn or npm
-    end,
-    cmd = { "MarkdownPreview" },
-    lazy = true,
-  },
-
-  -- Copy file location with current line
-  {
-    "diegoulloao/nvim-file-location",
-    config = true,
-    event = "VeryLazy",
-  },
-  -- Open file on remote website
-  {
-    "ruifm/gitlinker.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { mappings = nil },
-    lazy = true,
-  },
-  -- Session manager
-  {
-    "rmagatti/auto-session",
-    opts = {
-      log_level = "error",
-      auto_session_suppress_dirs = { "~/", "~/Downloads", "~/.config/nvim", "/" },
-      auto_session_use_git_branch = true,
-    },
-  },
-  "SmiteshP/nvim-navic",
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-    config = function(_, opts)
-      local wk = require("which-key")
-      wk.register({
-        ["<leader>"] = {
-          w = { ":w!<cr>", "Save" },
-          q = { ":q<cr>", "Quit" },
-          l = {
-            name = "LSP",
-            n = {
-              require("illuminate").goto_next_reference,
-              "Jump to next occurance of symbol under cursor",
-            },
-            b = {
-              require("illuminate").goto_prev_reference,
-              "Jump to previous occurance of symbol under cursor",
-            },
-            a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-            d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
-            D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "Declaration" },
-            i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "Implementation" },
-            r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename all references" },
-            -- f = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format document" },
-            K = { "<cmd>lua vim.lsp.buf.hover()<cr>", "Hover" },
-            -- l = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document Diagnostics (Trouble)" },
-          },
-          -- p = { "<cmd>lua vim.lsp.buf.format()<cr>", "Format document" },
-          y = {
-            name = "Yank",
-            r = { name = "Remote link" },
-            f = { name = "File" },
-          },
-          t = {
-            name = "Test",
-          },
-          s = { name = "Search" },
-          e = { name = "NvimTree" },
-          b = { name = "Buffers" },
-          g = {
-            name = "Git",
-            l = {
-              "<cmd>lua require 'gitsigns'.blame_line()<cr>",
-              "Blame line",
-            },
-          },
-        },
-        ["g"] = {
-          d = "Go to definition",
-          D = "Go to declaration",
-          r = "Show references",
-        },
-      }, opts)
-    end,
-  },
-  { "dstein64/vim-startuptime", cmd = { "StartupTime" } },
-  { "j-hui/fidget.nvim", config = true, cmd = { "VeryLazy" } },
-  { "tpope/vim-sleuth", event = "VeryLazy" },
-  {
-    "williamboman/mason.nvim",
-    cmd = "Mason",
-    config = true,
-    opt = {
-      "luacheck",
-      "rubocop",
-      "ruby-lsp",
-      "vetur-vls",
-      "typescript-language-server",
-      "lua-language-server",
-      "bash-language-server",
-      "css-lsp",
-      "eslint-lsp",
-      "html-lsp",
-      "prettierd",
-      "stylelint-lsp",
-      "stylua",
-    },
-  },
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons",
-    },
-    opts = {
-      max_width = 50,
-      lsp = {
-        override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true,
-        },
-      },
-      popupmenu = {
-        enabled = false,
-      },
-      presets = {
-        bottom_search = true,
-        command_palette = true,
-        long_message_to_split = true,
-        inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
-      },
-    },
-  },
-  {
-    "vim-test/vim-test",
-    cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
-    keys = {
-      { "<leader>ta", "<cmd>TestSuite<cr>", desc = "Test suite" },
-      { "<leader>tf", "<cmd>TestFile<cr>", desc = "Test file" },
-      { "<leader>tt", "<cmd>TestNearest<cr>", desc = "Test nearest" },
-      { "<leader>tl", "<cmd>TestLast<cr>", desc = "Test last" },
-    },
-    config = function()
-      vim.g["test#strategy"] = "neovim"
-      vim.g["test#neovim#start_normal"] = 1
-      vim.g["test#neovim#term_position"] = "vert botright"
-      vim.g["test#neovim_sticky#kill_previous"] = 1
-      vim.g["test#preserve_screen"] = 0
-    end,
-  },
-  { "akinsho/git-conflict.nvim", version = "*", config = true },
-  {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    config = true,
-  },
-  {
-    "folke/trouble.nvim",
-    cmd = { "TroubleToggle", "Trouble" },
-    lazy = true,
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
-      {
-        "[q",
-        function()
-          if require("trouble").is_open() then
-            require("trouble").previous({ skip_groups = true, jump = true })
-          else
-            local ok, err = pcall(vim.cmd.cprev)
-            if not ok then
-              vim.notify(err, vim.log.levels.ERROR)
-            end
-          end
-        end,
-        desc = "Previous trouble/quickfix item",
-      },
-      {
-        "]q",
-        function()
-          if require("trouble").is_open() then
-            require("trouble").next({ skip_groups = true, jump = true })
-          else
-            local ok, err = pcall(vim.cmd.cnext)
-            if not ok then
-              vim.notify(err, vim.log.levels.ERROR)
-            end
-          end
-        end,
-        desc = "Next trouble/quickfix item",
-      },
-    },
-    config = function()
-      require("trouble").setup({
-        -- "workspace_diagnostics", "document_diagnostics", "quickfix", "lsp_references", "loclist"
-        mode = "workspace_diagnostics",
-        position = "bottom", -- position of the list can be: bottom, top, left, right
-        height = 15,
-        padding = false,
-        action_keys = {
-          -- key mappings for actions in the trouble list
-          -- close = "q", -- close the list
-          cancel = "<esc>", -- cancel the preview and get back to your last window / buffer / cursor
-          refresh = "r", -- manually refresh
-          jump = { "<cr>", "<tab>" }, -- jump to the diagnostic or open / close folds
-          open_split = { "<c-x>" }, -- open buffer in new split
-          open_vsplit = { "<c-v>" }, -- open buffer in new vsplit
-          open_tab = { "<c-t>" }, -- open buffer in new tab
-          jump_close = { "o" }, -- jump to the diagnostic and close the list
-          toggle_mode = "m", -- toggle between "workspace" and "document" diagnostics mode
-          toggle_preview = "P", -- toggle auto_preview
-          hover = "K", -- opens a small popup with the full multiline message
-          preview = "p", -- preview the diagnostic location
-          close_folds = { "zM" }, -- close all folds
-          open_folds = { "zR" }, -- open all folds
-          toggle_fold = { "za" }, -- toggle fold of current file
-        },
-        auto_jump = {},
-        use_diagnostic_signs = true,
-      })
-    end,
-  },
-  {
-    "stevearc/conform.nvim",
-    dependencies = { "mason.nvim" },
-    event = { "BufWritePre", "BufNewFile" },
-    -- enabled = false,
-    cmd = "ConformInfo",
-    keys = {
-      {
-        "<leader>p",
-        function()
-          require("conform").format({ async = true, lsp_fallback = true })
-        end,
-        mode = { "n", "v" },
-        desc = "Format Injected Langs",
-      },
-    },
-    config = function()
-      require("conform").setup({
-        formatters_by_ft = {
-          lua = { "stylua" },
-          javascript = { { "prettierd", "prettier" } }, -- will use the first available formatter
-          vue = { { "prettierd", "prettier" } }, -- will use the first available formatter
-          html = { { "prettierd", "prettier" } }, -- will use the first available formatter
-          eruby = { "htmlbeautifier" }, -- will use the first available formatter
-          ruby = { "rubocop" },
-        },
-        formatters = {
-          -- rubocop = {
-          -- 	command = "/Users/aalakkad/.local/share/rtx/shims/rubocop",
-          -- 	prepend_args = { "--lsp" },
-          -- },
-        },
-        format_on_save = function(bufnr)
-          -- Disable autoformat on certain filetypes
-          local ignore_filetypes = { "sql", "ruby" }
-          if vim.tbl_contains(ignore_filetypes, vim.bo[bufnr].filetype) then
-            return
-          end
-          -- Disable with a global or buffer-local variable
-          if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
-            return
-          end
-          -- Disable autoformat for files in a certain path
-          local bufname = vim.api.nvim_buf_get_name(bufnr)
-          if bufname:match("/node_modules/") then
-            return
-          end
-          -- ...additional logic...
-          return { timeout_ms = 500, lsp_fallback = true, async = false }
-        end,
-      })
-    end,
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event = {
-      "BufReadPre",
-      "BufNewFile",
-    },
-    config = function()
-      local rubocop = require("lint").linters.rubocop
-      -- rubocop. args = {'--format', 'json', '--force-exclusion'},
-      rubocop.args = { "--lsp" }
-
-      require("lint").linters_by_ft = {
-        markdown = { "vale" },
-        javascript = { "eslint_d" },
-        vue = { "eslint_d" },
-        ruby = { "rubocop" },
-        css = { "stylelint" },
-        scss = { "stylelint" },
-        lua = { "luacheck" },
-      }
-
-      vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+      require("bufferline").setup(opts)
+      -- Fix bufferline when restoring a session
+      vim.api.nvim_create_autocmd("BufAdd", {
         callback = function()
-          require("lint").try_lint()
+          vim.schedule(function()
+            pcall(nvim_bufferline)
+          end)
         end,
       })
     end,
   },
   {
-    "kosayoda/nvim-lightbulb",
-    config = function()
-      require("nvim-lightbulb").setup({
-        autocmd = { enabled = true },
-      })
-    end,
-  },
-  {
-    "NvChad/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup({
-        filetypes = {
-          "css",
-          "javascript",
-          "vue",
-          "html",
-        },
-      })
-    end,
-  },
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    lazy = true,
-    ft = "markdown",
+    "LazyVim/LazyVim",
     opts = {
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/obsidian",
-        },
-      },
+      colorscheme = "everforest",
     },
   },
 }
