@@ -7,54 +7,6 @@ return {
     end,
   },
   {
-    "nvim-treesitter/nvim-treesitter",
-    opts = {
-      ensure_installed = {
-        "bash",
-        "comment",
-        "css",
-        "diff",
-        "git_rebase",
-        "gitattributes",
-        "gitignore",
-        "graphql",
-        "html",
-        "http",
-        "javascript",
-        "jsdoc",
-        "json",
-        "jsonc",
-        "lua",
-        "markdown",
-        "markdown_inline",
-        "regex",
-        "ruby",
-        "scss",
-        "toml",
-        "tsx",
-        "typescript",
-        "vim",
-        "vue",
-        "yaml",
-      },
-    },
-  },
-  {
-    "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        -- "prettierd",
-        vale_ls = {},
-        emmet_language_server = {
-          filetypes = { "vue", "eruby", "html", "haml", "javascript" },
-        },
-        stylelint_lsp = {
-          filetypes = { "css", "scss" },
-        },
-      },
-    },
-  },
-  {
     "andymass/vim-matchup",
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -136,26 +88,6 @@ return {
     config = true,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    -- stylua: ignore
-    keys = {
-      -- disable the keymap to grep files
-      { "<leader><space>", false },
-      { "<leader>,",       false },
-      { "<leader>fF",      false },
-      -- git
-      { "<leader>gc",      false },
-      { "<leader>gs",      false },
-      -- search
-      { "<leader>sb",      false },
-      { "<leader>sG",      false },
-      { "<leader>so",      false },
-      { "<leader>sW",      false },
-      { "<leader>sw",      false },
-      { "<leader>sW",      false, mode = "v" },
-    },
-  },
-  {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     event = "VeryLazy",
@@ -218,83 +150,6 @@ return {
     },
   },
   {
-    "nvimdev/dashboard-nvim",
-    opts = function()
-      local logo = [[
-           ██╗      █████╗ ███████╗██╗   ██╗██╗   ██╗██╗███╗   ███╗          Z
-           ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██║   ██║██║████╗ ████║      Z    
-           ██║     ███████║  ███╔╝  ╚████╔╝ ██║   ██║██║██╔████╔██║   z       
-           ██║     ██╔══██║ ███╔╝    ╚██╔╝  ╚██╗ ██╔╝██║██║╚██╔╝██║ z         
-           ███████╗██║  ██║███████╗   ██║    ╚████╔╝ ██║██║ ╚═╝ ██║           
-           ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝     ╚═══╝  ╚═╝╚═╝     ╚═╝           
-      ]]
-
-      logo = string.rep("\n", 8) .. logo .. "\n\n"
-
-      local opts = {
-        theme = "doom",
-        hide = {
-          -- this is taken care of by lualine
-          -- enabling this messes up the actual laststatus setting after loading a file
-          statusline = false,
-        },
-        config = {
-          header = vim.split(logo, "\n"),
-          -- stylua: ignore
-          center = {
-            { action = "FzfLua files",                                                  desc = " Find file",       icon = " ", key = "f" },
-            { action = "ene | startinsert",                                             desc = " New file",        icon = " ", key = "n" },
-            { action = "FzfLua oldfiles",                                               desc = " Recent files",    icon = " ", key = "r" },
-            { action = "FzfLua live_grep",                                              desc = " Find text",       icon = " ", key = "g" },
-            { action = [[require('fzf-lua').files({cwd = vim.fn.stdpath("config") })]], desc= " Config",           icon = " ", key = "c" },
-            { action = 'lua require("persistence").load()',                             desc = " Restore Session", icon = " ", key = "s" },
-            -- { action = "LazyExtras",                                                    desc = " Lazy Extras",     icon = " ", key = "x" },
-            { action = "Lazy",                                                          desc = " Lazy",            icon = "󰒲 ", key = "l" },
-            { action = "qa",                                                            desc = " Quit",            icon = " ", key = "q" },
-          },
-          footer = function()
-            local stats = require("lazy").stats()
-            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-            return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
-          end,
-        },
-      }
-
-      for _, button in ipairs(opts.config.center) do
-        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-        button.key_format = "  %s"
-      end
-
-      -- close Lazy and re-open when the dashboard is ready
-      if vim.o.filetype == "lazy" then
-        vim.cmd.close()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "DashboardLoaded",
-          callback = function()
-            require("lazy").show()
-          end,
-        })
-      end
-
-      return opts
-    end,
-  },
-  {
-    "folke/which-key.nvim",
-    opts = {
-      defaults = {
-        ["<leader>"] = {
-          y = {
-            name = "+yank",
-            f = {
-              name = "+file",
-            },
-          },
-        },
-      },
-    },
-  },
-  {
     "smoka7/multicursors.nvim",
     opts = {},
     dependencies = {
@@ -309,34 +164,6 @@ return {
         desc = "Create a selection for selected text or word under the cursor",
       },
     },
-  },
-  { "folke/tokyonight.nvim", enabled = false },
-  { "catppuccin", enabled = false },
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        highlight = { underline = true, sp = "blue" }, -- Optional
-        always_show_bufferline = true,
-        hover = {
-          enabled = true,
-          delay = 200,
-          reveal = { "close" },
-        },
-      },
-    },
-    config = function(_, opts)
-      require("bufferline").setup(opts)
-      -- Fix bufferline when restoring a session
-      vim.api.nvim_create_autocmd("BufAdd", {
-        callback = function()
-          vim.schedule(function()
-            pcall(nvim_bufferline)
-          end)
-        end,
-      })
-    end,
   },
   {
     "LazyVim/LazyVim",
