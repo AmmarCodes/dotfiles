@@ -130,6 +130,7 @@ alias gps="git push -o ci.skip" # push with skip ci option
 alias lastver="git tag -l | gsort -V | tail -n 1"
 alias t="todo.sh"
 alias vim="nvim"
+alias v="nvim"
 alias weather="curl http:\/\/wttr.in\/?Q1n"
 alias doc="docker"
 alias docc="docker-compose"
@@ -228,10 +229,17 @@ export BAT_THEME="Nord"
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
 
 # Catpuccin Latte
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#ccd0da,bg:#ffffff,spinner:#dc8a78,hl:#d20f39 \
+# --color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+# --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+
+# Catpuccin Frappe
 export FZF_DEFAULT_OPTS=" \
---color=bg+:#ccd0da,bg:#ffffff,spinner:#dc8a78,hl:#d20f39 \
---color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
---color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
+
 
 
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1

@@ -1,10 +1,40 @@
 return {
   {
     "sainnhe/everforest",
+    enabled = false,
     config = function()
       vim.g.everforest_better_performance = 1
       vim.cmd([[set background=light]])
     end,
+  },
+  {
+    "shaunsingh/nord.nvim",
+    config = function()
+      vim.g.nord_contrast = true
+      vim.g.nord_borders = false
+      vim.g.nord_disable_background = false
+      vim.g.nord_italic = true
+      vim.g.nord_uniform_diff_background = true
+      vim.g.nord_bold = false
+
+      vim.opt.background = "dark"
+      vim.cmd.colorscheme("nord")
+    end,
+    enabled = false,
+  },
+  {
+    "catppuccin",
+    opts = {
+      flavour = "frappe",
+      dim_inactive = {
+        enabled = true,
+      },
+      integrations = {
+        mini = {
+          enabled = false,
+        },
+      },
+    },
   },
   {
     "andymass/vim-matchup",
@@ -202,7 +232,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "everforest",
+      colorscheme = "catppuccin",
     },
   },
 }

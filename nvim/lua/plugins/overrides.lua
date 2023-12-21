@@ -139,7 +139,6 @@ return {
     },
   },
   { "folke/tokyonight.nvim", enabled = false },
-  { "catppuccin", enabled = false },
   {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",

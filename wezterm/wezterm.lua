@@ -9,7 +9,7 @@ local config = wezterm.config_builder()
 
 config.term = "wezterm"
 
-config.color_scheme = "Everforest Light (Gogh)" -- Catppuccin Latte"
+config.color_scheme = "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
 -- config.colors = { background = "#FFFFFF" }
 config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("MonoLisa", { weight = "Medium" })
@@ -20,7 +20,7 @@ config.line_height = 1.6
 config.underline_position = -7
 config.window_decorations = "RESIZE"
 config.window_padding = {
-  bottom = 0,
+	bottom = 0,
 }
 
 config.native_macos_fullscreen_mode = true
@@ -30,13 +30,13 @@ config.window_close_confirmation = "NeverPrompt"
 
 -- maximize window on start
 wezterm.on("gui-attached", function()
-  -- maximize all displayed windows on startup
-  local workspace = mux.get_active_workspace()
-  for _, window in ipairs(mux.all_windows()) do
-    if window:get_workspace() == workspace then
-      window:gui_window():maximize()
-    end
-  end
+	-- maximize all displayed windows on startup
+	local workspace = mux.get_active_workspace()
+	for _, window in ipairs(mux.all_windows()) do
+		if window:get_workspace() == workspace then
+			window:gui_window():maximize()
+		end
+	end
 end)
 
 -- and finally, return the configuration to wezterm
