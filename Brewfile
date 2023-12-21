@@ -102,6 +102,8 @@ brew "neovim"
 brew "node-build"
 # Trigger notifications when a process completes
 brew "noti"
+# Modern shell for the GitHub era
+brew "nushell"
 # ISO-C API and CLI for generating UUIDs
 brew "ossp-uuid"
 # Terminal multiplexer
@@ -140,6 +142,8 @@ brew "wget"
 brew "yamllint"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
+# Pluggable terminal workspace, with terminal multiplexer as the base feature
+brew "zellij"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Shell extension to navigate your filesystem faster
@@ -158,8 +162,6 @@ cask "1password-cli"
 cask "alfred"
 # Menu bar icon organizer
 cask "bartender"
-# Automated testing of webapps for Google Chrome
-cask "chromedriver"
 # Allows switching between application windows
 cask "contexts"
 # Calendar for professionals and teams
