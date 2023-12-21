@@ -32,3 +32,16 @@ map("t", "<C-o>", "<C-\\><C-n>")
 map("n", "<leader>ba", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete non-pinned buffers" })
 
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
+
+------------------------
+--   tmux navigator   --
+------------------------
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
+
+map("n", "<C-h>", "<cmd>NavigatorLeft<cr>", { desc = "Go to left window", remap = true })
+map("n", "<C-j>", "<cmd>NavigatorDown<cr>", { desc = "Go to lower window", remap = true })
+map("n", "<C-k>", "<cmd>NavigatorUp<cr>", { desc = "Go to upper window", remap = true })
+map("n", "<C-l>", "<cmd>NavigatorRight<cr>", { desc = "Go to right window", remap = true })

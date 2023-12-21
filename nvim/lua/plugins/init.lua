@@ -35,8 +35,9 @@ return {
     cmd = "CodeActionMenu",
   },
   {
-    "christoomey/vim-tmux-navigator",
+    "numToStr/Navigator.nvim",
     event = "VeryLazy",
+    config = true,
   },
   {
     "dkarter/bullets.vim",
