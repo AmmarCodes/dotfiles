@@ -230,6 +230,28 @@ return {
     end,
   },
   {
+    "Wansmer/treesj",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    event = "InsertEnter",
+    config = function()
+      require("treesj").setup({
+        use_default_keymaps = false,
+      })
+    end,
+    keys = {
+      {
+        "<leader>cs",
+        '<cmd>lua require("treesj").split()<cr>',
+        desc = "Split line into block",
+      },
+      {
+        "<leader>cj",
+        '<cmd>lua require("treesj").join()<cr>',
+        desc = "Join block into line",
+      },
+    },
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
