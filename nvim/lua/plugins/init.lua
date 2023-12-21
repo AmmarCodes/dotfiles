@@ -230,6 +230,17 @@ return {
     end,
   },
   {
+    "ThePrimeagen/refactoring.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+    },
+    event = "BufReadPre",
+    config = function()
+      require("refactoring").setup({})
+    end,
+  },
+  {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = "InsertEnter",
