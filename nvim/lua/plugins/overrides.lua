@@ -61,10 +61,12 @@ return {
       -- search
       { "<leader>sb",      false },
       { "<leader>sG",      false },
+      { "<leader>sg",      false },
       { "<leader>so",      false },
       { "<leader>sW",      false },
       { "<leader>sw",      false },
       { "<leader>sW",      false, mode = "v" },
+      { "<leader>sR",      false },
     },
   },
   {
@@ -275,6 +277,10 @@ return {
         end, { "i", "s" }),
       })
     end,
+  },
+  {
+    "folke/noice.nvim",
+    keys = { { "<c-b>", false } },
   },
   { "echasnovski/mini.pairs", enabled = false },
 }
