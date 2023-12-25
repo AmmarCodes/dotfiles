@@ -263,6 +263,14 @@ return {
     },
   },
   {
+    "kassio/neoterm",
+    lazy = true,
+    cmd = { "Tnew" },
+    config = function()
+      vim.g.neoterm_default_mod = "vertical"
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
