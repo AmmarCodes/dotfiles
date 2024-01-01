@@ -8,6 +8,14 @@ return {
     end,
   },
   {
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.g.gruvbox_material_background = "hard"
+      vim.g.gruvbox_material_better_performance = 1
+      vim.g.gruvbox_material_enable_italic = 1
+    end,
+  },
+  {
     "shaunsingh/nord.nvim",
     config = function()
       vim.g.nord_contrast = true
@@ -24,6 +32,7 @@ return {
   },
   {
     "catppuccin",
+    enabled = false,
     opts = {
       flavour = "frappe",
       dim_inactive = {
@@ -273,7 +282,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "gruvbox-material",
     },
   },
 }
