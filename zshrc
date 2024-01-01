@@ -173,6 +173,16 @@ function llog {
     --color
 }
 
+function ffe() {
+  echo "Feature.enable(:$1)" | bin/rails console
+  noti -m "$1 feature enabled"
+}
+
+function ffd() {
+  echo "Feature.disable(:$1)" | bin/rails console
+  noti -m "$1 feature disabled"
+}
+
 listening() {
     if [ $# -eq 0 ]; then
         sudo lsof -iTCP -sTCP:LISTEN -n -P
