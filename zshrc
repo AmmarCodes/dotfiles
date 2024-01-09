@@ -237,6 +237,12 @@ export BAT_THEME="Nord"
 #     --color=marker:#a3be8b,spinner:#b48dac,header:#a3be8b'
 # gruvbox
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
+#
+# gruvbox material dark
+export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+  --color=bg+:#3c3836,bg:#1d2021,spinner:#ea6962,hl:#d3869b \
+  --color=fg:#d4be98,header:#d3869b,info:#a9b665,pointer:#ea6962 \
+  --color=marker:#ea6962,fg+:#ddc7a1,prompt:#83a598,hl+:#ddc7a1"
 
 # Catpuccin Latte
 # export FZF_DEFAULT_OPTS=" \
@@ -245,12 +251,10 @@ export BAT_THEME="Nord"
 # --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 
 # Catpuccin Frappe
-export FZF_DEFAULT_OPTS=" \
---color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
---color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
-
-
+# export FZF_DEFAULT_OPTS=" \
+# --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+# --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+# --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 
