@@ -13,7 +13,7 @@ fi
 # append asdf completions to fpath
 # fpath=(${ASDF_DIR}/completions $fpath)
 
-eval "$(/opt/homebrew/bin/rtx activate zsh)"
+eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 autoload -Uz compinit
 typeset -i updated_at=$(date +'%j' -r ~/.zcompdump 2>/dev/null || stat -f '%Sm' -t '%j' ~/.zcompdump 2>/dev/null)

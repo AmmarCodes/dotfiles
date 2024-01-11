@@ -4,7 +4,6 @@ tap "candid82/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
-tap "jdxcode/tap"
 tap "oven-sh/bun"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
@@ -96,6 +95,8 @@ brew "libyaml"
 brew "lpeg"
 # Mac App Store command-line interface
 brew "mas"
+# Polyglot runtime manager (asdf rust clone)
+brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Install NodeJS versions
@@ -150,8 +151,6 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
-# Multi-language runtime manager
-brew "jdxcode/tap/rtx"
 # Readability and Markdown utility for saving web urls and HTML text
 brew "ttscoff/thelab/gather-cli"
 # karabiner configurator
