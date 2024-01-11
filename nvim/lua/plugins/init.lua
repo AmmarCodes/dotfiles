@@ -18,6 +18,11 @@ return {
     end,
   },
   {
+    "rose-pine/neovim",
+    name = "rose-pine",
+    priority = 1000,
+  },
+  {
     "shaunsingh/nord.nvim",
     config = function()
       vim.g.nord_contrast = true
@@ -284,7 +289,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruvbox-material",
+      colorscheme = "rose-pine-dawn",
     },
   },
 }

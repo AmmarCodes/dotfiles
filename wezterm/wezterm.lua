@@ -23,7 +23,7 @@ config.color_schemes = {
 		brights = { "#eddeb5", "#ea6962", "#a9b665", "#d8a657", "#7daea3", "#d3869b", "#89b482", "#d4be98" },
 	},
 }
-config.color_scheme = "gruvbox_material_dark_hard" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
+config.color_scheme = "rose-pine-dawn" -- gruvbox_material_dark_hard" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
 -- config.colors = { background = "#FFFFFF" }
 config.hide_tab_bar_if_only_one_tab = true
 config.font = wezterm.font("MonoLisa", { weight = "Medium" })

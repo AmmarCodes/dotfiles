@@ -239,11 +239,13 @@ export BAT_THEME="Nord"
 # export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS --color=bg+:#7c6f64,bg:#3c3836,spinner:#9d0006,hl:#928374,fg:#bdae93,header:#928374,info:#427b58,pointer:#9d0006,marker:#9d0006,fg+:#3c3836,prompt:#83a598,hl+:#b8bb26"
 #
 # gruvbox material dark
-export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
-  --color=bg+:#3c3836,bg:#1d2021,spinner:#ea6962,hl:#d3869b \
-  --color=fg:#d4be98,header:#d3869b,info:#a9b665,pointer:#ea6962 \
-  --color=marker:#ea6962,fg+:#ddc7a1,prompt:#83a598,hl+:#ddc7a1"
+# export FZF_DEFAULT_OPTS="$FZF_DEFAULT_OPTS \
+#   --color=bg+:#3c3836,bg:#1d2021,spinner:#ea6962,hl:#d3869b \
+#   --color=fg:#d4be98,header:#d3869b,info:#a9b665,pointer:#ea6962 \
+#   --color=marker:#ea6962,fg+:#ddc7a1,prompt:#83a598,hl+:#ddc7a1"
 
+# rose-pine-dawn
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#9893a5,bg:#faf4ed,hl:#286983 --color=fg+:#575279,bg+:#ebe0dd,hl+:#575279 --color=info:#ea9d34,prompt:#797593,pointer:#b4367a --color=marker:#56949f,spinner:#af5fff,header:#87afaf'
 # Catpuccin Latte
 # export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#ccd0da,bg:#ffffff,spinner:#dc8a78,hl:#d20f39 \
