@@ -30,7 +30,7 @@ config.font = wezterm.font("MonoLisa", { weight = "Medium" })
 config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss06", "ss07", "ss08", "ss10", "ss15", "ss16" }
 
 config.font_size = 14
-config.line_height = 1.4
+config.line_height = 1.3
 config.underline_position = -7
 config.window_decorations = "RESIZE"
 config.window_padding = {
