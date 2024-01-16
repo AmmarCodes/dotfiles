@@ -144,7 +144,7 @@ alias :q="exit"
 alias mux="tmuxinator"
 alias be="bundle exec"
 alias ll="ls -lah"
-alias upgrade-nvim="brew unlink neovim && brew install --fetch-HEAD --HEAD neovim && brew link neovim"
+alias upgrade-nvim="brew unlink neovim && brew install --fetch-HEAD --HEAD neovim && brew unlink neovim && brew link neovim -f"
 
 alias ctags="`brew --prefix`/bin/ctags"
 alias focus="cd ~/projects/focus && vim README.md"
