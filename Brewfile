@@ -98,7 +98,7 @@ brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim"
+brew "neovim", args: ["HEAD"]
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -204,6 +204,8 @@ cask "little-snitch"
 cask "muzzle"
 # Automatic time tracker
 cask "qbserve"
+# Control your tools with a few keystrokes
+cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Emoji picker optimized for blind people
