@@ -253,6 +253,7 @@ return {
     },
     event = "BufReadPre",
     config = function()
+      ---@diagnostic disable-next-line: missing-fields
       require("refactoring").setup({})
     end,
   },
@@ -285,6 +286,18 @@ return {
     config = function()
       vim.g.neoterm_default_mod = "vertical"
     end,
+  },
+  {
+    "utilyre/barbecue.nvim",
+    name = "barbecue",
+    version = "*",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons", -- optional dependency
+    },
+    opts = {
+      -- configurations go here
+    },
   },
   {
     "LazyVim/LazyVim",
