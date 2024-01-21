@@ -292,11 +292,13 @@ return {
     name = "barbecue",
     version = "*",
     dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
+      { "SmiteshP/nvim-navic" },
     },
     opts = {
       -- configurations go here
+      theme = {
+        normal = { bg = "#f2e9e1" },
+      },
     },
   },
   {
