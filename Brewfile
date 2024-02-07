@@ -45,6 +45,8 @@ brew "exa"
 brew "exiftool"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
+# GNU compiler collection
+brew "gcc"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
 # OpenType text shaping engine
@@ -53,8 +55,6 @@ brew "harfbuzz"
 brew "ffmpeg"
 # Command-line fuzzy finder written in Go
 brew "fzf"
-# GNU compiler collection
-brew "gcc"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -238,7 +238,6 @@ mas "Dark Noise", id: 1465439395
 mas "Day One", id: 1055511498
 mas "Day Progress", id: 6450280202
 mas "Drafts", id: 1435957248
-mas "GIPHY CAPTURE", id: 668208984
 mas "Goodnotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
 mas "HP Smart", id: 1474276998
