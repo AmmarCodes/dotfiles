@@ -68,3 +68,5 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
   group = automkdirGroup,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.njk", command = "setfiletype html" })
