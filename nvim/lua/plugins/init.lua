@@ -302,6 +302,20 @@ return {
     },
   },
   {
+    "folke/zen-mode.nvim",
+    opts = {
+      window = { backdrop = 1 },
+      plugins = {
+        gitsigns = { enabled = true }, -- disables git signs
+        tmux = { enabled = true }, -- disables the tmux statusline
+      },
+    },
+  },
+  {
+    "folke/twilight.nvim",
+    opts = {},
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "rose-pine-dawn",
