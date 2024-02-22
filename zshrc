@@ -351,7 +351,8 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=/opt/homebrew/opt/openssl@1.1 --w
 export PATH="/Users/aalakkad/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --no-cmd)" # using no commands then using the next alias because it adds `zi` alias which conflicts with zi (the plugin manager)
+alias z="__zoxide_z"
 
 eval "$(jump shell)"
 
