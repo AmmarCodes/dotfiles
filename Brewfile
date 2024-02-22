@@ -93,12 +93,14 @@ brew "libpq"
 brew "libyaml"
 # Parsing Expression Grammars For Lua
 brew "lpeg"
+# Fast, async, resource-friendly link checker
+brew "lychee"
 # Mac App Store command-line interface
 brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
-brew "neovim", args: ["HEAD"]
+brew "neovim"
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -159,17 +161,15 @@ brew "yqrashawn/goku/goku"
 cask "1password-cli"
 # Application launcher and productivity software
 cask "alfred"
-# Menu bar icon organizer
+# Menu bar icon organiser
 cask "bartender"
 # Allows switching between application windows
 cask "contexts"
-# Calendar for professionals and teams
-cask "cron"
 # API documentation browser and code snippet manager
 cask "dash"
 # Utilities designed to make common development tasks easier
 cask "devtoys"
-# Screen color temperature controller
+# Screen colour temperature controller
 cask "flux"
 # Website and application blocker
 cask "focus"
@@ -190,11 +190,11 @@ cask "google-chrome"
 cask "imazing"
 # System monitoring app
 cask "istat-menus"
-# Keyboard customizer
+# Keyboard customiser
 cask "karabiner-elements"
 # Automation software
 cask "keyboard-maestro"
-# Open-source keystroke visualizer
+# Open-source keystroke visualiser
 cask "keycastr"
 # Noise cancelling application
 cask "krisp"
@@ -202,13 +202,15 @@ cask "krisp"
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
+# Calendar for professionals and teams
+cask "notion-calendar"
 # Automatic time tracker
 cask "qbserve"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Emoji picker optimized for blind people
+# Emoji picker optimised for blind people
 cask "rocket"
 # Ruby on Rails IDE
 cask "rubymine"
@@ -257,26 +259,26 @@ mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
 vscode "arcticicestudio.nord-visual-studio-code"
 vscode "castwide.solargraph"
-vscode "Catppuccin.catppuccin-vsc"
+vscode "catppuccin.catppuccin-vsc"
 vscode "christian-kohler.path-intellisense"
 vscode "dbaeumer.vscode-eslint"
-vscode "Equinusocio.vsc-community-material-theme"
+vscode "equinusocio.vsc-community-material-theme"
 vscode "esbenp.prettier-vscode"
 vscode "formulahendry.auto-close-tag"
 vscode "formulahendry.auto-rename-tag"
-vscode "GitLab.gitlab-workflow"
+vscode "gitlab.gitlab-workflow"
 vscode "isudox.vscode-jetbrains-keybindings"
 vscode "jdinhlife.gruvbox"
 vscode "kaiwood.endwise"
 vscode "mikestead.dotenv"
 vscode "noku.rails-run-spec-vscode"
 vscode "octref.vetur"
-vscode "Orta.vscode-jest"
+vscode "orta.vscode-jest"
 vscode "rebornix.ruby"
-vscode "Shopify.ruby-lsp"
+vscode "shopify.ruby-lsp"
 vscode "vayan.haml"
 vscode "vscodevim.vim"
-vscode "Vue.volar"
-vscode "Vue.vscode-typescript-vue-plugin"
+vscode "vue.volar"
+vscode "vue.vscode-typescript-vue-plugin"
 vscode "wingrunr21.vscode-ruby"
 vscode "yzhang.markdown-all-in-one"
