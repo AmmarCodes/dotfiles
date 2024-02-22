@@ -18,6 +18,7 @@
 	excludesfile = ~/.gitignore
 	pager = delta
 	ignorecase = false
+	fsmonitor = true
 [interactive]
     diffFilter = delta --color-only --features=interactive
 [merge]
@@ -72,3 +73,9 @@
 
 path = ~/.gitconfig-gitlab
 
+[rerere]
+	enabled = true
+[column]
+	ui = auto
+[maintenance]
+	repo = /Users/aalakkad/projects/gitlab-development-kit/gitlab
