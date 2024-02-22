@@ -29,6 +29,11 @@
       force: true
       path: xbar/**
       relink: true
+    ~/Library/Application Support/espanso:
+      glob: true
+      force: true
+      path: espanso/**
+      relink: true
 
 - create:
     - ~/.config/bat/themes

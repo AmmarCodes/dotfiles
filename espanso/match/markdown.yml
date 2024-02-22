@@ -1,0 +1,23 @@
+global_vars:
+  - name: "clipboard"
+    type: "clipboard"
+  - name: "date"
+    type: "date"
+    params:
+      format: "%Y-%m-%d"
+
+matches:
+  # source: https://github.com/katrinleinweber/espanso-effective-markdown/blob/master/effective-markdown/0.1.0/package.yml
+  - trigger: "[)"
+    replace: "[$|$]({{clipboard}})"
+  - trigger: "-["
+    replace: "- [ ] "
+  - trigger: "```js"
+    replace: "```javascript\n$|$\n```"
+  - trigger: "```vue"
+    replace: "```vue\n$|$\n```"
+  # end of source
+
+  # Obsidian callouts
+  - trigger: ">["
+    replace: "> [!NOTE]+\n"

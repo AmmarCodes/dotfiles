@@ -169,6 +169,8 @@ cask "contexts"
 cask "dash"
 # Utilities designed to make common development tasks easier
 cask "devtoys"
+# Cross-platform Text Expander written in Rust
+cask "espanso"
 # Screen colour temperature controller
 cask "flux"
 # Website and application blocker

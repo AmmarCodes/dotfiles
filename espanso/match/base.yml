@@ -1,0 +1,200 @@
+# espanso match file
+
+# For a complete introduction, visit the official docs at: https://espanso.org/docs/
+
+# You can use this file to define the base matches (aka snippets)
+# that will be available in every application when using espanso.
+global_vars:
+  - name: "clipboard"
+    type: "clipboard"
+  - name: "date"
+    type: "date"
+    params:
+      format: "%Y-%m-%d"
+
+# Matches are substitution rules: when you type the "trigger" string
+# it gets replaced by the "replace" string.
+matches:
+  # - trigger: ""
+  #   replace: ""
+
+  - trigger: ";date"
+    replace: "{{date}}"
+
+  - trigger: ";time"
+    replace: "{{time}}"
+    vars:
+      - name: time
+        type: date
+        params:
+          format: "%H:%M"
+
+  - trigger: ";dtime"
+    replace: "{{dtime}}"
+    vars:
+      - name: dtime
+        type: date
+        params:
+          format: "%Y-%m-%d %H:%M"
+
+  - trigger: ";review"
+    replace: |
+      Hey @{{clipboard}} :wave:
+
+      Would you review this merge request, please?
+
+      Thanks!
+
+      /assign_reviewer @{{clipboard}}
+  - trigger: ";async"
+    replace: |
+      <!---
+      Please be sure to update the workflow labels of your issue to one of the following (that best describes the status)"
+      - ~"workflow::In dev"
+      - ~"workflow::In review"
+      - ~"workflow::verification"
+      - ~"workflow::blocked"
+      -->
+      ### Async issue update
+
+      1. Please provide a quick summary of the current status (one sentence)
+          -
+      1. How confident are you that this will make it to the current milestone?
+          - [ ] Not confident
+          - [ ] Slightly confident
+          - [ ] Very confident
+      1. Are there any opportunities to further break the issue or merge request into smaller pieces (if applicable)?
+          - [ ] Yes
+          - [ ] No
+      1. Were expectations met from a previous update? If not, please explain why.
+          - [ ] Yes
+          - [ ] No, ___
+      1. Are the related issues up to date? Please link any missing issues in the epic that could be linked to this issue
+          - [ ] Yes
+          - [ ] No
+
+      /health_status on_track|needs_attention|at_risk
+
+  - trigger: ";details"
+    replace: |
+      <details>
+        <summary>$|$</summary>
+        
+      </details>
+
+  - trigger: ";gf"
+    replace: "git commit --fixup={{clipboard}}"
+
+  - trigger: ";shots"
+    replace: "| before | after |\n| ------ | ------ |\n| $|$ |  |"
+
+  - trigger: ";it"
+    replace: "it('$|$', () => {  });"
+
+  - trigger: ";arr"
+    replace: "() => {$|$}"
+
+  - trigger: ";desc"
+    replace: "describe('$|$', () => {});"
+
+  - trigger: ";refine"
+    replace: |
+      ### Refinement / Weighting
+      <!--
+      Ready for development means replying yes to the following questions:
+
+      - Does the issue have a problem statement in the description?
+      - Does the issue have the expected behavior described well enough for anyone to understand?
+      - Does the issue explicitly define who the stakeholders are (e.g. BE, FE, PM, UX and/or Tech Writer)?
+      - Does the issue have a proposal in the description?
+      - Does the issue have proper labeling matching the job to be done? (e.g. bug, feature, performance)
+      - Is this issue sufficiently small enough? If not, break it into smaller issues
+      - Is it assigned to the correct domain (e.g. frontend, backend)? If not, break it into two issues for the respective domains
+      – Is the issue clear and easy to understand? If not, try asking further clarification questions and update the description once they are received
+
+      If more than 2 MRs are needed, consider adding a table like the following to the description (e.g. under `Implementation plan`).
+
+      | Description | MR |
+      |-|-|
+      |||
+
+      It will help track the status.
+      -->
+
+      - [ ] Ready for development
+      - [ ] Weight is assigned
+      - [ ] Number of MRs listed
+      - [ ] Needs testing considerations
+      - [ ] Needs documentation updates
+
+      **Reasoning:**
+
+      <!--
+      Add some initial thoughts on how you might break down this issue. A bulleted list is fine.
+
+      This will likely require the code changes similar to the following:
+
+      - replace the hex driver with a sonic screwdriver
+      - rewrite backups to magnetic tape
+      - send up semaphore flags to warn others
+
+      Links to previous examples. Discussions on prior art. Notice examples of the simplicity/complexity in the proposed designs.
+      -->
+
+      <details>
+        <summary>Estimated weight</summary>
+        <code>?</code>
+
+      If we are aligned on the weight, we can apply:
+
+      ```
+      /label ~"workflow::ready for development" ~"estimation::completed" 
+      /unlabel ~"needs weight"
+      /weight ?
+      ```
+
+      </details>
+
+  - trigger: ";11"
+    html: |
+      <p style="font-size: 26px">{{date}}</p>
+      <ul style="font-size: 16px">
+        <li>
+          Ammar
+          <ul>
+            <li>Review Priorities:
+              <ul><li>...</li></ul>
+            </li>
+            <li>Feedback for Chase
+              <ul><li>...</li></ul>
+            </li>
+          </ul>
+        </li>
+        <li>
+          Chase
+          <ul>
+            <li>Feedback for Ammar
+              <ul><li>...</li></ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+  - trigger: ";lgtm"
+    replace: |
+      ~frontend LGTM, thanks!
+      /unsubscribe
+      /approve
+      /unassign_reviewer @aalakkad
+
+  # Print the output of a shell command
+  # - trigger: ";shell"
+  #   replace: "{{output}}"
+  #   vars:
+  #     - name: output
+  #       type: shell
+  #       params:
+  #         cmd: "echo 'Hello from your shell'"
+
+  # And much more! For more information, visit the docs: https://espanso.org/docs/
+

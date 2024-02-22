@@ -115,6 +115,7 @@ export EDITOR="nvim"
 # Aliases
 alias zshconfig="vim ~/.zshrc"
 alias vimconfig="cd ~/.config/nvim && nvim"
+alias espansoconfig="cd ~/.dotfiles/espanso && nvim"
 alias wezconfig="vim ~/.wezterm.lua"
 alias cat="bat"
 alias e="exit"
