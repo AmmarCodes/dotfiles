@@ -26,6 +26,7 @@ if [ -x "$(command -v zinit)" ]; then
 	echo "Upgrading zsh plugins"
 	zinit self-update
 	zinit update --all
+	zinit compile --all
 fi
 
 if [ -x "$(command -v pip3)" ]; then
