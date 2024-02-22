@@ -15,13 +15,14 @@
 			:des "New launch mode"
 			:rules [
 				[:!!i [:launch "WezTerm"]]
+				[:!!b [:launch "Brave Browser"]]
 				[:!!r [:launch "RubyMine"]]
 				[:!!o [:launch "Obsidian"]]
 				[:!!s [:launch "Slack"]]
 				[:!!n [:launch "Notes"]]
 				[:!!f [:launch "Firefox"]]
 				[:!!p [:launch "Spark"]]
-				[:!!v [:launch "Visual Studio Code"]]
+				; [:!!v [:launch "Visual Studio Code"]]
 				[:!!w [:alfred "run" "aalakkad.openwebsite"]]
 				[:!!k [:alfred "run" "iansinnott.keyboardmaestro"]]
 			]
