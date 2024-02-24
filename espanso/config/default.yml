@@ -1,5 +1,5 @@
 # espanso configuration file
-show_notifications: false
+# show_notifications: false
 # search_trigger: ;;
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
 
