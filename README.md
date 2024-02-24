@@ -13,43 +13,39 @@ I try to keep my [/uses](https://ammar.codes/uses) page up to date.
 ## New setup
 
 1. Dock
-	- Clean up
-	- Move to left
-	- Turn hiding on
-	- Turn magnification on
+   - Clean up
+   - Turn hiding on
+   - Turn magnification on
 2. Settings
-	- Keyboard > Input Sources > Add needed layouts
-	- Keyboard > Text > disable Add period with double-space
-	- Keyboard > Shortcuts > Use keyboard navigation to move focus between controls
-	- Keyboard > Shortcuts > Spotlight > Disable shortcuts
-	- Keyboard > Shortcuts > Input Sources > Set Select the previous input source to Ctrl + Shift + Space
+   - Keyboard > Input Sources > Add needed layouts
+   - Keyboard > Text > disable Add period with double-space
+   - Keyboard > Shortcuts > Use keyboard navigation to move focus between controls
+   - Keyboard > Shortcuts > Spotlight > Disable shortcuts
+   - Keyboard > Shortcuts > Input Sources > Set Select the previous input source to Ctrl + Shift + Space
 3. Install 1Password
-4. Install GDK
-5. Install CDot
-6. Install Rosetta 2 `softwareupdate --install-rosetta`
-7. Install dotfiles
-8. Setup Rectangle App (use spectacle shortcuts)
-9. Configure Karabiner Element with goku
-10. Download Zoom
-11. Install MonoLisa font
-12. Install Dropbox
-13. Setup Alfred
-14. Setup Slack
-15. Setup Little Snitch
-16. Setup Spark
-17. Setup Todoist
-18. Setup Hand Mirror
-19. Setup RubyMine
-20. Setup Bartender
-21. Run `upgrade` script to update vim and tmux plugins
-22. Setup istat menus 6
-23. Setup Flux
-24. Setup Focus
-25. Install and setup Obsidian
-26. Setup xbar
-27. Install Google Drive
-28. Update Finder settings to align icons to grid
-29. setup dash
-30. setup imazing
-31. Setup Keyboard Maestro
-32. Setup Vimac
+4. Install work related projects (GDK & CDot)
+5. Install Rosetta 2 `softwareupdate --install-rosetta`
+6. Install dotfiles (this repo)
+7. Setup Rectangle App (use spectacle shortcuts)
+8. Configure Karabiner Element with `goku`
+9. Download Zoom
+10. Install [MonoLisa font](https://www.monolisa.dev)
+11. Install Dropbox
+12. Setup Alfred
+13. Setup Slack
+14. Setup Little Snitch
+15. Setup Todoist
+16. Setup Hand Mirror
+17. Setup RubyMine
+18. Setup Bartender
+19. Run `upgrade` script to update nvim and tmux plugins
+20. Setup iStat menus 6
+21. Setup Flux
+22. Setup Focus
+23. Install and setup Obsidian
+24. Setup xbar
+25. Install Google Drive
+26. Update Finder settings to align icons to grid
+27. Setup Dash
+28. Setup iMazing
+29. Setup Homerow
