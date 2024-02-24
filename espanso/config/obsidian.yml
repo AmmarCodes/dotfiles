@@ -1,0 +1,4 @@
+filter_class: "md.obsidian"
+
+extra_includes:
+  - "../match/_obsidian.yml"
