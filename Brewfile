@@ -2,7 +2,9 @@ tap "1password/tap"
 tap "altinity/clickhouse"
 tap "candid82/brew"
 tap "homebrew/bundle"
+tap "homebrew/cask"
 tap "homebrew/cask-fonts"
+tap "homebrew/core"
 tap "homebrew/services"
 tap "oven-sh/bun"
 tap "ttscoff/thelab"
@@ -19,8 +21,6 @@ brew "python@3.10"
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Free analytics DBMS for big data with SQL interface
 brew "clickhouse@22.3", link: true
 # Cross-platform make
@@ -71,6 +71,8 @@ brew "gitui"
 brew "glab"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Library access to GnuPG
 brew "gpgme"
 # Image processing tools collection
@@ -114,7 +116,7 @@ brew "tmux"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Object-relational database system
-brew "postgresql@12", restart_service: true
+brew "postgresql@12"
 # Object-relational database system
 brew "postgresql@13"
 # Interpreted, interactive, object-oriented programming language
@@ -179,6 +181,8 @@ cask "focus"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
+# Corporate typeface for IBM
+cask "font-ibm-plex"
 # Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
 # Superfamily of fonts for code

@@ -8,6 +8,8 @@ global_vars:
 
 matches:
   # source: https://github.com/katrinleinweber/espanso-effective-markdown/blob/master/effective-markdown/0.1.0/package.yml
+  - trigger: "|--"
+    replace: "| $|$ |  |\n| --- | --- |\n|  |  |"
   - trigger: "[)"
     replace: "[$|$]({{clipboard}})"
   - trigger: "-["
