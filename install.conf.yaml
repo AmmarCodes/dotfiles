@@ -19,11 +19,6 @@
       force: true
       path: nvim/**
       relink: true
-    ~/.config/kitty/:
-      glob: true
-      force: true
-      path: kitty/**
-      relink: true
     ~/Library/Application Support/xbar:
       glob: true
       force: true

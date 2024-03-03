@@ -9,6 +9,7 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
+    enabled = false,
     priority = 1000,
     config = function()
       vim.g.gruvbox_material_background = "hard"
@@ -310,10 +311,12 @@ return {
         tmux = { enabled = true }, -- disables the tmux statusline
       },
     },
+    cmd = "ZenMode",
   },
   {
     "folke/twilight.nvim",
     opts = {},
+    cmd = "Twilight",
   },
   {
     "LazyVim/LazyVim",
