@@ -2,9 +2,7 @@ tap "1password/tap"
 tap "altinity/clickhouse"
 tap "candid82/brew"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-tap "homebrew/core"
 tap "homebrew/services"
 tap "oven-sh/bun"
 tap "ttscoff/thelab"
@@ -77,6 +75,8 @@ brew "pkg-config"
 brew "gpgme"
 # Image processing tools collection
 brew "graphicsmagick"
+# GNU troff text-formatting system
+brew "groff"
 # Free Kerberos 5 implementation
 brew "heimdal"
 # Process manager for Procfile-based applications
@@ -116,7 +116,7 @@ brew "tmux"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
 # Object-relational database system
-brew "postgresql@12"
+brew "postgresql@12", restart_service: true
 # Object-relational database system
 brew "postgresql@13"
 # Interpreted, interactive, object-oriented programming language
@@ -240,6 +240,7 @@ mas "Actions", id: 1586435171
 mas "AdGuard for Safari", id: 1440147259
 mas "Be Focused Pro", id: 961632517
 mas "Bear", id: 1091189122
+mas "BrightIntosh", id: 6452471855
 mas "ColorSlurp", id: 1287239339
 mas "Command X", id: 6448461551
 mas "Dark Noise", id: 1465439395
