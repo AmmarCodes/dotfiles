@@ -7,6 +7,7 @@
 
 # Optional parameters:
 # @raycast.icon 📴
+# @raycast.packageName Hue Utils
 
 # Documentation:
 # @raycast.description Turn office lights off
