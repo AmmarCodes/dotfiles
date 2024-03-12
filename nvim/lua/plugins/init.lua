@@ -132,8 +132,13 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-    ft = { "css", "javascript", "vue", "html" },
+    ft = { "css", "javascript", "vue", "html", "tmux", "lua" },
     config = true,
+    opts = {
+      user_default_options = {
+        names = false,
+      },
+    },
   },
   {
     "ibhagwan/fzf-lua",
