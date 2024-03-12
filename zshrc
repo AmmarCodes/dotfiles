@@ -121,7 +121,8 @@ alias cat="bat"
 alias e="exit"
 alias q="exit"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="exa --icons"
+alias ls="eza --group-directories-first -G  --color auto --icons -s type"
+alias tree="eza --tree --level=5 --icons --group-directories-first --color auto"
 alias gri="git rebase -i"
 alias gam='git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 alias gdb="git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
@@ -217,7 +218,8 @@ function search() {
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-export FZF_DEFAULT_COMMAND="rg --files"
+export FZF_DEFAULT_COMMAND="fd -d 1 --hidden --follow --strip-cwd-prefix"
+# export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_DEFAULT_OPTS="--layout=reverse --border --preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 export BAT_THEME="Nord"
 # Gruvbox below

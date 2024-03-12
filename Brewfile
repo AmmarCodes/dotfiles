@@ -37,10 +37,10 @@ brew "docutils"
 brew "dpkg"
 # More intuitive version of du in rust
 brew "dust"
-# Modern replacement for 'ls'
-brew "exa"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
+# Modern, maintained replacement for ls
+brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # GNU compiler collection
@@ -147,8 +147,6 @@ brew "wget"
 brew "yamllint"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
-# Pluggable terminal workspace, with terminal multiplexer as the base feature
-brew "zellij"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Shell extension to navigate your filesystem faster
