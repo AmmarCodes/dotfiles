@@ -19,6 +19,12 @@ const workItemFolder = "2.Areas/gitlab/work/";
 
 const { execSync } = require("child_process");
 
+const openObsidianUrl = (url) => {
+	const obsidianUrl = `obsidian://advanced-uri?vault=obsidian&${url}`;
+
+	execSync(`open "${obsidianUrl}"`, { encoding: "utf-8" });
+};
+
 const url = execSync(
 	`osascript -e 'tell application "${browser}" to get URL of active tab of first window'`,
 	{ encoding: "utf-8" },
@@ -31,7 +37,6 @@ const title = execSync(
 	.replace(/^\s+|\s+$/g, "")
 	// remove unnecessary text from the title e.g. (!123) merge requests etc.
 	.replace(/\((!|#)\d+\).*$/, "")
-	.replaceAll(/(\/|\\|\:)/g, "-")
 	.trim();
 
 const today = new Date();
@@ -61,8 +66,15 @@ status: doing
 `;
 
 const workItemPath = encodeURIComponent(workItemFolder);
-const filePath = encodeURIComponent(title.toLowerCase().replace(" ", "_"));
+const filePath = encodeURIComponent(title.replaceAll(/(\/|\\|\:|\.)/g, ""));
 const data = encodeURIComponent(content);
-const obsidianUrl = `obsidian://advanced-uri?vault=obsidian&filepath=${workItemPath + filePath}.md&data=${data}`;
 
-execSync(`open "${obsidianUrl}"`, { encoding: "utf-8" });
+// add the work item to the worklog file
+const workItem = encodeURIComponent(`- [[${filePath}|${title}]]`);
+openObsidianUrl(
+	`filepath=2.Areas/gitlab/Worklog.md&mode=append&data=${workItem}&openmode=silent`,
+);
+
+openObsidianUrl(
+	`filepath=${workItemPath + filePath}.md&data=${data}&openmode=tab`,
+);
