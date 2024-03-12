@@ -82,7 +82,7 @@ return {
     cmd = "CodeActionMenu",
   },
   {
-    "numToStr/Navigator.nvim",
+    "mrjones2014/smart-splits.nvim",
     event = "VeryLazy",
     config = true,
   },

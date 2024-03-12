@@ -16,12 +16,6 @@ map("n", "<cr>", ":nohl<CR>")
 -- paste over currently selected text without yanking it
 map("v", "p", '"_dP')
 
--- Move around splits using Ctrl + {h,j,k,l}
-map("n", "<C-h>", "<C-w>h")
-map("n", "<C-j>", "<C-w>j")
-map("n", "<C-k>", "<C-w>k")
-map("n", "<C-l>", "<C-w>l")
-
 -- yank file name / path
 map("n", "<leader>yfr", ':let @*=expand("%")<CR>', { desc = "Yank file relative path" })
 map("n", "<leader>yff", ':let @*=expand("%:p")<CR>', { desc = "Yank file full path" })
@@ -34,14 +28,18 @@ map("n", "<leader>ba", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Dele
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
 
 ------------------------
---   tmux navigator   --
+--    smart-splits    --
 ------------------------
-vim.keymap.del("n", "<C-h>")
-vim.keymap.del("n", "<C-j>")
-vim.keymap.del("n", "<C-k>")
-vim.keymap.del("n", "<C-l>")
+-- moving between splits
+vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
 
-map("n", "<C-h>", "<cmd>NavigatorLeft<cr>", { desc = "Go to left window", remap = true })
-map("n", "<C-j>", "<cmd>NavigatorDown<cr>", { desc = "Go to lower window", remap = true })
-map("n", "<C-k>", "<cmd>NavigatorUp<cr>", { desc = "Go to upper window", remap = true })
-map("n", "<C-l>", "<cmd>NavigatorRight<cr>", { desc = "Go to right window", remap = true })
+-- resizing splits
+-- these keymaps will also accept a range,
+-- for example `10<A-h>` will `resize_left` by `(10 * config.default_amount)`
+vim.keymap.set("n", "<A-h>", require("smart-splits").resize_left)
+vim.keymap.set("n", "<A-j>", require("smart-splits").resize_down)
+vim.keymap.set("n", "<A-k>", require("smart-splits").resize_up)
+vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
