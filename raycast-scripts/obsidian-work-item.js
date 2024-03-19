@@ -14,10 +14,21 @@
 // @raycast.author AmmarCodes
 // @raycast.authorURL https://raycast.com/AmmarCodes
 
-const browser = "Brave Browser";
+const { execSync } = require("child_process");
 const workItemFolder = "2.Areas/gitlab/work/";
 
-const { execSync } = require("child_process");
+const defaultBrowser = execSync(
+	"defaults read ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure | awk -F'\"' '/http;/{print window[(NR)-1]}{window[NR]=$2}'",
+	{ encoding: "utf-8" },
+).trim();
+
+const browsers = {
+	"com.brave.browser": "Brave Browser",
+	"company.thebrowser.browser": "Arc",
+};
+
+const browser = browsers[defaultBrowser];
+if (!browser) console.error("Could not figure the default browser!");
 
 const openObsidianUrl = (url) => {
 	const obsidianUrl = `obsidian://advanced-uri?vault=obsidian&${url}`;
@@ -46,6 +57,8 @@ const dd = String(today.getDate()).padStart(2, "0");
 
 const todayDate = `${yyyy}-${mm}-${dd}`;
 
+const workItemPath = encodeURIComponent(workItemFolder);
+const filePath = encodeURIComponent(title.replaceAll(/(\/|\\|\:|\.)/g, ""));
 let content = `---
 date: "[[${todayDate}]]"
 link: "${url}"
@@ -56,17 +69,18 @@ aliases:
   - "${title}"
 done_date:
 priority: 2
-status: doing
+status: todo
+note:
 ---
 # ${title}
+
+- [ ] Review [[${filePath}]] 📅 ${todayDate}
 
 ## Updates
 
 - ${todayDate} item added to Obsidian
 `;
 
-const workItemPath = encodeURIComponent(workItemFolder);
-const filePath = encodeURIComponent(title.replaceAll(/(\/|\\|\:|\.)/g, ""));
 const data = encodeURIComponent(content);
 
 // add the work item to the worklog file
