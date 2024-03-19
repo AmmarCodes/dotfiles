@@ -26,11 +26,11 @@ file_contents = URI.open(url).read
 data = YAML.safe_load(file_contents)
 
 # Sort releases by date
-sorted_releases = data.sort_by { |release| Time.parse(release['date']) }
+sorted_releases = data.sort_by { |release| Date.parse(release['date']) }
 
 # Find the current release
-current_date = Time.now
-current_release = sorted_releases.find { |release| Time.parse(release['date']) > current_date }
+current_date = Date.today
+current_release = sorted_releases.find { |release| Date.parse(release['date']) - 6 > current_date }
 
 # Calculate work days until release (assuming release is 6 days earlier)
 if current_release
