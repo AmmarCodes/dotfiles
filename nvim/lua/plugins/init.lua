@@ -132,7 +132,7 @@ return {
   },
   {
     "NvChad/nvim-colorizer.lua",
-    ft = { "css", "javascript", "vue", "html", "tmux", "lua" },
+    ft = { "css", "javascript", "vue", "html", "tmux", "lua", "gitconfig" },
     config = true,
     opts = {
       user_default_options = {
