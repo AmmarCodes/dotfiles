@@ -19,6 +19,10 @@ brew "python@3.10"
 brew "autojump"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# GNU compiler collection
+brew "gcc"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # Free analytics DBMS for big data with SQL interface
 brew "clickhouse@22.3", link: true
 # Cross-platform make
@@ -43,8 +47,6 @@ brew "exiftool"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# GNU compiler collection
-brew "gcc"
 # C/C++ and Java libraries for Unicode and globalization
 brew "icu4c"
 # OpenType text shaping engine
