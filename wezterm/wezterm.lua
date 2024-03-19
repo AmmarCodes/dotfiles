@@ -37,7 +37,7 @@ local keys = {
 		key = ",",
 		mods = "CMD",
 		action = wezterm.action.SpawnCommandInNewTab({
-			args = { "nvim", "~/.wezterm.lua" },
+			args = { "/opt/homebrew/bin/nvim", "/Users/aalakkad/.wezterm.lua" },
 		}),
 	},
 	{
