@@ -14,12 +14,10 @@ matches:
     replace: "[$|$]({{clipboard}})"
   - trigger: "-["
     replace: "- [ ] "
-  - trigger: "```js"
-    replace: "```javascript\n$|$\n```"
-  - trigger: "```vue"
-    replace: "```vue\n$|$\n```"
+  # - trigger: "```js"
+  #   replace: "```javascript\n$|$\n```"
+  # - trigger: "```vue"
+  #   replace: "```vue\n$|$\n```"
   # end of source
-
-  # Obsidian callouts
-  - trigger: ">["
-    replace: "> [!NOTE]+\n"
+  - trigger: ";table"
+    replace: "| $|$ |  |\n| --- | --- |\n|  |  |"
