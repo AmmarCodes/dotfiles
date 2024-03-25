@@ -190,6 +190,20 @@ matches:
 
       /unassign_reviewer @aalakkad
 
+  - trigger: ";lgtr"
+    replace: |
+      ~frontend LGTM, thanks!
+
+      Hey @{{clipboard}} :wave:
+
+      Would you review this merge request, please?
+
+      Thanks!
+
+      /unsubscribe
+      /approve
+      /unassign_reviewer @aalakkad
+      /assign_reviewer @{{clipboard}}
   - trigger: ";wir"
     replace: '/label ~"workflow::in review"'
 
