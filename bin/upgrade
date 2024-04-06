@@ -35,8 +35,8 @@ if [ -x "$(command -v pip3)" ]; then
 fi
 
 # echo "Upgrading nvim plugins"
-# nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync' #nvim +PlugUpgrade +PlugUpdate +PlugClean +qall
 nvim --headless "+Lazy! sync" +qall
+nvim --headless "+TSUpdateSync" +qall
 
 if [ -x "$(command -v mas)" ]; then
 	echo "Upgrading Mac App Store apps"

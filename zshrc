@@ -5,14 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# load asdf
-# if [ -f ~/.asdf/asdf.sh ]; then
-#   . ~/.asdf/asdf.sh
-# fi
-
-# append asdf completions to fpath
-# fpath=(${ASDF_DIR}/completions $fpath)
-
 eval "$(/opt/homebrew/bin/mise activate zsh)"
 
 autoload -Uz compinit
@@ -27,9 +19,6 @@ autoload -U promptinit
 promptinit
 
 WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
-
-# iterm shell integration
-# source ~/.iterm2_shell_integration.zsh
 
 if [ -f ~/.private_exports ]; then
   source ~/.private_exports

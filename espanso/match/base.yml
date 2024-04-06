@@ -208,7 +208,7 @@ matches:
     replace: '/label ~"workflow::in review"'
 
   - trigger: ";wid"
-    replace: '/label ~"workflow::in development"'
+    replace: '/label ~"workflow::in dev"'
 
   - trigger: ";wc"
     replace: "/label ~\"workflow::complete\"\n/close"
