@@ -19,39 +19,39 @@ const prayerTimes = new PrayerTimes(coordinates, new Date(), params);
 const bitbarItems = [];
 
 const times = {
-	fajr: prayerTimes.fajr,
-	sunrise: prayerTimes.sunrise,
-	dhuhr: prayerTimes.dhuhr,
-	asr: prayerTimes.asr,
-	maghrib: prayerTimes.maghrib,
-	isha: prayerTimes.isha,
+  fajr: prayerTimes.fajr,
+  sunrise: prayerTimes.sunrise,
+  dhuhr: prayerTimes.dhuhr,
+  asr: prayerTimes.asr,
+  maghrib: prayerTimes.maghrib,
+  isha: prayerTimes.isha,
 };
 
 let remaining = null;
 let diffInSeconds = null;
 Object.keys(times).forEach((key) => {
-	const time = DateTime.fromJSDate(times[key]);
-	times[key] = time;
+  const time = DateTime.fromJSDate(times[key]);
+  times[key] = time;
 
-	const diff = time.diff(DateTime.local(), "seconds");
-	diffInSeconds = diff.values.seconds;
-	bitbarItems.push(key.padEnd(30) + time.toFormat("HH:mm"));
+  const diff = time.diff(DateTime.local(), "seconds");
+  diffInSeconds = diff.values.seconds;
+  bitbarItems.push(key.padEnd(30) + time.toFormat("HH:mm"));
 
-	if (!remaining && diffInSeconds > 0) {
-		remaining = diffInSeconds;
-	}
+  if (!remaining && diffInSeconds > 0) {
+    remaining = diffInSeconds;
+  }
 });
 
 const remainingString = Duration.fromMillis(remaining * 1000).toFormat("hh:mm");
 
 const bitbarOutput = [
-	{
-		text: `🕌 ${remainingString}`,
-		color: diffInSeconds < 1800 ? "red" : darkMode ? "#ffffff" : "#333333",
-		dropdown: false,
-	},
-	separator,
-	...bitbarItems,
+  {
+    text: `🕌 ${remainingString}`,
+    color: diffInSeconds < 1800 ? "red" : !darkMode ? "#ffffff" : "#333333",
+    dropdown: false,
+  },
+  separator,
+  ...bitbarItems,
 ];
 
 bitbar(bitbarOutput, { font: "Monaco", size: "12" });
