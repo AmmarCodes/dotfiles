@@ -118,7 +118,7 @@ config.keys = keys
 config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.debug_key_events = true
 
-config.color_scheme = "rose-pine-dawn" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
+config.color_scheme = "Catppuccin Frappe" -- "rose-pine-dawn" -- -- "Everforest Light (Gogh)" -- Catppuccin Latte"
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 config.hide_tab_bar_if_only_one_tab = true

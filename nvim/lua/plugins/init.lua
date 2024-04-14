@@ -21,6 +21,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
+    enabled = false,
     priority = 1000,
   },
   {
@@ -40,7 +41,7 @@ return {
   },
   {
     "catppuccin",
-    enabled = false,
+    enabled = true,
     opts = {
       flavour = "frappe",
       dim_inactive = {
@@ -302,9 +303,9 @@ return {
     },
     opts = {
       -- configurations go here
-      theme = {
-        normal = { bg = "#f2e9e1" },
-      },
+      -- theme = {
+      --   normal = { bg = "#f2e9e1" },
+      -- },
     },
   },
   {
@@ -334,16 +335,14 @@ return {
     end,
   },
   {
-    "lukas-reineke/headlines.nvim",
+    "MeanderingProgrammer/markdown.nvim",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = function()
-      require("headlines").setup()
-    end,
+    config = true,
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine-dawn",
+      colorscheme = "catppuccin",
     },
   },
 }
