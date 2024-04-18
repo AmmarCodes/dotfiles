@@ -140,9 +140,10 @@ alias upgrade-nvim="brew unlink neovim && brew install --fetch-HEAD --HEAD neovi
 alias ctags="`brew --prefix`/bin/ctags"
 alias focus="cd ~/projects/focus && vim README.md"
 
-function tmux-gitlab() {
-  cd ~/projects/gitlab-development-kit/gitlab
-  tmux new -n editor 'nvim'
+function tg() {
+  tmux new -s gitlab -d -c ~/projects/gitlab-development-kit/gitlab -n editor
+  tmux new-window -c ~/projects/customers-gitlab-com -d -n customers
+  tmux attach-session -t gitlab
 }
 
 # Find in files (search for string and return list of files that contains that string).
