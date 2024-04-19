@@ -1,6 +1,8 @@
 {
+  :default true
+  :delay 500
+
 	:templates {
-		:alfred "osascript -e 'tell application id \"com.runningwithcrayons.Alfred\" to run trigger \"%s\" in workflow \"%s\" with argument \"\"'"
 		:km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
 		:launch "open -a '%s'"
 	}
@@ -10,21 +12,42 @@
 		:ergodox [{:product_id 4871 :vendor_id 65261}]
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
 	}
+  :simlayers {
+              :launch-mode {:key :l}
+              :vim-movement {:key :v}
+              }
 	:main [
+    {
+     :des "Launch mode"
+     :rules [
+      :launch-mode
+      [:s [:launch "Slack"]]
+      [:t [:launch "WezTerm"]]
+      [:b [:launch "Brave Browser"]]
+      [:d [:launch "Obsidian"]]
+      [:f [:launch "Firefox"]]
+     ]
+    }
+    {
+     :des "vim movement HJKL"
+     :rules [
+             :vim-movement
+             [:h :left_arrow]
+             [:j :down_arrow]
+             [:k :up_arrow]
+             [:l :right_arrow]
+            ]
+		}
 		{
-			:des "New launch mode"
+			:des "Old Launch mode"
 			:rules [
 				[:!!i [:launch "WezTerm"]]
 				[:!!b [:launch "Brave Browser"]]
 				[:!!r [:launch "RubyMine"]]
-				[:!!o [:launch "Obsidian"]]
+				[:!!d [:launch "Obsidian"]]
 				[:!!s [:launch "Slack"]]
 				[:!!n [:launch "Notes"]]
 				[:!!f [:launch "Firefox"]]
-				[:!!p [:launch "Spark"]]
-				; [:!!v [:launch "Visual Studio Code"]]
-				[:!!w [:alfred "run" "aalakkad.openwebsite"]]
-				[:!!k [:alfred "run" "iansinnott.keyboardmaestro"]]
 			]
 		}
 		{
