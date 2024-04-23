@@ -21,7 +21,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
-    enabled = false,
+    enabled = true,
     priority = 1000,
   },
   {
@@ -342,7 +342,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "rose-pine-dawn",
     },
   },
 }
