@@ -13,7 +13,7 @@
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
 	}
   :simlayers {
-              :launch-mode {:key :l}
+              :launch-mode {:key :k}
               :vim-movement {:key :v}
               }
 	:main [
@@ -26,6 +26,8 @@
       [:b [:launch "Brave Browser"]]
       [:d [:launch "Obsidian"]]
       [:f [:launch "Firefox"]]
+      [:g [:launch "Gmail"]]
+      [:c [:launch "Notion Calendar"]]
      ]
     }
     {
