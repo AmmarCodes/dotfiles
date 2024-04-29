@@ -4,7 +4,10 @@ tap "candid82/brew"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
 tap "oven-sh/bun"
+tap "qmk/qmk"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
 # Cryptography and SSL/TLS Toolkit
@@ -17,6 +20,8 @@ brew "sqlite"
 brew "python@3.10"
 # Shell extension to jump to frequently used directories
 brew "autojump"
+# C/C++ and Java libraries for Unicode and globalization
+brew "icu4c"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # GNU compiler collection
@@ -47,8 +52,6 @@ brew "exiftool"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c"
 # OpenType text shaping engine
 brew "harfbuzz"
 # Play, record, convert, and stream audio and video
@@ -155,6 +158,8 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Quantum Mechanical Keyboard (QMK) Firmware
+brew "qmk/qmk/qmk"
 # Readability and Markdown utility for saving web urls and HTML text
 brew "ttscoff/thelab/gather-cli"
 # karabiner configurator
@@ -212,6 +217,8 @@ cask "muzzle"
 cask "notion-calendar"
 # Automatic time tracker
 cask "qbserve"
+# Toolbox companion for QMK Firmware
+cask "qmk-toolbox"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
