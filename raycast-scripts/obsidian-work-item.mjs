@@ -2,7 +2,7 @@
 
 // Required parameters:
 // @raycast.schemaVersion 1
-// @raycast.title Add work item to Obsidian
+// @raycast.title Add work item to Obsidian and Todoist
 // @raycast.mode silent
 
 // Optional parameters:
@@ -10,11 +10,20 @@
 // @raycast.packageName Obsidian Utils
 
 // Documentation:
-// @raycast.description Add work item to Obsidian
+// @raycast.description Add work item to Obsidian and Todoist
 // @raycast.author AmmarCodes
 // @raycast.authorURL https://raycast.com/AmmarCodes
 
-const { execSync } = require("child_process");
+import { TodoistApi } from "@doist/todoist-api-typescript";
+import { execSync } from "child_process";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "~/.private_exports" });
+
+if (!process.env.TODOIST_TOKEN) {
+	process.exit("TODOIST_TOKEN env var does not exist");
+}
+
 const workItemFolder = "2.Areas/gitlab/work/";
 
 const defaultBrowser = execSync(
@@ -30,16 +39,13 @@ const browsers = {
 const browser = browsers[defaultBrowser];
 if (!browser) console.error("Could not figure the default browser!");
 
+const getObsidianUrl = (url) => `obsidian://advanced-uri?vault=obsidian&${url}`;
+
 const openObsidianUrl = (url) => {
-	const obsidianUrl = `obsidian://advanced-uri?vault=obsidian&${url}`;
+	const obsidianUrl = getObsidianUrl(url);
 
 	execSync(`open "${obsidianUrl}"`, { encoding: "utf-8" });
 };
-
-const url = execSync(
-	`osascript -e 'tell application "${browser}" to get URL of active tab of first window'`,
-	{ encoding: "utf-8" },
-).replace(/^\s+|\s+$/g, "");
 
 const title = execSync(
 	`osascript -e 'tell application "${browser}" to get title of active tab of first window'`,
@@ -50,6 +56,17 @@ const title = execSync(
 	.replace(/\((!|#)\d+\).*$/, "")
 	.trim();
 
+const url = execSync(
+	`osascript -e 'tell application "${browser}" to get URL of active tab of first window'`,
+	{ encoding: "utf-8" },
+).replace(/^\s+|\s+$/g, "");
+
+const workItemPath = encodeURIComponent(workItemFolder);
+const filePath = encodeURIComponent(title.replaceAll(/(\/|\\|\:|\.)/g, ""));
+
+const ObsidianUrl = getObsidianUrl(`filepath=${workItemPath + filePath}.md`);
+const todoistUrl = await addTodoistTask(ObsidianUrl, url);
+
 const today = new Date();
 const yyyy = today.getFullYear();
 const mm = String(today.getMonth() + 1).padStart(2, "0");
@@ -57,8 +74,6 @@ const dd = String(today.getDate()).padStart(2, "0");
 
 const todayDate = `${yyyy}-${mm}-${dd}`;
 
-const workItemPath = encodeURIComponent(workItemFolder);
-const filePath = encodeURIComponent(title.replaceAll(/(\/|\\|\:|\.)/g, ""));
 let content = `---
 date: "[[${todayDate}]]"
 link: "${url}"
@@ -74,12 +89,12 @@ note:
 ---
 # ${title}
 
-- [ ] Review [[${filePath}]] 📅 ${todayDate}
-
 ## Updates
 
-- ${todayDate} item added to Obsidian
+- ${todayDate} item added to Obsidian and [Todoist](${todoistUrl})
 `;
+
+// removed from content - [ ] Review [[${filePath}]] 📅 ${todayDate}
 
 const data = encodeURIComponent(content);
 
@@ -92,3 +107,25 @@ openObsidianUrl(
 openObsidianUrl(
 	`filepath=${workItemPath + filePath}.md&data=${data}&openmode=tab`,
 );
+
+async function addTodoistTask(obsidianUrl, url = "") {
+	const api = new TodoistApi(process.env.TODOIST_TOKEN);
+
+	let taskId;
+	try {
+		const task = await api.addTask({
+			content: url ? `[${title}](${url})` : title,
+			description: obsidianUrl,
+			projectId: 2329633844,
+			// dueString: "tomorrow at 12:00",
+			// dueLang: "en",
+			// priority: 4,
+		});
+
+		taskId = task.id;
+	} catch (error) {
+		console.error(error);
+	}
+
+	return `todoist://task?id=${taskId}`;
+}
