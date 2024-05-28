@@ -27,6 +27,18 @@ map("n", "<leader>ba", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Dele
 
 map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
 
+-- smart deletion, dd
+-- It solves the issue, where you want to delete empty line, but dd will override your last yank.
+-- Code below will check if u are deleting empty line, if so - use black hole register.
+-- [src: https://www.reddit.com/r/neovim/comments/w0jzzv/comment/igfjx5y/?utm_source=share&utm_medium=web2x&context=3]
+map("n", "dd", function()
+  if vim.api.nvim_get_current_line():match("^%s*$") then
+    return '"_dd'
+  else
+    return "dd"
+  end
+end, { noremap = true, expr = true })
+
 ------------------------
 --    smart-splits    --
 ------------------------

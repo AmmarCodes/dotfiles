@@ -138,6 +138,7 @@ return {
     opts = {
       user_default_options = {
         names = false,
+        css_fn = true,
       },
     },
   },

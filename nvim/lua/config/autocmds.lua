@@ -70,3 +70,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.njk", command = "setfiletype html" })
+
+-- open file last position
+vim.api.nvim_create_autocmd("BufWinEnter", {
+  desc = "jump to the last position when reopening a file",
+  pattern = "*",
+  command = [[ if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]],
+})
