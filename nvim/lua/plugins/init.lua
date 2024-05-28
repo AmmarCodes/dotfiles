@@ -340,6 +340,13 @@ return {
     config = true,
   },
   {
+    "otavioschwanck/arrow.nvim",
+    opts = {
+      show_icons = true,
+      leader_key = ";", -- Recommended to be a single key
+    },
+  },
+  {
     -- Disable some resource heavy features when opening a big file
     "LunarVim/bigfile.nvim",
   },
