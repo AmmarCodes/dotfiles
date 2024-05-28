@@ -340,6 +340,10 @@ return {
     config = true,
   },
   {
+    -- Disable some resource heavy features when opening a big file
+    "LunarVim/bigfile.nvim",
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "rose-pine-dawn",
