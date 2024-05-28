@@ -74,8 +74,6 @@ brew "gitui"
 brew "glab"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Library access to GnuPG
 brew "gpgme"
 # Image processing tools collection
@@ -86,6 +84,8 @@ brew "groff"
 brew "heimdal"
 # Process manager for Procfile-based applications
 brew "hivemind"
+# Interactive JSON filter using jq
+brew "jnv"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Helps you navigate your file system faster by learning your habits
@@ -108,6 +108,8 @@ brew "mas"
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -138,6 +140,8 @@ brew "ripsecrets"
 brew "ruby-build"
 # Collection of tools for managing UNIX services
 brew "runit"
+# Small command-line utility for adding spacers to command output
+brew "spacer"
 # Modern SSH server for teams managing distributed infrastructure
 brew "teleport"
 # Manage complex tmux sessions easily
@@ -215,6 +219,8 @@ cask "little-snitch"
 cask "muzzle"
 # Calendar for professionals and teams
 cask "notion-calendar"
+# WebKit based web browser
+cask "orion"
 # Automatic time tracker
 cask "qbserve"
 # Toolbox companion for QMK Firmware
@@ -244,7 +250,6 @@ cask "wezterm"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Actions", id: 1586435171
-mas "AdGuard for Safari", id: 1440147259
 mas "Be Focused Pro", id: 961632517
 mas "Bear", id: 1091189122
 mas "BrightIntosh", id: 6452471855
