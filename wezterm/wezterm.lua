@@ -122,7 +122,10 @@ config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
+-- config.font = wezterm.font("JetBrains Mono", { weight = "Medium" })
 config.font = wezterm.font("MonoLisa", { weight = "Medium" })
+config.font_size = 13
+config.line_height = 1.26
 config.command_palette_font_size = 16
 config.command_palette_fg_color = colors.text
 config.command_palette_bg_color = colors.highlight_high
@@ -151,8 +154,6 @@ config.quick_select_patterns = {
 }
 config.show_new_tab_button_in_tab_bar = false
 
-config.font_size = 14
-config.line_height = 1.26
 config.underline_position = -7
 config.window_decorations = "RESIZE"
 config.window_padding = {
