@@ -18,6 +18,14 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
+    -- { import = "lazyvim.plugins.extras.coding.mini-comment" },
+    { import = "lazyvim.plugins.extras.coding.mini-surround" },
+    { import = "lazyvim.plugins.extras.editor.harpoon2" },
+    { import = "lazyvim.plugins.extras.editor.mini-diff" },
+    { import = "lazyvim.plugins.extras.editor.trouble-v3" },
+    -- { import = "lazyvim.plugins.extras.coding.mini.indentscope" },
+    { import = "lazyvim.plugins.extras.ui.treesitter-context" },
+
     -- import/override with your plugins
     { import = "plugins" },
   },
