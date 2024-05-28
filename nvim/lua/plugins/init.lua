@@ -153,6 +153,39 @@ return {
 
       local actions = require("fzf-lua.actions")
       require("fzf-lua").setup({
+        fzf_opts = { ["--layout"] = false, ["--marker"] = "+" },
+        winopts = {
+          width = 0.5,
+          height = 0.6,
+          preview = {
+            hidden = "nohidden",
+            vertical = "up:45%",
+            horizontal = "right:50%",
+            layout = "flex",
+            flip_columns = 120,
+            delay = 200,
+            winopts = { number = false },
+          },
+        },
+        files = {
+          cwd_prompt = true,
+        },
+        fzf_colors = {
+          ["fg"] = { "fg", "TelescopeNormal" },
+          ["bg"] = { "bg", "PmenuSbar" },
+          ["hl"] = { "fg", "TelescopeMatching" },
+          ["fg+"] = { "fg", "TelescopeSelection" },
+          ["bg+"] = { "bg", "TelescopeSelection" },
+          ["hl+"] = { "fg", "TelescopeMatching" },
+          ["info"] = { "fg", "TelescopeMultiSelection" },
+          ["border"] = { "fg", "TelescopeBorder" },
+          ["gutter"] = { "bg", "TelescopeNormal" },
+          ["query"] = { "fg", "TelescopePromptNormal" },
+          ["prompt"] = { "fg", "TelescopePromptPrefix" },
+          ["pointer"] = { "fg", "TelescopeSelectionCaret" },
+          ["marker"] = { "fg", "TelescopeSelectionCaret" },
+          ["header"] = { "fg", "TelescopeTitle" },
+        },
         actions = {
           files = {
             -- instead of the default action 'actions.file_edit_or_qf'
@@ -169,7 +202,7 @@ return {
     end,
     -- stylua: ignore
     keys = {
-      { "<C-p>"     , "<cmd>FzfLua files<cr>",                                                     desc = "Find files" },
+      { "<C-p>"     , "<cmd>FzfLua files previewer=false<cr>",                                                     desc = "Find files" },
       { "<C-b>"     , "<cmd>FzfLua buffers<cr>",                                                   desc = "Find current buffers" },
       { "<leader>sw", "<cmd>FzfLua grep<cr>",                                                      desc = "Search for something (using Rg)" },
       { "<leader>ss", "<cmd>FzfLua grep_cword<cr>",                                                desc = "Search for current word under cursor" },

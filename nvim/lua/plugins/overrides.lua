@@ -75,6 +75,114 @@ return {
       { "<leader>sW",      false, mode = "v" },
       { "<leader>sR",      false },
     },
+    opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<esc>"] = require("telescope.actions").close,
+          },
+        },
+        path_display = {
+          "filename_first",
+        },
+        previewer = false,
+        prompt_prefix = "   ",
+        selection_caret = " ",
+        -- select_strategy = "reset",
+        -- sorting_strategy = "ascending",
+        color_devicons = true,
+
+        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
+        layout_config = {
+          prompt_position = "top",
+          preview_cutoff = 120,
+        },
+        vimgrep_arguments = {
+          "rg",
+          "--color=never",
+          "--no-heading",
+          "--with-filename",
+          "--line-number",
+          "--column",
+          "--smart-case",
+          "--hidden",
+          "--glob=!.git/",
+        },
+      },
+      pickers = {
+        find_files = {
+          previewer = false,
+          -- path_display = formattedName,
+          layout_config = {
+            height = 0.4,
+            prompt_position = "top",
+            preview_cutoff = 120,
+          },
+        },
+        git_files = {
+          previewer = false,
+          -- path_display = formattedName,
+          layout_config = {
+            height = 0.4,
+            prompt_position = "top",
+            preview_cutoff = 120,
+          },
+        },
+        buffers = {
+          mappings = {
+            i = {
+              ["<c-d>"] = require("telescope.actions").delete_buffer,
+            },
+            n = {
+              ["<c-d>"] = require("telescope.actions").delete_buffer,
+            },
+          },
+          previewer = false,
+          initial_mode = "normal",
+          -- theme = "dropdown",
+          layout_config = {
+            -- height = 0.4,
+            -- width = 0.6,
+            prompt_position = "top",
+            preview_cutoff = 120,
+          },
+        },
+        current_buffer_fuzzy_find = {
+          previewer = true,
+          layout_config = {
+            prompt_position = "top",
+            preview_cutoff = 120,
+          },
+        },
+        live_grep = {
+          only_sort_text = true,
+          previewer = true,
+        },
+        grep_string = {
+          only_sort_text = true,
+          previewer = true,
+        },
+        lsp_references = {
+          show_line = false,
+          previewer = true,
+        },
+        treesitter = {
+          show_line = false,
+          previewer = true,
+        },
+        colorscheme = {
+          enable_preview = true,
+        },
+      },
+      extensions = {
+        fzf = {
+          fuzzy = true, -- false will only do exact matching
+          override_generic_sorter = true, -- override the generic sorter
+          override_file_sorter = true, -- override the file sorter
+          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+        },
+      },
+    },
   },
   {
     "nvimdev/dashboard-nvim",
