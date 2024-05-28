@@ -187,21 +187,6 @@ return {
   {
     "nvimdev/dashboard-nvim",
     opts = function()
-      local logo = [[
-
-
- _____  ___   _______   ______ ___      ___ __    ___      ___ 
-(\"   \|"  \ /"     "| /    " |"  \    /"  |" \  |"  \    /"  |
-|.\\   \    (: ______)// ____  \   \  //  /||  |  \   \  //   |
-|: \.   \\  |\/    | /  /    ) :\\  \/. ./ |:  |  /\\  \/.    |
-|.  \    \. |// ___)(: (____/ // \.    //  |.  | |: \.        |
-|    \    \ (:      "\        /   \\   /   /\  |\|.  \    /:  |
- \___|\____\)\_______)\"_____/     \__/   (__\_|_|___|\__/|___|
-
-
-
-      ]]
-
       local opts = {
         theme = "doom",
         hide = {
@@ -210,7 +195,9 @@ return {
           statusline = false,
         },
         config = {
-          header = vim.split(logo, "\n"),
+          week_header = {
+            enable = true,
+          },
           -- stylua: ignore
           center = {
             { action = "FzfLua files",                                                  desc = " Find file",       icon = " ", key = "f" },
