@@ -35,6 +35,7 @@
 	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
   affected = !sh -c 'git --no-pager diff --name-only $(git rev-parse HEAD) $(git rev-parse HEAD~1)'
   db = "!f() { branch=$(git branch --list | grep -v 'main\\|master' | grep -v '^\\*' | sed 's/^[[:space:]]*//' | fzf --prompt='Delete branch: ' --reverse); if [ -n \"$branch\" ]; then git branch -D \"$branch\"; fi; }; f"
+  delete-current-switch-main="!d() { branch=$(git branch --list | grep -v 'main\\|master' | grep '^\\*' | sed 's/^*[[:space:]]*//'); if [ -n \"$branch\" ]; then git switch master; git branch -D \"$branch\"; fi; }; d"
 [gc]
 	autoDetach = false
 [color "diff-highlight"]
