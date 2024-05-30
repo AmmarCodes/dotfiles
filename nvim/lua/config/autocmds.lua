@@ -47,7 +47,7 @@ autocmd({ "InsertLeave", "WinEnter" }, {
 autocmd({ "InsertEnter", "WinLeave" }, { pattern = "*", command = "set nocursorline", group = cursorGrp })
 
 -- Disable concealing in some file formats
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
   pattern = { "json", "jsonc", "markdown" },
   callback = function()
     vim.opt.conceallevel = 0
@@ -56,9 +56,9 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- automatically create dirs when saving new file
 -- source: https://github.com/mateuszwieloch/automkdir.nvim/blob/main/plugin/automkdir.lua
-local automkdirGroup = vim.api.nvim_create_augroup("automkdirGroup", { clear = true })
+local automkdirGroup = augroup("automkdirGroup", { clear = true })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
+autocmd("BufWritePre", {
   callback = function(t)
     -- Function gets a table that contains match key, which maps to `<amatch>` (a full filepath).
     local dirname = vim.fs.dirname(t.match)
@@ -69,11 +69,4 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   group = automkdirGroup,
 })
 
-vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.njk", command = "setfiletype html" })
-
--- open file last position
-vim.api.nvim_create_autocmd("BufWinEnter", {
-  desc = "jump to the last position when reopening a file",
-  pattern = "*",
-  command = [[ if line("'\"") > 0 && line("'\"") <= line("$") | exe "normal! g`\"" | endif ]],
-})
+autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.njk", command = "setfiletype html" })

@@ -156,7 +156,7 @@ return {
       require("fzf-lua").setup({
         fzf_opts = { ["--layout"] = false, ["--marker"] = "+" },
         winopts = {
-          width = 0.5,
+          width = 0.8,
           height = 0.6,
           preview = {
             hidden = "nohidden",
@@ -360,12 +360,13 @@ return {
   },
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    dependencies = { "neovim/nvim-lspconfig" },
     config = function()
+      require("lsp_lines").setup()
       -- Disable virtual_text since it's redundant due to lsp_lines.
       vim.diagnostic.config({
         virtual_text = false,
       })
-      require("lsp_lines").setup()
     end,
   },
   {
