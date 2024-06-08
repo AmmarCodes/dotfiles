@@ -8,6 +8,7 @@ local opt = vim.opt
 opt.swapfile = false -- Don't use swapfile
 opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
 opt.confirm = false -- Confirm to save changes before exiting modified buffer
+opt.background = "dark"
 
 -- opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- opt.foldtext = "v:lua.vim.treesitter.foldtext()"
