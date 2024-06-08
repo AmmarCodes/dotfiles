@@ -1,11 +1,11 @@
 {
   "extras": [
+    "lazyvim.plugins.extras.coding.yanky",
     "lazyvim.plugins.extras.formatting.prettier",
-    "lazyvim.plugins.extras.lang.ruby",
-    "lazyvim.plugins.extras.lang.typescript"
+    "lazyvim.plugins.extras.lang.ruby"
   ],
   "news": {
-    "NEWS.md": "4964"
+    "NEWS.md": "5950"
   },
-  "version": 5
+  "version": 6
 }
