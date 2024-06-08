@@ -80,6 +80,8 @@ brew "gpgme"
 brew "graphicsmagick"
 # GNU troff text-formatting system
 brew "groff"
+# Tool for glamorous shell scripts
+brew "gum"
 # Free Kerberos 5 implementation
 brew "heimdal"
 # Process manager for Procfile-based applications

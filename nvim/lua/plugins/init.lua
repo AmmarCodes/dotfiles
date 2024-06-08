@@ -1,60 +1,5 @@
 return {
   {
-    "sainnhe/everforest",
-    enabled = false,
-    config = function()
-      vim.g.everforest_better_performance = 1
-      vim.cmd([[set background=light]])
-    end,
-  },
-  {
-    "sainnhe/gruvbox-material",
-    enabled = false,
-    priority = 1000,
-    config = function()
-      vim.g.gruvbox_material_background = "hard"
-      vim.g.gruvbox_material_better_performance = 1
-      vim.g.gruvbox_material_enable_italic = 1
-      vim.g.gruvbox_material_float_style = "dim" -- Background of floating windows
-    end,
-  },
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    enabled = true,
-    priority = 1000,
-  },
-  {
-    "shaunsingh/nord.nvim",
-    config = function()
-      vim.g.nord_contrast = true
-      vim.g.nord_borders = false
-      vim.g.nord_disable_background = false
-      vim.g.nord_italic = true
-      vim.g.nord_uniform_diff_background = true
-      vim.g.nord_bold = false
-
-      vim.opt.background = "dark"
-      vim.cmd.colorscheme("nord")
-    end,
-    enabled = false,
-  },
-  {
-    "catppuccin",
-    enabled = true,
-    opts = {
-      flavour = "frappe",
-      dim_inactive = {
-        enabled = true,
-      },
-      integrations = {
-        mini = {
-          enabled = false,
-        },
-      },
-    },
-  },
-  {
     "andymass/vim-matchup",
     config = function()
       ---@diagnostic disable-next-line: missing-fields
@@ -384,11 +329,5 @@ return {
   {
     -- Disable some resource heavy features when opening a big file
     "LunarVim/bigfile.nvim",
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "rose-pine-dawn",
-    },
   },
 }
