@@ -112,12 +112,28 @@ for i = 1, 8 do
 	})
 end
 
+-- source: https://wezfurlong.org/wezterm/config/lua/wezterm.gui/get_appearance.html
+local function get_appearance()
+	if wezterm.gui then
+		return wezterm.gui.get_appearance()
+	end
+	return "Dark"
+end
+
+local function scheme_for_appearance(appearance)
+	if appearance:find("Dark") then
+		return "Catppuccin Frappe"
+	else
+		return "rose-pine-dawn"
+	end
+end
+
 config.term = "wezterm"
 config.keys = keys
 -- config.leader = { key = "a", mods = "CTRL", timeout_milliseconds = 1000 }
 config.debug_key_events = true
 
-config.color_scheme = "rose-pine-dawn" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
+config.color_scheme = scheme_for_appearance(get_appearance()) -- "rose-pine-dawn" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 config.hide_tab_bar_if_only_one_tab = true
