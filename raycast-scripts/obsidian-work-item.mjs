@@ -8,6 +8,8 @@
 // Optional parameters:
 // @raycast.icon 💻
 // @raycast.packageName Obsidian Utils
+// @raycast.argument1 { "type": "dropdown", "placeholder": "Add task to Todoist as well? pass anything for true", "optional": false, "data": [{"title": "Yes", "value": "1"}, {"title": "No", "value": "0"}] }
+// @raycast.argument2 { "type": "text", "placeholder": "Any prefix to add for the task?", "optional": true }
 
 // Documentation:
 // @raycast.description Add work item to Obsidian and Todoist
@@ -23,6 +25,10 @@ dotenv.config({ path: "~/.private_exports" });
 if (!process.env.TODOIST_TOKEN) {
 	process.exit("TODOIST_TOKEN env var does not exist");
 }
+
+const shouldAddTodoist = Number(process.argv.slice(2)[0]) || false;
+let prefix = process.argv.slice(3)[0];
+if (prefix) prefix += " ";
 
 const workItemFolder = "2.Areas/gitlab/work/";
 
@@ -47,7 +53,7 @@ const openObsidianUrl = (url) => {
 	execSync(`open "${obsidianUrl}"`, { encoding: "utf-8" });
 };
 
-const title = execSync(
+let title = execSync(
 	`osascript -e 'tell application "${browser}" to get title of active tab of first window'`,
 	{ encoding: "utf-8" },
 )
@@ -65,7 +71,6 @@ const workItemPath = encodeURIComponent(workItemFolder);
 const filePath = encodeURIComponent(title.replaceAll(/(\/|\\|\:|\.)/g, ""));
 
 const ObsidianUrl = getObsidianUrl(`filepath=${workItemPath + filePath}.md`);
-const todoistUrl = await addTodoistTask(ObsidianUrl, url);
 
 const today = new Date();
 const yyyy = today.getFullYear();
@@ -90,9 +95,14 @@ note:
 # ${title}
 
 ## Updates
-
-- ${todayDate} item added to Obsidian and [Todoist](${todoistUrl})
 `;
+
+if (shouldAddTodoist) {
+	const todoistUrl = await addTodoistTask(ObsidianUrl, title, url);
+	content += ` - ${todayDate} item added to Obsidian and [Todoist](${todoistUrl})
+
+`;
+}
 
 // removed from content - [ ] Review [[${filePath}]] 📅 ${todayDate}
 
@@ -108,16 +118,16 @@ openObsidianUrl(
 	`filepath=${workItemPath + filePath}.md&data=${data}&openmode=tab`,
 );
 
-async function addTodoistTask(obsidianUrl, url = "") {
+async function addTodoistTask(obsidianUrl, title, url = "") {
 	const api = new TodoistApi(process.env.TODOIST_TOKEN);
 
 	let taskId;
 	try {
 		const task = await api.addTask({
-			content: url ? `[${title}](${url})` : title,
+			content: prefix + (url ? `[${title}](${url})` : title),
 			description: obsidianUrl,
 			projectId: 2329633844,
-			// dueString: "tomorrow at 12:00",
+			dueString: "today",
 			// dueLang: "en",
 			// priority: 4,
 		});
