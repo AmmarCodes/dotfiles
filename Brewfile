@@ -1,9 +1,12 @@
 tap "1password/tap"
 tap "altinity/clickhouse"
 tap "candid82/brew"
+tap "felixkratz/formulae"
 tap "homebrew/bundle"
 tap "homebrew/cask-fonts"
 tap "homebrew/services"
+tap "koekeishiya/formulae"
+tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "oven-sh/bun"
@@ -164,6 +167,10 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# A window border system for macOS
+brew "felixkratz/formulae/borders"
+# A tiling window manager for macOS based on binary space partitioning.
+brew "koekeishiya/formulae/yabai", args: ["HEAD"]
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Readability and Markdown utility for saving web urls and HTML text
