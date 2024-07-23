@@ -47,6 +47,8 @@ brew "docker"
 brew "docutils"
 # Debian package management system
 brew "dpkg"
+# View disk space usage and delete unwanted data, fast
+brew "dua-cli"
 # More intuitive version of du in rust
 brew "dust"
 # Perl lib for reading and writing EXIF metadata
@@ -89,6 +91,8 @@ brew "gum"
 brew "heimdal"
 # Process manager for Procfile-based applications
 brew "hivemind"
+# Get events and tasks from the macOS calendar database
+brew "ical-buddy"
 # Interactive JSON filter using jq
 brew "jnv"
 # Lightweight and flexible command-line JSON processor
@@ -195,15 +199,10 @@ cask "espanso"
 cask "flux"
 # Website and application blocker
 cask "focus"
-# Developer targeted fonts with a high number of glyphs
 cask "font-caskaydia-cove-nerd-font"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
-# Corporate typeface for IBM
-cask "font-ibm-plex"
-# Developer targeted fonts with a high number of glyphs
 cask "font-jetbrains-mono-nerd-font"
-# Superfamily of fonts for code
 cask "font-monaspace"
 cask "font-noto-sans-arabic"
 # GIT client
@@ -214,6 +213,8 @@ cask "google-chrome"
 cask "imazing"
 # System monitoring app
 cask "istat-menus"
+# Menu bar manager
+cask "jordanbaird-ice"
 # Keyboard customiser
 cask "karabiner-elements"
 # Automation software
@@ -234,6 +235,8 @@ cask "orion"
 cask "qbserve"
 # Toolbox companion for QMK Firmware
 cask "qmk-toolbox"
+# Kubernetes and container management on the desktop
+cask "rancher"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
@@ -265,6 +268,7 @@ mas "BrightIntosh", id: 6452471855
 mas "ColorSlurp", id: 1287239339
 mas "Command X", id: 6448461551
 mas "Dark Noise", id: 1465439395
+mas "Dato", id: 1470584107
 mas "Day One", id: 1055511498
 mas "Day Progress", id: 6450280202
 mas "Drafts", id: 1435957248
