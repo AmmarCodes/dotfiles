@@ -21,3 +21,31 @@ matches:
   # end of source
   - trigger: ";table"
     replace: "| $|$ |  |\n| --- | --- |\n|  |  |"
+  - trigger: "[)"
+    replace: "[$|$]({{clipboard}})"
+
+  - trigger: "]("
+    replace: "]({{clipboard}})"
+
+  # Preformatted blocks with syntax highlighting
+
+  - trigger: "``go``"
+    replace: "```go\n$|$\n```"
+
+  - trigger: "``vue``"
+    replace: "```vue\n$|$\n```"
+
+  - trigger: "``js``"
+    replace: "```javascript\n$|$\n```"
+
+  - trigger: "``rb``"
+    replace: "```ruby\n$|$\n```"
+
+  - trigger: "``sh``"
+    replace: "```shell\n$|$\n```"
+
+  - trigger: "``ts``"
+    replace: "```typescript\n$|$\n```"
+
+  - trigger: "``diff``"
+    replace: "```diff\n$|$\n```"
