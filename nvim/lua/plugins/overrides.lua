@@ -240,18 +240,11 @@ return {
   {
     "folke/which-key.nvim",
     opts = {
-      defaults = {
-        ["<leader>"] = {
-          y = {
-            name = "+yank",
-            f = {
-              name = "+file",
-            },
-          },
-          t = {
-            name = "+test",
-          },
-        },
+      icons = { rules = false },
+      spec = {
+        { "<leader>t", group = "test" },
+        { "<leader>y", group = "yank" },
+        { "<leader>yf", group = "file" },
       },
     },
   },
