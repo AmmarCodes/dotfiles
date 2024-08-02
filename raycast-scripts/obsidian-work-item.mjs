@@ -88,8 +88,6 @@ tags:
 aliases:
   - "${title}"
 done_date:
-priority: 2
-status: todo
 note:
 ---
 # ${title}
