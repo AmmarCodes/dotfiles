@@ -558,4 +558,23 @@ return {
       },
     },
   },
+  {
+    "folke/flash.nvim",
+    opts = {
+      label = {
+        rainbow = {
+          enabled = true,
+        },
+      },
+      highlight = {
+        backdrop = false,
+      },
+      modes = {
+        char = {
+          -- jump_labels = true,
+          highlight = { backdrop = false },
+        },
+      },
+    },
+  },
 }
