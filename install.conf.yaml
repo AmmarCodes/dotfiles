@@ -20,6 +20,11 @@
       force: true
       path: nvim/**
       relink: true
+    ~/.config/bat/:
+      glob: true
+      force: true
+      path: bat/**
+      relink: true
     ~/Library/Application Support/xbar:
       glob: true
       force: true
@@ -37,6 +42,8 @@
 - shell:
     - description: "Installing wezterm terminfo file"
       command: "sh wezterm/install"
+    - description: "Rebuilding bat themes cache"
+      command: "bat cache --build"
     - description: "Installing submodules"
       command: "git submodule update --init --recursive"
     - description: "Installing brew packages using ~/.dotfiles/Brewfile"

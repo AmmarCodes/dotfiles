@@ -211,7 +211,7 @@ function search() {
 export FZF_DEFAULT_COMMAND="fd -d 1 --hidden --follow --strip-cwd-prefix"
 # export FZF_DEFAULT_COMMAND="rg --files"
 export FZF_DEFAULT_OPTS="--layout=reverse --border --preview '(bat --style=numbers --theme={} --color=always {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-export BAT_THEME="Nord"
+export BAT_THEME="Catppuccin-Frappe"
 # Gruvbox below
 # export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 # --color fg:250,hl:72,fg+:223,bg+:237,hl+:72

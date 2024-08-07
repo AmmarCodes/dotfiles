@@ -68,7 +68,7 @@
 	; line-numbers-right-format = "│ "
 	; minus-style = "syntax bold #ef5350"
 	; plus-style = "syntax bold #99b76d"
-  syntax-theme = gruvbox-light
+  syntax-theme = Catppuccin-Frappe
 
 # The contents of this file are included only for GitLab.com URLs
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
