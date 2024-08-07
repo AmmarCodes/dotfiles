@@ -238,7 +238,7 @@ export BAT_THEME="Catppuccin-Frappe"
 #   --color=marker:#ea6962,fg+:#ddc7a1,prompt:#83a598,hl+:#ddc7a1"
 
 # rose-pine-dawn
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#9893a5,bg:#faf4ed,hl:#286983 --color=fg+:#575279,bg+:#ebe0dd,hl+:#575279 --color=info:#ea9d34,prompt:#797593,pointer:#b4367a --color=marker:#56949f,spinner:#af5fff,header:#87afaf'
+# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#9893a5,bg:#faf4ed,hl:#286983 --color=fg+:#575279,bg+:#ebe0dd,hl+:#575279 --color=info:#ea9d34,prompt:#797593,pointer:#b4367a --color=marker:#56949f,spinner:#af5fff,header:#87afaf'
 # Catpuccin Latte
 # export FZF_DEFAULT_OPTS=" \
 # --color=bg+:#ccd0da,bg:#ffffff,spinner:#dc8a78,hl:#d20f39 \
@@ -246,10 +246,10 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS' --color=fg:#9893a5,bg:#faf4ed,hl:#286
 # --color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 
 # Catpuccin Frappe
-# export FZF_DEFAULT_OPTS=" \
-# --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
-# --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
-# --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284"
 
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1
 

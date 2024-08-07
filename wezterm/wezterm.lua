@@ -134,13 +134,14 @@ config.keys = keys
 config.debug_key_events = true
 
 config.color_scheme = scheme_for_appearance(get_appearance()) -- "rose-pine-dawn" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
+config.color_scheme = "Catppuccin Frappe"
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 -- config.font = wezterm.font("JetBrains Mono", { weight = "Medium" })
 config.font = wezterm.font("MonoLisa", { weight = "Medium" })
-config.font_size = 13
+config.font_size = 14
 config.line_height = 1.26
 config.command_palette_font_size = 16
 config.command_palette_fg_color = colors.text
