@@ -1,5 +1,6 @@
 # espanso configuration file
-# show_notifications: false
+show_icon: false # Disable the status icon
+show_notifications: false # Disable the notifications
 # search_trigger: ;;
 # For a complete introduction, visit the official docs at: https://espanso.org/docs/
 
