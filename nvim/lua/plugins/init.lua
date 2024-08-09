@@ -115,6 +115,7 @@ return {
         },
         files = {
           cwd_prompt = true,
+          fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude vendor --exclude public]],
         },
         fzf_colors = {
           ["fg"] = { "fg", "TelescopeNormal" },
@@ -148,7 +149,7 @@ return {
     end,
     -- stylua: ignore
     keys = {
-      { "<C-p>"     , "<cmd>FzfLua files previewer=false<cr>",                                                     desc = "Find files" },
+      { "<C-p>"     , "<cmd>FzfLua files previewer=false git_icons=false<cr>",                                                     desc = "Find files" },
       { "<C-b>"     , "<cmd>FzfLua buffers<cr>",                                                   desc = "Find current buffers" },
       { "<leader>sw", "<cmd>FzfLua grep<cr>",                                                      desc = "Search for something (using Rg)" },
       { "<leader>ss", "<cmd>FzfLua grep_cword<cr>",                                                desc = "Search for current word under cursor" },
