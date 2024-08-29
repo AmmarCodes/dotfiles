@@ -20,6 +20,11 @@
       force: true
       path: nvim/**
       relink: true
+    ~/.config/fish/:
+      glob: true
+      force: true
+      path: fish/**
+      relink: true
     ~/.config/bat/:
       glob: true
       force: true

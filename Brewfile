@@ -61,6 +61,8 @@ brew "fd"
 brew "harfbuzz"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# User-friendly command-line shell for UNIX-like operating systems
+brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # Distributed revision control system
