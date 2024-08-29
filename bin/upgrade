@@ -17,11 +17,6 @@ if [ -x "$(command -v composer)" ]; then
 	composer global update
 fi
 
-if [ -x "$(command -v pip3)" ]; then
-	echo "Upgrading pip3"
-	pip3 install pip --upgrade
-fi
-
 if [ -x "$(command -v zinit)" ]; then
 	echo "Upgrading zsh plugins"
 	zinit self-update
@@ -29,9 +24,9 @@ if [ -x "$(command -v zinit)" ]; then
 	zinit compile --all
 fi
 
-if [ -x "$(command -v pip3)" ]; then
-	echo "Upgrading neovim python package"
-	pip3 install neovim --upgrade
+if [ -x "$(command -v fisher)" ]; then
+	echo "Upgrading fish plugins"
+	fisher update
 fi
 
 # echo "Upgrading nvim plugins"
