@@ -55,132 +55,38 @@ return {
     },
   },
   {
-    "nvim-telescope/telescope.nvim",
-    -- stylua: ignore
-    keys = {
-      -- disable the keymap to grep files
-      { "<leader><space>", false },
-      { "<leader>,",       false },
-      { "<leader>fF",      false },
-      -- git
-      { "<leader>gc",      false },
-      { "<leader>gs",      false },
-      -- search
-      { "<leader>sb",      false },
-      { "<leader>sG",      false },
-      { "<leader>sg",      false },
-      { "<leader>so",      false },
-      { "<leader>sW",      false },
-      { "<leader>sw",      false },
-      { "<leader>sW",      false, mode = "v" },
-      { "<leader>sR",      false },
-    },
+    "ibhagwan/fzf-lua",
     opts = {
-      defaults = {
-        mappings = {
-          i = {
-            ["<esc>"] = require("telescope.actions").close,
-          },
-        },
-        path_display = {
-          "filename_first",
-        },
-        previewer = false,
-        prompt_prefix = "   ",
-        selection_caret = " ",
-        -- select_strategy = "reset",
-        -- sorting_strategy = "ascending",
-        color_devicons = true,
-
-        set_env = { ["COLORTERM"] = "truecolor" }, -- default = nil,
-        layout_config = {
-          prompt_position = "top",
-          preview_cutoff = 120,
-        },
-        vimgrep_arguments = {
-          "rg",
-          "--color=never",
-          "--no-heading",
-          "--with-filename",
-          "--line-number",
-          "--column",
-          "--smart-case",
-          "--hidden",
-          "--glob=!.git/",
-        },
+      files = {
+        -- cwd_prompt = true,
+        fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude vendor --exclude public]],
       },
-      pickers = {
-        find_files = {
-          previewer = false,
-          -- path_display = formattedName,
-          layout_config = {
-            height = 0.4,
-            prompt_position = "top",
-            preview_cutoff = 120,
-          },
-        },
-        git_files = {
-          previewer = false,
-          -- path_display = formattedName,
-          layout_config = {
-            height = 0.4,
-            prompt_position = "top",
-            preview_cutoff = 120,
-          },
-        },
-        buffers = {
-          mappings = {
-            i = {
-              ["<c-d>"] = require("telescope.actions").delete_buffer,
-            },
-            n = {
-              ["<c-d>"] = require("telescope.actions").delete_buffer,
-            },
-          },
-          previewer = false,
-          initial_mode = "normal",
-          -- theme = "dropdown",
-          layout_config = {
-            -- height = 0.4,
-            -- width = 0.6,
-            prompt_position = "top",
-            preview_cutoff = 120,
-          },
-        },
-        current_buffer_fuzzy_find = {
-          previewer = true,
-          layout_config = {
-            prompt_position = "top",
-            preview_cutoff = 120,
-          },
-        },
-        live_grep = {
-          only_sort_text = true,
-          previewer = true,
-        },
-        grep_string = {
-          only_sort_text = true,
-          previewer = true,
-        },
-        lsp_references = {
-          show_line = false,
-          previewer = true,
-        },
-        treesitter = {
-          show_line = false,
-          previewer = true,
-        },
-        colorscheme = {
-          enable_preview = true,
-        },
+    },
+    keys = {
+      {
+        "<C-p>",
+        "<cmd>FzfLua files previewer=false git_icons=false<cr>",
+        desc = "Find files",
       },
-      extensions = {
-        fzf = {
-          fuzzy = true, -- false will only do exact matching
-          override_generic_sorter = true, -- override the generic sorter
-          override_file_sorter = true, -- override the file sorter
-          case_mode = "smart_case", -- or "ignore_case" or "respect_case"
-        },
+      {
+        "<C-b>",
+        "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
+        desc = "Find current buffers",
+      },
+      {
+        "<leader>sw",
+        "<cmd>FzfLua grep<cr>",
+        desc = "Search for something (using Rg)",
+      },
+      {
+        "<leader>ss",
+        "<cmd>FzfLua grep_cword<cr>",
+        desc = "Search for current word under cursor",
+      },
+      {
+        "<leader>,",
+        "<cmd>FzfLua files<cr>",
+        desc = "Find Files",
       },
     },
   },
