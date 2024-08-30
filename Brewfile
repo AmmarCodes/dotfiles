@@ -27,6 +27,8 @@ brew "autojump"
 brew "icu4c"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Yet another cross-platform graphical process/system monitor
+brew "bottom"
 # GNU compiler collection
 brew "gcc"
 # Resource monitor. C++ version and continuation of bashtop and bpytop

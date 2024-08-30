@@ -23,8 +23,8 @@
      :rules [
       :launch-mode
       [:s [:launch "Slack"]]
-      [:b [:launch "Arc"]]
       [:t [:launch "Ghostty"]]
+      [:b [:launch "Brave Browser"]]
       [:d [:launch "Obsidian"]]
       [:f [:launch "Firefox"]]
       [:g [:launch "Gmail"]]
@@ -44,8 +44,8 @@
 		{
 			:des "Old Launch mode"
 			:rules [
-				[:!!b [:launch "Arc"]]
 				[:!!i [:launch "Ghostty"]]
+				[:!!b [:launch "Brave Browser"]]
 				[:!!r [:launch "RubyMine"]]
 				[:!!d [:launch "Obsidian"]]
 				[:!!s [:launch "Slack"]]

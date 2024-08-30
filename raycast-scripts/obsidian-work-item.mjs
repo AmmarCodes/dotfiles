@@ -87,8 +87,7 @@ tags:
   - gitlab/type/review
 aliases:
   - "${title}"
-done_date:
-note:
+done_date: "[[${todayDate}]]"
 ---
 # ${title}
 
