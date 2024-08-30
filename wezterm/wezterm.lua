@@ -7,29 +7,29 @@ local mux = wezterm.mux
 -- This table will hold the configuration.
 local config = wezterm.config_builder()
 
-local state = {
-	debug_mode = false,
-}
+-- local state = {
+-- 	debug_mode = false,
+-- }
 
 local key_mod_panes = "CMD"
 
-local colors = {
-	base = "#faf4ed",
-	surface = "#fffaf3",
-	overlay = "#f2e9e1",
-	muted = "#9893a5",
-	subtle = "#797593",
-	text = "#575279",
-	love = "#b4637a",
-	gold = "#ea9d34",
-	rose = "#d7827e",
-	pine = "#286983",
-	foam = "#56949f",
-	iris = "#907aa9",
-	highlight_low = "#f4ede8",
-	highlight_med = "#dfdad9",
-	highlight_high = "#cecacd",
-}
+-- local colors = {
+-- 	base = "#faf4ed",
+-- 	surface = "#fffaf3",
+-- 	overlay = "#f2e9e1",
+-- 	muted = "#9893a5",
+-- 	subtle = "#797593",
+-- 	text = "#575279",
+-- 	love = "#b4637a",
+-- 	gold = "#ea9d34",
+-- 	rose = "#d7827e",
+-- 	pine = "#286983",
+-- 	foam = "#56949f",
+-- 	iris = "#907aa9",
+-- 	highlight_low = "#f4ede8",
+-- 	highlight_med = "#dfdad9",
+-- 	highlight_high = "#cecacd",
+-- }
 
 local keys = {
 	{
@@ -144,8 +144,8 @@ config.font = wezterm.font("MonoLisa", { weight = "Medium" })
 config.font_size = 14
 config.line_height = 1.26
 config.command_palette_font_size = 16
-config.command_palette_fg_color = colors.text
-config.command_palette_bg_color = colors.highlight_high
+-- config.command_palette_fg_color = colors.text
+-- config.command_palette_bg_color = colors.highlight_high
 config.harfbuzz_features = { "calt", "dlig", "ss01", "ss02", "ss03", "ss06", "ss07", "ss08", "ss10", "ss15", "ss16" }
 config.inactive_pane_hsb = {
 	saturation = 1,
@@ -174,6 +174,8 @@ config.show_new_tab_button_in_tab_bar = false
 config.underline_position = -7
 config.window_decorations = "RESIZE"
 config.window_padding = {
+	right = "2cell",
+	left = "2cell",
 	bottom = 0,
 	top = 0,
 }
@@ -194,81 +196,81 @@ wezterm.on("gui-attached", function()
 	end
 end)
 
-config.colors = {
-	selection_bg = colors.gold,
-
-	tab_bar = {
-		-- The color of the strip that goes along the top of the window
-		-- (does not apply when fancy tab bar is in use)
-		background = colors.base,
-
-		-- The active tab is the one that has focus in the window
-		active_tab = {
-			-- The color of the background area for the tab
-			bg_color = colors.muted,
-			-- The color of the text for the tab
-			fg_color = colors.surface,
-
-			-- Specify whether you want "Half", "Normal" or "Bold" intensity for the
-			-- label shown for this tab.
-			-- The default is "Normal"
-			intensity = "Normal",
-
-			-- Specify whether you want "None", "Single" or "Double" underline for
-			-- label shown for this tab.
-			-- The default is "None"
-			underline = "None",
-
-			-- Specify whether you want the text to be italic (true) or not (false)
-			-- for this tab.  The default is false.
-			italic = false,
-
-			-- Specify whether you want the text to be rendered with strikethrough (true)
-			-- or not for this tab.  The default is false.
-			-- strikethrough = false,
-		},
-
-		-- Inactive tabs are the tabs that do not have focus
-		inactive_tab = {
-			bg_color = colors.highlight_low,
-			fg_color = colors.text,
-
-			-- The same options that were listed under the `active_tab` section above
-			-- can also be used for `inactive_tab`.
-		},
-
-		-- You can configure some alternate styling when the mouse pointer
-		-- moves over inactive tabs
-		inactive_tab_hover = {
-			bg_color = colors.highlight_med,
-			fg_color = colors.text,
-			-- italic = true,
-
-			-- The same options that were listed under the `active_tab` section above
-			-- can also be used for `inactive_tab_hover`.
-		},
-
-		-- The new tab button that let you create new tabs
-		new_tab = {
-			bg_color = colors.base,
-			fg_color = colors.text,
-
-			-- The same options that were listed under the `active_tab` section above
-			-- can also be used for `new_tab`.
-		},
-
-		-- You can configure some alternate styling when the mouse pointer
-		-- moves over the new tab button
-		-- new_tab_hover = {
-		-- bg_color = "#3b3052",
-		-- fg_color = "#909090",
-		-- italic = true,
-
-		-- The same options that were listed under the `active_tab` section above
-		-- can also be used for `new_tab_hover`.
-		-- },
-	},
-}
+-- config.colors = {
+-- 	selection_bg = colors.gold,
+--
+-- 	tab_bar = {
+-- 		-- The color of the strip that goes along the top of the window
+-- 		-- (does not apply when fancy tab bar is in use)
+-- 		background = colors.base,
+--
+-- 		-- The active tab is the one that has focus in the window
+-- 		active_tab = {
+-- 			-- The color of the background area for the tab
+-- 			bg_color = colors.muted,
+-- 			-- The color of the text for the tab
+-- 			fg_color = colors.surface,
+--
+-- 			-- Specify whether you want "Half", "Normal" or "Bold" intensity for the
+-- 			-- label shown for this tab.
+-- 			-- The default is "Normal"
+-- 			intensity = "Normal",
+--
+-- 			-- Specify whether you want "None", "Single" or "Double" underline for
+-- 			-- label shown for this tab.
+-- 			-- The default is "None"
+-- 			underline = "None",
+--
+-- 			-- Specify whether you want the text to be italic (true) or not (false)
+-- 			-- for this tab.  The default is false.
+-- 			italic = false,
+--
+-- 			-- Specify whether you want the text to be rendered with strikethrough (true)
+-- 			-- or not for this tab.  The default is false.
+-- 			-- strikethrough = false,
+-- 		},
+--
+-- 		-- Inactive tabs are the tabs that do not have focus
+-- 		inactive_tab = {
+-- 			bg_color = colors.highlight_low,
+-- 			fg_color = colors.text,
+--
+-- 			-- The same options that were listed under the `active_tab` section above
+-- 			-- can also be used for `inactive_tab`.
+-- 		},
+--
+-- 		-- You can configure some alternate styling when the mouse pointer
+-- 		-- moves over inactive tabs
+-- 		inactive_tab_hover = {
+-- 			bg_color = colors.highlight_med,
+-- 			fg_color = colors.text,
+-- 			-- italic = true,
+--
+-- 			-- The same options that were listed under the `active_tab` section above
+-- 			-- can also be used for `inactive_tab_hover`.
+-- 		},
+--
+-- 		-- The new tab button that let you create new tabs
+-- 		new_tab = {
+-- 			bg_color = colors.base,
+-- 			fg_color = colors.text,
+--
+-- 			-- The same options that were listed under the `active_tab` section above
+-- 			-- can also be used for `new_tab`.
+-- 		},
+--
+-- 		-- You can configure some alternate styling when the mouse pointer
+-- 		-- moves over the new tab button
+-- 		-- new_tab_hover = {
+-- 		-- bg_color = "#3b3052",
+-- 		-- fg_color = "#909090",
+-- 		-- italic = true,
+--
+-- 		-- The same options that were listed under the `active_tab` section above
+-- 		-- can also be used for `new_tab_hover`.
+-- 		-- },
+-- 	},
+-- }
 
 -- copied and modified from https://github.com/protiumx/.dotfiles/blob/main/stow/wezterm/.config/wezterm/wezterm.lua
 local process_icons = {
@@ -351,31 +353,31 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	}
 end)
 
-wezterm.on("update-status", function(window, pane)
-	local status = ""
-
-	if state.debug_mode then
-		local info = pane:get_foreground_process_info()
-		if info then
-			status = info.name
-			for i = 2, #info.argv do
-				status = status .. " " .. info.argv[i]
-			end
-		end
-	end
-
-	local time = ""
-	if window:get_dimensions().is_full_screen then
-		time = (state.debug_mode and " | " or "") .. wezterm.strftime("%R ")
-	end
-
-	window:set_right_status(wezterm.format({
-		{ Foreground = { Color = "#7eb282" } },
-		{ Text = status },
-		{ Foreground = { Color = "#808080" } },
-		{ Text = time },
-	}))
-end)
+-- wezterm.on("update-status", function(window, pane)
+-- 	local status = ""
+--
+-- 	if state.debug_mode then
+-- 		local info = pane:get_foreground_process_info()
+-- 		if info then
+-- 			status = info.name
+-- 			for i = 2, #info.argv do
+-- 				status = status .. " " .. info.argv[i]
+-- 			end
+-- 		end
+-- 	end
+--
+-- 	local time = ""
+-- 	if window:get_dimensions().is_full_screen then
+-- 		time = (state.debug_mode and " | " or "") .. wezterm.strftime("%R ")
+-- 	end
+--
+-- 	window:set_right_status(wezterm.format({
+-- 		{ Foreground = { Color = "#7eb282" } },
+-- 		{ Text = status },
+-- 		{ Foreground = { Color = "#808080" } },
+-- 		{ Text = time },
+-- 	}))
+-- end)
 
 -- local smart_splits = wezterm.plugin.require("https://github.com/mrjones2014/smart-splits.nvim")
 -- integrate smart-splits.nvim
