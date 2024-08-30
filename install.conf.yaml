@@ -25,6 +25,11 @@
       force: true
       path: fish/**
       relink: true
+    ~/.config/ghostty/:
+      glob: true
+      force: true
+      path: ghostty/**
+      relink: true
     ~/.config/bat/:
       glob: true
       force: true
