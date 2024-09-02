@@ -72,3 +72,5 @@ alias fishconfig="cd ~/.config/fish/ && vim config.fish"
 
 #starship init fish | source
 #enable_transience
+
+set -xg EDITOR nvim
