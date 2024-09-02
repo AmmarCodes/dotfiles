@@ -173,6 +173,7 @@ return {
   {
     "kassio/neoterm",
     lazy = true,
+    enabled = false,
     cmd = { "Tnew" },
     config = function()
       vim.g.neoterm_default_mod = "vertical"
@@ -240,14 +241,5 @@ return {
   {
     -- Disable some resource heavy features when opening a big file
     "LunarVim/bigfile.nvim",
-  },
-  {
-    "m4xshen/hardtime.nvim",
-    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-
-    opts = {
-      disable_mouse = false,
-      restriction_mode = "hint",
-    },
   },
 }

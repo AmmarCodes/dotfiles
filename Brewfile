@@ -187,8 +187,6 @@ brew "ttscoff/thelab/gather-cli"
 brew "yqrashawn/goku/goku"
 # Command-line interface for 1Password
 cask "1password-cli"
-# Application launcher and productivity software
-cask "alfred"
 # Menu bar icon organiser
 cask "bartender"
 # Allows switching between application windows
@@ -221,8 +219,6 @@ cask "istat-menus"
 cask "jordanbaird-ice"
 # Keyboard customiser
 cask "karabiner-elements"
-# Automation software
-cask "keyboard-maestro"
 # Open-source keystroke visualiser
 cask "keycastr"
 # Noise cancelling application
@@ -231,10 +227,6 @@ cask "krisp"
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
-# Calendar for professionals and teams
-cask "notion-calendar"
-# WebKit based web browser
-cask "orion"
 # Automatic time tracker
 cask "qbserve"
 # Toolbox companion for QMK Firmware
@@ -245,14 +237,8 @@ cask "rancher"
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
-# Emoji picker optimised for blind people
-cask "rocket"
-# Ruby on Rails IDE
-cask "rubymine"
 # Team communication and collaboration software
 cask "slack"
-# Music streaming service
-cask "spotify"
 # Native GUI tool for relational databases
 cask "tableplus"
 # Messaging app with a focus on speed and security
