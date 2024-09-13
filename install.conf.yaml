@@ -15,6 +15,7 @@
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/borders/bordersrc: bordersrc
+    ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:
       glob: true
       force: true
@@ -48,6 +49,7 @@
 
 - create:
     - ~/Library/Application Support/xbar
+    - ~/Library/Application Support/lazygit
 
 - shell:
     - description: "Installing wezterm terminfo file"
