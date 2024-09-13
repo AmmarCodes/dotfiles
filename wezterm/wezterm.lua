@@ -141,8 +141,8 @@ config.hide_tab_bar_if_only_one_tab = true
 config.tab_bar_at_bottom = true
 -- config.font = wezterm.font("JetBrains Mono", { weight = "Medium" })
 config.font = wezterm.font("MonoLisa", { weight = "Medium" })
-config.font_size = 14
-config.line_height = 1.26
+config.font_size = 15
+config.line_height = 1.7
 config.command_palette_font_size = 16
 -- config.command_palette_fg_color = colors.text
 -- config.command_palette_bg_color = colors.highlight_high
@@ -174,8 +174,8 @@ config.show_new_tab_button_in_tab_bar = false
 config.underline_position = -7
 config.window_decorations = "RESIZE"
 config.window_padding = {
-	right = "2cell",
-	left = "2cell",
+	-- right = 0,
+	-- left = 0,
 	bottom = 0,
 	top = 0,
 }
@@ -186,15 +186,15 @@ config.adjust_window_size_when_changing_font_size = false
 -- config.window_close_confirmation = "NeverPrompt"
 
 -- maximize window on start
-wezterm.on("gui-attached", function()
-	-- maximize all displayed windows on startup
-	local workspace = mux.get_active_workspace()
-	for _, window in ipairs(mux.all_windows()) do
-		if window:get_workspace() == workspace then
-			window:gui_window():maximize()
-		end
-	end
-end)
+-- wezterm.on("gui-attached", function()
+-- 	-- maximize all displayed windows on startup
+-- 	local workspace = mux.get_active_workspace()
+-- 	for _, window in ipairs(mux.all_windows()) do
+-- 		if window:get_workspace() == workspace then
+-- 			window:gui_window():maximize()
+-- 		end
+-- 	end
+-- end)
 
 -- config.colors = {
 -- 	selection_bg = colors.gold,

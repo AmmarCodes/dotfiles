@@ -4,6 +4,8 @@ window-decoration = false
 theme = catppuccin-frappe
 
 font-family = MonoLisa
+#font-style = Regular
+font-style-italic = Regular Italic
 
 clipboard-read = "allow"
 clipboard-paste-protection = false
@@ -11,7 +13,7 @@ clipboard-paste-protection = false
 
 font-size = 14
 font-thicken = true
-adjust-cell-height = 8
+adjust-cell-height = 18
 
 font-feature = calt
 font-feature = dlig
@@ -37,10 +39,13 @@ font-codepoint-map = U+e5fa-U+e6b1=JetBrainsMono Nerd Font Mono
 font-codepoint-map = U+ea60-U+ebeb=JetBrainsMono Nerd Font Mono
 
 quit-after-last-window-closed = true
-macos-window-shadow = true
+
+# macos-window-shadow = true
 
 
 # window-padding-x = 10
 window-padding-y = 0
 
 window-padding-color = background
+
+macos-titlebar-style = native
