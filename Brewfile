@@ -177,8 +177,12 @@ brew "zoxide"
 brew "zsh"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
+# Custom macOS statusbar with shell plugin, interaction and graph support
+brew "felixkratz/formulae/sketchybar"
+# Simple hotkey-daemon for macOS.
+brew "koekeishiya/formulae/skhd"
 # A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai", args: ["HEAD"]
+brew "koekeishiya/formulae/yabai"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Readability and Markdown utility for saving web urls and HTML text
@@ -187,6 +191,8 @@ brew "ttscoff/thelab/gather-cli"
 brew "yqrashawn/goku/goku"
 # Command-line interface for 1Password
 cask "1password-cli"
+# AeroSpace is an i3-like tiling window manager for macOS
+cask "aerospace"
 # Menu bar icon organiser
 cask "bartender"
 # Allows switching between application windows
@@ -207,6 +213,7 @@ cask "font-ia-writer-quattro"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-monaspace"
 cask "font-noto-sans-arabic"
+cask "font-sf-pro"
 # GIT client
 cask "fork"
 # Web browser
@@ -237,6 +244,8 @@ cask "rancher"
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
+# Tool that provides consistent, highly configurable symbols for apps
+cask "sf-symbols"
 # Team communication and collaboration software
 cask "slack"
 # Native GUI tool for relational databases
@@ -279,6 +288,7 @@ mas "Session", id: 1521432881
 mas "Todoist", id: 585829637
 mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
+mas "Xmind", id: 1327661892
 vscode "arcticicestudio.nord-visual-studio-code"
 vscode "castwide.solargraph"
 vscode "catppuccin.catppuccin-vsc"

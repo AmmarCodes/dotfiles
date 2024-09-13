@@ -102,3 +102,6 @@ defaults write com.apple.screencapture location ~/Desktop/Screenshots
 
 # Disable macOS Sonoma Text Insertion Point (bubble) - https://stackoverflow.com/a/77296786
 sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist redesigned_text_cursor -dict-add Enabled -bool NO
+
+# disable Displays have separate Spaces - https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
