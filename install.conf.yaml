@@ -14,6 +14,7 @@
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/nvim/stylua.toml: stylua.toml
+    ~/.config/fastfetch/config.jsonc: fastfetch/config.jsonc
     ~/.config/borders/bordersrc: bordersrc
     ~/Library/Application\ Support/lazygit/config.yml: lazygit/config.yml
     ~/.config/nvim/:

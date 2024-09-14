@@ -57,6 +57,8 @@ brew "dust"
 brew "exiftool"
 # Modern, maintained replacement for ls
 brew "eza"
+# Like neofetch, but much faster because written mostly in C
+brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # OpenType text shaping engine
