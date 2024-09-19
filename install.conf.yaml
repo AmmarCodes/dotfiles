@@ -6,6 +6,7 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.yabairc: yabairc
+    ~/.aerospace.toml: aerospace.toml
     ~/.gitconfig-gitlab: gitconfig-gitlab
     ~/.gitignore: gitignore
     ~/.zshrc: zshrc
