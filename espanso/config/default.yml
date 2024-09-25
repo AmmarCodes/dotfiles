@@ -26,8 +26,7 @@ show_notifications: false # Disable the notifications
 # them has its quirks, therefore you may want to change it if you are having problems.
 # By default, espanso uses the "Auto" backend which should work well in most cases,
 # but you may want to try the "Clipboard" or "Inject" backend in case of issues.
-# backend: Clipboard
-
+backend: Clipboard
 # --- Auto-restart
 
 # Enable/disable the config auto-reload after a file change is detected.
