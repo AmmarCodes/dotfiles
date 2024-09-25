@@ -12,10 +12,10 @@ alias zshconfig="vim ~/.zshrc"
 alias vimconfig="cd ~/.config/nvim && nvim"
 alias espansoconfig="cd ~/.dotfiles/espanso && nvim"
 alias wezconfig="vim ~/.wezterm.lua"
+alias aerospaceconfig="vim ~/.aerospace.toml"
 alias cat="bat"
 alias e="exit"
 alias q="exit"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="eza --group-directories-first -G  --color auto --icons -s type"
 alias tree="eza --tree --level=5 --icons --group-directories-first --color auto"
 alias gri="git rebase -i"
@@ -68,6 +68,7 @@ alias gp="git push"
 alias gpf="git push --force-with-lease --force-if-includes"
 alias gpm="git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment' -o merge_request.label='group::utilization'":
 alias gfo="git fetch origin"
+alias lg="lazygit"
 
 alias fishconfig="cd ~/.config/fish/ && vim config.fish"
 
@@ -75,3 +76,4 @@ alias fishconfig="cd ~/.config/fish/ && vim config.fish"
 #enable_transience
 
 set -xg EDITOR nvim
+set -xg HOMEBREW_PREFIX /opt/homebrew
