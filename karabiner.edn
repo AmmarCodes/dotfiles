@@ -12,7 +12,14 @@
 		:magickeyboard [{:product_id 615 :vendor_id 76}]
 		:ergodox [{:product_id 4871 :vendor_id 65261}]
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
+		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
 	}
+	:input-sources {
+							:ar {
+									 :input_source_id "com.apple.keylayout.ArabicPC"
+									 :language "ar"
+									 }
+							}
   :simlayers {
               :launch-mode {:key :k}
               :vim-movement {:key :v}
@@ -90,42 +97,12 @@
 		   [:6 [:!Ta :6] ["tmux-mode" 1]]  ;; move to window #6
 	   ]
 		}
-		; {
-		;  :des "Yabai"
-		;  :rules [
-		; 				 ;; toggle layout for space 1 (main display)
-		; 				 [:!Ob [:yabai "space 1 --layout bsp"]]
-		; 				 [:!Of [:yabai "space 1 --layout float"]]
-		;
-		; 				 ;; toggle float for current window
-		; 				 [:!SOf [:yabai "window --toggle float --grid 4:4:1:1:2:2"]]
-		;
-		; 				 ;; moving focus between windows
-		; 				 [:!Ol [:yabai "window --focus east"]]
-		; 				 [:!Oj [:yabai "window --focus south"]]
-		; 				 [:!Ok [:yabai "window --focus north"]]
-		; 				 [:!Oh [:yabai "window --focus west"]]
-		;
-		; 				 ;; moving windows
-		; 				 [:!SOl [:yabai "window --warp east"]]
-		; 				 [:!SOj [:yabai "window --warp south"]]
-		; 				 [:!SOk [:yabai "window --warp north"]]
-		; 				 [:!SOh [:yabai "window --warp west"]]
-		;
-		; 				 ;; flip along axis
-		; 				 [:!SOy [:yabai "space --mirror y-axis"]]
-		; 				 [:!SOx [:yabai "space --mirror x-axis"]]
-		;
-		; 				 ;; rotate windows clockwise
-		; 				 [:!Or [:yabai "space --rotate 270"]]
-		;
-		; 				 ;; resize
-		; 				 [:!TOh ["/opt/homebrew/bin/yabai -m window --resize right:-100:0 || /opt/homebrew/bin/yabai -m window --resize left:-100:0"]]
-		; 				 [:!TOl ["/opt/homebrew/bin/yabai -m window --resize right:100:0 || /opt/homebrew/bin/yabai -m window --resize left:100:0"]]
-		; 				 [:!TOj ["/opt/homebrew/bin/yabai -m window --resize bottom:0:100 || /opt/homebrew/bin/yabai -m window --resize top:0:100"]]
-		; 				 [:!TOk ["/opt/homebrew/bin/yabai -m window --resize bottom:0:-100 || /opt/homebrew/bin/yabai -m window --resize top:0:-100"]]
-		; 				]
-		;  }
+		{
+			:des "Use escape as ` on nuphy when language is set to Arabic"
+			:rules [
+							[:##escape :##grave_accent_and_tilde :ar :nuphy_air60]
+						 ]
+		 }
 	]
 }
 
