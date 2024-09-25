@@ -29,11 +29,11 @@
 	prune = fetch --prune
 	glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 	append = commit --amend --no-edit
-	mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
-	cb = !sh -c 'git checkout $(git branch | fzf | tr -d "[:space:]")'
-	standup = !"git log --reverse --branches --since=yesterday --author=$(git config --get user.email) --format=format:'-%Creset %s' --date=local | grep -v 'Assets generate' | grep -v 'Merge'"
-	recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
-  affected = !sh -c 'git --no-pager diff --name-only $(git rev-parse HEAD) $(git rev-parse HEAD~1)'
+	mr = !git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2 -
+	cb = !git checkout $(git branch | fzf | tr -d "[:space:]")
+	standup = !git log --reverse --branches --since=yesterday --author=$(git config --get user.email) --format=format:'-%Creset %s' --date=local | grep -v 'Assets generate' | grep -v 'Merge'
+	recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
+  affected = !git --no-pager diff --name-only $(git rev-parse HEAD) $(git rev-parse HEAD~1)
   db = "!f() { branch=$(git branch --list | grep -v 'main\\|master' | grep -v '^\\*' | sed 's/^[[:space:]]*//' | fzf --prompt='Delete branch: ' --reverse); if [ -n \"$branch\" ]; then git branch -D \"$branch\"; fi; }; f"
   delete-current-switch-main="!d() { branch=$(git branch --list | grep -v 'main\\|master' | grep '^\\*' | sed 's/^*[[:space:]]*//'); if [ -n \"$branch\" ]; then git switch master; git branch -D \"$branch\"; fi; }; d"
 [gc]
@@ -58,7 +58,8 @@
 [pull]
 	rebase = false
 [rebase]
-	autosquash = true
+  autosquash = true
+  instructionFormat = (%ar) %<|(120)%s <%an>
 [init]
 	defaultBranch = main
 [delta]
