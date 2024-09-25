@@ -25,8 +25,6 @@ map("t", "<C-o>", "<C-\\><C-n>")
 
 map("n", "<leader>ba", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete non-pinned buffers" })
 
-map("n", "<C-a>", "gg<S-v>G", { desc = "Select all" })
-
 -- smart deletion, dd
 -- It solves the issue, where you want to delete empty line, but dd will override your last yank.
 -- Code below will check if u are deleting empty line, if so - use black hole register.
