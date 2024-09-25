@@ -29,8 +29,6 @@ brew "icu4c"
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
-# GNU compiler collection
-brew "gcc"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
 # Free analytics DBMS for big data with SQL interface
@@ -41,6 +39,8 @@ brew "cmake"
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
+# Secure runtime for JavaScript and TypeScript
+brew "deno"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Pack, ship and run any application as a lightweight container
@@ -65,10 +65,14 @@ brew "fd"
 brew "harfbuzz"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
+# macOS CLI for managing custom icons for files and folders
+brew "fileicon"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# GNU compiler collection
+brew "gcc"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -83,6 +87,8 @@ brew "gitleaks"
 brew "gitui"
 # Open-source GitLab command-line tool
 brew "glab"
+# Render markdown on the CLI
+brew "glow"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
 # Library access to GnuPG
@@ -99,6 +105,8 @@ brew "heimdal"
 brew "hivemind"
 # Get events and tasks from the macOS calendar database
 brew "ical-buddy"
+# Tool to report network interface bandwidth
+brew "ifstat"
 # Interactive JSON filter using jq
 brew "jnv"
 # Lightweight and flexible command-line JSON processor
@@ -210,6 +218,7 @@ cask "flux"
 # Website and application blocker
 cask "focus"
 cask "font-caskaydia-cove-nerd-font"
+cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
 cask "font-jetbrains-mono-nerd-font"

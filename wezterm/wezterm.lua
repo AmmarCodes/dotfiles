@@ -70,7 +70,7 @@ config.keys = keys
 config.debug_key_events = true
 
 config.color_scheme = scheme_for_appearance(get_appearance()) -- "rose-pine-dawn" -- "Catppuccin Frappe" -- "Everforest Light (Gogh)" -- Catppuccin Latte"
-config.color_scheme = "Catppuccin Frappe"
+config.color_scheme = "Gruvbox Material (Gogh)" -- "Catppuccin Frappe"
 config.use_fancy_tab_bar = false
 config.tab_max_width = 32
 config.hide_tab_bar_if_only_one_tab = true
