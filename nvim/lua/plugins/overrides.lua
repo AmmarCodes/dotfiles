@@ -51,6 +51,32 @@ return {
             },
           },
         },
+        vtsls = {
+          settings = {
+            typescript = {
+              tsserver = { maxTsServerMemory = 8192 },
+              -- log = "verbose",
+              -- :lua vim.cmd.edit(vim.lsp.get_log_path())
+            },
+          },
+        },
+      },
+      inlay_hints = {
+        enabled = false, -- true
+        -- exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters = {
+        rubocop = {
+          command = "bundle exec rubocop",
+        },
+      },
+      formatters_by_ft = {
+        ruby = { "rubocop" },
       },
     },
   },
