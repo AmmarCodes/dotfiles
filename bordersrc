@@ -5,7 +5,7 @@ options=(
   width=6.0
   hidpi=on
   style=round
-  inactive_color=0x002c2e34
+  inactive_color=0xaa652536
   background_color=0x002c2e34
   blacklist="WezTerm,Todoist"
 )

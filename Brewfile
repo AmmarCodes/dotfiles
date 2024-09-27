@@ -179,6 +179,8 @@ brew "wget"
 brew "yamllint"
 # Download YouTube videos from the command-line
 brew "youtube-dl"
+# Process YAML, JSON, XML, CSV and properties documents from the CLI
+brew "yq"
 # General-purpose lossless data-compression library
 brew "zlib"
 # Shell extension to navigate your filesystem faster

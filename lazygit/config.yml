@@ -22,3 +22,26 @@ gui:
 
   authorColors:
     "*": "#babbf1"
+  # If true, do not show a warning when rewording a commit via an external editor
+  skipRewordInEditorWarning: true
+  nerdFontsVersion: "3"
+
+  # Config relating to the spinner.
+  spinner:
+    # The frames of the spinner animation.
+    frames:
+      - "∙∙∙"
+      - "●∙∙"
+      - "∙●∙"
+      - "∙∙●"
+    rate: 100
+
+git:
+  paging:
+    useConfig: false
+update:
+  # One of: 'prompt' (default) | 'background' | 'never'
+  method: never
+
+# If true, don't display introductory popups upon opening Lazygit.
+disableStartupPopups: true
