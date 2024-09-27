@@ -13,6 +13,8 @@ tap "oven-sh/bun"
 tap "qmk/qmk"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@1.1"
 # Library for command-line editing

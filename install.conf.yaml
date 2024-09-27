@@ -38,6 +38,10 @@
       glob: true
       force: true
       path: yazi/**
+    ~/.config/atuin/:
+      glob: true
+      force: true
+      path: atuin/**
     ~/Library/Application Support/xbar:
       glob: true
       force: true
