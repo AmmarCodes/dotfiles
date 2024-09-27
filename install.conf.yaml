@@ -42,6 +42,10 @@
       glob: true
       force: true
       path: atuin/**
+    ~/.config/sketchybar/:
+      glob: true
+      force: true
+      path: sketchybar/**
     ~/Library/Application Support/xbar:
       glob: true
       force: true

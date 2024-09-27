@@ -1,0 +1,76 @@
+#!/bin/bash
+
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+source "$HOME/.config/sketchybar/icons.sh"  # Loads all defined icons
+
+ITEM_DIR="$HOME/.config/sketchybar/items"     # Directory where the items are configured
+PLUGIN_DIR="$HOME/.config/sketchybar/plugins" # Directory where all the plugin scripts are stored
+
+FONT="JetBrainsMono Nerd Font Mono"
+PADDINGS=10 # All paddings use this value (icon, label, background)
+ICON_PADDING=8
+ICON_PADDING_HALF=4
+CORNER_RADIUS=9
+
+main_bar=(
+	# display=main
+	height=30
+	color=$BAR_COLOR
+	shadow=on
+	position=top
+	# margin=4
+	# y_offset=4
+	padding_left=14
+	padding_right=4
+	sticky=on
+	# corner_radius=$CORNER_RADIUS
+	blur_radius=10
+	notch_width=200
+)
+
+sketchybar --bar "${main_bar[@]}"
+
+##### Changing Defaults #####
+
+item_defaults=(
+	updates=when_shown
+	icon.font="$FONT:Regular:16.0"
+	icon.color=$ICON_COLOR
+	icon.padding_left=$PADDINGS
+	icon.padding_right=$ICON_PADDING_HALF
+	label.font="$FONT:Bold:13.0"
+	label.color=$LABEL_COLOR
+	label.padding_left=$PADDINGS
+	label.padding_right=$PADDINGS
+	background.corner_radius=$CORNER_RADIUS
+	background.color=$BG_SEC_COLOR
+	background.height=22
+	# background.height=25
+	# popup.background.border_width=1
+	# popup.background.corner_radius=$CORNER_RADIUS
+	# popup.background.border_color=$POPUP_BORDER_COLOR
+	# popup.blur_radius=20
+	# popup.background.shadow.drawing=off
+)
+
+sketchybar --default "${item_defaults[@]}"
+
+# Left
+# source "$ITEM_DIR/apple.sh"
+source "$ITEM_DIR/spaces.sh"
+source "$ITEM_DIR/front_app.sh"
+
+# Right
+source "$ITEM_DIR/calendar.sh"
+source "$ITEM_DIR/battery.sh"
+# source "$ITEM_DIR/keyboard.sh"
+source "$ITEM_DIR/wifi.sh"
+source "$ITEM_DIR/cpu.sh"
+source "$ITEM_DIR/weather.sh"
+source "$ITEM_DIR/prayers.sh"
+source "$ITEM_DIR/work-activity.sh"
+# source "$ITEM_DIR/network.sh"
+
+sketchybar --update
+
+echo "sketchybar configuation loaded.."
