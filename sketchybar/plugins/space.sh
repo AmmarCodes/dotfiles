@@ -1,18 +1,15 @@
 #!/usr/bin/env bash
 
-WIDTH="dynamic"
-HIGHLIGHT="off"
+source "$HOME/.config/sketchybar/colors.sh" # Loads all defined colors
+
+COLOR=$BG_SEC_COLOR
+TEXT=$LABEL_COLOR
 if [ "$1" = "$FOCUSED_WORKSPACE" ]; then
-  WIDTH="0"
-  HIGHLIGHT="on"
-  # sketchybar --set $NAME icon.highlight=off
-  # sketchybar --set $NAME icon.highlight=on
+  COLOR=$GREEN
+  TEXT=$BG_SEC_COLOR
 fi
 
-sketchybar --animate tanh 20 --set $NAME \
-  icon.highlight=$HIGHLIGHT \
-  background.highlight=$HIGHLIGHT \
-  label.width=$WIDTH
+sketchybar --set $NAME background.color=$COLOR label.color=$TEXT
 
 # mouse_clicked() {
 #   if [ "$BUTTON" = "right" ]; then

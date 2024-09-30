@@ -13,19 +13,19 @@ ICON_PADDING_HALF=4
 CORNER_RADIUS=9
 
 main_bar=(
-	# display=main
-	height=30
-	color=$BAR_COLOR
-	shadow=on
-	position=top
-	# margin=4
-	# y_offset=4
-	padding_left=14
-	padding_right=4
-	sticky=on
-	# corner_radius=$CORNER_RADIUS
-	blur_radius=10
-	notch_width=200
+  # display=main
+  height=30
+  color=$BAR_COLOR
+  shadow=on
+  position=top
+  # margin=4
+  # y_offset=4
+  padding_left=4
+  padding_right=4
+  sticky=on
+  # corner_radius=$CORNER_RADIUS
+  blur_radius=10
+  notch_width=200
 )
 
 sketchybar --bar "${main_bar[@]}"
@@ -33,24 +33,24 @@ sketchybar --bar "${main_bar[@]}"
 ##### Changing Defaults #####
 
 item_defaults=(
-	updates=when_shown
-	icon.font="$FONT:Regular:16.0"
-	icon.color=$ICON_COLOR
-	icon.padding_left=$PADDINGS
-	icon.padding_right=$ICON_PADDING_HALF
-	label.font="$FONT:Bold:13.0"
-	label.color=$LABEL_COLOR
-	label.padding_left=$PADDINGS
-	label.padding_right=$PADDINGS
-	background.corner_radius=$CORNER_RADIUS
-	background.color=$BG_SEC_COLOR
-	background.height=22
-	# background.height=25
-	# popup.background.border_width=1
-	# popup.background.corner_radius=$CORNER_RADIUS
-	# popup.background.border_color=$POPUP_BORDER_COLOR
-	# popup.blur_radius=20
-	# popup.background.shadow.drawing=off
+  updates=when_shown
+  icon.font="$FONT:Regular:16.0"
+  icon.color=$ICON_COLOR
+  icon.padding_left=$PADDINGS
+  icon.padding_right=$ICON_PADDING_HALF
+  label.font="$FONT:Bold:13.0"
+  label.color=$LABEL_COLOR
+  label.padding_left=$PADDINGS
+  label.padding_right=$PADDINGS
+  background.corner_radius=$CORNER_RADIUS
+  background.color=$BG_SEC_COLOR
+  background.height=22
+  # background.height=25
+  # popup.background.border_width=1
+  # popup.background.corner_radius=$CORNER_RADIUS
+  # popup.background.border_color=$POPUP_BORDER_COLOR
+  # popup.blur_radius=20
+  # popup.background.shadow.drawing=off
 )
 
 sketchybar --default "${item_defaults[@]}"
