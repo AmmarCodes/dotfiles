@@ -169,6 +169,8 @@ brew "runit"
 brew "spacer"
 # Modern SSH server for teams managing distributed infrastructure
 brew "teleport"
+# Simplified and community-driven man pages
+brew "tldr"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
 # Syntax-aware linter for prose
