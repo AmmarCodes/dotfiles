@@ -6,6 +6,7 @@ sketchybar --add item work-activity right \
   icon= \
   icon.font.size=24 \
   label= \
+  label.font.size=12 \
   padding_right=$PADDINGS \
   script="$PLUGIN_DIR/work-activity.sh" \
   update_freq=3600 \
