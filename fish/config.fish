@@ -44,6 +44,7 @@ abbr --add gaa "git add --all"
 abbr --add gc "git commit"
 abbr --add gca "git commit --all"
 abbr --add gca! "git commit --all --amend"
+abbr --add gca!! "git commit --all --amend --no-edit --no-verify"
 abbr --add gc! "git commit --amend"
 abbr --add gst "git status"
 abbr --add gstp "git stash apply stash@\{0\}"
@@ -58,12 +59,13 @@ abbr --add gd "git diff"
 abbr --add gl "git pull"
 abbr --add gp "git push"
 abbr --add gpf "git push --force-with-lease --force-if-includes"
+abbr --add gpf! "git push --force-with-lease --force-if-includes --no-verify"
 abbr --add gpm "git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment' -o merge_request.label='group::utilization'"
+abbr --add gpm! "git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment' -o merge_request.label='group::utilization' --no-verify"
 abbr --add gfo "git fetch origin"
 abbr --add gri "git rebase -i"
 abbr --add gam 'git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 alias gdb "git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
-alias gpm "git push -u origin -o merge_request.create -o merge_request.remove_source_branch -o merge_request.label='frontend' -o merge_request.label='section::fulfillment' -o merge_request.label='group::utilization'" # Push the current branch and create a merge request for it
 abbr --add gps "git push -o ci.skip" # push with skip ci option
 
 ###########
