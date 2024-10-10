@@ -3,6 +3,7 @@ return {
     "rose-pine/neovim",
     name = "rose-pine",
     priority = 1000,
+    enabled = false,
   },
   {
     "catppuccin",
@@ -11,30 +12,20 @@ return {
       dim_inactive = {
         enabled = true,
       },
-      show_end_of_buffer = false,
-      integration_default = false,
       integrations = {
-        barbecue = { dim_dirname = true, bold_basename = true, dim_context = false, alt_background = false },
-        mini = {
-          enabled = false,
+        mason = true,
+        noice = true,
+        navic = {
+          enabled = true,
         },
-        cmp = true,
-        gitsigns = true,
-        hop = true,
-        illuminate = { enabled = true },
-        native_lsp = { enabled = true, inlay_hints = { background = true } },
-        neogit = true,
-        neotree = true,
-        semantic_tokens = true,
-        treesitter = true,
-        treesitter_context = true,
-        vimwiki = true,
+        lsp_trouble = true,
         which_key = true,
       },
     },
   },
   {
     "sainnhe/gruvbox-material",
+    enabled = false,
     config = function()
       vim.g.gruvbox_material_enable_italic = true
       vim.g.gruvbox_material_better_performance = true
@@ -60,7 +51,8 @@ return {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "rose-pine-dawn",
-      colorscheme = "gruvbox-material",
+      -- colorscheme = "gruvbox-material",
+      colorscheme = "catppuccin",
     },
   },
 }
