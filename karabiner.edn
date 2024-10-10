@@ -27,6 +27,7 @@
       [:f [:launch "Firefox"]]
       [:g [:launch "Gmail"]]
       [:c [:launch "Notion Calendar"]]
+      [:spacebar :play_or_pause]
      ]
     }
     {
