@@ -1,4 +1,4 @@
-#!/usr/bin/env /Users/aalakkad/.asdf/shims/node
+#!/usr/bin/env /Users/aalakkad/.local/share/mise/installs/node/latest/bin/node
 // <bitbar.title>Title goes here</bitbar.title>
 // <bitbar.version>v1.0</bitbar.version>
 // <bitbar.author>Your Name</bitbar.author>
