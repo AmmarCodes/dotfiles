@@ -2,6 +2,9 @@
 
 source "$HOME/.config/sketchybar/colors.sh"
 
+# loading state before fetching data
+sketchybar --set $NAME label=" "
+
 activity_data=$(curl -s "https://gitlab.com/users/aalakkad/calendar.json")
 current_month=$(date +"%Y-%m")
 

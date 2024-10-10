@@ -31,7 +31,7 @@ for sid in $(aerospace list-workspaces --monitor focused); do
 
   sketchybar --add item space.$sid left \
     --set space.$sid "${space[@]}" \
-    --subscribe space.$sid aerospace_workspace_change change_windows front_app_switched
+    --subscribe space.$sid aerospace_workspace_change front_app_switched
 
   # spaces=(
   #   background.color=$BACKGROUND_1
