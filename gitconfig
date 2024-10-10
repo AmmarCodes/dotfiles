@@ -23,6 +23,20 @@
     diffFilter = delta --color-only --features=interactive
 [merge]
     conflictstyle = diff3
+[difftool]
+  prompt = false
+  keepBackup = false
+[difftool "nvim"]
+  cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
+[merge]
+  ff = false
+  conflictstyle = diff3
+  tool = nvim
+[mergetool]
+  prompt = false
+  keepBackup = false
+[mergetool "nvim"]
+  cmd = "nvim -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
 [diff]
     colorMoved = default
 [alias]
@@ -59,6 +73,7 @@
 	required = true
 [pull]
 	rebase = false
+	ff = true
 [rebase]
   autosquash = true
   instructionFormat = (%ar) %<|(120)%s <%an>
