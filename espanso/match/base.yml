@@ -157,17 +157,12 @@ matches:
 
   - trigger: ";11"
     html: |
-      <p style="font-size: 26px">{{date}}</p>
+      <h1 style="font-weight: normal; font-size: 26px">{{date}}</h1>
       <ul style="font-size: 16px">
         <li>
           Ammar
           <ul>
-            <li>Review Priorities:
-              <ul><li>...</li></ul>
-            </li>
-            <li>Feedback for Chase
-              <ul><li>...</li></ul>
-            </li>
+            <li>...</li>
           </ul>
         </li>
         <li>
@@ -188,8 +183,6 @@ matches:
 
       /approve
 
-      /unassign_reviewer @aalakkad
-
   - trigger: ";lgtr"
     replace: |
       ~frontend LGTM, thanks!
@@ -202,7 +195,6 @@ matches:
 
       /unsubscribe
       /approve
-      /unassign_reviewer @aalakkad
       /assign_reviewer @{{clipboard}}
   - trigger: ";wir"
     replace: '/label ~"workflow::in review"'
