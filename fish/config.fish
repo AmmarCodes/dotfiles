@@ -65,8 +65,11 @@ abbr --add gpm! "git push -u origin -o merge_request.create -o merge_request.rem
 abbr --add gfo "git fetch origin"
 abbr --add gri "git rebase -i"
 abbr --add gam 'git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
-alias gdb "git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
 abbr --add gps "git push -o ci.skip" # push with skip ci option
+alias gdb "git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
+function grbm
+    git rebase $(git main-branch)
+end
 
 ###########
 # Exports #
