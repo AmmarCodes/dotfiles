@@ -71,6 +71,11 @@ function grbm
     git rebase $(git main-branch)
 end
 
+function fco -d "Use `fzf` to choose which branch to check out" --argument-names branch
+    set -q branch[1]; or set branch ''
+    git for-each-ref --format='%(refname:short)' refs/heads | fzf --height 10% --layout=reverse --border --query=$branch --select-1 | xargs git checkout
+end
+
 ###########
 # Exports #
 ###########
@@ -81,12 +86,23 @@ set -Ux FZF_DEFAULT_OPTS "\
 --reverse \
 --border rounded \
 --no-info \
---pointer='' \
---marker=' ' \
+--prompt='  '
+--pointer='' \
+--marker=' ' \
 --ansi \
---color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic'"
+--color=bg+:#414559,bg:-1,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:-1,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#a6d189,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
+--color=selected-bg:#51576d \
+--preview-window="border-rounded" \
+--padding="0,1" --scrollbar="" \
+--multi"
+
+#--pointer=' ' \
+#--color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic' \
 
 set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' --prompt='  '"
+
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 # set --export --prepend PATH "/Users/aalakkad/.rd/bin"
