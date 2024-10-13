@@ -9,3 +9,8 @@ tab_size = 2
 cache_dir = ""
 ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
+
+[plugin]
+prepend_previewers = [
+  { name = "*.md", run = "glow" },
+]
