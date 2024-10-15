@@ -75,6 +75,8 @@ brew "fish"
 brew "fzf"
 # GNU compiler collection
 brew "gcc"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
@@ -253,6 +255,8 @@ cask "krisp"
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Automatic time tracker
 cask "qbserve"
 # Toolbox companion for QMK Firmware
