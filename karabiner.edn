@@ -21,7 +21,7 @@
      :rules [
       :launch-mode
       [:s [:launch "Slack"]]
-      [:t [:launch "WezTerm"]]
+      [:t [:launch "Ghostty"]]
       [:b [:launch "Brave Browser"]]
       [:d [:launch "Obsidian"]]
       [:f [:launch "Firefox"]]

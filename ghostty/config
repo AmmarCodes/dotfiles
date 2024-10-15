@@ -3,7 +3,7 @@ window-decoration = false
 
 theme = catppuccin-frappe
 
-font-family = MonoLisa
+font-family = CaskaydiaCove Nerd Font
 #font-style = Regular
 font-style-italic = Regular Italic
 
@@ -11,7 +11,7 @@ clipboard-read = "allow"
 clipboard-paste-protection = false
 
 
-font-size = 14
+font-size = 15
 font-thicken = true
 adjust-cell-height = 18
 
@@ -43,9 +43,9 @@ quit-after-last-window-closed = true
 # macos-window-shadow = true
 
 
-# window-padding-x = 10
+window-padding-x = 10
 window-padding-y = 0
 
 window-padding-color = background
 
-macos-titlebar-style = native
+macos-titlebar-style = hidden
