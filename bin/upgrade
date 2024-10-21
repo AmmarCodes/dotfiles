@@ -2,16 +2,16 @@
 set -euo pipefail
 
 pretty_print() {
-	gum style \
-		--foreground 12 --border-foreground 12 --border double \
-		--align center --width 50 "$1"
+  gum style \
+    --foreground 12 --border-foreground 12 --border double \
+    --align center --width 50 "$1"
 }
 
 if [ -x "$(command -v brew)" ]; then
-	pretty_print "Upgrading Homebrew packages"
-	gum spin --show-output --spinner minidot --title "Updating brew..." -- brew update && brew upgrade
-	gum spin --show-output --spinner minidot --title "Cleaning up..." -- brew cleanup --prune=all
-	gum spin --show-output --spinner minidot --title "Dumping brew bundle..." -- brew bundle dump --force --all --describe --file=~/.dotfiles/Brewfile
+  pretty_print "Upgrading Homebrew packages"
+  gum spin --show-output --spinner minidot --title "Updating brew..." -- brew update && brew upgrade
+  gum spin --show-output --spinner minidot --title "Cleaning up..." -- brew cleanup --prune=all
+  gum spin --show-output --spinner minidot --title "Dumping brew bundle..." -- brew bundle dump --force --all --describe --file=~/.dotfiles/Brewfile
 fi
 
 # if [ -x "$(command -v npm)" ]; then
@@ -19,21 +19,21 @@ fi
 # 	npm install -g && npm update -g
 # fi
 
-if [ -x "$(command -v composer)" ]; then
-	echo "Upgrading composer packages"
-	composer global update
-fi
+# if [ -x "$(command -v composer)" ]; then
+# 	echo "Upgrading composer packages"
+# 	composer global update
+# fi
 
 if [ -x "$(command -v zinit)" ]; then
-	pretty_print "Upgrading zsh plugins"
-	zinit self-update
-	zinit update --all
-	zinit compile --all
+  pretty_print "Upgrading zsh plugins"
+  zinit self-update
+  zinit update --all
+  zinit compile --all
 fi
 
 if [ -x "$(command -v fisher)" ]; then
-	pretty_print "Upgrading fish plugins"
-	gum spin --show-output --spinner minidot --title "Updating brew..." -- fisher update
+  pretty_print "Upgrading fish plugins"
+  gum spin --show-output --spinner minidot --title "Updating brew..." -- fisher update
 fi
 
 # echo "Upgrading nvim plugins"
@@ -41,11 +41,11 @@ fi
 # nvim --headless "+TSUpdateSync" +qall
 
 if [ -x "$(command -v mas)" ]; then
-	pretty_print "Upgrading Mac App Store apps"
-	gum spin --show-output --spinner minidot --title "Upgrading Mac App Store apps" -- mas upgrade
+  pretty_print "Upgrading Mac App Store apps"
+  gum spin --show-output --spinner minidot --title "Upgrading Mac App Store apps" -- mas upgrade
 fi
 
 if [ -d ~/.tmux/plugins/tpm ]; then
-	pretty_print "Updating tmux plugins"
-	gum spin --show-output --spinner minidot --title "Updating tmux plugins" -- ~/.tmux/plugins/tpm/bin/update_plugins all
+  pretty_print "Updating tmux plugins"
+  gum spin --show-output --spinner minidot --title "Updating tmux plugins" -- ~/.tmux/plugins/tpm/bin/update_plugins all
 fi

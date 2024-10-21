@@ -86,6 +86,11 @@ function y -d "Start yazi (TUI file manager)"
     rm -f -- "$tmp"
 end
 
+# rails aliases
+abbr --add railsc "bin/rails console"
+abbr --add railsr "bin/rails routes | less"
+
+
 ###########
 # Exports #
 ###########
@@ -122,6 +127,7 @@ set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' --prompt='  '"
 # Paths #
 #########
 fish_add_path ~/.dotfiles/bin/
+fish_add_path ~/.config/herd-lite/bin
 
 ###########
 # Sources #

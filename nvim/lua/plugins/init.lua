@@ -116,6 +116,7 @@ return {
       vim.g["test#strategy"] = "neovim"
       vim.g["test#neovim#start_normal"] = 1
       vim.g["test#neovim#term_position"] = "vert botright"
+      vim.g["test#php#phpunit#executable"] = "php artisan test"
       vim.g["test#neovim_sticky#kill_previous"] = 1
       vim.g["test#preserve_screen"] = 0
     end,

@@ -8,7 +8,7 @@ sketchybar --add item front_app left \
   icon.padding_left=8 \
   padding_left=26 \
   label.color=$BLUE \
-  label.font.size="14" \
+  label.font.size="12" \
   icon.color=$BLUE \
   script="$PLUGIN_DIR/front_app.sh" \
   associated_display=active \

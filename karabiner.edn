@@ -20,13 +20,13 @@
      :des "Launch mode"
      :rules [
       :launch-mode
-      [:s [:launch "Slack"]]
-      [:t [:launch "Ghostty"]]
       [:b [:launch "Brave Browser"]]
+      [:c [:launch "Calendar"]]
       [:d [:launch "Obsidian"]]
       [:f [:launch "Firefox"]]
-      [:g [:launch "Gmail"]]
-      [:c [:launch "Notion Calendar"]]
+      [:g [:launch "Telegram"]]
+      [:s [:launch "Slack"]]
+      [:t [:launch "Ghostty"]]
       [:spacebar :play_or_pause]
      ]
     }
