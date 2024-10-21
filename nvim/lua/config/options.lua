@@ -12,3 +12,5 @@ opt.background = "dark"
 
 -- opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 -- opt.foldtext = "v:lua.vim.treesitter.foldtext()"
+
+vim.g.lazyvim_php_lsp = "intelephense"
