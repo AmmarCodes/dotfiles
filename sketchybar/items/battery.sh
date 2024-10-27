@@ -1,14 +1,11 @@
 #!/bin/bash
 
-FONT="JetBrainsMono Nerd Font Mono"
-
 battery=(
-  script="$PLUGIN_DIR/battery.sh"
-  icon.font="$FONT:Regular:10"
-  padding_left=$PADDINGS
-  icon.color=$SAPPHIRE
-  background.color=$BG_SEC_COLR
   update_freq=120
+  padding_right=$PADDINGS
+  label.font.size="12"
+  icon.color=$SAPPHIRE
+  script="$PLUGIN_DIR/battery.sh"
   updates=on
 )
 

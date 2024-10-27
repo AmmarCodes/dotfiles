@@ -9,7 +9,6 @@ prayers=(
   icon.padding_right=4
   icon.color=$ROSEWATER
   padding_right=$PADDINGS
-  background.color=0x00000000
   script="$PLUGIN_DIR/prayers.sh"
   update_freq=60
   click_script="$POPUP_CLICK_SCRIPT"

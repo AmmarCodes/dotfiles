@@ -2,7 +2,7 @@
 
 sketchybar --add item wifi right \
   --set wifi \
-  padding_left=$PADDINGS \
+  padding_right=$PADDINGS \
   icon=􀙇 \
   icon.color=$PEACH \
   script="$PLUGIN_DIR/wifi.sh" \

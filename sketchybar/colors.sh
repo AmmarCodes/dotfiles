@@ -31,7 +31,7 @@ export BLUE=0xFF89b4fa      #89b4fa
 export LAVENDER=0xFFb4befe  #b4befe
 
 # General bar colors
-export BAR_COLOR=0xa024273a
+export BAR_COLOR=0xff232634
 # export BAR_COLOR=$TRANSPARENT # transparent
 export ICON_COLOR=$WHITE  # Color of all icons
 export LABEL_COLOR=$WHITE # Color of all labels

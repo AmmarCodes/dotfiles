@@ -5,8 +5,8 @@ CPU=(
   icon.font="$FONT:Regular:22.0"
   icon=
   icon.color=$RED
+  padding_right=$PADDINGS
   script="$PLUGIN_DIR/cpu.sh"
-  label.width=50
 )
 
-sketchybar --add item cpu right --set cpu "${CPU[@]}" 
+sketchybar --add item cpu right --set cpu "${CPU[@]}"

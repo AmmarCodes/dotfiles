@@ -65,10 +65,10 @@ source "$ITEM_DIR/calendar.sh"
 source "$ITEM_DIR/battery.sh"
 # source "$ITEM_DIR/keyboard.sh"
 source "$ITEM_DIR/wifi.sh"
-source "$ITEM_DIR/cpu.sh"
 source "$ITEM_DIR/weather.sh"
 source "$ITEM_DIR/prayers.sh"
 source "$ITEM_DIR/work-activity.sh"
+source "$ITEM_DIR/cpu.sh"
 # source "$ITEM_DIR/network.sh"
 
 sketchybar --update
