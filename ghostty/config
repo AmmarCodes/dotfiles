@@ -51,3 +51,6 @@ window-padding-color = background
 macos-titlebar-style = hidden
 
 window-inherit-working-directory = false
+
+background-opacity = 0.95
+background-blur-radius = 20

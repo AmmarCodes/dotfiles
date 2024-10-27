@@ -9,6 +9,7 @@ return {
     "catppuccin",
     opts = {
       flavour = "frappe",
+      transparent_background = true,
       dim_inactive = {
         enabled = true,
       },
