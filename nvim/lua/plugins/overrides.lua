@@ -95,12 +95,14 @@ return {
   {
     "ibhagwan/fzf-lua",
     opts = {
+      actions = {
+        files = {
+          ["enter"] = require("fzf-lua.actions").file_edit,
+        },
+      },
       files = {
         -- cwd_prompt = true,
         fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude vendor --exclude public]],
-        actions = {
-          ["enter"] = require("fzf-lua.actions").file_edit,
-        },
       },
     },
     keys = {
