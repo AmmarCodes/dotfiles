@@ -104,6 +104,9 @@ return {
         -- cwd_prompt = true,
         fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude vendor --exclude public]],
       },
+      marks = {
+        marks = "[A-Za-z]",
+      },
     },
     keys = {
       {
