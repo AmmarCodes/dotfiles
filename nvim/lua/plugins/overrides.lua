@@ -97,6 +97,7 @@ return {
     opts = {
       actions = {
         files = {
+          true,
           ["enter"] = require("fzf-lua.actions").file_edit,
         },
       },
@@ -226,6 +227,9 @@ return {
         end,
       })
     end,
+    keys = {
+      { "<leader>ba", "<cmd>BufferLineGroupClose ungrouped<cr>", desc = "Delete non-pinned buffers" },
+    },
   },
   -- {
   --   "L3MON4D3/LuaSnip",

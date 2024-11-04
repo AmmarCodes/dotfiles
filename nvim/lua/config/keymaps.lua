@@ -23,8 +23,6 @@ map("n", "<leader>yff", ':let @*=expand("%:p")<CR>', { desc = "Yank file full pa
 -- Exit insert mode in Terminal
 map("t", "<C-o>", "<C-\\><C-n>")
 
-map("n", "<leader>ba", "<Cmd>BufferLineGroupClose ungrouped<CR>", { desc = "Delete non-pinned buffers" })
-
 -- smart deletion, dd
 -- It solves the issue, where you want to delete empty line, but dd will override your last yank.
 -- Code below will check if u are deleting empty line, if so - use black hole register.
