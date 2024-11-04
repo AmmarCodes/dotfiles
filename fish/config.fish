@@ -16,7 +16,7 @@ abbr --add kara "nvim ~/.dotfiles/karabiner.edn"
 alias cat bat
 abbr --add e exit
 abbr --add q exit
-alias ls "eza --group-directories-first -G  --color auto --icons -s type"
+alias ls "eza --group-directories-first --color auto --icons -s type"
 alias tree "eza --tree --level=5 --icons --group-directories-first --color auto"
 
 abbr --add vim nvim
