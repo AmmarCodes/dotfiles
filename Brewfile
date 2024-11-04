@@ -25,8 +25,6 @@ brew "sqlite"
 brew "python@3.10"
 # Shell extension to jump to frequently used directories
 brew "autojump"
-# C/C++ and Java libraries for Unicode and globalization
-brew "icu4c"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Yet another cross-platform graphical process/system monitor
@@ -127,6 +125,8 @@ brew "libpq"
 brew "libyaml"
 # Parsing Expression Grammars For Lua
 brew "lpeg"
+# Powerful, lightweight programming language
+brew "lua"
 # Fast, async, resource-friendly link checker
 brew "lychee"
 # Mac App Store command-line interface
@@ -169,6 +169,8 @@ brew "ruby-build"
 brew "runit"
 # Small command-line utility for adding spacers to command output
 brew "spacer"
+# Change macOS audio source from the command-line
+brew "switchaudio-osx"
 # Modern SSH server for teams managing distributed infrastructure
 brew "teleport"
 # Simplified and community-driven man pages
@@ -201,8 +203,6 @@ brew "felixkratz/formulae/borders"
 brew "felixkratz/formulae/sketchybar"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
-# A tiling window manager for macOS based on binary space partitioning.
-brew "koekeishiya/formulae/yabai"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Readability and Markdown utility for saving web urls and HTML text

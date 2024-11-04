@@ -70,3 +70,7 @@
       command: "if command -v brew > /dev/null; then brew bundle; fi"
     - description: "Installing tmuxu plugin manager"
       command: "if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi"
+    - description: "Installing SBarLua"
+      command: "(git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua/)"
+    - description: "Installing sketchybar font"
+      command: "curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/latest/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf"
