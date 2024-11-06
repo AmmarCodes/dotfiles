@@ -24,9 +24,6 @@ matches:
   - trigger: "[)"
     replace: "[$|$]({{clipboard}})"
 
-  - trigger: "]("
-    replace: "]({{clipboard}})"
-
   # Preformatted blocks with syntax highlighting
 
   - trigger: "``go``"

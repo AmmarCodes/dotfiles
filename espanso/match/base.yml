@@ -29,6 +29,14 @@ matches:
         params:
           format: "%H:%M"
 
+  - trigger: ";dmon"
+    replace: "{{dmon}}"
+    vars:
+      - name: dmon
+        type: date
+        params:
+          format: "%Y-%m"
+
   - trigger: ";dtime"
     replace: "{{dtime}}"
     vars:
@@ -196,6 +204,7 @@ matches:
       /unsubscribe
       /approve
       /assign_reviewer @{{clipboard}}
+
   - trigger: ";wir"
     replace: '/label ~"workflow::in review"'
 
@@ -204,6 +213,15 @@ matches:
 
   - trigger: ";wc"
     replace: "/label ~\"workflow::complete\"\n/close"
+
+  - trigger: "~wir"
+    replace: '~"workflow::in review"'
+
+  - trigger: "~wid"
+    replace: '~"workflow::in dev"'
+
+  - trigger: "~wv"
+    replace: '~"workflow::verification"'
 
   # Print the output of a shell command
   # - trigger: ";shell"

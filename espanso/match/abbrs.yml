@@ -1,0 +1,6 @@
+matches:
+  # - trigger: ";abbr"
+  #   replace: '<abbr title="">abbr</abbr>'
+
+  - trigger: ";ssot"
+    replace: '<abbr title="Single Source of Truth">SSOT</abbr>'
