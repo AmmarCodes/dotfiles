@@ -48,15 +48,6 @@ return {
     "gpanders/editorconfig.nvim",
     event = "BufReadPre",
   },
-  {
-    -- markdown preview
-    "iamcco/markdown-preview.nvim",
-    build = function()
-      vim.fn["mkdp#util#install"]() -- install without yarn or npm
-    end,
-    cmd = { "MarkdownPreview" },
-    ft = "markdown",
-  },
   -- Open file on remote website
   {
     "ruifm/gitlinker.nvim",
@@ -84,6 +75,7 @@ return {
       user_default_options = {
         names = false,
         css_fn = true,
+        AARRGGBB = true,
       },
     },
   },
@@ -138,18 +130,6 @@ return {
     end,
   },
   {
-    "ThePrimeagen/refactoring.nvim",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
-    },
-    event = "BufReadPre",
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require("refactoring").setup({})
-    end,
-  },
-  {
     "Wansmer/treesj",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     event = "InsertEnter",
@@ -172,15 +152,6 @@ return {
     },
   },
   {
-    "kassio/neoterm",
-    lazy = true,
-    enabled = false,
-    cmd = { "Tnew" },
-    config = function()
-      vim.g.neoterm_default_mod = "vertical"
-    end,
-  },
-  {
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
@@ -193,22 +164,6 @@ return {
       --   normal = { bg = "#f2e9e1" },
       -- },
     },
-  },
-  {
-    "folke/zen-mode.nvim",
-    opts = {
-      window = { backdrop = 1 },
-      plugins = {
-        gitsigns = { enabled = true }, -- disables git signs
-        tmux = { enabled = true }, -- disables the tmux statusline
-      },
-    },
-    cmd = "ZenMode",
-  },
-  {
-    "folke/twilight.nvim",
-    opts = {},
-    cmd = "Twilight",
   },
   {
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -228,19 +183,10 @@ return {
     end,
   },
   {
-    "MeanderingProgrammer/markdown.nvim",
-    dependencies = { "nvim-treesitter/nvim-treesitter" },
-    config = true,
-  },
-  {
     "otavioschwanck/arrow.nvim",
     opts = {
       show_icons = true,
       leader_key = ";", -- Recommended to be a single key
     },
-  },
-  {
-    -- Disable some resource heavy features when opening a big file
-    "LunarVim/bigfile.nvim",
   },
 }

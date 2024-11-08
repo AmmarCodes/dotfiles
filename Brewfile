@@ -13,6 +13,8 @@ tap "oven-sh/bun"
 tap "qmk/qmk"
 tap "ttscoff/thelab"
 tap "yqrashawn/goku"
+# Code searching, linting, rewriting
+brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Cryptography and SSL/TLS Toolkit
@@ -300,7 +302,6 @@ mas "HP Smart", id: 1474276998
 mas "iA Writer", id: 775737590
 mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
-mas "LanguageTool", id: 1534275760
 mas "Lungo", id: 1263070803
 mas "NordLayer", id: 1488888843
 mas "Numbers", id: 409203825

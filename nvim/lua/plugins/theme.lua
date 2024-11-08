@@ -7,22 +7,59 @@ return {
   },
   {
     "catppuccin",
-    opts = {
-      flavour = "frappe",
-      transparent_background = true,
-      dim_inactive = {
-        enabled = true,
-      },
-      integrations = {
-        mason = true,
-        noice = true,
-        navic = {
-          enabled = true,
+    config = function()
+      require("catppuccin").setup({
+        flavour = "frappe",
+        transparent_background = true,
+        highlight_overrides = {
+          all = function(C)
+            return {
+              -- fix visal selection within illuminated words not visible enough
+              IlluminatedWordText = { bg = C.surface1 },
+              IlluminatedWordRead = { bg = C.surface1 },
+              IlluminatedWordWrite = { bg = C.surface1 },
+              Visual = { bg = C.surface0, style = { "bold" } },
+            }
+          end,
         },
-        lsp_trouble = true,
-        which_key = true,
-      },
-    },
+        integrations = {
+          aerial = true,
+          alpha = true,
+          cmp = true,
+          dashboard = true,
+          flash = true,
+          grug_far = true,
+          gitsigns = true,
+          headlines = true,
+          illuminate = true,
+          indent_blankline = { enabled = true },
+          leap = true,
+          lsp_trouble = true,
+          mason = true,
+          markdown = true,
+          mini = true,
+          native_lsp = {
+            enabled = true,
+            underlines = {
+              errors = { "undercurl" },
+              hints = { "undercurl" },
+              warnings = { "undercurl" },
+              information = { "undercurl" },
+            },
+          },
+          navic = { enabled = true, custom_bg = "lualine" },
+          neotest = true,
+          neotree = true,
+          noice = true,
+          notify = true,
+          semantic_tokens = true,
+          telescope = true,
+          treesitter = true,
+          treesitter_context = true,
+          which_key = true,
+        },
+      })
+    end,
   },
   {
     "sainnhe/gruvbox-material",
@@ -51,8 +88,6 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      -- colorscheme = "rose-pine-dawn",
-      -- colorscheme = "gruvbox-material",
       colorscheme = "catppuccin",
     },
   },

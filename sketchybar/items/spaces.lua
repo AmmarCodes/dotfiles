@@ -75,12 +75,18 @@ sbar.exec("aerospace list-workspaces --monitor focused", function(spaces)
 				function(windows)
 					local no_app = true
 					local icon_line = ""
+					local hash = {}
 					for i, app in ipairs(windows) do
 						no_app = false
 						local app_name = app["app-name"]
-						local lookup = app_icons[app_name]
-						local icon = ((lookup == nil) and app_icons["default"] or lookup)
-						icon_line = icon_line .. " " .. icon
+						-- the following condition is to prevent duplicated entry for the same app
+						if not hash[app_name] then
+							local lookup = app_icons[app_name]
+							local icon = ((lookup == nil) and app_icons["default"] or lookup)
+							icon_line = icon_line .. " " .. icon
+
+							hash[app_name] = true
+						end
 					end
 
 					if no_app then
