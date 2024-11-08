@@ -11,6 +11,7 @@
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
 		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
 	}
+  :simlayer-threshold 750
   :simlayers {
               :launch-mode {:key :k}
               :vim-movement {:key :v}
