@@ -55,3 +55,14 @@ vim.keymap.set("n", "<A-l>", require("smart-splits").resize_right)
 -- move visually selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+------------------------------
+--    snacks - gitbrowse    --
+------------------------------
+
+map(
+  { "n", "v" },
+  "<leader>ro",
+  require("snacks").gitbrowse.open,
+  { desc = "Open remote repository at the current file line(s)" }
+)

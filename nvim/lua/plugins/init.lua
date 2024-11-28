@@ -48,25 +48,6 @@ return {
     "gpanders/editorconfig.nvim",
     event = "BufReadPre",
   },
-  -- Open file on remote website
-  {
-    "ruifm/gitlinker.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { mappings = nil },
-    keys = {
-      {
-        "<leader>yr",
-        '<cmd>lua require("gitlinker").get_buf_range_url("n")<cr>',
-        desc = "Copy remote git link of the current file",
-      },
-      {
-        "<leader>yr",
-        '<cmd>lua require"gitlinker".get_buf_range_url("v", {silent = false})<cr>',
-        mode = "v",
-        desc = "Copy remote git link of the current selection",
-      },
-    },
-  },
   {
     "NvChad/nvim-colorizer.lua",
     ft = { "css", "javascript", "vue", "html", "tmux", "lua", "gitconfig" },
