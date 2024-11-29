@@ -6,7 +6,7 @@ local MR_Rate = sbar.add("item", {
 	label = { font = { size = 12 }, string = "?", padding_right = 9 },
 	padding_right = 6,
 	background = {
-		color = colors.with_alpha(colors.bg2, 0.5),
+		color = colors.bg2,
 		border_width = 0,
 		border_color = colors.black,
 	},

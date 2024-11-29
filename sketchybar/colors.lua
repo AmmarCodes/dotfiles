@@ -55,7 +55,7 @@ return {
 	lavender = colors.lavender,
 
 	bar = {
-		bg = 0x80292c3c, -- #292c3c
+		bg = 0xff292c3c, -- #292c3c
 		border = 0xff2c2e34, -- #2c2e34
 	},
 	popup = {
