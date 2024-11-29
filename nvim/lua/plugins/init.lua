@@ -122,20 +122,8 @@ return {
     },
   },
   {
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      { "SmiteshP/nvim-navic" },
-    },
-    opts = {
-      -- configurations go here
-      -- theme = {
-      --   normal = { bg = "#f2e9e1" },
-      -- },
-    },
+    "Bekaboo/dropbar.nvim",
   },
-  {
   {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
