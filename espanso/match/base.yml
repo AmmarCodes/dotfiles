@@ -190,6 +190,7 @@ matches:
       /unsubscribe
 
       /approve
+      /unassign_reviewer @aalakkad
 
   - trigger: ";lgtr"
     replace: |
@@ -204,6 +205,7 @@ matches:
       /unsubscribe
       /approve
       /assign_reviewer @{{clipboard}}
+      /unassign_reviewer @aalakkad
 
   - trigger: ";wir"
     replace: '/label ~"workflow::in review"'

@@ -135,10 +135,12 @@ brew "lychee"
 brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Parser generator tool and incremental parsing library
+brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Manage compile and link flags for libraries
-brew "pkg-config"
+# Package compiler and linker metadata toolkit
+brew "pkgconf"
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
@@ -229,12 +231,11 @@ cask "espanso"
 cask "flux"
 # Website and application blocker
 cask "focus"
-cask "font-caskaydia-cove-nerd-font"
+cask "font-cascadia-mono-nf"
 cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
 cask "font-jetbrains-mono-nerd-font"
-cask "font-monaspace"
 cask "font-noto-sans-arabic"
 cask "font-sf-pro"
 # GIT client
@@ -245,8 +246,6 @@ cask "google-chrome"
 cask "imazing"
 # System monitoring app
 cask "istat-menus"
-# Menu bar manager
-cask "jordanbaird-ice"
 # Keyboard customiser
 cask "karabiner-elements"
 # Open-source keystroke visualiser
@@ -312,7 +311,6 @@ mas "Session", id: 1521432881
 mas "Todoist", id: 585829637
 mas "Velja", id: 1607635845
 mas "Xcode", id: 497799835
-mas "Xmind", id: 1327661892
 vscode "arcticicestudio.nord-visual-studio-code"
 vscode "castwide.solargraph"
 vscode "catppuccin.catppuccin-vsc"

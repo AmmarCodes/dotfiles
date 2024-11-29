@@ -178,4 +178,7 @@ return {
       leader_key = ";", -- Recommended to be a single key
     },
   },
+  {
+    "sindrets/diffview.nvim",
+  },
 }

@@ -1,20 +1,24 @@
-# Empty values reset the configuration to the default value
-window-decoration = false
-
+## Theme
 theme = catppuccin-frappe
+# theme = rose-pine-dawn
 
-font-family = MonoLisa
-#font-style = Regular
-font-style-italic = Regular Italic
 
+## Options
 clipboard-read = "allow"
 clipboard-paste-protection = false
 
+quit-after-last-window-closed = true
 
-font-size = 13
+
+## Font settings
+font-family =  MonoLisa
+# font-family = Cascadia Mono NF
+font-style-italic = Regular Italic
+
+font-size = 12.5
 font-thicken = true
-adjust-cell-height = 18
-
+adjust-cell-height = 12
+adjust-underline-position = 4
 font-feature = calt
 font-feature = dlig
 font-feature = ss01
@@ -25,32 +29,49 @@ font-feature = ss07
 font-feature = ss08
 font-feature = ss10
 
+
+## Font mapping
 # https://github.com/ryanoasis/nerd-fonts/wiki/Glyph-Sets-and-Code-Points
 # powerline & powerline-extras
 font-codepoint-map = U+e0b0-U+e0b3,U+e0b4-U+e0c8,U+e0cc-U+e0d4,U+e0ca=JetBrainsMono Nerd Font Mono
-
 # font-awesome
 font-codepoint-map = U+f000-U+f2e0,U+e200-U+e2a9=JetBrainsMono Nerd Font Mono
-
 # seti-ui
 font-codepoint-map = U+e5fa-U+e6b1=JetBrainsMono Nerd Font Mono
-
 # codicons
 font-codepoint-map = U+ea60-U+ebeb=JetBrainsMono Nerd Font Mono
+# Pomicons
+font-codepoint-map = U+E000-U+E00D=Monolisa
+# Symbols original
+font-codepoint-map = U+e5fa-U+e62b=Monolisa
+# Devicons
+font-codepoint-map = U+e700-U+e7c5=Monolisa
+# Font awesome extension
+font-codepoint-map = U+e200-U+e2a9=Monolisa
+# Octicons
+font-codepoint-map = U+f400-U+f4a8,U+2665-U+2665,U+26A1-U+26A1,U+f27c-U+f27c=Monolisa
+# Font Linux
+font-codepoint-map = U+F300-U+F313=Monolisa
+# Nerd Fonts - Font Power Symbols
+font-codepoint-map = U+23fb-U+23fe,U+2b58-U+2b58=Monolisa
+# Material Design Icons
+font-codepoint-map = U+f500-U+fd46=Monolisa
+# Weather Icons
+font-codepoint-map = U+e300-U+e3eb=Monolisa
+# Misc Code Point Fixes
+font-codepoint-map = U+21B5,U+25B8,U+2605,U+2630,U+2632,U+2714,U+E0A3,U+E615,U+E62B=Monolisa
 
-quit-after-last-window-closed = true
 
-# macos-window-shadow = true
-
-
+## Window/UI settings 
+window-decoration = false
 window-padding-x = 10
 window-padding-y = 0
-
 window-padding-color = background
-
-macos-titlebar-style = hidden
-
 window-inherit-working-directory = false
-
 # background-opacity = 0.95
-background-blur-radius = 20
+# background-blur-radius = 20
+
+
+## macOS specific config
+# macos-window-shadow = true
+macos-titlebar-style = hidden
