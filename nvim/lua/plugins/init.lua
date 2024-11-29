@@ -147,19 +147,32 @@ return {
     },
   },
   {
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    dependencies = { "neovim/nvim-lspconfig" },
-    enabled = function()
-      if vim.bo.filetype == "lazy" then
-        return false
-      end
-      return true
-    end,
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
-      require("lsp_lines").setup()
-      -- Disable virtual_text since it's redundant due to lsp_lines.
-      vim.diagnostic.config({
-        virtual_text = false,
+      require("hlchunk").setup({
+        chunk = {
+          enable = true,
+          chars = {
+            horizontal_line = "─",
+            right_arrow = "─",
+          },
+          style = "#85c1dc",
+          duration = 10,
+          delay = 100,
+        },
+        line_num = { enable = true },
+        indent = {
+          enable = true,
+          chars = {
+            "┊",
+          },
+        },
+      })
+    end,
+  },
+    config = function()
       })
     end,
   },
