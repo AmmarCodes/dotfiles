@@ -138,70 +138,6 @@ return {
     },
   },
   {
-    "nvimdev/dashboard-nvim",
-    opts = function()
-      local opts = {
-        theme = "doom",
-        hide = {
-          -- this is taken care of by lualine
-          -- enabling this messes up the actual laststatus setting after loading a file
-          statusline = false,
-        },
-        config = {
-          week_header = {
-            enable = true,
-          },
-          -- stylua: ignore
-          center = {
-            { action = "FzfLua files",                                                  desc = " Find file",       icon = " ", key = "f" },
-            { action = "ene | startinsert",                                             desc = " New file",        icon = " ", key = "n" },
-            { action = "FzfLua oldfiles",                                               desc = " Recent files",    icon = " ", key = "r" },
-            { action = "FzfLua live_grep",                                              desc = " Find text",       icon = " ", key = "g" },
-            { action = [[require('fzf-lua').files({cwd = vim.fn.stdpath("config") })]], desc= " Config",           icon = " ", key = "c" },
-            { action = 'lua require("persistence").load()',                             desc = " Restore Session", icon = " ", key = "s" },
-            -- { action = "LazyExtras",                                                    desc = " Lazy Extras",     icon = " ", key = "x" },
-            { action = "Lazy",                                                          desc = " Lazy",            icon = "󰒲 ", key = "l" },
-            { action = "qa",                                                            desc = " Quit",            icon = " ", key = "q" },
-          },
-          footer = function()
-            local stats = require("lazy").stats()
-            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
-            return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
-          end,
-        },
-      }
-
-      for _, button in ipairs(opts.config.center) do
-        button.desc = button.desc .. string.rep(" ", 43 - #button.desc)
-        button.key_format = "  %s"
-      end
-
-      -- close Lazy and re-open when the dashboard is ready
-      if vim.o.filetype == "lazy" then
-        vim.cmd.close()
-        vim.api.nvim_create_autocmd("User", {
-          pattern = "DashboardLoaded",
-          callback = function()
-            require("lazy").show()
-          end,
-        })
-      end
-
-      return opts
-    end,
-  },
-  {
-    "folke/which-key.nvim",
-    opts = {
-      icons = { rules = false },
-      spec = {
-        { "<leader>t", group = "test" },
-        { "<leader>y", group = "yank" },
-        { "<leader>yf", group = "file" },
-      },
-    },
-  },
-  {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     opts = {
@@ -527,14 +463,6 @@ return {
     },
   },
   { "echasnovski/mini.pairs", enabled = false },
-  {
-    "nvim-neo-tree/neo-tree.nvim",
-    opts = {
-      window = {
-        position = "right",
-      },
-    },
-  },
   {
     "folke/flash.nvim",
     opts = {

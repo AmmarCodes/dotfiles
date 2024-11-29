@@ -1,16 +1,5 @@
 return {
   {
-    "andymass/vim-matchup",
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require("nvim-treesitter.configs").setup({
-        endwise = {
-          enable = true,
-        },
-      })
-    end,
-  },
-  {
     "RRethy/nvim-treesitter-endwise",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     ft = { "ruby", "eruby", "vim", "lua", "bash" },
