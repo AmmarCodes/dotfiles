@@ -76,7 +76,14 @@ return {
     },
     config = function()
       vim.opt.shell = "bash"
-      vim.g["test#strategy"] = "neovim"
+      vim.g["test#custom_strategies"] = {
+        snacks = function(cmd)
+          require("snacks").terminal(cmd, { win = { position = "right", enter = true }, interactive = false })
+          vim.cmd("stopinsert")
+          vim.cmd("normal! G")
+        end,
+      }
+      vim.g["test#strategy"] = "snacks"
       vim.g["test#neovim#term_position"] = "vert botright"
       vim.g["test#php#phpunit#executable"] = "php artisan test"
       vim.g["test#neovim_sticky#kill_previous"] = 1
