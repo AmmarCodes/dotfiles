@@ -188,4 +188,16 @@ return {
   {
     "sindrets/diffview.nvim",
   },
+  {
+    "rachartier/tiny-inline-diagnostic.nvim",
+    config = function()
+      require("tiny-inline-diagnostic").setup({
+        preset = "modern", -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"
+        options = {
+          -- Show the source of the diagnostic.
+          show_source = false,
+        },
+      })
+    end,
+  },
 }
