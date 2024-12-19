@@ -294,7 +294,6 @@ mas "Dark Noise", id: 1465439395
 mas "Dato", id: 1470584107
 mas "Day One", id: 1055511498
 mas "Day Progress", id: 6450280202
-mas "Drafts", id: 1435957248
 mas "Goodnotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
 mas "HP Smart", id: 1474276998

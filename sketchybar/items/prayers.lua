@@ -5,7 +5,7 @@ local prayers = sbar.add("item", {
 	padding_left = 6,
 	padding_right = 0,
 	label = { font = { size = 12 }, padding_right = 9 },
-	position = "center",
+	position = "q",
 	background = {
 		color = colors.item_bg_color,
 	},

@@ -38,7 +38,7 @@ return {
     event = "BufReadPre",
   },
   {
-    "NvChad/nvim-colorizer.lua",
+    "catgoose/nvim-colorizer.lua",
     ft = { "css", "javascript", "vue", "html", "tmux", "lua", "gitconfig" },
     config = true,
     opts = {

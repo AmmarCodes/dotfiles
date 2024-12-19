@@ -18,7 +18,7 @@ MR_Rate:subscribe({ "forced", "routine" }, function()
 	MR_Rate:set({ label = { string = "?" } })
 	local handle = io.popen(
 		'glab api "merge_requests?author_username=aalakkad&created_after='
-			.. os.date("!%Y-%m-%d", os.time() - 30 * 24 * 60 * 60)
+			.. os.date("!%Y-%m-01")
 			.. 'T00:00:00Z" | jq length'
 	)
 	local count = "?"
