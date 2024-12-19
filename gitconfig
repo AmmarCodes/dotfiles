@@ -102,3 +102,5 @@ path = ~/.gitconfig-gitlab
 	repo = /Users/aalakkad/projects/gitlab-development-kit
 [index]
 	version = 4
+[advice]
+	detachedHead = false
