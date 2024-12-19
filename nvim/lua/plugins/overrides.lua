@@ -77,18 +77,6 @@ return {
         enabled = false, -- true
         -- exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
       },
-    },
-  },
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      -- formatters = {
-      -- rubocop = {
-      --   command = "bundle exec rubocop",
-      -- },
-      -- },
-      formatters_by_ft = {
-        -- ruby = { "rubocop" },
       },
     },
   },
@@ -144,8 +132,11 @@ return {
       options = {
         highlight = { underline = true, sp = "blue" }, -- Optional
         always_show_bufferline = true,
+        show_close_icon = false,
+        show_buffer_close_icons = false,
+        style_preset = require("bufferline").style_preset.minimal,
         hover = {
-          enabled = true,
+          enabled = false,
           delay = 200,
           reveal = { "close" },
         },
@@ -172,56 +163,10 @@ return {
     keys = { { "<c-b>", false } },
   },
   {
-    "RRethy/vim-illuminate",
-    event = "LazyFile",
-    opts = {
-      delay = 200,
-      large_file_cutoff = 2000,
-      large_file_overrides = {
-        providers = { "lsp" },
-      },
-    },
-    config = function(_, opts)
-      require("illuminate").configure(opts)
-
-      local function map(key, dir, buffer)
-        vim.keymap.set("n", key, function()
-          require("illuminate")["goto_" .. dir .. "_reference"](true)
-        end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
-      end
-
-      map("]]", "next")
-      map("[[", "prev")
-
-      -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
-      vim.api.nvim_create_autocmd("FileType", {
-        callback = function()
-          local buffer = vim.api.nvim_get_current_buf()
-          map("]]", "next", buffer)
-          map("[[", "prev", buffer)
-        end,
-      })
-    end,
-    keys = {
-      { "]]", desc = "Next Reference" },
-      { "[[", desc = "Prev Reference" },
-    },
-  },
-  {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    init = function()
-      -- vim.g.lualine_laststatus = vim.o.laststatus
-      -- if vim.fn.argc(-1) > 0 then
-      --   -- set an empty statusline till lualine loads
-      --   vim.o.statusline = " "
-      -- else
-      --   -- hide the statusline on the starter page
-      --   vim.o.laststatus = 0
-      -- end
-    end,
     opts = function()
       local Util = require("lazyvim.util")
+      local Snacks = require("snacks")
       local lualine_require = require("lualine_require")
       lualine_require.require = require
 
@@ -231,59 +176,49 @@ return {
 
       return {
         options = {
-          -- theme = "auto",
-          -- globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "alpha", "starter" } },
-          -- component_separators = { left = "", right = "" },
-          -- section_separators = { left = "", right = "" },
-
           section_separators = "",
           component_separators = "",
-          globalstatus = true,
-          theme = {
-            normal = {
-              a = "StatusLine",
-              b = "StatusLine",
-              c = "StatusLine",
-            },
-          },
         },
         sections = {
-          lualine_a = { "mode" },
+          lualine_a = {
+            {
+              "mode",
+              fmt = function(str)
+                return str:sub(1, 1)
+              end,
+            },
+          },
           lualine_b = {
             "branch",
             {
               "diff",
               symbols = { added = " ", modified = " ", removed = " " },
             },
-            {
-              "diagnostics",
-              sources = { "nvim_diagnostic" },
-            },
           },
 
           lualine_c = {
             Util.lualine.root_dir(),
-            -- {
-            --   "diagnostics",
-            --   symbols = {
-            --     error = icons.diagnostics.Error,
-            --     warn = icons.diagnostics.Warn,
-            --     info = icons.diagnostics.Info,
-            --     hint = icons.diagnostics.Hint,
-            --   },
-            -- },
+            {
+              "diagnostics",
+              symbols = {
+                error = icons.diagnostics.Error,
+                warn = icons.diagnostics.Warn,
+                info = icons.diagnostics.Info,
+                hint = icons.diagnostics.Hint,
+              },
+            },
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
             { Util.lualine.pretty_path() },
           },
           lualine_x = {
+            Snacks.profiler.status(),
             -- stylua: ignore
             {
               ---@diagnostic disable-next-line: undefined-field
               function() return require("noice").api.status.command.get() end,
               ---@diagnostic disable-next-line: undefined-field
               cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = Util.ui.fg("Statement"),
+              color = function() return { fg = Snacks.util.color("Statement") } end,
             },
             -- stylua: ignore
             {
@@ -291,18 +226,19 @@ return {
               function() return require("noice").api.status.mode.get() end,
               ---@diagnostic disable-next-line: undefined-field
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = Util.ui.fg("Constant"),
+              color = function() return { fg = Snacks.util.color("Constant") } end,
             },
             -- stylua: ignore
             {
               function() return "  " .. require("dap").status() end,
               cond = function () return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = Util.ui.fg("Debug"),
+              color = function() return { fg = Snacks.util.color("Debug") } end,
             },
+            -- stylua: ignore
             {
               require("lazy.status").updates,
               cond = require("lazy.status").has_updates,
-              color = Util.ui.fg("Special"),
+              color = function() return { fg = Snacks.util.color("Special") } end,
             },
             {
               "diff",
@@ -324,13 +260,9 @@ return {
             },
           },
           lualine_y = {
-            { "location", icon = "", padding = { left = 0, right = 1 } },
+            { "location", padding = { left = 0, right = 1 } },
           },
-          lualine_z = {
-            -- function()
-            --   return " " .. os.date("%R")
-            -- end,
-          },
+          lualine_z = {},
         },
         extensions = { "neo-tree", "lazy" },
       }
@@ -352,6 +284,16 @@ return {
         char = {
           -- jump_labels = true,
           highlight = { backdrop = false },
+        },
+      },
+    },
+  },
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        trigger = {
+          show_on_insert_on_trigger_character = false, -- this disables the autocomplete popup from showing when running A or o
         },
       },
     },

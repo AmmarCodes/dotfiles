@@ -11,3 +11,4 @@ opt.confirm = false -- Confirm to save changes before exiting modified buffer
 opt.background = "dark"
 
 vim.g.lazyvim_php_lsp = "intelephense"
+vim.g.snacks_animate = false
