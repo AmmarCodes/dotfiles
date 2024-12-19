@@ -93,6 +93,15 @@ end
 abbr --add railsc "bin/rails console"
 abbr --add railsr "bin/rails routes | less"
 
+function review -d "Review a GitLab merge request by passing the branch name"
+    git fetch origin $argv
+    git checkout origin/$argv
+    gdk start db
+    yarn install --check-files
+    bundle install && bin/rails db:migrate && git checkout -- db
+    # gdk restart
+    noti -m 'MR is ready for review!'
+end
 
 ###########
 # Exports #
@@ -121,6 +130,7 @@ set -Ux FZF_DEFAULT_OPTS "\
 
 set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' --prompt='  '"
 
+source ~/.private_exports
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 # set --export --prepend PATH "/Users/aalakkad/.rd/bin"
