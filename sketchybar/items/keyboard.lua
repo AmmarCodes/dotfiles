@@ -20,7 +20,7 @@ local function refresh_keyboard_layout()
 
 			local icon
 
-			if layout == "Arabic PC" then
+			if layout == "Arabic PC" or layout == "Arabic-North_Africa" then
 				icon = "􀂔" -- "󱌨"
 			elseif layout == "Turkish-QWERTY" then
 				icon = "􀂺" -- "T"
