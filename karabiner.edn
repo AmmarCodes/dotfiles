@@ -5,6 +5,10 @@
 		:launch "open -a '%s'"
 		:yabai "/opt/homebrew/bin/yabai -m %s"
 	}
+  :applications {
+                 :arc ["^company\\.thebrowser\\.Browser$"]
+                 :orion ["^com\\.kagi\\.kagimacOS$"]
+                 }
 	:devices {
 		:macbookpro [{:product_id 835 :vendor_id 1452}]
 		:ergodox [{:product_id 4871 :vendor_id 65261}]
@@ -12,6 +16,7 @@
 		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
 	}
   :simlayer-threshold 250
+  :to_if_held_down_threshold_milliseconds 100
   :simlayers {
               :launch-mode {:key :k}
               :vim-movement {:key :v}
@@ -21,11 +26,12 @@
      :des "Launch mode"
      :rules [
       :launch-mode
-      [:b [:launch "Brave Browser"]]
+      [:b [:launch "Orion"]]
       [:c [:launch "Calendar"]]
       [:d [:launch "Obsidian"]]
       [:f [:launch "Firefox"]]
       [:g [:launch "Telegram"]]
+      [:r [:launch "RubyMine"]]
       [:s [:launch "Slack"]]
       [:t [:launch "Ghostty"]]
       [:spacebar :play_or_pause]

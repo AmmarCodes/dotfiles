@@ -33,16 +33,18 @@ brew "bat"
 brew "bottom"
 # Resource monitor. C++ version and continuation of bashtop and bpytop
 brew "btop"
+# Linter/analyzer for Makefiles
+brew "checkmake"
 # Free analytics DBMS for big data with SQL interface
 brew "clickhouse@22.3", link: true
 # Cross-platform make
 brew "cmake"
+# Container runtimes on MacOS (and Linux) with minimal setup
+brew "colima"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Secure runtime for JavaScript and TypeScript
-brew "deno"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Pack, ship and run any application as a lightweight container
@@ -59,8 +61,6 @@ brew "dust"
 brew "exiftool"
 # Modern, maintained replacement for ls
 brew "eza"
-# Like neofetch, but much faster because written mostly in C
-brew "fastfetch"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
 # OpenType text shaping engine
@@ -133,28 +133,34 @@ brew "lua"
 brew "lychee"
 # Mac App Store command-line interface
 brew "mas"
+# Small build system for use with gyp or CMake
+brew "ninja"
+# Fast and user friendly build system
+brew "meson"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Parser generator tool and incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
+# No Nonsense Neovim Client in Rust
+brew "neovide"
 # Package compiler and linker metadata toolkit
 brew "pkgconf"
 # Install NodeJS versions
 brew "node-build"
 # Trigger notifications when a process completes
 brew "noti"
-# Modern shell for the GitHub era
-brew "nushell"
 # ISO-C API and CLI for generating UUIDs
 brew "ossp-uuid"
 # Terminal multiplexer
 brew "tmux"
 # Process manager for Procfile-based applications and tmux
 brew "overmind"
+# Swiss-army knife of markup format conversion
+brew "pandoc"
 # Object-relational database system
-brew "postgresql@12", restart_service: true
+brew "postgresql@12"
 # Object-relational database system
 brew "postgresql@13"
 # Interpreted, interactive, object-oriented programming language
@@ -221,8 +227,6 @@ cask "aerospace"
 cask "bartender"
 # Allows switching between application windows
 cask "contexts"
-# API documentation browser and code snippet manager
-cask "dash"
 # Utilities designed to make common development tasks easier
 cask "devtoys"
 # Cross-platform Text Expander written in Rust
@@ -231,17 +235,18 @@ cask "espanso"
 cask "flux"
 # Website and application blocker
 cask "focus"
+cask "font-0xproto"
 cask "font-cascadia-mono-nf"
 cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
+cask "font-ibm-plex-mono"
+cask "font-ibm-plex-sans-arabic"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-noto-sans-arabic"
 cask "font-sf-pro"
 # GIT client
 cask "fork"
-# Web browser
-cask "google-chrome"
 # iPhone management application
 cask "imazing"
 # System monitoring app
@@ -256,8 +261,8 @@ cask "krisp"
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
-# Open-source software for live streaming and screen recording
-cask "obs"
+# WebKit based web browser
+cask "orion"
 # Automatic time tracker
 cask "qbserve"
 # Toolbox companion for QMK Firmware
@@ -276,17 +281,12 @@ cask "slack"
 cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
-# Pomodoro desktop timer
-cask "tomighty"
 # Multimedia player
 cask "vlc"
-# GPU-accelerated cross-platform terminal emulator and multiplexer
-cask "wezterm"
 # View output from scripts in the menu bar
 cask "xbar"
 mas "Actions", id: 1586435171
 mas "Be Focused Pro", id: 961632517
-mas "Bear", id: 1091189122
 mas "BrightIntosh", id: 6452471855
 mas "ColorSlurp", id: 1287239339
 mas "Command X", id: 6448461551
@@ -294,7 +294,6 @@ mas "Dark Noise", id: 1465439395
 mas "Dato", id: 1470584107
 mas "Day One", id: 1055511498
 mas "Day Progress", id: 6450280202
-mas "Goodnotes", id: 1444383602
 mas "Hand Mirror", id: 1502839586
 mas "HP Smart", id: 1474276998
 mas "iA Writer", id: 775737590
@@ -302,20 +301,25 @@ mas "iMovie", id: 408981434
 mas "Keynote", id: 409183694
 mas "Lungo", id: 1263070803
 mas "NordLayer", id: 1488888843
+mas "Notability", id: 360593530
 mas "Numbers", id: 409203825
 mas "One Thing", id: 1604176982
 mas "Pages", id: 409201541
 mas "Peek", id: 1554235898
 mas "Session", id: 1521432881
 mas "Todoist", id: 585829637
+mas "Trello", id: 1278508951
 mas "Velja", id: 1607635845
+mas "WhatsApp", id: 310633997
 mas "Xcode", id: 497799835
 vscode "arcticicestudio.nord-visual-studio-code"
+vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
 vscode "catppuccin.catppuccin-vsc"
 vscode "christian-kohler.path-intellisense"
 vscode "dbaeumer.vscode-eslint"
-vscode "equinusocio.vsc-community-material-theme"
+vscode "ecmel.vscode-html-css"
+vscode "equinusocio.vsc-material-theme"
 vscode "esbenp.prettier-vscode"
 vscode "formulahendry.auto-close-tag"
 vscode "formulahendry.auto-rename-tag"
@@ -327,11 +331,11 @@ vscode "mikestead.dotenv"
 vscode "noku.rails-run-spec-vscode"
 vscode "octref.vetur"
 vscode "orta.vscode-jest"
-vscode "rebornix.ruby"
 vscode "shopify.ruby-lsp"
+vscode "testdouble.vscode-alternate-alternate-file"
 vscode "vayan.haml"
 vscode "vscodevim.vim"
 vscode "vue.volar"
 vscode "vue.vscode-typescript-vue-plugin"
-vscode "wingrunr21.vscode-ruby"
+vscode "wayou.vscode-todo-highlight"
 vscode "yzhang.markdown-all-in-one"

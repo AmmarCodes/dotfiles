@@ -39,7 +39,7 @@ return {
   },
   {
     "catgoose/nvim-colorizer.lua",
-    ft = { "css", "javascript", "vue", "html", "tmux", "lua", "gitconfig" },
+    ft = { "css", "javascript", "vue", "html", "tmux", "lua", "gitconfig", "typescript" },
     config = true,
     opts = {
       user_default_options = {
@@ -50,7 +50,50 @@ return {
     },
   },
   {
+    "jake-stewart/multicursor.nvim",
+    keys = {
+      {
+        "<esc>",
+        function()
+          local mc = require("multicursor-nvim")
+          if not mc.cursorsEnabled() then
+            mc.enableCursors()
+          elseif mc.hasCursors() then
+            mc.clearCursors()
+          else
+            -- Default <esc> handler.
+            vim.cmd("noh")
+            LazyVim.cmp.actions.snippet_stop()
+          end
+        end,
+      },
+      -- stylua: ignore start
+      { mode = { "n", "v" }, "<leader>m",     function () require("multicursor-nvim").matchAddCursor(1) end,    desc = "Add a new next cursor by matching word/selection" },
+      { mode = { "n", "v" }, "<leader>M",     function () require("multicursor-nvim").matchAddCursor(-1) end,   desc = "Add a new previous cursor by matching word/selection" },
+      { mode = { "n", "v" }, "<leader>A",     function () require("multicursor-nvim").matchAllAddCursors() end, desc = "Add all matches in the document" },
+      { mode = { "n" },      "<c-leftmouse>", function () require("multicursor-nvim").handleMouse() end,        desc = "Add and remove cursors with control + left click" },
+      { mode = { "n", "v" }, "<c-q>",         function () require("multicursor-nvim").toggleCursor() end,       desc = "Add and remove cursors using the main cursor" },
+      { mode = { "n" },      "<leader>a",     function () require("multicursor-nvim").alignCursors() end,       desc = "Align cursor columns" },
+      { mode = { "v" },      "I",             function () require("multicursor-nvim").insertVisual() end,       desc = "Insert for each line of visual selections" },
+      { mode = { "v" },      "A",             function () require("multicursor-nvim").appendVisual() end,       desc = "Append for each line of visual selections" },
+      -- stylua: ignore end
+    },
+    config = function()
+      require("multicursor-nvim").setup()
+
+      -- Customize how cursors look.
+      local hl = vim.api.nvim_set_hl
+      hl(0, "MultiCursorCursor", { link = "Cursor" })
+      hl(0, "MultiCursorVisual", { link = "Visual" })
+      hl(0, "MultiCursorSign", { link = "SignColumn" })
+      hl(0, "MultiCursorDisabledCursor", { link = "Visual" })
+      hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
+      hl(0, "MultiCursorDisabledSign", { link = "SignColumn" })
+    end,
+  },
+  {
     "smoka7/multicursors.nvim",
+    enabled = false,
     opts = {},
     dependencies = {
       "smoka7/hydra.nvim",
@@ -199,5 +242,44 @@ return {
         },
       })
     end,
+  },
+  {
+    "luckasRanarison/tailwind-tools.nvim",
+    name = "tailwind-tools",
+    build = ":UpdateRemotePlugins",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    opts = {}, -- your configuration
+  },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    lazy = false,
+    version = "*",
+    opts = {},
+    -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+    build = "make",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      -- "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      -- "zbirenbaum/copilot.lua", -- for providers='copilot'
+      -- {
+      --   -- Make sure to set this up properly if you have lazy=true
+      --   "MeanderingProgrammer/render-markdown.nvim",
+      --   opts = {
+      --     file_types = { "markdown", "Avante" },
+      --   },
+      --   ft = { "markdown", "Avante" },
+      -- },
+    },
+  },
+  {
+    "tiagovla/scope.nvim",
+    config = true,
   },
 }

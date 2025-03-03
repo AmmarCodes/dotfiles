@@ -4,8 +4,16 @@
 [color]
 	ui = true
 [push]
-	default = current
+  default = current
+  autoSetupRemote = true
 	followTags = true
+[fetch]
+  prune = true
+  pruneTags = true
+[help]
+  autocorrect = prompt
+[commit]
+  verbose = true
 [branch]
 	sort=-committerdate
 [status]
@@ -20,9 +28,9 @@
 	ignorecase = false
 	fsmonitor = true
 [interactive]
-    diffFilter = delta --color-only --features=interactive
+  diffFilter = delta --color-only --features=interactive
 [merge]
-    conflictstyle = diff3
+  conflictstyle = diff3
 [difftool]
   prompt = false
   keepBackup = false
@@ -38,7 +46,11 @@
 [mergetool "nvim"]
   cmd = "nvim -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
 [diff]
-    colorMoved = default
+  ; colorMoved = default
+  algorithm = histogram
+  colorMoved = plain
+  mnemonicPrefix = true
+  renames = true
 [alias]
 	prune = fetch --prune
   glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -77,6 +89,8 @@
 [rebase]
   autosquash = true
   instructionFormat = (%ar) %<|(120)%s <%an>
+  autoStash = true
+  updateRefs = true
 [init]
 	defaultBranch = main
 [delta]
@@ -94,7 +108,8 @@
 path = ~/.gitconfig-gitlab
 
 [rerere]
-	enabled = true
+  enabled = true
+  autoupdate = true
 [column]
 	ui = auto
 [maintenance]

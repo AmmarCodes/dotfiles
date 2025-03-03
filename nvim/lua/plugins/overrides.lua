@@ -35,9 +35,47 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
+      setup = {
+        gitlab_lsp = function(_, opt)
+          local configs = require("lspconfig.configs")
+          local lspconfig = require("lspconfig")
+
+          -- GitLab Due settings
+          if configs.gitlab_lsp then
+            return
+          end
+          local settings = {
+            baseUrl = "https://gitlab.com",
+            token = vim.env.GITLAB_TOKEN,
+          }
+          configs.gitlab_lsp = {
+            default_config = {
+              name = "gitlab_lsp",
+              cmd = {
+                "npx",
+                "--registry=https://gitlab.com/api/v4/packages/npm/",
+                "@gitlab-org/gitlab-lsp@6.8.0",
+                "--stdio",
+              },
+              filetypes = { "ruby", "go", "javascript", "typescript", "rust" },
+              single_file_support = true,
+              root_dir = function(fname)
+                return lspconfig.util.find_git_ancestor(fname)
+              end,
+              settings = settings,
+            },
+            docs = {
+              description = "GitLab Code Suggestions",
+            },
+          }
+
+          lspconfig.gitlab_lsp.setup({})
+        end,
+      },
       servers = {
         -- "prettierd",
         vale_ls = {},
+        gitlab_lsp = {},
         emmet_language_server = {
           filetypes = { "vue", "eruby", "html", "haml", "javascript" },
         },
@@ -60,6 +98,48 @@ return {
             },
           },
         },
+        ruby_lsp = {
+          cmd = { "bundle", "exec", "ruby-lsp" },
+          settings = {
+            init_options = {
+              enabled_features = {
+                code_actions = true,
+                code_lens = true,
+                completion = true,
+                definition = true,
+                diagnostics = true,
+                document_highlights = true,
+                document_link = true,
+                document_symbols = true,
+                folding_ranges = true,
+                formatting = true,
+                hover = true,
+                inlay_hint = true,
+                on_type_formatting = true,
+                selection_ranges = true,
+                semantic_highlighting = true,
+                signature_help = true,
+                type_hierarchy = true,
+                workspace_symbol = true,
+              },
+              features_configuration = {
+                inlay_hint = {
+                  implicit_hash_value = true,
+                  implicit_rescue = true,
+                },
+              },
+              -- indexing = {
+              --   excluded_patterns = { 'path/to/excluded/file.rb' },
+              --   included_patterns = { 'path/to/included/file.rb' },
+              --   excluded_gems = { 'gem1', 'gem2', 'etc.' },
+              --   excluded_magic_comments = { 'compiled:true' },
+              -- },
+              formatter = "auto",
+              linters = {},
+              experimental_features_enabled = true,
+            },
+          },
+        },
         intelephense = {
           filetypes = { "php", "blade", "php_only" },
           settings = {
@@ -77,6 +157,8 @@ return {
         enabled = false, -- true
         -- exclude = { "vue" }, -- filetypes for which you don't want to enable inlay hints
       },
+      diagnostics = {
+        virtual_text = false, -- disabling this since I'm using tiny-inline-diagnostic plugin defined in ./init.lua
       },
     },
   },
@@ -91,10 +173,23 @@ return {
       },
       files = {
         -- cwd_prompt = true,
-        fd_opts = [[--color=never --type f --hidden --follow --exclude .git --exclude vendor --exclude public]],
+        fd_opts = [[--color=never --type f --exclude .git --exclude vendor --exclude public]],
       },
       marks = {
         marks = "[A-Za-z]",
+      },
+      oldfiles = {
+        include_current_session = true,
+      },
+      previewers = {
+        builtin = {
+          syntax_limit_b = 1024 * 100, -- 100KB
+        },
+      },
+      grep = {
+        rg_glob = true,
+        glob_flag = "--iglob", -- case insensitive globs
+        glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
       },
     },
     keys = {
@@ -130,10 +225,13 @@ return {
     event = "VeryLazy",
     opts = {
       options = {
-        highlight = { underline = true, sp = "blue" }, -- Optional
+        -- highlight = { underline = true, sp = "blue" }, -- Optional
         always_show_bufferline = true,
         show_close_icon = false,
         show_buffer_close_icons = false,
+        indicator = {
+          style = "underline",
+        },
         style_preset = require("bufferline").style_preset.minimal,
         hover = {
           enabled = false,
@@ -292,10 +390,50 @@ return {
     "saghen/blink.cmp",
     opts = {
       completion = {
-        trigger = {
-          show_on_insert_on_trigger_character = false, -- this disables the autocomplete popup from showing when running A or o
+        -- trigger = {
+        --   show_on_insert_on_trigger_character = false, -- this disables the autocomplete popup from showing when running A or o
+        -- },
+        menu = {
+          draw = {
+            columns = { { "label", "label_description", gap = 1 }, { "kind_icon", "kind" } },
+          },
         },
       },
+      signature = { enabled = true },
     },
   },
+  -- {
+  --   "folke/snacks.nvim",
+  --   keys = {
+  --     {
+  --       "<C-p>",
+  --       function()
+  --         Snacks.picker.files()
+  --       end,
+  --       desc = "Find files",
+  --     },
+  --     {
+  --       "<C-b>",
+  --       function()
+  --         Snacks.picker.buffers()
+  --       end,
+  --       desc = "Find current buffers",
+  --     },
+  --     -- {
+  --     --   "<leader>sw",
+  --     --   "<cmd>FzfLua grep<cr>",
+  --     --   desc = "Search for something (using Rg)",
+  --     -- },
+  --     -- {
+  --     --   "<leader>ss",
+  --     --   "<cmd>FzfLua grep_cword<cr>",
+  --     --   desc = "Search for current word under cursor",
+  --     -- },
+  --     -- {
+  --     --   "<leader>,",
+  --     --   "<cmd>FzfLua files<cr>",
+  --     --   desc = "Find Files",
+  --     -- },
+  --   },
+  -- },
 }

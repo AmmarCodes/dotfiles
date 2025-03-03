@@ -117,13 +117,13 @@ set -Ux FZF_DEFAULT_OPTS "\
 --pointer='' \
 --marker=' ' \
 --ansi \
---color=bg+:#414559,bg:-1,spinner:#f2d5cf,hl:#e78284 \
---color=fg:-1,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
---color=marker:#a6d189,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
---color=selected-bg:#51576d \
 --preview-window="border-rounded" \
 --padding="0,1" --scrollbar="" \
 --multi"
+# --color=bg+:#414559,bg:-1,spinner:#f2d5cf,hl:#e78284 \
+# --color=fg:-1,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+# --color=marker:#a6d189,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
+# --color=selected-bg:#51576d \
 
 #--pointer=' ' \
 #--color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic' \
@@ -148,3 +148,62 @@ fish_add_path ~/.config/herd-lite/bin
 eval (/opt/homebrew/bin/brew shellenv)
 jump shell fish | source
 atuin init fish --disable-up-arrow | source
+
+#####
+# Catppuccin Frappe colors
+#
+# SETUVAR fish_color_autosuggestion:737994
+# SETUVAR fish_color_cancel:e78284
+# SETUVAR fish_color_command:7CAFA4
+# SETUVAR fish_color_comment:838ba7
+# SETUVAR fish_color_cwd:e5c890
+# SETUVAR fish_color_end:ef9f76
+# SETUVAR fish_color_error:e78284
+# SETUVAR fish_color_escape:ea999c
+# SETUVAR fish_color_gray:737994
+# SETUVAR fish_color_host:8caaee
+# SETUVAR fish_color_host_remote:a6d189
+# SETUVAR fish_color_keyword:e78284
+# SETUVAR fish_color_normal:c6d0f5
+# SETUVAR fish_color_operator:f4b8e4
+# SETUVAR fish_color_option:a6d189
+# SETUVAR fish_color_param:eebebe
+# SETUVAR fish_color_quote:a6d189
+# SETUVAR fish_color_redirection:f4b8e4
+# SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d414559
+# SETUVAR fish_color_selection:\x2d\x2dbackground\x3d414559
+# SETUVAR fish_color_status:e78284
+# SETUVAR fish_color_user:81c8be
+
+####
+# Gruvbox Material colors
+# SETUVAR fish_color_autosuggestion:737994
+# SETUVAR fish_color_cancel:e78284
+# SETUVAR fish_color_command:7CAFA4
+# SETUVAR fish_color_comment:838ba7
+# SETUVAR fish_color_cwd:e5c890
+# SETUVAR fish_color_end:ef9f76
+# SETUVAR fish_color_error:e78284
+# SETUVAR fish_color_escape:ea999c
+# SETUVAR fish_color_gray:737994
+# SETUVAR fish_color_host:8caaee
+# SETUVAR fish_color_host_remote:a6d189
+# SETUVAR fish_color_keyword:e78284
+# SETUVAR fish_color_normal:c6d0f5
+# SETUVAR fish_color_operator:f4b8e4
+# SETUVAR fish_color_option:a6d189
+# SETUVAR fish_color_param:eebebe
+# SETUVAR fish_color_quote:a6d189
+# SETUVAR fish_color_redirection:f4b8e4
+# SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d414559
+# SETUVAR fish_color_selection:\x2d\x2dbackground\x3d414559
+# SETUVAR fish_color_status:e78284
+# SETUVAR fish_color_user:81c8be
+
+set --global hydro_color_pwd "#80AA9D"
+set --global hydro_color_git "#AFB846"
+set --global hydro_color_duration "#62605F"
+set --global hydro_multiline true
+
+set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
+set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"

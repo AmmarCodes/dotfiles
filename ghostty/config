@@ -1,7 +1,82 @@
 ## Theme
-# theme = catppuccin-frappe
-# theme = rose-pine-dawn
-theme = light:rose-pine-dawn,dark:catppuccin-frappe
+# theme = Nordfox
+# theme = light:rose-pine-dawn,dark:rose-pine-moon
+# theme = light:rose-pine-dawn,dark:catppuccin-frappe
+
+# you can source another file using
+# config-file = "path to config file"
+# this way you can have somehow dynamic theme that can change
+
+# Evergarden - Medium
+foreground = #dddecf
+background = #232a2e
+selection-foreground = #dddecf
+selection-background = #3d494d
+cursor-color = #B2C98F
+
+palette = 0 =#313b40
+palette = 8 =#313b40
+palette = 1 =#e67e80
+palette = 9 =#e67e80
+palette = 2 =#b2c98f
+palette = 10=#b2c98f
+palette = 3 =#dbbc7f
+palette = 11=#dbbc7f
+palette = 4 =#9bb5cf
+palette = 12=#9bb5cf
+palette = 5 =#e3a8d1
+palette = 13=#e3a8d1
+palette = 6 =#93c9a1
+palette = 14=#93c9a1
+palette = 7 =#dddecf
+palette = 15=#94aaa0
+
+## Gruvbox material - Material - medium
+# palette = 0=#1b1b1b
+# palette = 1=#ea6962
+# palette = 2=#a9b665
+# palette = 3=#d8a657
+# palette = 4=#7daea3
+# palette = 5=#d3869b
+# palette = 6=#89b482
+# palette = 7=#d4be98
+# palette = 8=#62605f
+# palette = 9=#ea6962
+# palette = 10=#a9b665
+# palette = 11=#d8a657
+# palette = 12=#7daea3
+# palette = 13=#d3869b
+# palette = 14=#89b482
+# palette = 15=#d4be98
+# background = #282828
+# foreground = #d4be98
+# cursor-color = #d4be98
+# selection-background = #3c3836
+# selection-foreground = #d4be98
+
+## Gruvbox material - mix - hard
+#palette = 0=#141617
+#palette = 1=#db4740
+#palette = 2=#b0b846
+#palette = 3=#e9b143
+#palette = 4=#80aa9e
+#palette = 5=#d3869b
+#palette = 6=#8bba7f
+#palette = 7=#e2cca9
+#palette = 8=#62605f
+#palette = 9=#db4740
+#palette = 10=#b0b846
+#palette = 11=#e9b143
+#palette = 12=#80aa9e
+#palette = 13=#d3869b
+#palette = 14=#8bba7f
+#palette = 15=#d4be98
+#background = #1d2021
+#foreground = #e2cca9
+#cursor-color = #e2cca9
+#selection-background = #32302f
+#selection-foreground = #e2cca9
+
 
 
 ## Options
@@ -12,11 +87,13 @@ quit-after-last-window-closed = true
 
 
 ## Font settings
-font-family =  MonoLisa
-# font-family = Cascadia Mono NF
+#font-family =  MonoLisa
+#font-family =  IBM Plex Mono
+#font-family = Cascadia Mono NF
+font-family =  0xProto
 font-style-italic = Regular Italic
 
-font-size = 12.5
+font-size = 13.5
 font-thicken = true
 adjust-cell-height = 12
 adjust-underline-position = 4
@@ -66,11 +143,19 @@ window-decoration = false
 window-padding-x = 10
 window-padding-y = 0
 window-padding-color = background
-window-inherit-working-directory = false
+# window-inherit-working-directory = false
 # background-opacity = 0.95
 # background-blur-radius = 20
 
 
 ## macOS specific config
-# macos-window-shadow = true
 macos-titlebar-style = hidden
+
+
+shell-integration = fish
+
+cursor-opacity = 0.7
+
+
+auto-update-channel = tip
+
