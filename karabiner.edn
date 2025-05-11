@@ -16,7 +16,8 @@
 		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
 	}
   :simlayer-threshold 250
-  :to_if_held_down_threshold_milliseconds 100
+  :to_if_held_down_threshold_milliseconds 50
+  :to_if_alone_timeout_milliseconds 50
   :simlayers {
               :launch-mode {:key :k}
               :vim-movement {:key :v}
@@ -26,7 +27,7 @@
      :des "Launch mode"
      :rules [
       :launch-mode
-      [:b [:launch "Orion"]]
+      [:b [:launch "Arc"]]
       [:c [:launch "Calendar"]]
       [:d [:launch "Obsidian"]]
       [:f [:launch "Firefox"]]
@@ -34,6 +35,7 @@
       [:r [:launch "RubyMine"]]
       [:s [:launch "Slack"]]
       [:t [:launch "Ghostty"]]
+      [:w [:launch "Windsurf"]]
       [:spacebar :play_or_pause]
      ]
     }
@@ -89,7 +91,7 @@
 			:des "nuphy mods"
 			:rules [
 							[:##tab :##grave_accent_and_tilde :nuphy_air60]
-							[:##caps_lock :!CTOleft_shift :nuphy_air60 {:alone :tab}]
+							[:##caps_lock :##tab :nuphy_air60 {:held :!CTOleft_shift}]
 						 ]
 		 }
 	]
