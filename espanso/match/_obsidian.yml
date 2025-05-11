@@ -35,7 +35,7 @@ matches:
   - trigger: ">q"
     replace: "> [!quote] $|$"
   - trigger: ">c"
-    replace: "> [!cite] $|$"
+    replace: "> [!quote] $|$\n> <cite>– </cite>"
   - trigger: "h1"
     replace: "# $|$"
   - trigger: "h1"
