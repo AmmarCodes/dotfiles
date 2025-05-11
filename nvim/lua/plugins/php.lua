@@ -3,14 +3,8 @@ return {
   {
     "stevearc/conform.nvim",
     opts = {
-      -- formatters = {
-      -- rubocop = {
-      --   command = "bundle exec rubocop",
-      -- },
-      -- },
       formatters_by_ft = {
-        -- ruby = { "rubocop" },
-        php = { { "pint", "php_cs_fixer" } },
+        php = { "pint" },
       },
     },
   },
@@ -48,19 +42,15 @@ return {
       }
     end,
   },
-  {
-    -- Add the blade-nav.nvim plugin which provides Goto File capabilities
-    -- for Blade files.
-    "ricardoramirezr/blade-nav.nvim",
-    -- dependencies = { -- totally optional
-    --   "hrsh7th/nvim-cmp", -- if using nvim-cmp
-    --   { "ms-jpq/coq_nvim", branch = "coq" }, -- if using coq
-    -- },
-    ft = { "blade", "php" }, -- optional, improves startup time
-    opts = {
-      close_tag_on_complete = true, -- default: true
-    },
-  },
+  -- {
+  --   -- Add the blade-nav.nvim plugin which provides Goto File capabilities
+  --   -- for Blade files.
+  --   "ricardoramirezr/blade-nav.nvim",
+  --   ft = { "blade", "php" }, -- optional, improves startup time
+  --   opts = {
+  --     close_tag_on_complete = true, -- default: true
+  --   },
+  -- },
   {
     -- Remove phpcs linter.
     "mfussenegger/nvim-lint",

@@ -202,6 +202,7 @@ return {
   {
     -- helps with folding
     "kevinhwang91/nvim-ufo",
+    enabled = false,
     dependencies = { "kevinhwang91/promise-async" },
     config = function()
       vim.o.foldcolumn = "1" -- '0' is not bad
@@ -257,7 +258,6 @@ return {
     event = "VeryLazy",
     lazy = false,
     version = "*",
-    opts = {},
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
     dependencies = {
@@ -276,6 +276,12 @@ return {
       --   },
       --   ft = { "markdown", "Avante" },
       -- },
+    },
+    opts = {
+      behaviour = {
+        auto_suggestions = true,
+        enable_claude_text_editor_tool_mode = true,
+      },
     },
   },
   {
