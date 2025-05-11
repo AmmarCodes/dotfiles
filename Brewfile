@@ -42,12 +42,14 @@ brew "clickhouse@22.3", link: true
 brew "cmake"
 # Container runtimes on MacOS (and Linux) with minimal setup
 brew "colima"
-# GNU File, Shell, and Text utilities
-brew "coreutils"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# Good-lookin' diffs with diff-highlight and more
-brew "diff-so-fancy"
+# Postgres C API library
+brew "libpq"
+# Dependency Manager for PHP
+brew "composer"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Text processing system for reStructuredText
@@ -72,6 +74,8 @@ brew "ffmpeg"
 brew "fileicon"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
+# Terminal JSON viewer
+brew "fx"
 # Command-line fuzzy finder written in Go
 brew "fzf"
 # GNU compiler collection
@@ -88,8 +92,6 @@ brew "git-filter-repo"
 brew "git-lfs"
 # Audit git repos for secrets
 brew "gitleaks"
-# Blazing fast terminal-ui for git written in rust
-brew "gitui"
 # Open-source GitLab command-line tool
 brew "glab"
 # Render markdown on the CLI
@@ -122,8 +124,6 @@ brew "jump"
 brew "lazygit"
 # Conversion library
 brew "libiconv"
-# Postgres C API library
-brew "libpq"
 # YAML Parser
 brew "libyaml"
 # Parsing Expression Grammars For Lua
@@ -140,6 +140,8 @@ brew "ninja"
 brew "meson"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# MongoDB Shell to connect, configure, query, and work with your MongoDB database
+brew "mongosh"
 # Parser generator tool and incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
@@ -216,6 +218,8 @@ brew "felixkratz/formulae/borders"
 brew "felixkratz/formulae/sketchybar"
 # Simple hotkey-daemon for macOS.
 brew "koekeishiya/formulae/skhd"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # Quantum Mechanical Keyboard (QMK) Firmware
 brew "qmk/qmk/qmk"
 # Readability and Markdown utility for saving web urls and HTML text
@@ -239,33 +243,39 @@ cask "flux"
 # Website and application blocker
 cask "focus"
 cask "font-0xproto"
+cask "font-cascadia-mono"
 cask "font-cascadia-mono-nf"
 cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
 cask "font-ibm-plex-mono"
 cask "font-ibm-plex-sans-arabic"
+cask "font-intel-one-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-noto-sans-arabic"
+cask "font-noto-sans-arabic-ui"
+cask "font-sf-mono-nerd-font-ligaturized"
 cask "font-sf-pro"
+cask "font-sn-pro"
+cask "font-vazirmatn"
 # GIT client
 cask "fork"
 # iPhone management application
 cask "imazing"
-# System monitoring app
-cask "istat-menus"
 # Keyboard customiser
 cask "karabiner-elements"
 # Open-source keystroke visualiser
 cask "keycastr"
 # Noise cancelling application
 cask "krisp"
+# Custom Discord client
+cask "legcord"
 # Host-based application firewall
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
-# WebKit based web browser
-cask "orion"
+# Open-source software for live streaming and screen recording
+cask "obs"
 # Automatic time tracker
 cask "qbserve"
 # Toolbox companion for QMK Firmware
@@ -288,33 +298,6 @@ cask "telegram"
 cask "vlc"
 # View output from scripts in the menu bar
 cask "xbar"
-mas "Actions", id: 1586435171
-mas "Be Focused Pro", id: 961632517
-mas "BrightIntosh", id: 6452471855
-mas "ColorSlurp", id: 1287239339
-mas "Command X", id: 6448461551
-mas "Dark Noise", id: 1465439395
-mas "Dato", id: 1470584107
-mas "Day One", id: 1055511498
-mas "Day Progress", id: 6450280202
-mas "Hand Mirror", id: 1502839586
-mas "HP Smart", id: 1474276998
-mas "iA Writer", id: 775737590
-mas "iMovie", id: 408981434
-mas "Keynote", id: 409183694
-mas "Lungo", id: 1263070803
-mas "NordLayer", id: 1488888843
-mas "Notability", id: 360593530
-mas "Numbers", id: 409203825
-mas "One Thing", id: 1604176982
-mas "Pages", id: 409201541
-mas "Peek", id: 1554235898
-mas "Session", id: 1521432881
-mas "Todoist", id: 585829637
-mas "Trello", id: 1278508951
-mas "Velja", id: 1607635845
-mas "WhatsApp", id: 310633997
-mas "Xcode", id: 497799835
 vscode "arcticicestudio.nord-visual-studio-code"
 vscode "bradlc.vscode-tailwindcss"
 vscode "castwide.solargraph"
@@ -326,7 +309,7 @@ vscode "equinusocio.vsc-material-theme"
 vscode "esbenp.prettier-vscode"
 vscode "formulahendry.auto-close-tag"
 vscode "formulahendry.auto-rename-tag"
-vscode "gitlab.gitlab-workflow"
+vscode "github.vscode-github-actions"
 vscode "isudox.vscode-jetbrains-keybindings"
 vscode "jdinhlife.gruvbox"
 vscode "kaiwood.endwise"
