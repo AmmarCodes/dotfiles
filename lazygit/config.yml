@@ -20,6 +20,9 @@ gui:
   #   searchingActiveBorderColor:
   #     - "#e5c890"
 
+  # If true, increase the height of the focused side window; creating an accordion effect.
+  expandFocusedSidePanel: true
+  expandedSidePanelWeight: 4
   authorColors:
     "*": "#babbf1"
   # If true, do not show a warning when rewording a commit via an external editor
@@ -51,7 +54,6 @@ customCommands:
     command: "glab mr view -w {{.SelectedLocalBranch.UpstreamBranch}}"
     context: "localBranches"
     description: "Go to MR in gitlab"
-    stream: true
   # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
   - key: "<c-v>"
     context: "global"
