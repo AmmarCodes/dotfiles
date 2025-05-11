@@ -1,5 +1,6 @@
 tap "1password/tap"
 tap "altinity/clickhouse"
+tap "arl/arl"
 tap "candid82/brew"
 tap "felixkratz/formulae"
 tap "homebrew/bundle"
@@ -207,6 +208,8 @@ brew "zlib"
 brew "zoxide"
 # UNIX shell (command interpreter)
 brew "zsh"
+# Git in your tmux status bar.
+brew "arl/arl/gitmux"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
