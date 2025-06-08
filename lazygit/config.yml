@@ -42,6 +42,7 @@ gui:
 git:
   paging:
     useConfig: false
+    pager: "delta --dark --paging=never"
 update:
   # One of: 'prompt' (default) | 'background' | 'never'
   method: never

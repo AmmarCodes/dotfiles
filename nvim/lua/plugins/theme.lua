@@ -1,20 +1,20 @@
 return {
-  {
-    "rose-pine/neovim",
-    name = "rose-pine",
-    priority = 1000,
-    opts = {
-      dark_variant = "moon",
-    },
-  },
+  -- {
+  --   "rose-pine/neovim",
+  --   name = "rose-pine",
+  --   priority = 1000,
+  --   opts = {
+  --     dark_variant = "moon",
+  --   },
+  -- },
   {
     "catppuccin",
     config = function()
       require("catppuccin").setup({
         flavour = "frappe",
-        transparent_background = true,
+        -- transparent_background = true,
         highlight_overrides = {
-          all = function(colors)
+          latte = function(colors)
             return {
               -- fix visal selection within illuminated words not visible enough
               -- IlluminatedWordText = { bg = colors.surface1 },
@@ -268,7 +268,7 @@ return {
           end,
         },
         color_overrides = {
-          frappe = {
+          latte = {
             rosewater = "#ea6962",
             flamingo = "#ea6962",
             red = "#ea6962",
@@ -354,15 +354,6 @@ return {
   --     end,
   --   },
   -- },
-  -- {
-  --   "ellisonleao/gruvbox.nvim",
-  --   enabled = false,
-  --   config = function()
-  --     require("gruvbox").setup()
-  --     vim.cmd("colorscheme gruvbox")
-  --   end,
-  --   opts = {},
-  -- },
   {
     "EdenEast/nightfox.nvim",
     config = function()
@@ -378,14 +369,17 @@ return {
     end,
   },
   {
-    "comfysage/evergarden",
-    variant = "soft", -- 'hard'|'medium'|'soft'
+    "RRethy/base16-nvim",
   },
   {
     "LazyVim/LazyVim",
     opts = {
       -- colorscheme = "nordfox",
-      colorscheme = "evergarden",
+      -- colorscheme = "evergarden",
+      -- colorscheme = "tokyonight-moon",
+      -- colorscheme = "catppuccin",
+      colorscheme = "base16-catppuccin-frappe",
+      -- colorscheme = "dawnfox",
     },
   },
 }

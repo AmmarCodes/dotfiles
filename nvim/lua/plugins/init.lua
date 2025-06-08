@@ -234,6 +234,7 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
+    enabled = false,
     config = function()
       require("tiny-inline-diagnostic").setup({
         preset = "modern", -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"

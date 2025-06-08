@@ -4,3 +4,7 @@ matches:
 
   - trigger: ";ssot"
     replace: '<abbr title="Single Source of Truth">SSOT</abbr>'
+  - trigger: ";em"
+    replace: "am.alakkad@gmail.com"
+  - trigger: ";tem"
+    replace: "ammarakkar0@gmail.com"

@@ -141,6 +141,7 @@ source ~/.private_exports
 #########
 fish_add_path ~/.dotfiles/bin/
 fish_add_path ~/.config/herd-lite/bin
+fish_add_path ~/.composer/vendor/bin/
 
 ###########
 # Sources #

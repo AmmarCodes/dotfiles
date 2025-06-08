@@ -1,35 +1,63 @@
 ## Theme
-# theme = Nordfox
+theme = catppuccin-frappe
+# theme = nordfox
+# theme = rose-pine-dawn
 # theme = light:rose-pine-dawn,dark:rose-pine-moon
 # theme = light:rose-pine-dawn,dark:catppuccin-frappe
+
+macos-option-as-alt = true
 
 # you can source another file using
 # config-file = "path to config file"
 # this way you can have somehow dynamic theme that can change
 
-# Evergarden - Medium
-foreground = #dddecf
-background = #232a2e
-selection-foreground = #dddecf
-selection-background = #3d494d
-cursor-color = #B2C98F
+# Kanso - ink
+#palette = 0=#14171d
+#palette = 1=#c4746e
+#palette = 2=#8a9a7b
+#palette = 3=#c4b28a
+#palette = 4=#8ba4b0
+#palette = 5=#a292a3
+#palette = 6=#8ea4a2
+#palette = 7=#c8c093
+#palette = 8=#a4a7a4
+#palette = 9=#e46876
+#palette = 10=#87a987
+#palette = 11=#e6c384
+#palette = 12=#7fb4ca
+#palette = 13=#938aa9
+#palette = 14=#7aa89f
+#palette = 15=#c5c9c7
 
-palette = 0 =#313b40
-palette = 8 =#313b40
-palette = 1 =#e67e80
-palette = 9 =#e67e80
-palette = 2 =#b2c98f
-palette = 10=#b2c98f
-palette = 3 =#dbbc7f
-palette = 11=#dbbc7f
-palette = 4 =#9bb5cf
-palette = 12=#9bb5cf
-palette = 5 =#e3a8d1
-palette = 13=#e3a8d1
-palette = 6 =#93c9a1
-palette = 14=#93c9a1
-palette = 7 =#dddecf
-palette = 15=#94aaa0
+#background = #14171d
+#foreground = #c5c9c7
+#cursor-color = #c5c9c7
+#selection-background = #393B42
+#selection-foreground = #c5c9c7
+
+# Evergarden - Medium
+#foreground = #dddecf
+#background = #232a2e
+#selection-foreground = #dddecf
+#selection-background = #3d494d
+#cursor-color = #B2C98F
+
+#palette = 0 =#313b40
+#palette = 8 =#313b40
+#palette = 1 =#e67e80
+#palette = 9 =#e67e80
+#palette = 2 =#b2c98f
+#palette = 10=#b2c98f
+#palette = 3 =#dbbc7f
+#palette = 11=#dbbc7f
+#palette = 4 =#9bb5cf
+#palette = 12=#9bb5cf
+#palette = 5 =#e3a8d1
+#palette = 13=#e3a8d1
+#palette = 6 =#93c9a1
+#palette = 14=#93c9a1
+#palette = 7 =#dddecf
+#palette = 15=#94aaa0
 
 ## Gruvbox material - Material - medium
 # palette = 0=#1b1b1b
@@ -87,15 +115,16 @@ quit-after-last-window-closed = true
 
 
 ## Font settings
-#font-family =  MonoLisa
-#font-family =  IBM Plex Mono
-#font-family = Cascadia Mono NF
-font-family =  0xProto
-font-style-italic = Regular Italic
+#font-family = MonoLisa
+#font-family = IBM Plex Mono
+#font-family = Cascadia Mono
+font-family = Liga SFMono Nerd Font
+#font-family = 0xProto
+#font-style-italic = Regular Italic
 
-font-size = 13.5
+font-size = 14
 font-thicken = true
-adjust-cell-height = 12
+adjust-cell-height = 16
 adjust-underline-position = 4
 font-feature = calt
 font-feature = dlig
@@ -159,3 +188,14 @@ cursor-opacity = 0.7
 
 auto-update-channel = tip
 
+
+# switch tabs
+keybind = super+1=text:\x01\x31
+keybind = super+2=text:\x01\x32
+keybind = super+3=text:\x01\x33
+keybind = super+4=text:\x01\x34
+keybind = super+5=text:\x01\x35
+keybind = super+6=text:\x01\x36
+keybind = super+7=text:\x01\x37
+keybind = super+8=text:\x01\x38
+keybind = super+9=text:\x01\x39
