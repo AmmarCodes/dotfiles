@@ -167,7 +167,7 @@ font-codepoint-map = U+e300-U+e3eb=Monolisa
 font-codepoint-map = U+21B5,U+25B8,U+2605,U+2630,U+2632,U+2714,U+E0A3,U+E615,U+E62B=Monolisa
 
 
-## Window/UI settings 
+## Window/UI settings
 window-decoration = false
 window-padding-x = 10
 window-padding-y = 0
@@ -184,10 +184,6 @@ macos-titlebar-style = hidden
 shell-integration = fish
 
 cursor-opacity = 0.7
-
-
-auto-update-channel = tip
-
 
 # switch tabs
 keybind = super+1=text:\x01\x31
