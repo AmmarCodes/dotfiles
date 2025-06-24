@@ -1,0 +1,17 @@
+{
+  "name": "items",
+  "version": "1.0.0",
+  "description": "",
+  "main": "prayer-times.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "adhan": "^4.4.3",
+    "luxon": "^3.6.1"
+  }
+}
