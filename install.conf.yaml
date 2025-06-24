@@ -44,17 +44,12 @@
       glob: true
       force: true
       path: sketchybar/**
-    ~/Library/Application Support/xbar:
-      glob: true
-      force: true
-      path: xbar/**
     ~/Library/Application Support/espanso:
       glob: true
       force: true
       path: espanso/**
 
 - create:
-    - ~/Library/Application Support/xbar
     - ~/Library/Application Support/lazygit
 
 - shell:
