@@ -48,6 +48,7 @@ local date = sbar.add("item", {
   background = {
     color = colors.transparent,
   },
+  click_script = "open -a 'Calendar'",
 })
 
 -- Padding item required because of bracket

@@ -40,7 +40,3 @@ front_app:subscribe("front_app_switched", function(env)
   local icon = ((lookup == nil) and app_icons["default"] or lookup)
   front_app:set({ label = { string = env.INFO }, icon = icon })
 end)
-
-front_app:subscribe("mouse.clicked", function()
-  sbar.trigger("swap_menus_and_spaces")
-end)
