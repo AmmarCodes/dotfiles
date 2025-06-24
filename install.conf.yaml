@@ -12,6 +12,7 @@
     ~/.tmux.conf: tmux.conf
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
+    ~/.skhdrc: skhdrc
     ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/borders/bordersrc: bordersrc
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
