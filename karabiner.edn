@@ -4,6 +4,7 @@
 	:templates {
 		:launch "open -a '%s'"
 		:yabai "/opt/homebrew/bin/yabai -m %s"
+    :raycast "open -g \"raycast://extensions/%s\""
 	}
   :applications {
                  :arc ["^company\\.thebrowser\\.Browser$"]
@@ -27,15 +28,13 @@
      :des "Launch mode"
      :rules [
       :launch-mode
-      [:b [:launch "Arc"]]
+      [:b [:launch "Brave Browser"]]
       [:c [:launch "Calendar"]]
       [:d [:launch "Obsidian"]]
-      [:f [:launch "Firefox"]]
       [:g [:launch "Telegram"]]
       [:r [:launch "RubyMine"]]
       [:s [:launch "Slack"]]
       [:t [:launch "Ghostty"]]
-      [:w [:launch "Windsurf"]]
       [:spacebar :play_or_pause]
      ]
     }
@@ -94,6 +93,13 @@
 							[:##caps_lock :##tab :nuphy_air60 {:held :!CTOleft_shift}]
 						 ]
 		 }
+    {
+     :des "Raycast shortcuts"
+     :rules [
+             :launch-mode
+             [:e [:raycast "raycast/emoji-symbols/search-emoji-symbols"]]
+             [:w [:raycast "raycast/raycast/search-quicklinks"]]
+            ]
+     }
 	]
 }
-
