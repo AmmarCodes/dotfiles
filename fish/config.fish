@@ -140,44 +140,18 @@ source ~/.private_exports
 # Paths #
 #########
 fish_add_path ~/.dotfiles/bin/
-fish_add_path ~/.config/herd-lite/bin
 fish_add_path ~/.composer/vendor/bin/
 
 ###########
 # Sources #
 ###########
-eval (/opt/homebrew/bin/brew shellenv)
-jump shell fish | source
-atuin init fish --disable-up-arrow | source
+/opt/homebrew/bin/brew shellenv | source
+status --is-interactive; and source (jump shell fish | psub)
+status --is-interactive; and source (atuin init fish --disable-up-arrow | psub)
 
 #####
 # Catppuccin Frappe colors
 #
-# SETUVAR fish_color_autosuggestion:737994
-# SETUVAR fish_color_cancel:e78284
-# SETUVAR fish_color_command:7CAFA4
-# SETUVAR fish_color_comment:838ba7
-# SETUVAR fish_color_cwd:e5c890
-# SETUVAR fish_color_end:ef9f76
-# SETUVAR fish_color_error:e78284
-# SETUVAR fish_color_escape:ea999c
-# SETUVAR fish_color_gray:737994
-# SETUVAR fish_color_host:8caaee
-# SETUVAR fish_color_host_remote:a6d189
-# SETUVAR fish_color_keyword:e78284
-# SETUVAR fish_color_normal:c6d0f5
-# SETUVAR fish_color_operator:f4b8e4
-# SETUVAR fish_color_option:a6d189
-# SETUVAR fish_color_param:eebebe
-# SETUVAR fish_color_quote:a6d189
-# SETUVAR fish_color_redirection:f4b8e4
-# SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d414559
-# SETUVAR fish_color_selection:\x2d\x2dbackground\x3d414559
-# SETUVAR fish_color_status:e78284
-# SETUVAR fish_color_user:81c8be
-
-####
-# Gruvbox Material colors
 # SETUVAR fish_color_autosuggestion:737994
 # SETUVAR fish_color_cancel:e78284
 # SETUVAR fish_color_command:7CAFA4
