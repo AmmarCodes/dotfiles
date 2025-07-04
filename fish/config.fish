@@ -141,6 +141,7 @@ source ~/.private_exports
 #########
 fish_add_path ~/.dotfiles/bin/
 fish_add_path ~/.composer/vendor/bin/
+fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 
 ###########
 # Sources #
