@@ -6,15 +6,13 @@
 		:yabai "/opt/homebrew/bin/yabai -m %s"
     :raycast "open -g \"raycast://extensions/%s\""
 	}
-  :applications {
-                 :arc ["^company\\.thebrowser\\.Browser$"]
-                 :orion ["^com\\.kagi\\.kagimacOS$"]
-                 }
 	:devices {
-		:macbookpro [{:product_id 835 :vendor_id 1452}]
+		:macbookpro15 [{:product_id 835 :vendor_id 1452}]
+		:macbookpro13 [{:product_id 592 :vendor_id 1452}]
 		:ergodox [{:product_id 4871 :vendor_id 65261}]
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
 		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
+		:nuphy_air60_2 [{:device_address "fd-d1-59-90-63-7a"}]
 	}
   :simlayer-threshold 250
   :to_if_held_down_threshold_milliseconds 50
@@ -51,15 +49,19 @@
 		{
 			:des "Swap fn and left_control"
 			:rules [
-				[:##fn :##left_control :macbookpro]
-				[:##left_control :##fn :macbookpro]
+				[:##fn :##left_control :macbookpro15]
+				[:##left_control :##fn :macbookpro15]
+				[:##fn :##left_control :macbookpro13]
+				[:##left_control :##fn :macbookpro13]
 			]
 		}
 		{
 			:des "Swap non_us_backslash and grave_accent_and_tilde"
 			:rules [
-				[:##grave_accent_and_tilde :##non_us_backslash :macbookpro]
-				[:##non_us_backslash :##grave_accent_and_tilde :macbookpro]
+				[:##grave_accent_and_tilde :##non_us_backslash :macbookpro15]
+				[:##non_us_backslash :##grave_accent_and_tilde :macbookpro15]
+				[:##grave_accent_and_tilde :##non_us_backslash :macbookpro13]
+				[:##non_us_backslash :##grave_accent_and_tilde :macbookpro13]
 				[:##grave_accent_and_tilde :##non_us_backslash :mxmini]
 				[:##non_us_backslash :##grave_accent_and_tilde :mxmini]
 			]
@@ -67,7 +69,8 @@
 		{
 			:des "caps_lock to Hyperkey"
 			:rules [
-							[:##caps_lock :!CTOleft_shift :macbookpro {:alone :escape}]
+							[:##caps_lock :!CTOleft_shift :macbookpro15 {:alone :escape}]
+							[:##caps_lock :!CTOleft_shift :macbookpro13 {:alone :escape}]
 							[:##caps_lock :!CTOleft_shift :mxmini {:alone :escape}]
 							]
 			}
@@ -91,6 +94,8 @@
 			:rules [
 							[:##tab :##grave_accent_and_tilde :nuphy_air60]
 							[:##caps_lock :##tab :nuphy_air60 {:held :!CTOleft_shift}]
+							[:##tab :##grave_accent_and_tilde :nuphy_air60_2]
+							[:##caps_lock :##tab :nuphy_air60_2 {:held :!CTOleft_shift}]
 						 ]
 		 }
     {
