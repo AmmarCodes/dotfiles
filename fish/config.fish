@@ -92,6 +92,8 @@ end
 # rails aliases
 abbr --add railsc "bin/rails console"
 abbr --add railsr "bin/rails routes | less"
+abbr --add start-gdk "cd ~/projects/gitlab-development-kit/ && gdk start"
+abbr --add stop-gdk "cd ~/projects/gitlab-development-kit/ && gdk stop"
 
 function review -d "Review a GitLab merge request by passing the branch name"
     git fetch origin $argv
