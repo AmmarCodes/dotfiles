@@ -1,7 +1,7 @@
 -- require("items.apple")
 -- left
 require("items.menus")
--- require("items.spaces")
+require("items.spaces")
 require("items.front_app")
 
 -- right
