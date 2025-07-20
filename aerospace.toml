@@ -71,7 +71,7 @@ inner.horizontal = 8
 inner.vertical = 8
 outer.left = 8
 outer.bottom = 8
-outer.top = [{ monitor.main = 36 }, 7]
+outer.top = [{ monitor.built-in = 10 }, 36]
 outer.right = 8
 
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
@@ -207,7 +207,7 @@ run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'zoom'
-run = 'move-node-to-workspace 3'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.valvesoftware.steam'
@@ -223,6 +223,10 @@ run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Mail'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Telegram'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
