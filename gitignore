@@ -5,3 +5,4 @@ tags*
 Session.vim
 .DS_Store
 .solargraph.yml
+.projections.json
