@@ -11,7 +11,7 @@ if [ -x "$(command -v brew)" ]; then
   pretty_print "Upgrading Homebrew packages"
   gum spin --show-output --spinner minidot --title "Updating brew..." -- brew update && brew upgrade
   gum spin --show-output --spinner minidot --title "Cleaning up..." -- brew cleanup --prune=all
-  gum spin --show-output --spinner minidot --title "Dumping brew bundle..." -- brew bundle dump --force --all --describe --file=~/.dotfiles/Brewfile
+  gum spin --show-output --spinner minidot --title "Dumping brew bundle..." -- brew bundle dump --force --tap --cask --formula --services --tap --describe --force --file=~/.dotfiles/Brewfile
 fi
 
 # if [ -x "$(command -v npm)" ]; then
