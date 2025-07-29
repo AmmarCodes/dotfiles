@@ -3,16 +3,14 @@ tap "altinity/clickhouse"
 tap "arl/arl"
 tap "candid82/brew"
 tap "felixkratz/formulae"
+tap "fforster/gitlab-mcp", "https://gitlab.com/fforster/homebrew-gitlab-mcp.git"
 tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 tap "homebrew/services"
+tap "jorgerojas26/lazysql"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
-tap "oven-sh/bun"
-tap "qmk/qmk"
-tap "ttscoff/thelab"
 tap "yqrashawn/goku"
 # Code searching, linting, rewriting
 brew "ast-grep"
@@ -110,6 +108,8 @@ brew "gum"
 brew "heimdal"
 # Process manager for Procfile-based applications
 brew "hivemind"
+# Fast and powerful log viewer and processor
+brew "hl"
 # Get events and tasks from the macOS calendar database
 brew "ical-buddy"
 # Tool to report network interface bandwidth
@@ -122,6 +122,8 @@ brew "jq"
 brew "jump"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Cross-platform TUI database management tool
+brew "lazysql"
 # Conversion library
 brew "libiconv"
 # YAML Parser
@@ -142,7 +144,7 @@ brew "meson"
 brew "mise"
 # MongoDB Shell to connect, configure, query, and work with your MongoDB database
 brew "mongosh"
-# Parser generator tool and incremental parsing library
+# Incremental parsing library
 brew "tree-sitter"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
@@ -163,15 +165,13 @@ brew "overmind"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Object-relational database system
-brew "postgresql@12"
+brew "postgresql@12", restart_service: :changed
 # Object-relational database system
 brew "postgresql@13"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.9"
 # Alternative to backtracking PCRE-style regular expression engines
 brew "re2"
-# Persistent key-value database, with built-in net interface
-brew "redis"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Prevent committing secret keys into your source code
@@ -216,14 +216,8 @@ brew "arl/arl/gitmux"
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
-# Simple hotkey-daemon for macOS.
-brew "koekeishiya/formulae/skhd"
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
-# Quantum Mechanical Keyboard (QMK) Firmware
-brew "qmk/qmk/qmk"
-# Readability and Markdown utility for saving web urls and HTML text
-brew "ttscoff/thelab/gather-cli"
+# A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
+brew "fforster/gitlab-mcp/gitlab-mcp"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Command-line interface for 1Password
@@ -239,12 +233,13 @@ cask "devtoys"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 # Screen colour temperature controller
-cask "flux"
+cask "flux-app"
 # Website and application blocker
 cask "focus"
 cask "font-0xproto"
 cask "font-cascadia-mono"
 cask "font-cascadia-mono-nf"
+cask "font-fira-code"
 cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
@@ -266,8 +261,6 @@ cask "imazing"
 cask "karabiner-elements"
 # Open-source keystroke visualiser
 cask "keycastr"
-# Noise cancelling application
-cask "krisp"
 # Custom Discord client
 cask "legcord"
 # Host-based application firewall
@@ -296,32 +289,3 @@ cask "tableplus"
 cask "telegram"
 # Multimedia player
 cask "vlc"
-# View output from scripts in the menu bar
-cask "xbar"
-vscode "arcticicestudio.nord-visual-studio-code"
-vscode "bradlc.vscode-tailwindcss"
-vscode "castwide.solargraph"
-vscode "catppuccin.catppuccin-vsc"
-vscode "christian-kohler.path-intellisense"
-vscode "dbaeumer.vscode-eslint"
-vscode "ecmel.vscode-html-css"
-vscode "equinusocio.vsc-material-theme"
-vscode "esbenp.prettier-vscode"
-vscode "formulahendry.auto-close-tag"
-vscode "formulahendry.auto-rename-tag"
-vscode "github.vscode-github-actions"
-vscode "isudox.vscode-jetbrains-keybindings"
-vscode "jdinhlife.gruvbox"
-vscode "kaiwood.endwise"
-vscode "mikestead.dotenv"
-vscode "noku.rails-run-spec-vscode"
-vscode "octref.vetur"
-vscode "orta.vscode-jest"
-vscode "shopify.ruby-lsp"
-vscode "testdouble.vscode-alternate-alternate-file"
-vscode "vayan.haml"
-vscode "vscodevim.vim"
-vscode "vue.volar"
-vscode "vue.vscode-typescript-vue-plugin"
-vscode "wayou.vscode-todo-highlight"
-vscode "yzhang.markdown-all-in-one"
