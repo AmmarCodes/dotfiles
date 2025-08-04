@@ -6,6 +6,8 @@
 - link:
     ~/.gitconfig: gitconfig
     ~/.yabairc: yabairc
+    ~/.npmrc: npmrc
+    ~/.default-gems: default-gems
     ~/.aerospace.toml: aerospace.toml
     ~/.gitconfig-gitlab: gitconfig-gitlab
     ~/.gitignore: gitignore
