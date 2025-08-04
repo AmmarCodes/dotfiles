@@ -98,8 +98,11 @@ return {
             },
           },
         },
+        -- rubocop = {
+        --   cmd = { "bundle", "exec", "rubocop", "--lsp" },
+        -- },
         ruby_lsp = {
-          cmd = { "bundle", "exec", "ruby-lsp" },
+          cmd = { "/Users/aalakkad/.local/share/mise/shims/ruby-lsp" },
           settings = {
             init_options = {
               enabled_features = {
