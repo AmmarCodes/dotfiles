@@ -241,3 +241,7 @@ run = 'move-node-to-workspace 1'
 [[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
 run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Rancher Desktop'
+run = 'layout floating'
