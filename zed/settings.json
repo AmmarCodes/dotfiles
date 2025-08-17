@@ -1,0 +1,142 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "agent": {
+    "default_profile": "write",
+    "play_sound_when_agent_done": false,
+    "model_parameters": [],
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-sonnet-4"
+    }
+  },
+  "theme": "Catppuccin Frappé",
+  // "edit_predictions": {
+  //   "disabled_globs": [],
+  //   "mode": "eager",
+  //   "copilot": {
+  //     "proxy": null,
+  //     "proxy_no_verify": null
+  //   },
+  //   "enabled_in_text_threads": false
+  // },
+  // "show_edit_predictions": false,
+  // "features": {
+  //   "edit_prediction_provider": "none"
+  // },
+  // "agent": {
+  //   "enabled": true,
+  //   "default_model": {
+  //     "provider": "anthropic",
+  //     "model": "claude-3-5-haiku-latest"
+  //   },
+  //   "version": "2"
+  // },
+  // "theme": "Catppuccin Frappé",
+  // "ui_font_size": 16,
+  // "buffer_font_size": 14,
+  "collaboration_panel": { "button": false },
+  // "chat_panel": { "button":  },
+  // "buffer_font_family": "Liga SFMono Nerd Font",
+  // "buffer_font_family": "GitLab Mono",
+  // "terminal": {
+  // "font_size": 14
+  // },
+  "base_keymap": "JetBrains",
+  "show_completions_on_input": true,
+  "ruby-lsp": {
+    "initialization_options": {
+      "experimentalFeaturesEnabled": true,
+      "enabledFeatures": {
+        "codeActions": true,
+        "codeLens": true,
+        "completion": true,
+        "definition": true,
+        "diagnostics": true,
+        "documentHighlights": true,
+        "documentLink": true,
+        "documentSymbols": true,
+        "foldingRanges": true,
+        "formatting": true,
+        "hover": true,
+        "inlayHint": true,
+        "onTypeFormatting": true,
+        "selectionRanges": true,
+        "semanticHighlighting": true,
+        "signatureHelp": true,
+        "typeHierarchy": true,
+        "workspaceSymbol": true
+      },
+      "featuresConfiguration": {
+        "inlayHint": {
+          "implicitHashValue": true,
+          "implicitRescue": true
+        }
+      }
+    }
+  },
+  "rubocop": {
+    "initialization_options": {
+      "safeAutocorrect": false
+    }
+  },
+  "languages": {
+    "Markdown": {
+      "preferred_line_length": 80,
+      "show_wrap_guides": true,
+      "soft_wrap": "preferred_line_length"
+    },
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "!rubocop", "!solargraph"]
+    },
+    "TypeScript": {
+      "inlay_hints": {
+        "enabled": true,
+        "show_parameter_hints": true,
+        "show_other_hints": true,
+        "show_type_hints": true
+      }
+    },
+    "ERB": {
+      "formatter": {
+        "external": {
+          "command": "erb-formatter",
+          "arguments": ["--stdin-filename", "{buffer_path}"]
+        }
+      }
+    }
+  },
+  "file_types": {
+    "Dockerfile": ["Dockerfile", "Dockerfile.*"],
+    "JSON": ["json", "jsonc", "*.code-snippets"]
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 5000,
+      "show_commit_summary": true
+    }
+  },
+  "tab_bar": {
+    "show": true
+  },
+  "project_panel": {
+    "auto_fold_dirs": false,
+    "indent_size": 16
+  },
+  "outline_panel": {
+    "indent_size": 16
+  },
+  "indent_guides": {
+    "enabled": true,
+    "coloring": "indent_aware",
+    "line_width": 1,
+    "active_line_width": 2
+  }
+}
