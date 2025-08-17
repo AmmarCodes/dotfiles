@@ -149,6 +149,7 @@ fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 # Sources #
 ###########
 /opt/homebrew/bin/brew shellenv | source
+/opt/homebrew/bin/mise activate fish | source
 status --is-interactive; and source (jump shell fish | psub)
 status --is-interactive; and source (atuin init fish --disable-up-arrow | psub)
 
