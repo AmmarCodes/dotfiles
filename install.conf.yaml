@@ -15,6 +15,7 @@
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.skhdrc: skhdrc
+    ~/.config/zed/settings.json: zed/settings.json
     ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/borders/bordersrc: bordersrc
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
@@ -55,8 +56,8 @@
     - ~/Library/Application Support/lazygit
 
 - shell:
-    - description: "Rebuilding bat themes cache"
-      command: "bat cache --build"
+    - description: "Install fisher - fish plugin manager"
+      command: "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
     - description: "Installing submodules"
       command: "git submodule update --init --recursive"
     - description: "Installing brew packages using ~/.dotfiles/Brewfile"
