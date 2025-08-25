@@ -6,6 +6,7 @@ vim.g.mapleader = ","
 local opt = vim.opt
 
 opt.swapfile = false -- Don't use swapfile
+opt.undofile = true -- Persistent undo
 opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
 opt.confirm = false -- Confirm to save changes before exiting modified buffer
 opt.background = "dark"
