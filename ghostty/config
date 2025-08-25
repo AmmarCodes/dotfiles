@@ -2,7 +2,6 @@
 theme = catppuccin-frappe
 # theme = light:rose-pine-dawn,dark:rose-pine-moon
 
-macos-option-as-alt = true
 auto-update-channel=tip
 
 # you can source another file using
