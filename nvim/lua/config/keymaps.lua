@@ -66,3 +66,9 @@ map(
   require("snacks").gitbrowse.open,
   { desc = "Open remote repository at the current file line(s)" }
 )
+
+----------------------------
+---        buffers       ---
+----------------------------
+map("n", "<leader>ba", "<cmd>%bd<cr>", { desc = "Close [a]ll [b]uffers" })
+map("n", "<leader>bo", "<cmd>%bd|edit#|bd#<cr>", { desc = "Close [o]ther [b]uffers" })

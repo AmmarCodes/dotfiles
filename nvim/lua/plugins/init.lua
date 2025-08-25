@@ -175,6 +175,11 @@ return {
     "Bekaboo/dropbar.nvim",
   },
   {
+    "echasnovski/mini.tabline",
+    version = false,
+    config = true,
+  },
+  {
     "shellRaining/hlchunk.nvim",
     event = { "BufReadPre", "BufNewFile" },
     config = function()
