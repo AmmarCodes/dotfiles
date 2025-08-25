@@ -9,29 +9,14 @@ return {
   -- },
   {
     "catppuccin",
-    config = function()
-      require("catppuccin").setup({
-        flavour = "frappe",
-        integrations = {
-          grug_far = true,
-          mason = true,
-          native_lsp = {
-            enabled = true,
-            underlines = {
-              errors = { "undercurl" },
-              hints = { "undercurl" },
-              warnings = { "undercurl" },
-              information = { "undercurl" },
-            },
-          },
-          noice = true,
-          blink_cmp = true,
-          which_key = true,
-        },
-        no_bold = true,
-        no_italic = false,
-      })
-    end,
+    opts = {
+      flavour = "frappe",
+      integrations = {
+        blink_cmp = true,
+      },
+      no_bold = true,
+      no_italic = false,
+    },
   },
   -- {
   --   "f-person/auto-dark-mode.nvim",
