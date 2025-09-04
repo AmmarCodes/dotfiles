@@ -199,6 +199,11 @@ if.app-id = 'com.todoist.mac.Todoist'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.devuap.beautyshotapp' # Xnapper
+run = 'layout floating'
+
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'Ghostty'
 run = 'move-node-to-workspace 2'
 
