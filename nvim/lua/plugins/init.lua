@@ -239,13 +239,22 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    enabled = false,
+    -- enabled = false,
     config = function()
       require("tiny-inline-diagnostic").setup({
         preset = "modern", -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"
         options = {
           -- Show the source of the diagnostic.
-          show_source = false,
+          -- show_source = false,
+          set_arrow_to_diag_color = true,
+          multilines = {
+            -- Enable multiline diagnostic messages
+            enabled = true,
+            -- Always show messages on all lines for multiline diagnostics
+            always_show = true,
+            -- Display all diagnostic messages on the cursor line, not just those under cursor
+            show_all_diags_on_cursorline = true,
+          },
         },
       })
     end,

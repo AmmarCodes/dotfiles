@@ -16,7 +16,7 @@ vim.g.snacks_animate = false
 
 vim.diagnostic.config({
   -- Use the default configuration
-  virtual_lines = true,
+  -- virtual_lines = true,
 
   -- Alternatively, customize specific options
   -- virtual_lines = {
