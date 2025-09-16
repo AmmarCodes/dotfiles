@@ -1,19 +1,19 @@
 return {
   -- source: https://seankegel.com/neovim-for-php-and-laravel
-  {
-    "stevearc/conform.nvim",
-    opts = {
-      formatters_by_ft = {
-        php = { "pint" },
-      },
-    },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = { "pint", "phpstan" },
-    },
-  },
+  -- {
+  --   "stevearc/conform.nvim",
+  --   opts = {
+  --     formatters_by_ft = {
+  --       php = { "pint" },
+  --     },
+  --   },
+  -- },
+  -- {
+  --   "williamboman/mason.nvim",
+  --   opts = {
+  --     ensure_installed = { "pint", "phpstan" },
+  --   },
+  -- },
   {
     -- Add a Treesitter parser for Laravel Blade to provide Blade syntax highlighting.
     "nvim-treesitter/nvim-treesitter",
@@ -51,14 +51,14 @@ return {
   --     close_tag_on_complete = true, -- default: true
   --   },
   -- },
-  {
-    -- Remove phpcs linter.
-    "mfussenegger/nvim-lint",
-    optional = true,
-    opts = {
-      linters_by_ft = {
-        php = {},
-      },
-    },
-  },
+  -- {
+  --   -- Remove phpcs linter.
+  --   "mfussenegger/nvim-lint",
+  --   optional = true,
+  --   opts = {
+  --     linters_by_ft = {
+  --       php = {},
+  --     },
+  --   },
+  -- },
 }
