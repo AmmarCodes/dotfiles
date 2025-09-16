@@ -1,5 +1,5 @@
 ## Theme
-theme = catppuccin-frappe
+theme = Catppuccin Frappe
 # theme = light:rose-pine-dawn,dark:rose-pine-moon
 
 auto-update-channel=tip
