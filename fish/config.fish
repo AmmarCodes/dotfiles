@@ -143,7 +143,6 @@ source ~/.private_exports
 # Paths #
 #########
 fish_add_path ~/.dotfiles/bin/
-fish_add_path ~/.composer/vendor/bin/
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 
 ###########
@@ -179,11 +178,6 @@ status --is-interactive; and source (atuin init fish --disable-up-arrow | psub)
 # SETUVAR fish_color_selection:\x2d\x2dbackground\x3d414559
 # SETUVAR fish_color_status:e78284
 # SETUVAR fish_color_user:81c8be
-
-set --global hydro_color_pwd "#80AA9D"
-set --global hydro_color_git "#AFB846"
-set --global hydro_color_duration "#62605F"
-set --global hydro_multiline true
 
 set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
 set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"
