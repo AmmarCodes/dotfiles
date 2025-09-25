@@ -27,7 +27,7 @@ const defaultBrowser = execSync(
 
 const browsers = {
   "com.brave.browser": "Brave Browser",
-  "company.thebrowser.browser": "Arc",
+  "net.imput.helium": "Helium",
 };
 
 const browser = browsers[defaultBrowser];

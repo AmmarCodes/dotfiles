@@ -3,7 +3,6 @@
 
 	:templates {
 		:launch "open -a '%s'"
-		:yabai "/opt/homebrew/bin/yabai -m %s"
     :raycast "open -g \"raycast://extensions/%s\""
 	}
 	:devices {
@@ -26,7 +25,7 @@
      :des "Launch mode"
      :rules [
       :launch-mode
-      [:b [:launch "Brave Browser"]]
+      [:b [:launch "Helium"]]
       [:c [:launch "Calendar"]]
       [:d [:launch "Obsidian"]]
       [:g [:launch "Telegram"]]
