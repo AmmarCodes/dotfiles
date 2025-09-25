@@ -3,14 +3,6 @@ return {
     "RRethy/nvim-treesitter-endwise",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     ft = { "ruby", "eruby", "vim", "lua", "bash" },
-    config = function()
-      ---@diagnostic disable-next-line: missing-fields
-      require("nvim-treesitter.configs").setup({
-        endwise = {
-          enable = true,
-        },
-      })
-    end,
   },
   {
     "weilbith/nvim-code-action-menu",
