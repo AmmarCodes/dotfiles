@@ -12,6 +12,7 @@
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
 		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
 		:nuphy_air60_2 [{:device_address "fd-d1-59-90-63-7a"}]
+    :ajazz [{:product_id "65278" :vendor_id "3141"}]
 	}
   :simlayer-threshold 250
   :to_if_held_down_threshold_milliseconds 50
@@ -71,6 +72,7 @@
 							[:##caps_lock :!CTOleft_shift :macbookpro15 {:alone :escape}]
 							[:##caps_lock :!CTOleft_shift :macbookpro13 {:alone :escape}]
 							[:##caps_lock :!CTOleft_shift :mxmini {:alone :escape}]
+							[:##caps_lock :!CTOleft_shift :ajazz {:alone :escape}]
 							]
 			}
 		{
@@ -97,6 +99,14 @@
 							[:##caps_lock :##tab :nuphy_air60_2 {:held :!CTOleft_shift}]
 						 ]
 		 }
+    {
+     :des "Ajazz modes"
+     :rules [
+             [:##caps_lock :##tab :ajazz]
+             [:##tab :##grave_accent_and_tilde :ajazz]
+
+            ]
+     }
     {
      :des "Raycast shortcuts"
      :rules [
