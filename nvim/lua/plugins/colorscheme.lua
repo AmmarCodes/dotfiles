@@ -1,4 +1,15 @@
 return {
+  {
+    "neanias/everforest-nvim",
+    version = false,
+    lazy = false,
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      require("everforest").setup({
+        background = "hard",
+      })
+    end,
+  },
   -- {
   --   "rose-pine/neovim",
   --   name = "rose-pine",
@@ -35,7 +46,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "catppuccin",
+      colorscheme = "everforest",
     },
   },
 }

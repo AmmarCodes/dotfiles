@@ -1,5 +1,7 @@
 ## Theme
-theme = Catppuccin Frappe
+# theme = Catppuccin Frappe
+theme = Everforest Dark Hard
+background = #262E32
 # theme = light:rose-pine-dawn,dark:rose-pine-moon
 
 auto-update-channel=tip
@@ -23,7 +25,7 @@ font-family = MonoLisa
 font-size = 14
 font-thicken = true
 font-thicken-strength = 200
-adjust-cell-height = 24
+adjust-cell-height = 16
 adjust-underline-position = 4
 # font-feature = calt
 font-feature = dlig
@@ -58,3 +60,5 @@ keybind = super+digit_7=text:\x01\x37
 keybind = super+digit_8=text:\x01\x38
 keybind = super+digit_9=text:\x01\x39
 keybind = shift+enter=text:\x1b\r
+
+scrollbar = never

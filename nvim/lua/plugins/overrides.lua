@@ -47,6 +47,9 @@ return {
           local settings = {
             baseUrl = "https://gitlab.com",
             token = vim.env.GITLAB_TOKEN,
+            featureFlags = {
+              -- streamCodeGenerations= false,
+            },
           }
           configs.gitlab_lsp = {
             default_config = {
@@ -59,9 +62,11 @@ return {
               },
               filetypes = { "ruby", "go", "javascript", "typescript", "rust" },
               single_file_support = true,
-              root_dir = function(fname)
-                return lspconfig.util.find_git_ancestor(fname)
-              end,
+              root_markers = { ".git" },
+              -- root_dir = function(fname)
+              --   return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
+              --   -- return lspconfig.util.find_git_ancestor(fname)
+              -- end,
               settings = settings,
             },
             docs = {
