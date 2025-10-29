@@ -7,15 +7,15 @@ pretty_print() {
     --align center --width 50 "$1"
 }
 
-if [ -x "$(command -v sketchybar)" ]; then
-  pretty_print "Get latest icon_map.lua"
-  latest_tag=$(curl -s https://api.github.com/repos/kvndrsslr/sketchybar-app-font/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
-  font_url="https://github.com/kvndrsslr/sketchybar-app-font/releases/download/${latest_tag}/icon_map.lua"
-  output_path="$HOME/.dotfiles/sketchybar/helpers/app_icons.lua"
-  mkdir -p "$(dirname "$output_path")"
-  curl -L "$font_url" -o "$output_path"
-  sketchybar --reload
-fi
+# if [ -x "$(command -v sketchybar)" ]; then
+#   pretty_print "Get latest icon_map.lua"
+#   latest_tag=$(curl -s https://api.github.com/repos/kvndrsslr/sketchybar-app-font/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
+#   font_url="https://github.com/kvndrsslr/sketchybar-app-font/releases/download/${latest_tag}/icon_map.lua"
+#   output_path="$HOME/.dotfiles/sketchybar/helpers/app_icons.lua"
+#   mkdir -p "$(dirname "$output_path")"
+#   curl -L "$font_url" -o "$output_path"
+#   sketchybar --reload
+# fi
 
 if [ -x "$(command -v brew)" ]; then
   pretty_print "Upgrading Homebrew packages"
