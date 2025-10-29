@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local prayers = sbar.add("item", {
-  icon = { string = "", padding_left = 9, color = colors.lavender },
+  icon = { string = "", padding_left = 9, color = colors.blue },
   padding_left = 6,
   padding_right = 0,
   label = { font = { size = 12 }, padding_right = 9 },
