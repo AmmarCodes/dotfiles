@@ -35,52 +35,9 @@ return {
   {
     "neovim/nvim-lspconfig",
     opts = {
-      setup = {
-        gitlab_lsp = function(_, opt)
-          local configs = require("lspconfig.configs")
-          local lspconfig = require("lspconfig")
-
-          -- GitLab Due settings
-          if configs.gitlab_lsp then
-            return
-          end
-          local settings = {
-            baseUrl = "https://gitlab.com",
-            token = vim.env.GITLAB_TOKEN,
-            featureFlags = {
-              -- streamCodeGenerations= false,
-            },
-          }
-          configs.gitlab_lsp = {
-            default_config = {
-              name = "gitlab_lsp",
-              cmd = {
-                "npx",
-                "--registry=https://gitlab.com/api/v4/packages/npm/",
-                "@gitlab-org/gitlab-lsp@6.8.0",
-                "--stdio",
-              },
-              filetypes = { "ruby", "go", "javascript", "typescript", "rust" },
-              single_file_support = true,
-              root_markers = { ".git" },
-              -- root_dir = function(fname)
-              --   return vim.fs.dirname(vim.fs.find(".git", { path = fname, upward = true })[1])
-              --   -- return lspconfig.util.find_git_ancestor(fname)
-              -- end,
-              settings = settings,
-            },
-            docs = {
-              description = "GitLab Code Suggestions",
-            },
-          }
-
-          lspconfig.gitlab_lsp.setup({})
-        end,
-      },
       servers = {
         -- "prettierd",
         vale_ls = {},
-        gitlab_lsp = {},
         emmet_language_server = {
           filetypes = { "vue", "eruby", "html", "haml", "javascript" },
         },

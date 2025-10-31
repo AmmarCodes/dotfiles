@@ -3,6 +3,8 @@ tap "arl/arl"
 tap "felixkratz/formulae"
 tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
+tap "osx-cross/arm"
+tap "osx-cross/avr"
 tap "oven-sh/bun"
 tap "yqrashawn/goku"
 # Improved shell history for zsh, bash, fish and nushell
@@ -59,6 +61,8 @@ brew "felixkratz/formulae/borders", args: ["HEAD"]
 brew "felixkratz/formulae/sketchybar"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
+brew "fforster/gitlab-mcp/gitlab-mcp"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
@@ -80,6 +84,7 @@ cask "font-noto-sans-arabic"
 cask "font-sf-mono"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
+cask "font-sn-pro"
 cask "font-vazirmatn"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
@@ -93,6 +98,12 @@ cask "little-snitch"
 cask "notunes"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Silence embarrassing notifications while screensharing
+cask "muzzle"
+# Open-source software for live streaming and screen recording
+cask "obs"
+# Automatic time tracker
+cask "qbserve"
 # Control your tools with a few keystrokes
 cask "raycast"
 # Move and resize windows using keyboard shortcuts or snap areas
