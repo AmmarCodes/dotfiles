@@ -144,11 +144,24 @@ source ~/.private_exports
 #########
 fish_add_path ~/.dotfiles/bin/
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
+fish_add_path ~/.local/share/mise/shims
+
+#########
+#  Brew #
+#########
+set -x HOMEBREW_DOWNLOAD_CONCURRENCY auto
+
+set --global --export HOMEBREW_PREFIX /opt/homebrew
+
+set --global --export HOMEBREW_CELLAR /opt/homebrew/Cellar
+
+set --global --export HOMEBREW_REPOSITORY /opt/homebrew
+
+fish_add_path --global --move --path /opt/homebrew/bin /opt/homebrew/sbin
 
 ###########
 # Sources #
 ###########
-/opt/homebrew/bin/brew shellenv | source
 /opt/homebrew/bin/mise activate fish | source
 status --is-interactive; and source (jump shell fish | psub)
 status --is-interactive; and source (atuin init fish --disable-up-arrow | psub)
@@ -181,4 +194,3 @@ status --is-interactive; and source (atuin init fish --disable-up-arrow | psub)
 
 set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
 set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"
-set -x HOMEBREW_DOWNLOAD_CONCURRENCY auto
