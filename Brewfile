@@ -11,6 +11,7 @@ tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
+tap "oven-sh/bun"
 tap "yqrashawn/goku"
 # Code searching, linting, rewriting
 brew "ast-grep"
@@ -48,6 +49,8 @@ brew "libpq"
 brew "composer"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # Pack, ship and run any application as a lightweight container
 brew "docker"
 # Text processing system for reStructuredText
@@ -188,6 +191,8 @@ brew "switchaudio-osx"
 brew "teleport"
 # Simplified and community-driven man pages
 brew "tldr"
+# Terminal multiplexer
+brew "tmux"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
 # Syntax-aware linter for prose
@@ -218,6 +223,8 @@ brew "felixkratz/formulae/borders"
 brew "felixkratz/formulae/sketchybar"
 # A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
 brew "fforster/gitlab-mcp/gitlab-mcp"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Command-line interface for 1Password
@@ -251,6 +258,7 @@ cask "font-noto-sans-arabic"
 cask "font-noto-sans-arabic-ui"
 cask "font-sf-mono-nerd-font-ligaturized"
 cask "font-sf-pro"
+cask "font-sketchybar-app-font"
 cask "font-sn-pro"
 cask "font-vazirmatn"
 # GIT client
@@ -267,6 +275,8 @@ cask "legcord"
 cask "little-snitch"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
+# Simple application that will prevent iTunes or Apple Music from launching
+cask "notunes"
 # Open-source software for live streaming and screen recording
 cask "obs"
 # Automatic time tracker
