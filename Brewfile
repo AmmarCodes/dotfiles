@@ -11,12 +11,12 @@ tap "yqrashawn/goku"
 brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Version manager for neovim
-brew "bob"
 # General-purpose scripting language
 brew "php"
 # Dependency Manager for PHP
 brew "composer"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # Modern, maintained replacement for ls
@@ -33,6 +33,8 @@ brew "git"
 brew "git-delta"
 # Tool for glamorous shell scripts
 brew "gum"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Helps you navigate your file system faster by learning your habits
 brew "jump"
 # Simple terminal UI for git commands
@@ -56,13 +58,13 @@ brew "tmux"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
 # A window border system for macOS
-brew "felixkratz/formulae/borders", args: ["HEAD"]
+brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
 # A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
 brew "fforster/gitlab-mcp/gitlab-mcp"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
@@ -80,8 +82,10 @@ cask "espanso"
 cask "font-cascadia-mono"
 cask "font-ibm-plex-mono"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-lilex"
 cask "font-noto-sans-arabic"
 cask "font-sf-mono"
+cask "font-noto-sans-arabic-ui"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
 cask "font-sn-pro"
@@ -96,8 +100,6 @@ cask "karabiner-elements"
 cask "little-snitch"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
-# Knowledge base that works on top of a local folder of plain text Markdown files
-cask "obsidian"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
 # Open-source software for live streaming and screen recording

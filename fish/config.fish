@@ -149,8 +149,6 @@ fish_add_path ~/.local/share/mise/shims
 #########
 #  Brew #
 #########
-set -x HOMEBREW_DOWNLOAD_CONCURRENCY auto
-
 set --global --export HOMEBREW_PREFIX /opt/homebrew
 
 set --global --export HOMEBREW_CELLAR /opt/homebrew/Cellar

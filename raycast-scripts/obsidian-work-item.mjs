@@ -30,7 +30,8 @@ const browsers = {
   "net.imput.helium": "Helium",
 };
 
-const browser = browsers[defaultBrowser];
+// const browser = browsers[defaultBrowser];
+const browser = "Helium";
 if (!browser) console.error("Could not figure the default browser!");
 
 const getObsidianUrl = (url) => `obsidian://advanced-uri?vault=obsidian&${url}`;

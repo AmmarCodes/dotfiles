@@ -24,16 +24,13 @@ gui:
   expandFocusedSidePanel: true
   expandedSidePanelWeight: 4
   mainPanelSplitMode: flexible
-
   authorColors:
     "*": "#babbf1"
   # If true, do not show a warning when rewording a commit via an external editor
   skipRewordInEditorWarning: true
   nerdFontsVersion: "3"
-
   # One of: 'margin' (default) | 'jump'
   scrollOffBehavior: jump
-
   # Config relating to the spinner.
   spinner:
     # The frames of the spinner animation.
@@ -43,22 +40,18 @@ gui:
       - "∙●∙"
       - "∙∙●"
     rate: 100
-
 git:
-  paging:
-    useExternalDiffGitConfig: false
-    pager: "delta --dark --paging=never"
+  pagers:
+    - useExternalDiffGitConfig: false
+      pager: "delta --dark --paging=never"
   log:
     order: default
   autoForwardBranches: allBranches
-
 update:
   # One of: 'prompt' (default) | 'background' | 'never'
   method: never
-
 # If true, don't display introductory popups upon opening Lazygit.
 disableStartupPopups: true
-
 customCommands:
   - key: "G"
     command: "glab mr view -w {{.SelectedLocalBranch.UpstreamBranch}}"

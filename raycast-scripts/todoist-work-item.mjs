@@ -58,8 +58,8 @@ try {
   const task = await api.addTask({
     content: prefix + (url ? `[${title}](${url})` : title),
     projectId: 2329633844,
-    // dueString: "today",
-    labels: ["next-action"],
+    dueString: "today",
+    // labels: ["next-action"],
     // dueLang: "en",
     // priority: 4,
   });

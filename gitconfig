@@ -110,6 +110,7 @@ path = ~/.gitconfig-gitlab
 	ui = auto
 [maintenance]
 	repo = /Users/aalakkad/projects/gitlab-development-kit/gitlab
+	repo = /Users/aalakkad/projects/gitlab-development-kit
 [index]
 	version = 4
 [advice]
