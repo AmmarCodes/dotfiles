@@ -1,12 +1,10 @@
 #!/bin/bash
 
 options=(
-  active_color=0xfff0f2d4
-  inactive_color=0x66000000
+  active_color=0xfff85552
+  inactive_color=0x00000000
   width=4.0
-  # hidpi=on
   style=round
-  # background_color=0x00000000
   blacklist="Todoist"
 )
 

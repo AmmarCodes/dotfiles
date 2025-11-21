@@ -3,25 +3,25 @@ local colors = require("colors")
 local settings = require("settings")
 
 local front_app = sbar.add("item", "front_app", {
-  background = { color = colors.item_bg_color, height = 28, corner_radius = 6 },
+  background = { color = colors.item_bg_color, height = settings.bar_height, corner_radius = settings.corner_radius },
 
   display = "active",
   icon = {
     font = { family = "sketchybar-app-font", style = "Regular", size = 16 },
     color = colors.blue,
-    background = { color = colors.item_bg_color, height = 28, corner_radius = 6 },
-    padding_left = settings.group_paddings,
+    background = { color = colors.item_bg_color, height = settings.bar_height, corner_radius = settings.corner_radius },
+    padding_left = settings.paddings * 2,
     padding_right = settings.group_paddings,
   },
   label = {
     padding_left = settings.group_paddings,
-    padding_right = settings.group_paddings,
+    padding_right = settings.paddings * 2,
     font = {
       style = settings.font.style_map["Black"],
       size = 12.0,
     },
   },
-  padding_left = 2,
+  padding_left = 10,
   updates = true,
 })
 

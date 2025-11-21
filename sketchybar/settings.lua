@@ -1,9 +1,12 @@
 return {
-  paddings = 3,
+  paddings = 8,
   group_paddings = 5,
+  bar_height = 20,
 
   icons = "sf-symbols", -- alternatively available: NerdFont
   animated_icons = true, -- Set to true if you want to use animated icons
+
+  corner_radius = 10,
 
   -- This is a font configuration for SF Pro and SF Mono (installed manually)
   -- font = require("helpers.default_font"),

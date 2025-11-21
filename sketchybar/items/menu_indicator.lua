@@ -19,7 +19,7 @@ local menu_indicator = sbar.add("item", {
   background = {
     border_width = 0,
     color = colors.bar.bg,
-    corner_radius = 6,
+    corner_radius = settings.corner_radius,
   },
 })
 

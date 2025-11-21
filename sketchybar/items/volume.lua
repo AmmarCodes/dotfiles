@@ -8,8 +8,9 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
   position = "right",
   icon = { drawing = false },
   label = {
-    string = "??%",
-    padding_left = -1,
+    string = "",
+    padding_left = -2,
+    padding_right = -2,
     font = { family = settings.font.numbers },
   },
 })
@@ -17,6 +18,7 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
 local volume_icon = sbar.add("item", "widgets.volume2", {
   position = "right",
   padding_right = -1,
+  padding_left = -1,
   icon = {
     string = icons.volume._100,
     width = 0,
@@ -56,7 +58,7 @@ local volume_slider = sbar.add("slider", popup_width, {
     highlight_color = colors.blue,
     background = {
       height = 6,
-      corner_radius = 3,
+      corner_radius = settings.corner_radius,
       color = colors.bg2,
     },
     knob = {

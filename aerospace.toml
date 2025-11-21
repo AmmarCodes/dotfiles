@@ -71,9 +71,9 @@ preset = 'qwerty'
 inner.horizontal = 8
 inner.vertical = 8
 outer.top = [{ monitor.built-in = 4 }, 28]
-outer.left = 4
+outer.left = 8
 outer.bottom = 8
-outer.right = 4
+outer.right = 8
 
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-env-vars
 [exec] # Again, you don't need to copy all config sections to your config.

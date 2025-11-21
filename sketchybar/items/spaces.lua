@@ -14,11 +14,12 @@ sbar.exec("aerospace list-workspaces --monitor focused", function(spaces)
         padding_right = settings.group_paddings * 2,
         color = colors.white,
         highlight_color = colors.bg2,
-        background = { height = 28, corner_radius = 6 },
+        background = { height = settings.bar_height, corner_radius = settings.corner_radius },
         y_offset = 1,
       },
       label = {
         padding_right = 12,
+        padding_left = settings.group_paddings,
         color = colors.grey,
         highlight_color = colors.white,
         font = "sketchybar-app-font:Regular:16.0",
@@ -35,11 +36,13 @@ sbar.exec("aerospace list-workspaces --monitor focused", function(spaces)
     })
 
     local space_bracket = sbar.add("bracket", { space.name }, {
+      padding_right = settings.group_paddings, -- 7,
       background = {
-        color = colors.transparent,
-        border_color = colors.bg2,
-        height = 28,
-        border_width = 2,
+        -- color = colors.transparent,
+
+        -- border_color = colors.bg2,
+        -- height = 20,
+        -- border_width = 2,
       },
     })
 
@@ -59,7 +62,7 @@ sbar.exec("aerospace list-workspaces --monitor focused", function(spaces)
       space:set({
         icon = {
           highlight = selected,
-          background = { color = selected and colors.mauve or colors.item_bg_color },
+          background = { color = selected and 0xffE57E80 or colors.item_bg_color },
         },
 
         label = { highlight = selected },

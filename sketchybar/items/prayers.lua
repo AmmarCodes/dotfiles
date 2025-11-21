@@ -1,7 +1,7 @@
 local colors = require("colors")
 
 local prayers = sbar.add("item", {
-  icon = { string = "", padding_left = 9, color = colors.blue },
+  icon = { string = "", padding_left = 9, color = colors.green },
   padding_left = 6,
   padding_right = 0,
   label = { font = { size = 12 }, padding_right = 9 },
@@ -16,7 +16,7 @@ local prayers = sbar.add("item", {
 local prayers_bracket = sbar.add("bracket", "widgets.prayers.bracket", {
   prayers.name,
 }, {
-  background = { color = colors.item_bg_color },
+  -- background = { color = colors.item_bg_color },
   popup = { align = "center", height = 30 },
 })
 

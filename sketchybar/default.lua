@@ -13,7 +13,7 @@ sbar.default({
     color = colors.white,
     padding_left = settings.paddings,
     padding_right = settings.paddings,
-    background = { image = { corner_radius = 9 } },
+    background = { image = { corner_radius = settings.corner_radius } },
   },
   label = {
     font = {
@@ -22,22 +22,19 @@ sbar.default({
       size = 13.0,
     },
     background = {
-      -- border_width = 1,
-      -- border_color = colors.bar.border,
-      height = 26,
-      corner_radius = 6,
+      corner_radius = settings.corner_radius,
     },
     color = colors.white,
     padding_left = settings.paddings,
     padding_right = settings.paddings,
   },
   background = {
-    height = 28,
-    corner_radius = 6,
+    height = settings.bar_height,
+    corner_radius = settings.corner_radius,
     -- border_width = 1,
     -- border_color = colors.bg2,
     image = {
-      corner_radius = 8,
+      corner_radius = settings.corner_radius,
       -- border_color = colors.grey,
       -- border_width = 1,
     },
@@ -45,12 +42,11 @@ sbar.default({
   popup = {
     background = {
       border_width = 2,
-      corner_radius = 9,
+      corner_radius = settings.corner_radius,
       border_color = colors.popup.border,
       color = colors.popup.bg,
       shadow = { drawing = true },
     },
-    blur_radius = 50,
   },
   padding_left = 5,
   padding_right = 5,

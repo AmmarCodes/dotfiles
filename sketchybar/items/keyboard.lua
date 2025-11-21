@@ -1,14 +1,20 @@
+local colors = require("colors")
 local settings = require("settings")
 
 sbar.add("event", "keyboard_change", "AppleSelectedInputSourcesChangedNotification")
 
 local keyboard = sbar.add("item", "widgets.keyboard", {
   position = "right",
+  background = {
+    color = colors.item_bg_color,
+  },
   icon = {
+    padding_right = -5,
     font = {
       style = settings.font.style_map["Regular"],
-      size = 19.0,
+      size = 18.0,
     },
+    y_offset = 1,
   },
 })
 

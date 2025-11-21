@@ -6,9 +6,10 @@ local time = sbar.add("item", {
     drawing = false,
   },
   label = {
-    color = colors.black,
-    padding_right = 10,
-    padding_left = 10,
+    y_offset = 0.5,
+    color = colors.teal,
+    padding_right = settings.paddings * 2,
+    padding_left = settings.paddings * 2,
     align = "center",
     font = {
       family = settings.font.numbers,
@@ -18,11 +19,11 @@ local time = sbar.add("item", {
   },
   position = "right",
   update_freq = 30,
-  padding_left = 1,
+  padding_left = 0,
   padding_right = 0,
   background = {
-    color = colors.green,
-    corner_radius = 6,
+    color = colors.item_bg_color,
+    corner_radius = settings.corner_radius,
   },
 })
 
@@ -31,9 +32,10 @@ local date = sbar.add("item", {
     drawing = false,
   },
   label = {
+    y_offset = 0.5,
     color = colors.white,
-    padding_right = 10,
-    padding_left = 2,
+    padding_right = settings.paddings * 2,
+    padding_left = settings.paddings * 2,
     align = "right",
     font = {
       family = settings.font.numbers,
@@ -43,10 +45,10 @@ local date = sbar.add("item", {
   },
   position = "right",
   update_freq = 30,
-  padding_left = 1,
-  padding_right = 1,
+  padding_left = settings.group_paddings,
+  padding_right = settings.group_paddings,
   background = {
-    color = colors.transparent,
+    color = colors.item_bg_color,
   },
   click_script = "open -a 'Calendar'",
 })
