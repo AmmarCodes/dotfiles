@@ -274,7 +274,7 @@ return {
       code_suggestions = {
         -- For the full list of default languages, see the 'auto_filetypes' array in
         -- https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/lua/gitlab/config/defaults.lua
-        auto_filetypes = { "ruby", "javascript", "html", "vue" }, -- Default is { 'ruby' }
+        auto_filetypes = { "ruby", "javascript", "javascriptreact", "html", "css", "typescript", "typescriptreact" },
         ghost_text = {
           enabled = true,
           accept_suggestion = "<C-l>",

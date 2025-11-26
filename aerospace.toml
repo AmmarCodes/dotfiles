@@ -12,7 +12,7 @@ after-startup-command = []
 non-empty-workspaces-root-containers-layout-on-startup = 'smart'
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -49,15 +49,6 @@ exec-on-workspace-change = [
   '-c',
   'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
 ]
-# You can effectively turn off macOS "Hide application" (cmd-h) feature by toggling this flag
-# Useful if you don't use this macOS feature, but accidentally hit cmd-h or cmd-alt-h key
-# Also see: https://nikitabobko.github.io/AeroSpace/goodies#disable-hide-app
-automatically-unhide-macos-hidden-apps = false
-
-# Possible values: (qwerty|dvorak|colemak)
-# See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
-[key-mapping]
-preset = 'qwerty'
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
@@ -87,28 +78,6 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
 
-# All possible keys:
-# - Letters.        a, b, c, ..., z
-# - Numbers.        0, 1, 2, ..., 9
-# - Keypad numbers. keypad0, keypad1, keypad2, ..., keypad9
-# - F-keys.         f1, f2, ..., f20
-# - Special keys.   minus, equal, period, comma, slash, backslash, quote, semicolon,
-#                   backtick, leftSquareBracket, rightSquareBracket, space, enter, esc,
-#                   backspace, tab, pageUp, pageDown, home, end, forwardDelete,
-#                   sectionSign (ISO keyboards only, european keyboards only)
-# - Keypad special. keypadClear, keypadDecimalMark, keypadDivide, keypadEnter, keypadEqual,
-#                   keypadMinus, keypadMultiply, keypadPlus
-# - Arrows.         left, down, up, right
-
-# All possible modifiers: cmd, alt, ctrl, shift
-
-# All possible commands: https://nikitabobko.github.io/AeroSpace/commands
-
-# You can uncomment this line to open up terminal with alt + enter shortcut
-# See: https://nikitabobko.github.io/AeroSpace/commands#exec-and-forget
-# alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
-
-# See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
