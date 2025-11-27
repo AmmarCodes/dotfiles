@@ -5,7 +5,6 @@
 
 - link:
     ~/.gitconfig: gitconfig
-    ~/.yabairc: yabairc
     ~/.npmrc: npmrc
     ~/.default-gems: default-gems
     ~/.aerospace.toml: aerospace.toml
@@ -14,7 +13,6 @@
     ~/.tmux.conf: tmux.conf
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
-    ~/.skhdrc: skhdrc
     ~/.config/zed/settings.json: zed/settings.json
     ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/borders/bordersrc: bordersrc

@@ -1,6 +1,0 @@
-#!/bin/bash
-slacktoken=PUT_TOKEN_REFERENCE_HERE
-apiurl="https://slack.com/api/dnd.setSnooze?token="$slacktoken"&num_minutes="
-
-curl --silent --data-urlencode "num_minutes=$1" $apiurl > /dev/null
-

@@ -123,19 +123,14 @@ set -gx FZF_DEFAULT_OPTS "\
 --preview-window="border-rounded" \
 --padding="0,1" --scrollbar="" \
 --multi"
-# --color=bg+:#414559,bg:-1,spinner:#f2d5cf,hl:#e78284 \
-# --color=fg:-1,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
-# --color=marker:#a6d189,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284 \
-# --color=selected-bg:#51576d \
-
-#--pointer=' ' \
-#--color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic' \
 
 set -gx FZF_CTRL_R_OPTS "--border-label=' history ' --prompt='  '"
 
-# set -gx RUBYOPT "-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
-
-source ~/.private_exports
+if test -f ~/.private_exports
+    source ~/.private_exports
+else
+    echo "Warning: ~/.private_exports not found. Some features may not work."
+end
 
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 # set --export --prepend PATH "/Users/aalakkad/.rd/bin"
@@ -193,6 +188,8 @@ set -g fish_color_search_match \x2d\x2dbackground\x3d414559
 set -g fish_color_selection \x2d\x2dbackground\x3d414559
 set -g fish_color_status e78284
 set -g fish_color_user 81c8be
+
+# set -gx RUBYOPT "-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
 
 # set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
 # set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"

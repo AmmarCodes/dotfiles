@@ -29,8 +29,6 @@
 	fsmonitor = true
 [interactive]
   diffFilter = delta --color-only --features=interactive
-[merge]
-  conflictstyle = zdiff3
 [difftool]
   prompt = false
   keepBackup = false
@@ -109,8 +107,8 @@ path = ~/.gitconfig-gitlab
 [column]
 	ui = auto
 [maintenance]
-	repo = /Users/aalakkad/projects/gitlab-development-kit/gitlab
-	repo = /Users/aalakkad/projects/gitlab-development-kit
+	repo = ~/projects/gitlab-development-kit/gitlab
+	repo = ~/projects/gitlab-development-kit
 [index]
 	version = 4
 [advice]

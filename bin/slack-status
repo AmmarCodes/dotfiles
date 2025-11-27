@@ -1,6 +1,0 @@
-#!/bin/bash
-slacktoken=PUT_TOKEN_REFERENCE_HERE
-apiurl="https://slack.com/api/users.profile.set?token="$slacktoken"&profile="
-
-curl --silent --data-urlencode "profile={\"status_text\": \"$1\", \"status_emoji\": \"$2\"}" $apiurl > /dev/null
-

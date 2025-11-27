@@ -84,23 +84,6 @@ return {
     end,
   },
   {
-    "smoka7/multicursors.nvim",
-    enabled = false,
-    opts = {},
-    dependencies = {
-      "smoka7/hydra.nvim",
-    },
-    cmd = { "MCstart", "MCvisual", "MCclear", "MCpattern", "MCvisualPattern", "MCunderCursor" },
-    keys = {
-      {
-        mode = { "v", "n" },
-        "<leader>m",
-        "<cmd>MCstart<cr>",
-        desc = "Create a selection for selected text or word under the cursor",
-      },
-    },
-  },
-  {
     "vim-test/vim-test",
     cmd = { "TestNearest", "TestFile", "TestSuite", "TestLast", "TestVisit" },
     dependencies = { "preservim/vimux" },
@@ -224,7 +207,6 @@ return {
   },
   {
     "rachartier/tiny-inline-diagnostic.nvim",
-    -- enabled = false,
     config = function()
       require("tiny-inline-diagnostic").setup({
         preset = "modern", -- Can be: "modern", "classic", "minimal", "ghost", "simple", "nonerdfont", "amongus"

@@ -1,9 +1,0 @@
-#!/bin/bash
-# inspired by https://github.com/basecamp/omakub/blob/master/bin/omakub-theme
-
-THEME_NAMES=("Rose Pine" "Catppuccin" "Tokyo Night" "Nord" "Everforest")
-THEME=$(gum choose "${THEME_NAMES[@]}" --header "Choose your theme" --height 9 | tr '[:upper:]' '[:lower:]' | sed 's/ /-/g')
-[ ! -n "$THEME" ] && exit 0
-
-cp $HOME/.dotfiles/themes/neovim/$THEME.lua ~/.config/nvim/lua/plugins/theme.lua
-cp $HOME/.dotfiles/themes/tmux/$THEME.tmux ~/.tmux/theme.tmux

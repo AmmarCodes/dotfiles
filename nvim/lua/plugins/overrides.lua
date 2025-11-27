@@ -64,7 +64,7 @@ return {
         --   cmd = { "bundle", "exec", "rubocop", "--lsp" },
         -- },
         ruby_lsp = {
-          cmd = { "/Users/aalakkad/.local/share/mise/shims/ruby-lsp" },
+          cmd = { vim.fn.expand("~/.local/share/mise/shims/ruby-lsp") },
           settings = {
             init_options = {
               enabled_features = {

@@ -20,7 +20,8 @@ import { execSync } from "child_process";
 import dotenv from "dotenv";
 dotenv.config({ path: "~/.private_exports" });
 if (!process.env.TODOIST_TOKEN) {
-  process.exit("TODOIST_TOKEN env var does not exist");
+  console.error("TODOIST_TOKEN env var does not exist");
+  process.exit(1);
 }
 let prefix = process.argv.slice(2)[0] || "";
 if (prefix) prefix += " ";
