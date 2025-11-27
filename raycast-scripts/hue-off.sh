@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Required parameters:
 # @raycast.schemaVersion 1
@@ -23,5 +23,5 @@ url="https://$ip/api/$HUE_USERNAME/groups/$group_id/action"
 curl -k -s -H "Accept: application/json" -X PUT --data "{\"on\": false}" $url &>/dev/null
 
 if [[ $? != 0 ]]; then
-	echo "Could not turn it on"
+  echo "Could not turn it on"
 fi
