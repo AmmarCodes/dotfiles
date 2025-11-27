@@ -19,8 +19,14 @@ brew "composer"
 brew "btop"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
+# View disk space usage and delete unwanted data, fast
+brew "dua-cli"
 # Modern, maintained replacement for ls
 brew "eza"
+# Simple, fast and user-friendly alternative to find
+brew "fd"
 # Play, record, convert, and stream audio and video
 brew "ffmpeg"
 # User-friendly command-line shell for UNIX-like operating systems
@@ -33,6 +39,8 @@ brew "git"
 brew "git-delta"
 # Tool for glamorous shell scripts
 brew "gum"
+# Tool to report network interface bandwidth
+brew "ifstat"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
 # Helps you navigate your file system faster by learning your habits
@@ -41,20 +49,25 @@ brew "jump"
 brew "lazygit"
 # Powerful, lightweight programming language
 brew "lua"
+# Mac App Store command-line interface
+brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Platform built on V8 to build network applications
+# Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Trigger notifications when a process completes
 brew "noti"
-# Execute binaries from Python packages in isolated environments
-brew "pipx"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Terminal multiplexer
 brew "tmux"
+# Manage complex tmux sessions easily
+brew "tmuxinator"
+# Internet file retriever
+brew "wget"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
 # A window border system for macOS
@@ -77,6 +90,7 @@ cask "anki"
 cask "contexts"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+# Utilities designed to make common development tasks easier
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 cask "font-cascadia-mono"
@@ -84,26 +98,22 @@ cask "font-ibm-plex-mono"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "font-noto-sans-arabic"
-cask "font-sf-mono"
 cask "font-noto-sans-arabic-ui"
+cask "font-sf-mono-nerd-font-ligaturized"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
 cask "font-sn-pro"
 cask "font-vazirmatn"
-# Terminal emulator that uses platform-native UI and GPU acceleration
-cask "ghostty"
 # iPhone management application
 cask "imazing"
 # Keyboard customiser
 cask "karabiner-elements"
 # Host-based application firewall
 cask "little-snitch"
-# Simple application that will prevent iTunes or Apple Music from launching
-cask "notunes"
 # Silence embarrassing notifications while screensharing
 cask "muzzle"
-# Open-source software for live streaming and screen recording
-cask "obs"
+# Simple application that will prevent iTunes or Apple Music from launching
+cask "notunes"
 # Automatic time tracker
 cask "qbserve"
 # Control your tools with a few keystrokes
@@ -112,13 +122,13 @@ cask "raycast"
 cask "rectangle"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
+# Native GUI tool for relational databases
+cask "tableplus"
 # Messaging app with a focus on speed and security
 cask "telegram"
 # To-do list
 cask "todoist-app"
 # Native desktop client for WhatsApp
 cask "whatsapp"
-# Multiplayer code editor
-cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
