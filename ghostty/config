@@ -18,14 +18,14 @@ quit-after-last-window-closed = true
 
 ## Font settings
 # MonoLisa FiraCode 0xProto "Liga SFMono Nerd Font" "Cascadia Mono"
-font-family = MonoLisa
-# font-family = Zed Plex Mono
+font-family = Lilex
+# font-family = MonoLisa
 # font-style-bold = Medium
 
 font-size = 14
 font-thicken = true
 font-thicken-strength = 200
-adjust-cell-height = 16
+adjust-cell-height = 24
 adjust-underline-position = 4
 # font-feature = calt
 font-feature = dlig
