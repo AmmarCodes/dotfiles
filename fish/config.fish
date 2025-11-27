@@ -1,4 +1,4 @@
-set -U fish_greeting # disable fish greeting
+set fish_greeting # disable fish greeting
 
 #############
 ## Aliases ##
@@ -109,10 +109,10 @@ end
 ###########
 # Exports #
 ###########
-set -xU EDITOR nvim
+set -gx EDITOR nvim
 
 # fzf
-set -Ux FZF_DEFAULT_OPTS "\
+set -gx FZF_DEFAULT_OPTS "\
 --reverse \
 --border rounded \
 --no-info \
@@ -131,7 +131,9 @@ set -Ux FZF_DEFAULT_OPTS "\
 #--pointer=' ' \
 #--color='16,bg+:-1,gutter:-1,prompt:5,pointer:5,marker:6,border:4,label:4,header:italic' \
 
-set -Ux FZF_CTRL_R_OPTS "--border-label=' history ' --prompt='  '"
+set -gx FZF_CTRL_R_OPTS "--border-label=' history ' --prompt='  '"
+
+# set -gx RUBYOPT "-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
 
 source ~/.private_exports
 
@@ -140,55 +142,57 @@ source ~/.private_exports
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
 #########
+#  Brew #
+#########
+set -gx HOMEBREW_PREFIX /opt/homebrew
+set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
+set -gx HOMEBREW_REPOSITORY /opt/homebrew
+
+#########
 # Paths #
 #########
 fish_add_path ~/.dotfiles/bin/
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 fish_add_path ~/.local/share/mise/shims
-
-#########
-#  Brew #
-#########
-set --global --export HOMEBREW_PREFIX /opt/homebrew
-
-set --global --export HOMEBREW_CELLAR /opt/homebrew/Cellar
-
-set --global --export HOMEBREW_REPOSITORY /opt/homebrew
-
 fish_add_path --global --move --path /opt/homebrew/bin /opt/homebrew/sbin
 
 ###########
 # Sources #
 ###########
-/opt/homebrew/bin/mise activate fish | source
-status --is-interactive; and source (jump shell fish | psub)
-status --is-interactive; and source (atuin init fish --disable-up-arrow | psub)
 
-#####
-# Catppuccin Frappe colors
-#
-# SETUVAR fish_color_autosuggestion:737994
-# SETUVAR fish_color_cancel:e78284
-# SETUVAR fish_color_command:7CAFA4
-# SETUVAR fish_color_comment:838ba7
-# SETUVAR fish_color_cwd:e5c890
-# SETUVAR fish_color_end:ef9f76
-# SETUVAR fish_color_error:e78284
-# SETUVAR fish_color_escape:ea999c
-# SETUVAR fish_color_gray:737994
-# SETUVAR fish_color_host:8caaee
-# SETUVAR fish_color_host_remote:a6d189
-# SETUVAR fish_color_keyword:e78284
-# SETUVAR fish_color_normal:c6d0f5
-# SETUVAR fish_color_operator:f4b8e4
-# SETUVAR fish_color_option:a6d189
-# SETUVAR fish_color_param:eebebe
-# SETUVAR fish_color_quote:a6d189
-# SETUVAR fish_color_redirection:f4b8e4
-# SETUVAR fish_color_search_match:\x2d\x2dbackground\x3d414559
-# SETUVAR fish_color_selection:\x2d\x2dbackground\x3d414559
-# SETUVAR fish_color_status:e78284
-# SETUVAR fish_color_user:81c8be
+# Lazy-load jump and atuin
+status --is-interactive; and function __init_deferred_tools --on-event fish_prompt
+    functions --erase __init_deferred_tools # Run only once
+    source (jump shell fish | psub)
+    source (atuin init fish --disable-up-arrow | psub)
+end
 
-set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
-set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"
+############################
+# Catppuccin Frappe colors #
+############################
+
+set -g fish_color_autosuggestion 737994
+set -g fish_color_cancel e78284
+set -g fish_color_command 7CAFA4
+set -g fish_color_comment 838ba7
+set -g fish_color_cwd e5c890
+set -g fish_color_end ef9f76
+set -g fish_color_error e78284
+set -g fish_color_escape ea999c
+set -g fish_color_gray 737994
+set -g fish_color_host 8caaee
+set -g fish_color_host_remote a6d189
+set -g fish_color_keyword e78284
+set -g fish_color_normal c6d0f5
+set -g fish_color_operator f4b8e4
+set -g fish_color_option a6d189
+set -g fish_color_param eebebe
+set -g fish_color_quote a6d189
+set -g fish_color_redirection f4b8e4
+set -g fish_color_search_match \x2d\x2dbackground\x3d414559
+set -g fish_color_selection \x2d\x2dbackground\x3d414559
+set -g fish_color_status e78284
+set -g fish_color_user 81c8be
+
+# set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
+# set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"
