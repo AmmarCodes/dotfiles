@@ -136,9 +136,9 @@ end
 # set --export --prepend PATH "/Users/aalakkad/.rd/bin"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 
-#########
-#  Brew #
-#########
+##########
+#  Brew  #
+##########
 set -gx HOMEBREW_PREFIX /opt/homebrew
 set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
 set -gx HOMEBREW_REPOSITORY /opt/homebrew
@@ -150,6 +150,7 @@ fish_add_path ~/.dotfiles/bin/
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
 fish_add_path ~/.local/share/mise/shims
 fish_add_path --global --move --path /opt/homebrew/bin /opt/homebrew/sbin
+fish_add_path ~/.config/composer/vendor/bin/
 
 ###########
 # Sources #
