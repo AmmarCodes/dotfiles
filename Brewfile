@@ -6,21 +6,22 @@ tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
 tap "oven-sh/bun"
+tap "sst/tap"
 tap "yqrashawn/goku"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Resource monitor. C++ version and continuation of bashtop and bpytop
+brew "btop"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # General-purpose scripting language
 brew "php"
 # Dependency Manager for PHP
 brew "composer"
-# Resource monitor. C++ version and continuation of bashtop and bpytop
-brew "btop"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # View disk space usage and delete unwanted data, fast
 brew "dua-cli"
 # Modern, maintained replacement for ls
@@ -49,13 +50,10 @@ brew "jump"
 brew "lazygit"
 # Powerful, lightweight programming language
 brew "lua"
-# Mac App Store command-line interface
-brew "mas"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Platform built on V8 to build network applications
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
 # Trigger notifications when a process completes
@@ -71,13 +69,15 @@ brew "wget"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
 # A window border system for macOS
-brew "felixkratz/formulae/borders"
+brew "felixkratz/formulae/borders", args: ["HEAD"]
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
 # A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
 brew "fforster/gitlab-mcp/gitlab-mcp"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# The AI coding agent built for the terminal.
+brew "sst/tap/opencode"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
@@ -90,7 +90,6 @@ cask "anki"
 cask "contexts"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
-# Utilities designed to make common development tasks easier
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 cask "font-cascadia-mono"
@@ -102,8 +101,9 @@ cask "font-noto-sans-arabic-ui"
 cask "font-sf-mono-nerd-font-ligaturized"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
-cask "font-sn-pro"
 cask "font-vazirmatn"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
 # iPhone management application
 cask "imazing"
 # Keyboard customiser
@@ -114,6 +114,8 @@ cask "little-snitch"
 cask "muzzle"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
+# Knowledge base that works on top of a local folder of plain text Markdown files
+cask "obsidian"
 # Automatic time tracker
 cask "qbserve"
 # Control your tools with a few keystrokes
