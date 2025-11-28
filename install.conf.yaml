@@ -4,12 +4,12 @@
       create: true
 
 - link:
-    ~/.gitconfig: gitconfig
+    ~/.gitconfig: git/gitconfig
     ~/.npmrc: npmrc
     ~/.default-gems: default-gems
     ~/.aerospace.toml: aerospace.toml
-    ~/.gitconfig-gitlab: gitconfig-gitlab
-    ~/.gitignore: gitignore
+    ~/.gitconfig-gitlab: git/gitconfig-gitlab
+    ~/.gitignore: git/gitignore
     ~/.tmux.conf: tmux/tmux.conf
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
