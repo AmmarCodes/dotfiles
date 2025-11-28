@@ -14,11 +14,11 @@ end
 map("n", "<cr>", ":nohl<CR>")
 
 -- paste over currently selected text without yanking it
-map("v", "p", '"_dP')
+map("v", "p", "\"_dP")
 
 -- yank file name / path
-map("n", "<leader>yfr", ':let @*=expand("%")<CR>', { desc = "Yank file relative path" })
-map("n", "<leader>yff", ':let @*=expand("%:p")<CR>', { desc = "Yank file full path" })
+map("n", "<leader>yfr", ":let @*=expand(\"%\")<CR>", { desc = "Yank file relative path" })
+map("n", "<leader>yff", ":let @*=expand(\"%:p\")<CR>", { desc = "Yank file full path" })
 
 -- Exit insert mode in Terminal
 map("t", "<C-o>", "<C-\\><C-n>")
@@ -29,7 +29,7 @@ map("t", "<C-o>", "<C-\\><C-n>")
 -- [src: https://www.reddit.com/r/neovim/comments/w0jzzv/comment/igfjx5y/?utm_source=share&utm_medium=web2x&context=3]
 map("n", "dd", function()
   if vim.api.nvim_get_current_line():match("^%s*$") then
-    return '"_dd'
+    return "\"_dd"
   else
     return "dd"
   end

@@ -67,7 +67,7 @@ local volume_slider = sbar.add("slider", popup_width, {
     },
   },
   background = { color = colors.bg1, height = 2, y_offset = -20 },
-  click_script = 'osascript -e "set volume output volume $PERCENTAGE"',
+  click_script = "osascript -e \"set volume output volume $PERCENTAGE\"",
 })
 
 volume_percent:subscribe("volume_change", function(env)
@@ -130,9 +130,9 @@ local function volume_toggle_details(env)
             width = popup_width,
             align = "center",
             label = { string = device, color = color },
-            click_script = 'SwitchAudioSource -s "'
+            click_script = "SwitchAudioSource -s \""
               .. device
-              .. '" && sketchybar --set /volume.device\\.*/ label.color='
+              .. "\" && sketchybar --set /volume.device\\.*/ label.color="
               .. colors.grey
               .. " --set $NAME label.color="
               .. colors.white,
@@ -148,7 +148,7 @@ end
 
 local function volume_scroll(env)
   local delta = env.SCROLL_DELTA
-  sbar.exec('osascript -e "set volume output volume (output volume of (get volume settings) + ' .. delta .. ')"')
+  sbar.exec("osascript -e \"set volume output volume (output volume of (get volume settings) + " .. delta .. ")\"")
 end
 
 volume_icon:subscribe("mouse.clicked", volume_toggle_details)

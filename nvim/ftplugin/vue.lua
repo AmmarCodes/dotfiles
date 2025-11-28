@@ -17,7 +17,7 @@ vim.keymap.set("i", "=", function()
     return "="
   end
 
-  return '=""<left>'
+  return "=\"\"<left>"
 end, { expr = true, buffer = true })
 
 -- Automatically close a self-closing tag

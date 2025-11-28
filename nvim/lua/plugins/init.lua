@@ -141,12 +141,12 @@ return {
     keys = {
       {
         "<leader>cs",
-        '<cmd>lua require("treesj").split()<cr>',
+        "<cmd>lua require(\"treesj\").split()<cr>",
         desc = "Split line into block",
       },
       {
         "<leader>cj",
-        '<cmd>lua require("treesj").join()<cr>',
+        "<cmd>lua require(\"treesj\").join()<cr>",
         desc = "Join block into line",
       },
     },

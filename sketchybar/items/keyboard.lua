@@ -22,7 +22,7 @@ local function refresh_keyboard_layout()
   sbar.exec(
     "defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources | grep 'KeyboardLayout Name'",
     function(result)
-      local layout = result:match("= (.-);"):gsub("^%s*(.-)%s*$", "%1"):gsub('"', "")
+      local layout = result:match("= (.-);"):gsub("^%s*(.-)%s*$", "%1"):gsub("\"", "")
 
       local icon
 

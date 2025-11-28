@@ -1,7 +1,6 @@
 -------------------MENU INDICATOR ICON-----------------
 -------------------------------------------------------
 local colors = require("colors")
-local icons = require("icons")
 local settings = require("settings")
 
 local menu_indicator = sbar.add("item", {
@@ -23,8 +22,7 @@ local menu_indicator = sbar.add("item", {
   },
 })
 
-menu_indicator:subscribe("mouse.entered", function(env)
-  local selected = env.SELECTED == "true"
+menu_indicator:subscribe("mouse.entered", function()
   sbar.animate("elastic", 15, function()
     menu_indicator:set({
       background = {
@@ -43,8 +41,7 @@ menu_indicator:subscribe("mouse.entered", function(env)
   end)
 end)
 
-menu_indicator:subscribe("mouse.exited", function(env)
-  local selected = env.SELECTED == "true"
+menu_indicator:subscribe("mouse.exited", function()
   sbar.animate("elastic", 15, function()
     menu_indicator:set({
       background = {
@@ -73,8 +70,7 @@ end)
 -- Define a variable to keep track of the icon state
 local iconState = false
 
-menu_indicator:subscribe("mouse.clicked", function(env)
-  local selected = env.SELECTED == "true"
+menu_indicator:subscribe("mouse.clicked", function()
   sbar.trigger("swap_menus_and_spaces")
   sbar.animate("elastic", 15, function()
     -- Toggle the iconState variable

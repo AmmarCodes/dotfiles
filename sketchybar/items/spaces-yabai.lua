@@ -1,6 +1,5 @@
 local app_icons = require("helpers.app_icons")
 local colors = require("colors")
-local icons = require("icons")
 local settings = require("settings")
 
 local spaces = {}
@@ -68,7 +67,6 @@ for i = 1, 10, 1 do
 
   space:subscribe("space_change", function(env)
     local selected = env.SELECTED == "true"
-    local color = selected and colors.grey or colors.bg2
     space:set({
       icon = { highlight = selected },
       label = { highlight = selected },
@@ -124,7 +122,7 @@ local space_window_observer = sbar.add("item", {
 space_window_observer:subscribe("space_windows_change", function(env)
   local icon_line = ""
   local no_app = true
-  for app, count in pairs(env.INFO.apps) do
+  for app in pairs(env.INFO.apps) do
     no_app = false
     print(app)
     local lookup = app_icons[app]
