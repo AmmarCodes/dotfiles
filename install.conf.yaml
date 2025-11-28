@@ -10,7 +10,7 @@
     ~/.aerospace.toml: aerospace.toml
     ~/.gitconfig-gitlab: gitconfig-gitlab
     ~/.gitignore: gitignore
-    ~/.tmux.conf: tmux.conf
+    ~/.tmux.conf: tmux/tmux.conf
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/zed/settings.json: zed/settings.json
