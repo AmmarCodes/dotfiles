@@ -1,4 +1,6 @@
-#!/usr/bin/env bash#
+#!/usr/bin/env bash
+
+set -e
 
 #   This file echoes a bunch of color codes to the
 #   terminal to demonstrate what's available.  Each

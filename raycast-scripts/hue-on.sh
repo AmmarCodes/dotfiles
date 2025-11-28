@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Required parameters:
 # @raycast.schemaVersion 1
 # @raycast.title lights on

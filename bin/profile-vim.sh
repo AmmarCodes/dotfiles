@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Credits to: https://gist.github.com/disusered/af7c1bf0add302946bf1
 
 iterations=10
@@ -12,7 +14,7 @@ declare -a results
 for i in $(seq 1 $iterations); do
   nvim --startuptime vim.log -c 'q'
   latest=$(awk '/./{line=$0} END{print line}' vim.log | awk '{ print $1}')
-  results+=($latest)
+  results+=("$latest")
 done
 
 # -----------------------------------------------------------------------------
@@ -24,5 +26,5 @@ for delta in "${results[@]}"; do
 done
 
 average=$(echo $total / $iterations | bc -l)
-echo $average
+echo "$average"
 rm vim.log

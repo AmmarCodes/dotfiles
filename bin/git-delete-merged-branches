@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
+set -e
+
 branches=$(git branch --no-color --merged | grep -vE "^(\*|\+)" | grep -v "(^\*|master|main|develop|dev|staging|production)")
-if [ -n "$branches" ]
-then
-    echo "$branches" | xargs -n 1 git branch -d
+if [ -n "$branches" ]; then
+  echo "$branches" | xargs -n 1 git branch -d
 fi

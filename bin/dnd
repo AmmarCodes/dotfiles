@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+set -e
+
 # Set global variables
 PROGNAME=$(basename "$0")
 VERSION='1.0.0'
 
 print_help() {
-cat <<EOF
+  cat <<EOF
 Usage:    $PROGNAME [options]
 Version:  $VERSION
 
@@ -23,27 +25,26 @@ Example:
   dnd on
 
 EOF
-exit $1
+  exit $1
 }
 
 while getopts "h" opt; do
   case $opt in
-    h) print_help 0;;
-    *) print_help 1;;
+  h) print_help 0 ;;
+  *) print_help 1 ;;
   esac
 done
 
-shift $(( OPTIND - 1 ))
+shift $((OPTIND - 1))
 
 opt=${1:-on}
 
-if [ $opt="on" ]; then
-	value="true"
-	defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "`date -u +\"%Y-%m-%d %H:%M:%S +000\"`"
+if [ $opt = "on" ]; then
+  value="true"
+  defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturbDate -date "$(date -u +\"%Y-%m-%d %H:%M:%S +000\")"
 else
-	value="false"
+  value="false"
 fi
 
 defaults -currentHost write ~/Library/Preferences/ByHost/com.apple.notificationcenterui doNotDisturb -boolean $value
 killall NotificationCenter
-

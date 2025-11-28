@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -e
+
 options=(
   active_color=0xfff85552
   inactive_color=0x00000000
