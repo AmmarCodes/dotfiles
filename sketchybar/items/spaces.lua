@@ -1,4 +1,4 @@
-local app_icons = require("helpers.app_icons")
+local app_icons = require("helpers.icon_map")
 local colors = require("colors")
 local settings = require("settings")
 
