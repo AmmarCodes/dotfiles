@@ -123,7 +123,7 @@ local function volume_toggle_details(env)
         for device in string.gmatch(available, "[^\r\n]+") do
           color = colors.grey
           if current == device then
-            color = colors.white
+            color = colors.fg
           end
           sbar.add("item", "volume.device." .. counter, {
             position = "popup." .. volume_bracket.name,
@@ -135,7 +135,7 @@ local function volume_toggle_details(env)
               .. "\" && sketchybar --set /volume.device\\.*/ label.color="
               .. colors.grey
               .. " --set $NAME label.color="
-              .. colors.white,
+              .. colors.fg,
           })
           counter = counter + 1
         end

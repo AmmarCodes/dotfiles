@@ -7,7 +7,7 @@ local time = sbar.add("item", {
   },
   label = {
     y_offset = 0.5,
-    color = colors.teal,
+    color = colors.fg,
     padding_right = settings.paddings * 2,
     padding_left = settings.paddings * 2,
     align = "center",
@@ -15,6 +15,9 @@ local time = sbar.add("item", {
       family = settings.font.numbers,
       style = settings.font.style_map["Black"],
       -- size = 14,
+    },
+    background = {
+      color = colors.with_alpha(colors.teal, 0.4),
     },
   },
   position = "right",
@@ -33,7 +36,7 @@ local date = sbar.add("item", {
   },
   label = {
     y_offset = 0.5,
-    color = colors.white,
+    color = colors.fg,
     padding_right = settings.paddings * 2,
     padding_left = settings.paddings * 2,
     align = "right",
@@ -52,9 +55,6 @@ local date = sbar.add("item", {
   },
   click_script = "open -a 'Calendar'",
 })
-
--- Padding item required because of bracket
-sbar.add("item", { position = "right", width = settings.group_paddings })
 
 time:subscribe({ "forced", "routine", "system_woke" }, function()
   time:set({ label = os.date("%H:%M") })

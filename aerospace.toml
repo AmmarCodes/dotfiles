@@ -61,7 +61,7 @@ exec-on-workspace-change = [
 [gaps]
 inner.horizontal = 8
 inner.vertical = 8
-outer.top = [{ monitor.built-in = 4 }, 28]
+outer.top = [{ monitor.built-in = 4 }, 30]
 outer.left = 8
 outer.bottom = 8
 outer.right = 8
