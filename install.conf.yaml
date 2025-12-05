@@ -49,6 +49,10 @@
       glob: true
       force: true
       path: espanso/**
+    ~/.config/mise/:
+      glob: true
+      force: true
+      path: mise/**
 
 - create:
     - ~/Library/Application Support/lazygit

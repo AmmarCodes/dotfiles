@@ -1,0 +1,15 @@
+[tools]
+go = "latest"
+node = "lts"
+ruby = "3.3.9"
+yarn = "latest"
+bun = "latest"
+gum = "latest"
+
+"npm:@anthropic-ai/claude-code" = "latest"
+
+[settings]
+idiomatic_version_file_enable_tools = ["ruby"]
+
+[settings.npm]
+bun = true
