@@ -34,6 +34,7 @@ end
 set -gx HOMEBREW_PREFIX /opt/homebrew
 set -gx HOMEBREW_CELLAR /opt/homebrew/Cellar
 set -gx HOMEBREW_REPOSITORY /opt/homebrew
+set -gx HOMEBREW_NO_EMOJI 1
 
 #########
 # Paths #
