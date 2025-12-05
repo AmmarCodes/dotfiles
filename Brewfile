@@ -64,6 +64,8 @@ brew "ripgrep"
 brew "tmux"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
+# Upgrade all the things
+brew "topgrade"
 # Internet file retriever
 brew "wget"
 # Git in your tmux status bar.

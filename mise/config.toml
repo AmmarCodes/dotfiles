@@ -4,7 +4,6 @@ node = "lts"
 ruby = "3.3.9"
 yarn = "latest"
 bun = "latest"
-gum = "latest"
 
 "npm:@anthropic-ai/claude-code" = "latest"
 
