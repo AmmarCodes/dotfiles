@@ -45,6 +45,10 @@
       glob: true
       force: true
       path: sketchybar/**
+    ~/.config/opencode/:
+      glob: true
+      force: true
+      path: opencode/**
     ~/Library/Application Support/espanso:
       glob: true
       force: true
