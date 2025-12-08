@@ -1,4 +1,3 @@
-tap "1password/tap"
 tap "arl/arl"
 tap "felixkratz/formulae"
 tap "koekeishiya/formulae"
@@ -57,6 +56,8 @@ brew "neovim"
 brew "node"
 # Trigger notifications when a process completes
 brew "noti"
+# AI coding agent, built for the terminal
+brew "opencode"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Terminal multiplexer
@@ -67,32 +68,35 @@ brew "tmuxinator"
 brew "topgrade"
 # Internet file retriever
 brew "wget"
+# Blazing fast terminal file manager written in Rust, based on async I/O
+brew "yazi"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
 # A window border system for macOS
-brew "felixkratz/formulae/borders", args: ["HEAD"]
+brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
-# A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
-brew "fforster/gitlab-mcp/gitlab-mcp"
-# The AI coding agent built for the terminal.
-brew "sst/tap/opencode"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # AeroSpace is an i3-like tiling window manager for macOS
 cask "aerospace"
-# Memory training application
-cask "anki"
 # Allows switching between application windows
 cask "contexts"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
+# Screen colour temperature controller
+cask "flux-app"
+cask "font-0xproto"
 cask "font-cascadia-mono"
-cask "font-ibm-plex-mono"
+cask "font-fira-code"
+cask "font-ia-writer-duo"
+cask "font-ia-writer-mono"
+cask "font-ia-writer-quattro"
+cask "font-ibm-plex-sans-arabic"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "font-noto-sans-arabic"
@@ -100,9 +104,12 @@ cask "font-noto-sans-arabic-ui"
 cask "font-sf-mono-nerd-font-ligaturized"
 cask "font-sf-pro"
 cask "font-sketchybar-app-font"
+cask "font-sn-pro"
 cask "font-vazirmatn"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
+# Chromium-based web browser
+cask "helium-browser"
 # iPhone management application
 cask "imazing"
 # Keyboard customiser
