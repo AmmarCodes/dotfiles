@@ -61,4 +61,3 @@ keybind = super+digit_8=text:\x01\x38
 keybind = super+digit_9=text:\x01\x39
 keybind = shift+enter=text:\x1b\r
 
-scrollbar = never
