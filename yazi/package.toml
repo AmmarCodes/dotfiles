@@ -1,5 +1,17 @@
-[plugin]
-deps = [{ use = "yazi-rs/plugins:full-border", rev = "932b931" }, { use = "Reledia/glow", rev = "d8b36ff" }]
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "932b931"
+hash = ""
+
+[[plugin.deps]]
+use = "Reledia/glow"
+rev = "d8b36ff"
+hash = ""
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:piper"
+rev = "19dc890"
+hash = "b26d542e75151835d7bc885f6dda74cb"
 
 [flavor]
 deps = []
