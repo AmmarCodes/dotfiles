@@ -5,7 +5,6 @@ tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
 tap "osx-cross/arm"
 tap "osx-cross/avr"
-tap "oven-sh/bun"
 tap "sst/tap"
 tap "yqrashawn/goku"
 # Improved shell history for zsh, bash, fish and nushell
@@ -76,8 +75,6 @@ brew "felixkratz/formulae/borders", args: ["HEAD"]
 brew "felixkratz/formulae/sketchybar"
 # A Model Context Protocol (MCP) server for GitLab, enabling Claude to interact directly with your GitLab instance.
 brew "fforster/gitlab-mcp/gitlab-mcp"
-# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
-brew "oven-sh/bun/bun"
 # The AI coding agent built for the terminal.
 brew "sst/tap/opencode"
 # karabiner configurator
