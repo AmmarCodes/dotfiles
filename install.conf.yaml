@@ -63,6 +63,8 @@
     - ~/Library/Application Support/lazygit
 
 - shell:
+    - description: "Install must-haves brew packages"
+      command: "brew install fish raycast ghostty nvim"
     - description: "Install fisher - fish plugin manager"
       command: "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
     - description: "Installing submodules"
@@ -76,4 +78,4 @@
     - description: "Installing sketchybar font"
       command: "curl -L https://github.com/kvndrsslr/sketchybar-app-font/releases/download/latest/sketchybar-app-font.ttf -o $HOME/Library/Fonts/sketchybar-app-font.ttf"
     - description: "Install npm packages in sketchybar items"
-      command: "cd ~/.config/sketchybar/items/ && npm install"
+      command: "if type -q npm; then cd ~/.config/sketchybar/items/ && npm install; fi"

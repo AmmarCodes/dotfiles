@@ -11,13 +11,18 @@ abbr --add aerospaceconfig "nvim ~/.aerospace.toml"
 abbr --add tmuxconfig "nvim ~/.tmux.conf"
 abbr --add kara "nvim ~/.dotfiles/karabiner.edn"
 
-alias cat bat
+if type -q bat
+    alias cat bat
+end
+
 abbr --add e exit
 abbr --add q exit
 abbr --add oc opencode
 
-alias ls "eza --group-directories-first --color auto --icons -s type"
-alias tree "eza --tree --level=5 --icons --group-directories-first --color auto"
+if type -q eza
+    alias ls "eza --group-directories-first --color auto --icons -s type"
+    alias tree "eza --tree --level=5 --icons --group-directories-first --color auto"
+end
 
 abbr --add vim nvim
 abbr --add weather "curl \"https://wttr.in/?Q1n\""
@@ -36,7 +41,9 @@ abbr --add upgrade-nvim "brew unlink neovim && brew install --fetch-HEAD --HEAD 
 
 # git aliases
 abbr --add g git
-abbr --add lg lazygit
+if type -q lazygit
+    abbr --add lg lazygit
+end
 abbr --add ga "git add"
 abbr --add gb "git branch"
 abbr --add gbD "git branch -D"

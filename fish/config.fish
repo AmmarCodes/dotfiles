@@ -18,6 +18,10 @@ end
 # Lazy-load jump and atuin
 status --is-interactive; and function __init_deferred_tools --on-event fish_prompt
     functions --erase __init_deferred_tools # Run only once
-    source (jump shell fish | psub)
-    source (atuin init fish --disable-up-arrow | psub)
+    if type -q jump
+        source (jump shell fish | psub)
+    end
+    if type -q atuin
+        source (atuin init fish --disable-up-arrow | psub)
+    end
 end
