@@ -128,64 +128,6 @@ return {
     },
   },
   {
-    "ibhagwan/fzf-lua",
-    opts = {
-      actions = {
-        files = {
-          true,
-          ["enter"] = require("fzf-lua.actions").file_edit,
-        },
-      },
-      files = {
-        -- cwd_prompt = true,
-        fd_opts = [[--color=never --type f --exclude .git --exclude vendor --exclude public]],
-      },
-      marks = {
-        marks = "[A-Za-z]",
-      },
-      oldfiles = {
-        include_current_session = true,
-      },
-      previewers = {
-        builtin = {
-          syntax_limit_b = 1024 * 100, -- 100KB
-        },
-      },
-      grep = {
-        rg_glob = true,
-        glob_flag = "--iglob", -- case insensitive globs
-        glob_separator = "%s%-%-", -- query separator pattern (lua): ' --'
-      },
-    },
-    keys = {
-      {
-        "<C-p>",
-        "<cmd>FzfLua files previewer=false git_icons=false<cr>",
-        desc = "Find files",
-      },
-      {
-        "<C-b>",
-        "<cmd>FzfLua buffers sort_mru=true sort_lastused=true<cr>",
-        desc = "Find current buffers",
-      },
-      {
-        "<leader>sw",
-        "<cmd>FzfLua grep<cr>",
-        desc = "Search for something (using Rg)",
-      },
-      {
-        "<leader>ss",
-        "<cmd>FzfLua grep_cword<cr>",
-        desc = "Search for current word under cursor",
-      },
-      {
-        "<leader>,",
-        "<cmd>FzfLua files<cr>",
-        desc = "Find Files",
-      },
-    },
-  },
-  {
     "akinsho/bufferline.nvim",
     event = "VeryLazy",
     opts = {
@@ -370,6 +312,12 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
+      picker = {
+        matcher = {
+          frecency = true,
+          cwd_bonus = true,
+        },
+      },
       dashboard = {
         preset = {
           header = [[
@@ -388,6 +336,22 @@ return {
   ╚═╝     ╚═╝  ╚═╝╚══════╝╚══════╝╚══════╝   ╚═╝   ╚═╝╚═╝  ╚═══╝╚══════╝ 
 ]],
         },
+      },
+    },
+    keys = {
+      {
+        "<C-p>",
+        function()
+          Snacks.picker.smart()
+        end,
+        desc = "Smart Find Files",
+      },
+      {
+        "<C-b>",
+        function()
+          Snacks.picker.buffers()
+        end,
+        desc = "Find current buffers",
       },
     },
   },
