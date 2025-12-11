@@ -86,6 +86,8 @@ cask "aerospace"
 cask "contexts"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+# Elgato FACECAM configuration tool
+cask "elgato-camera-hub"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 # Screen colour temperature controller
