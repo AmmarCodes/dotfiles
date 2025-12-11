@@ -10,6 +10,7 @@
 [fetch]
   prune = true
   pruneTags = true
+  writeCommitGraph = true
 [help]
   autocorrect = prompt
 [commit]
@@ -22,11 +23,12 @@
 	diff = delta
 	show = delta
 [core]
-	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = ~/.gitignore
-	pager = delta
-	ignorecase = false
-	fsmonitor = true
+  # Use custom `.gitignore` and `.gitattributes`
+  excludesfile = ~/.gitignore
+  pager = delta
+  ignorecase = false
+  fsmonitor = true
+  preloadindex = true
 [interactive]
   diffFilter = delta --color-only --features=interactive
 [difftool]
