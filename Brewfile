@@ -1,19 +1,11 @@
 tap "arl/arl"
 tap "felixkratz/formulae"
-tap "koekeishiya/formulae"
 tap "nikitabobko/tap"
-tap "osx-cross/arm"
-tap "osx-cross/avr"
-tap "sst/tap"
 tap "yqrashawn/goku"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
-# Resource monitor. C++ version and continuation of bashtop and bpytop
-brew "btop"
-# Get a file from an HTTP, HTTPS or FTP server
-brew "curl"
 # General-purpose scripting language
 brew "php"
 # Dependency Manager for PHP
@@ -26,8 +18,6 @@ brew "dua-cli"
 brew "eza"
 # Simple, fast and user-friendly alternative to find
 brew "fd"
-# Play, record, convert, and stream audio and video
-brew "ffmpeg"
 # User-friendly command-line shell for UNIX-like operating systems
 brew "fish"
 # Command-line fuzzy finder written in Go
@@ -36,8 +26,6 @@ brew "fzf"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Tool for glamorous shell scripts
-brew "gum"
 # Tool to report network interface bandwidth
 brew "ifstat"
 # Lightweight and flexible command-line JSON processor
@@ -56,10 +44,10 @@ brew "neovim"
 brew "node"
 # Trigger notifications when a process completes
 brew "noti"
-# AI coding agent, built for the terminal
-brew "opencode"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# AI coding agent, built for the terminal
+brew "opencode"
 # Terminal multiplexer
 brew "tmux"
 # Manage complex tmux sessions easily
@@ -84,8 +72,6 @@ cask "1password"
 cask "aerospace"
 # Allows switching between application windows
 cask "contexts"
-# Client for the Dropbox cloud storage service
-cask "dropbox"
 # Elgato FACECAM configuration tool
 cask "elgato-camera-hub"
 # Cross-platform Text Expander written in Rust
@@ -112,33 +98,17 @@ cask "font-vazirmatn"
 cask "ghostty"
 # Chromium-based web browser
 cask "helium-browser"
-# iPhone management application
-cask "imazing"
 # Keyboard customiser
 cask "karabiner-elements"
-# Host-based application firewall
-cask "little-snitch"
-# Silence embarrassing notifications while screensharing
-cask "muzzle"
-# Simple application that will prevent iTunes or Apple Music from launching
-cask "notunes"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
-# Automatic time tracker
-cask "qbserve"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Move and resize windows using keyboard shortcuts or snap areas
-cask "rectangle"
 # Tool that provides consistent, highly configurable symbols for apps
 cask "sf-symbols"
 # Native GUI tool for relational databases
 cask "tableplus"
-# Messaging app with a focus on speed and security
-cask "telegram"
 # To-do list
 cask "todoist-app"
-# Native desktop client for WhatsApp
-cask "whatsapp"
 # Video communication and virtual meeting platform
 cask "zoom"
