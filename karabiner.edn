@@ -6,7 +6,7 @@
     :raycast "open -g \"raycast://extensions/%s\""
 	}
 	:devices {
-		:macbookpro15 [{:product_id 835 :vendor_id 1452}]
+		:macbookpro15 [{:device_id 4294970624}]
 		:macbookpro13 [{:device_id 4294970053}]
 		:ergodox [{:product_id 4871 :vendor_id 65261}]
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
