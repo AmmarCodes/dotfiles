@@ -1,11 +1,14 @@
 tap "arl/arl"
 tap "felixkratz/formulae"
 tap "nikitabobko/tap"
+tap "oven-sh/bun"
 tap "yqrashawn/goku"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
+# Get a file from an HTTP, HTTPS or FTP server
+brew "curl"
 # General-purpose scripting language
 brew "php"
 # Dependency Manager for PHP
@@ -64,6 +67,8 @@ brew "arl/arl/gitmux"
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
@@ -76,15 +81,10 @@ cask "contexts"
 cask "elgato-camera-hub"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
-# Screen colour temperature controller
-cask "flux-app"
-cask "font-0xproto"
 cask "font-cascadia-mono"
-cask "font-fira-code"
 cask "font-ia-writer-duo"
 cask "font-ia-writer-mono"
 cask "font-ia-writer-quattro"
-cask "font-ibm-plex-sans-arabic"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "font-noto-sans-arabic"
@@ -100,6 +100,8 @@ cask "ghostty"
 cask "helium-browser"
 # Keyboard customiser
 cask "karabiner-elements"
+# Simple application that will prevent iTunes or Apple Music from launching
+cask "notunes"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
 # Control your tools with a few keystrokes
