@@ -18,7 +18,7 @@
 
 import { execSync } from "child_process";
 
-const workItemFolder = "2.Areas/gitlab/work/";
+const workItemFolder = "/work-items/";
 
 const defaultBrowser = execSync(
   "defaults read ~/Library/Preferences/com.apple.LaunchServices/com.apple.launchservices.secure | awk -F'\"' '/http;/{print window[(NR)-1]}{window[NR]=$2}'",
@@ -34,7 +34,7 @@ const browsers = {
 const browser = "Helium";
 if (!browser) console.error("Could not figure the default browser!");
 
-const getObsidianUrl = (url) => `obsidian://advanced-uri?vault=obsidian&${url}`;
+const getObsidianUrl = (url) => `obsidian://advanced-uri?vault=obsidian-work&${url}`;
 
 const openObsidianUrl = (url) => {
   const obsidianUrl = getObsidianUrl(url);
@@ -88,7 +88,7 @@ const data = encodeURIComponent(content);
 // add the work item to the worklog file
 const workItem = encodeURIComponent(`- [[${filePath}|${title}]]`);
 openObsidianUrl(
-  `filepath=2.Areas/gitlab/Worklog.md&mode=append&data=${workItem}&openmode=silent`,
+  `filepath=Worklog.md&mode=append&data=${workItem}&openmode=silent`,
 );
 
 openObsidianUrl(
