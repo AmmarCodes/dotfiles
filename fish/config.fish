@@ -25,3 +25,5 @@ status --is-interactive; and function __init_deferred_tools --on-event fish_prom
         source (atuin init fish --disable-up-arrow | psub)
     end
 end
+
+set -g async_prompt_functions _pure_prompt_git
