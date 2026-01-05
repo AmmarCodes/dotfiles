@@ -27,7 +27,7 @@
      :rules [
       :launch-mode
       [:b [:launch "Helium"]]
-      [:c [:launch "Calendar"]]
+      [:c [:launch "Notion Calendar"]]
       [:d [:launch "Obsidian"]]
       [:g [:launch "Telegram"]]
       [:r [:launch "RubyMine"]]
