@@ -17,10 +17,8 @@ clipboard-paste-protection = false
 quit-after-last-window-closed = true
 
 ## Font settings
-# MonoLisa FiraCode 0xProto "Liga SFMono Nerd Font" "Cascadia Mono"
-font-family = Lilex
-# font-family = MonoLisa
-# font-style-bold = Medium
+# MonoLisa FiraCode 0xProto "Liga SFMono Nerd Font" "Cascadia Mono" Lilex
+font-family = MonoLisa
 
 font-size = 14
 font-thicken = true
