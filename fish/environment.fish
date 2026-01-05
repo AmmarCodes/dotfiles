@@ -41,9 +41,13 @@ set -gx HOMEBREW_NO_EMOJI 1
 #########
 fish_add_path ~/.dotfiles/bin/
 fish_add_path /opt/homebrew/opt/coreutils/libexec/gnubin
-fish_add_path ~/.local/share/mise/shims
 fish_add_path --global --move --path /opt/homebrew/bin /opt/homebrew/sbin
 fish_add_path ~/.config/composer/vendor/bin/
+
+# Activate mise (must come after PATH setup)
+if type -q mise
+    mise activate fish | source
+end
 
 # set -gx RUBYOPT "-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
 
