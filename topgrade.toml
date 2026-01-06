@@ -6,7 +6,7 @@
 
 [misc]
 # Disable specific steps - same options as the command line flag
-disable = ["containers", "gcloud", "yazi", "gem", "pnpm"]
+disable = ["containers", "gcloud", "yazi", "gem", "pnpm", "vim"]
 
 # Cleanup temporary or old files (default: false)
 cleanup = true
