@@ -57,6 +57,16 @@ defaults write com.apple.finder EmptyTrashSecurely -bool true
 # Allow quiting Finder
 defaults write com.apple.finder QuitMenuItem -bool true
 
+# Use Finders list view as the default view mode
+defaults write com.apple.finder FXPreferredViewStyle -string "Nlsv"
+# Show folders first
+defaults write com.apple.finder _FXSortFoldersFirst -bool true
+# When performing a search, search the current folder by default
+defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+# Set Home as the default location for new Finder windows
+defaults write com.apple.finder NewWindowTarget -string "PfLo"
+defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}"
+
 # Speed up Mission Control animations
 defaults write com.apple.dock expose-animation-duration -float 0.1
 
@@ -110,3 +120,14 @@ sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist redesig
 
 # disable Displays have separate Spaces - https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
 defaults write com.apple.spaces spans-displays -bool true && killall SystemUIServer
+
+# Disable Resume system-wide
+defaults write com.apple.systempreferences NSQuitAlwaysKeepsWindows -int 0
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write -g AppleKeyboardUIMode -int 3
+
+# Hide unused default folders on finder
+chflags hidden "${HOME}/Music"
+chflags hidden "${HOME}/Movies"
+chflags hidden "${HOME}/Public"
