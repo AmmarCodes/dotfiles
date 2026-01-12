@@ -169,6 +169,9 @@ run = 'layout floating'
 if.app-id = 'com.devuap.beautyshotapp' # Xnapper
 run = 'layout floating'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Shottr' # Shottr
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Ghostty'
