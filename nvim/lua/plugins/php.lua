@@ -1,13 +1,13 @@
 return {
   -- source: https://seankegel.com/neovim-for-php-and-laravel
-  -- {
-  --   "stevearc/conform.nvim",
-  --   opts = {
-  --     formatters_by_ft = {
-  --       php = { "pint" },
-  --     },
-  --   },
-  -- },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        php = { "pint" },
+      },
+    },
+  },
   -- {
   --   "williamboman/mason.nvim",
   --   opts = {
