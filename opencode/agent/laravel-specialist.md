@@ -1,6 +1,7 @@
 ---
 name: laravel-specialist
 description: Expert Laravel specialist
+mode: subagent
 tools:
   write: true
   edit: true

@@ -2,7 +2,6 @@
 name: frontend-aesthetics-ui-ux-expert
 description: Masters distinctive frontend aesthetics, production-grade UI design, and modern design systems. Creates visually striking, accessible, and functional user interfaces by committing to a bold conceptual direction.
 mode: subagent
-model: anthropic/claude-3-5-sonnet-20241022
 temperature: 0.7
 tools:
   write: true

@@ -1,5 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
+  "autoupdate": true,
   "mcp": {
     "context7": {
       "type": "remote",
@@ -10,7 +11,10 @@
       "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
     }
   },
-  "plugin": ["oh-my-opencode"]
+  "plugin": [
+    "@nick-vi/opencode-type-inject"
+    // "oh-my-opencode"
+  ],
   "tools": {
     "ls": true,
     "cat": true
