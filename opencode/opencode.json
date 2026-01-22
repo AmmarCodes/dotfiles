@@ -9,10 +9,20 @@
     "memory": {
       "type": "local",
       "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
+    },
+    "sequential-thinking": {
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
     }
   },
   "plugin": [
-    "@nick-vi/opencode-type-inject"
+    "@nick-vi/opencode-type-inject",
+    "@gitlab/opencode-gitlab-plugin",
+    "@franlol/opencode-md-table-formatter@0.0.3"
     // "oh-my-opencode"
   ],
   "tools": {
