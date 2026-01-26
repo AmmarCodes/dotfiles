@@ -22,8 +22,8 @@
   "plugin": [
     "@nick-vi/opencode-type-inject",
     "@gitlab/opencode-gitlab-plugin",
-    "@franlol/opencode-md-table-formatter@0.0.3"
-    // "oh-my-opencode"
+    "@franlol/opencode-md-table-formatter@0.0.3",
+    "oh-my-opencode"
   ],
   "tools": {
     "ls": true,
