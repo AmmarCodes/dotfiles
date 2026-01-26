@@ -18,7 +18,7 @@ quit-after-last-window-closed = true
 
 ## Font settings
 # MonoLisa FiraCode 0xProto "Liga SFMono Nerd Font" "Cascadia Mono" Lilex
-font-family = MonoLisa
+font-family = Google Sans Code
 
 font-size = 14
 font-thicken = true
