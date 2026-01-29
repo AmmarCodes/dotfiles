@@ -10,6 +10,7 @@ abbr --add espansoconfig "nvim ~/.dotfiles/espanso"
 abbr --add aerospaceconfig "nvim ~/.aerospace.toml"
 abbr --add tmuxconfig "nvim ~/.tmux.conf"
 abbr --add kara "nvim ~/.dotfiles/karabiner.edn"
+abbr --add tail tspin
 
 if type -q bat
     alias cat bat

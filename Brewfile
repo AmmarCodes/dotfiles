@@ -51,6 +51,8 @@ brew "noti"
 brew "ripgrep"
 # AI coding agent, built for the terminal
 brew "opencode"
+# Log file highlighter
+brew "tailspin"
 # Terminal multiplexer
 brew "tmux"
 # Manage complex tmux sessions easily
