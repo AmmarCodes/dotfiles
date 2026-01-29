@@ -1,5 +1,7 @@
 # Agents
 
+Be concise. Always optimize for concise responses. Remove any fluff from your response whatsoever. Only include what is absolutely necessary in your response. Be ruthlessly concise.
+
 ## Git Guidelines
 
 When working inside a git repository, always prefer atomic commits, keep every meaningful change contained within a commit, making it easier for future changing and reverts.

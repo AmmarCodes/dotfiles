@@ -2,6 +2,7 @@
 name: full-stack-lead
 description: Full-Stack Lead Agent
 temperature: 0.7
+mode: subagent
 tools:
   write: true
   edit: true
