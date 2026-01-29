@@ -1,16 +1,80 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
   "agents": {
-    "Sisyphus": {
+    "sisyphus": {
       "model": "google/gemini-3-pro-preview"
     },
-    "oracle": { "model": "google/gemini-3-pro-preview" },
-    "librarian": { "model": "glm-4.7" },
-    "explore": { "model": "opencode/grok-code" },
+    "oracle": {
+      "model": "google/gemini-3-pro-preview",
+      "variant": "high"
+    },
+    "librarian": {
+      "model": "zai-coding-plan/glm-4.7"
+    },
+    "explore": {
+      "model": "google/gemini-3-flash-preview"
+    },
     "frontend-ui-ux-engineer": {
       "model": "google/gemini-3-pro-preview"
     },
-    "document-writer": { "model": "google/gemini-3-pro-preview" },
-    "multimodal-looker": { "model": "google/gemini-3-flash-preview" }
+    "document-writer": {
+      "model": "google/gemini-3-pro-preview"
+    },
+    "multimodal-looker": {
+      "model": "google/gemini-3-flash-preview"
+    },
+    "prometheus": {
+      "model": "google/gemini-3-pro-preview",
+      "variant": "max"
+    },
+    "metis": {
+      "model": "google/gemini-3-pro-preview",
+      "variant": "max"
+    },
+    "momus": {
+      "model": "google/gemini-3-pro-preview"
+    },
+    "atlas": {
+      "model": "google/gemini-3-pro-preview"
+    }
+  },
+  "tmux": {
+    "enabled": true,
+    "layout": "main-vertical"
+  },
+  "categories": {
+    "visual-engineering": {
+      "model": "google/gemini-3-pro-preview"
+    },
+    "ultrabrain": {
+      "model": "google/gemini-3-pro-preview",
+      "variant": "xhigh"
+    },
+    "artistry": {
+      "model": "google/gemini-3-pro-preview",
+      "variant": "max"
+    },
+    "quick": {
+      "model": "google/gemini-3-flash-preview"
+    },
+    "unspecified-low": {
+      "model": "google/gemini-3-flash-preview"
+    },
+    "unspecified-high": {
+      "model": "google/gemini-3-flash-preview"
+    },
+    "writing": {
+      "model": "google/gemini-3-flash-preview"
+    }
+  },
+  "git_master": {
+    "commit_footer": false,
+    "include_co_authored_by": false
+  },
+  "experimental": {
+    "truncate_all_tool_outputs": true,
+    "dynamic_context_pruning": {
+      "enabled": true
+    }
   }
 }

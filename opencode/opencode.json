@@ -28,5 +28,7 @@
   "tools": {
     "ls": true,
     "cat": true
-  }
+  },
+  "share": "disabled",
+  "disabled_providers": ["zai"]
 }
