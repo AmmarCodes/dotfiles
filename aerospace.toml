@@ -78,6 +78,8 @@ PATH = '/opt/homebrew/bin:/opt/homebrew/sbin:${PATH}'
 # Fallback value (if you omit the key): mode.main.binding = {}
 [mode.main.binding]
 
+cmd-m = [] # Disable "minimize application"
+
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
 
