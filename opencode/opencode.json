@@ -12,18 +12,14 @@
     },
     "sequential-thinking": {
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
     }
   },
   "plugin": [
-    "@nick-vi/opencode-type-inject",
-    "@gitlab/opencode-gitlab-plugin",
-    "@franlol/opencode-md-table-formatter@0.0.3",
-    "oh-my-opencode"
+    "@nick-vi/opencode-type-inject@latest",
+    "@franlol/opencode-md-table-formatter@latest",
+    "@tarquinen/opencode-dcp@latest",
+    "oh-my-opencode@latest"
   ],
   "tools": {
     "ls": true,
