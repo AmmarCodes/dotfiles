@@ -54,7 +54,7 @@
     },
     "artistry": {
       "model": "google/gemini-3-pro-preview",
-      "variant": "max"
+      "variant": "high"
     },
     "quick": {
       "model": "google/gemini-3-flash-preview"
