@@ -355,4 +355,23 @@ return {
       },
     },
   },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        javascript = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+        vue = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+        json = { "oxfmt", "prettierd", "prettier", stop_after_first = true },
+      },
+    },
+  },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "oxlint",
+        "oxfmt",
+      },
+    },
+  },
 }
