@@ -1,8 +1,7 @@
 ## Theme
-# theme = Catppuccin Frappe
-theme = Everforest Dark Hard
-background = #262E32
-# theme = light:rose-pine-dawn,dark:rose-pine-moon
+theme = Catppuccin Frappe
+# theme = Everforest Dark Hard
+# background = #262E32
 
 auto-update-channel=tip
 
