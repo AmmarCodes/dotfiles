@@ -63,6 +63,13 @@ return {
         -- rubocop = {
         --   cmd = { "bundle", "exec", "rubocop", "--lsp" },
         -- },
+        lua_ls = {
+          settings = {
+            Lua = {
+              diagnostics = { globals = { "vim" } },
+            },
+          },
+        },
         ruby_lsp = {
           cmd = { vim.fn.expand("~/.local/share/mise/shims/ruby-lsp") },
           settings = {
