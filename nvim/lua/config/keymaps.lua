@@ -74,3 +74,7 @@ map("n", "<leader>ba", "<cmd>%bd<cr>", { desc = "Close [a]ll [b]uffers" })
 map("n", "<leader>bo", "<cmd>%bd|edit#|bd#<cr>", { desc = "Close [o]ther [b]uffers" })
 map("n", "<tab>", "<cmd>bnext<cr>", { desc = "buffer goto next" })
 map("n", "<S-tab>", "<cmd>bprevious<cr>", { desc = "buffer goto previous" })
+
+-- Use -/+ like c-a c-x
+vim.keymap.set("n", "+", "<C-a>", { desc = "Increment under cursor", noremap = true })
+vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
