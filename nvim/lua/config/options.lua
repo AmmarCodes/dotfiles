@@ -10,6 +10,7 @@ opt.undofile = true -- Persistent undo
 opt.wildignore = "*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store"
 opt.confirm = false -- Confirm to save changes before exiting modified buffer
 opt.background = "dark"
+opt.autoread = true
 
 vim.g.lazyvim_php_lsp = "intelephense"
 vim.g.snacks_animate = false
