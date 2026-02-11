@@ -4,6 +4,8 @@ node = "lts"
 ruby = "3.3.9"
 yarn = "latest"
 
+"npm:typescript-language-server" = "latest"
+
 [settings]
 idiomatic_version_file_enable_tools = ["ruby"]
 
