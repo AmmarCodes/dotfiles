@@ -3,6 +3,9 @@
 ###########
 set -gx EDITOR nvim
 
+set -gx OPENCODE_EXPERIMENTAL_OXFMT true
+set -gx OPENCODE_EXPERIMENTAL_MARKDOWN true
+
 # fzf
 set -gx FZF_DEFAULT_OPTS "\
 --reverse \
