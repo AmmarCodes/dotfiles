@@ -1,8 +1,11 @@
+tap "anomalyco/tap"
 tap "arl/arl"
 tap "felixkratz/formulae"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
 tap "yqrashawn/goku"
+# Code searching, linting, rewriting
+brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
@@ -49,8 +52,6 @@ brew "node"
 brew "noti"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# AI coding agent, built for the terminal
-brew "opencode"
 # Log file highlighter
 brew "tailspin"
 # Terminal multiplexer
@@ -63,6 +64,8 @@ brew "topgrade"
 brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# The AI coding agent built for the terminal.
+brew "anomalyco/tap/opencode"
 # Git in your tmux status bar.
 brew "arl/arl/gitmux"
 # A window border system for macOS
