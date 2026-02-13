@@ -1,0 +1,45 @@
+{
+  "mode": "multi-server",
+  "servers": [
+    {
+      "name": "gitlab",
+      "description": "GitLab API integration",
+      "type": "local",
+      "command": [
+        "npx",
+        "mcp-remote@0.1.38",
+        "https://gitlab.com/api/v4/mcp",
+        "--static-oauth-client-metadata",
+        "{\"scope\": \"mcp\"}"
+      ]
+    },
+    {
+      "name": "context7",
+      "description": "Up-to-date Docs for LLMs and AI code editors",
+      "type": "remote",
+      "url": "https://mcp.context7.com/mcp"
+    },
+    {
+      "name": "memory",
+      "description": "persistent memory using a local knowledge graph",
+      "type": "local",
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory@2026.1.26"]
+    },
+    {
+      "name": "sequential-thinking",
+      "description": "provides a tool for dynamic and reflective problem-solving through a structured thinking process",
+      "type": "local",
+      "command": [
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking@2025.12.18"
+      ]
+    },
+    {
+      "name": "grepai",
+      "description": "Search codebase",
+      "type": "local",
+      "command": ["grepai", "mcp-serve"]
+    }
+  ]
+}

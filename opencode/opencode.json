@@ -1,26 +1,23 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "theme": "catppuccin-frappe",
-  "autoupdate": true,
+  "autoupdate": false,
   "mcp": {
-    "context7": {
-      "type": "remote",
-      "url": "https://mcp.context7.com/mcp"
-    },
-    "memory": {
+    "lazy-mcp": {
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
-    },
-    "sequential-thinking": {
-      "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-sequential-thinking"]
+      "command": [
+        "npx",
+        "lazy-mcp@1.2.0",
+        "--config",
+        "~/.config/opencode/lazy-mcp-servers.json"
+      ],
+      "enabled": true
     }
   },
   "plugin": [
-    "@nick-vi/opencode-type-inject@latest",
-    "@franlol/opencode-md-table-formatter@latest",
-    "@tarquinen/opencode-dcp@latest",
-    "oh-my-opencode@latest"
+    "@franlol/opencode-md-table-formatter@0.0.3",
+    "@tarquinen/opencode-dcp@2.1.3",
+    "oh-my-opencode@3.5.3"
   ],
   "tools": {
     "ls": true,
