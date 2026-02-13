@@ -44,10 +44,6 @@
       "variant": "medium"
     }
   },
-  "tmux": {
-    "enabled": true,
-    "layout": "main-vertical"
-  },
   "categories": {
     "visual-engineering": {
       "model": "google/gemini-3-pro-preview"
