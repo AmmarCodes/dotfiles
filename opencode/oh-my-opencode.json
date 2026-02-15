@@ -3,7 +3,7 @@
   "agents": {
     "sisyphus": {
       "model": "zai-coding-plan/glm-4.7",
-      "variant": "max"
+      "variant": "high"
     },
     "oracle": {
       "model": "google/gemini-3-pro-preview",
