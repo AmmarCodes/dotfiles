@@ -18,6 +18,7 @@ end
 
 abbr --add e exit
 abbr --add q exit
+abbr --add wt worktree-util
 # abbr --add oc opencode
 
 # ~/.config/fish/config.fish

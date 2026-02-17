@@ -1,3 +1,4 @@
+tap "abtris/tap"
 tap "anomalyco/tap"
 tap "arl/arl"
 tap "felixkratz/formulae"
@@ -64,6 +65,8 @@ brew "topgrade"
 brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
+# A simple TUI for managing Git worktrees
+brew "abtris/tap/worktree-util"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode"
 # Git in your tmux status bar.
