@@ -13,3 +13,6 @@ idiomatic_version_file_enable_tools = ["ruby"]
 
 [settings.npm]
 bun = true
+
+[settings.ruby]
+compile = false
