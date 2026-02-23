@@ -115,5 +115,7 @@ cask "sf-symbols"
 cask "tableplus"
 # To-do list
 cask "todoist-app"
+# Binary releases of VS Code without MS branding/telemetry/licensing
+cask "vscodium"
 # Video communication and virtual meeting platform
 cask "zoom"
