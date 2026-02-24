@@ -205,6 +205,12 @@ matches:
       /approve
       /assign_reviewer @{{clipboard}}
 
+  - trigger: ";lmn"
+    replace: "Let me know what you think!"
+
+  - trigger: ";leftsug"
+    replace: "I left a small non-blocking suggestion for your consideration"
+
   - trigger: ";wir"
     replace: '/label ~"workflow::in review"'
 
