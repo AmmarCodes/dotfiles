@@ -5,6 +5,8 @@
 - **Simplicity First**: Make every change as simple as possible. Impact minimal code.
 - **No Laziness**: Find root causes. No temporary fixes. Senior developer standards.
 - **Minimal Impact**: Changes should only touch what's necessary. Avoid introducing bugs.
+- **Optimization**: If you tried something and didn't work, add it to `LEARNING.md` prefixing it with how many number it got encountered (e.g. (1)), if the learning is already recorded increase the number accordingly.
+  - If the learning item has been encountered for more than 3 times, add the learning to `AGENTS.md` and remove the record from `LEARNING.md`
 
 Be concise. Always optimize for concise responses. Remove any fluff from your response whatsoever. Only include what is absolutely necessary in your response. Be ruthlessly concise.
 
