@@ -1,0 +1,8 @@
+config:
+  fallback-icon: "?"
+  # multi-pane-icon: ""
+  show-name: true
+  icon-position: "left"
+
+icons:
+  opencode: "󰚩"

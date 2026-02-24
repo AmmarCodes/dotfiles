@@ -10,6 +10,7 @@
     ~/.gitconfig-gitlab: git/gitconfig-gitlab
     ~/.gitignore: git/gitignore
     ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/tmux/tmux-nerd-font-window-name.yml: tmux/tmux-nerd-font-window-name.yml
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/zed/settings.json: zed/settings.json
