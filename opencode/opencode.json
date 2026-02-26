@@ -14,11 +14,7 @@
       "enabled": true
     }
   },
-  "plugin": [
-    "@franlol/opencode-md-table-formatter@0.0.3",
-    "@tarquinen/opencode-dcp@2.1.3",
-    "oh-my-opencode@3.8.3",
-  ],
+  "plugin": ["@tarquinen/opencode-dcp@2.1.3", "oh-my-opencode@latest"],
   "tools": {
     "ls": true,
     "cat": true
