@@ -1,6 +1,9 @@
 gui:
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
+  showCommandLog: false
+  showBottomLine: false
+  showRandomTip: false
   expandedSidePanelWeight: 4
   mainPanelSplitMode: flexible
   authorColors:
