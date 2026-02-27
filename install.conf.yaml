@@ -16,6 +16,7 @@
     ~/.config/zed/settings.json: zed/settings.json
     ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/borders/bordersrc: bordersrc
+    ~/.config/worktrunk/config.toml: worktrunk/config.toml
     ~/.config/topgrade.toml: topgrade.toml
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
     ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json

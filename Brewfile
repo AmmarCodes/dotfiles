@@ -67,6 +67,8 @@ brew "wget"
 brew "yazi"
 # A simple TUI for managing Git worktrees
 brew "abtris/tap/worktree-util"
+# CLI for Git worktree management, designed for parallel AI agent workflows
+brew "worktrunk"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode"
 # Git in your tmux status bar.

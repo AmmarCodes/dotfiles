@@ -1,0 +1,26 @@
+worktree-path = "{{ repo_path }}/.worktrees/{{ branch | sanitize }}"
+
+[post-create]
+copy = "wt step copy-ignored"
+tmux = """
+S="{{ branch | sanitize }}"
+W="{{ worktree_path }}"
+tmux new-session -d -s "$S" -c "$W"
+echo "✓ Session '$S' — attach with: tmux attach -t $S"
+"""
+
+[pre-remove]
+tmux = "tmux kill-session -t '{{ branch | sanitize }}' 2>/dev/null || true"
+
+[pre-switch]
+# Fetch if last fetch was more than 6 hours ago
+fetch = """
+FETCH_HEAD="$(git rev-parse --git-common-dir)/FETCH_HEAD"
+if [ "$(find "$FETCH_HEAD" -mmin +360 2>/dev/null)" ] || [ ! -f "$FETCH_HEAD" ]; then
+    git fetch
+fi
+"""
+
+# Triggers on all switch results: creating new worktrees, switching to existing ones, or staying on current
+[post-switch]
+tmux = "[ -n \"$TMUX\" ] && tmux rename-window {{ branch | sanitize }}"
