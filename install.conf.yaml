@@ -18,6 +18,7 @@
     ~/.config/borders/bordersrc: bordersrc
     ~/.config/topgrade.toml: topgrade.toml
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
+    ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json
     ~/.config/nvim/:
       glob: true
       force: true

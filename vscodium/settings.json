@@ -1,0 +1,106 @@
+{
+  "workbench.colorTheme": "One Dark",
+  "editor.fontFamily": "MonoLisa, Google Sans Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": "'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'calt', 'dlig'",
+  "editor.fontWeight": "400",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.suggestLineHeight": 30,
+  "workbench.settings.editor": "json",
+
+  "editor.formatOnSave": true,
+  "editor.lineHeight": 2.1,
+  "workbench.editor.enablePreview": false,
+  "window.commandCenter": false,
+  "workbench.layoutControl.enabled": false,
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": false,
+  "scm.diffDecorations": "none",
+  "workbench.welcomePage.extraAnnouncements": false,
+  "workbench.welcomePage.walkthroughs.openOnInstall": false,
+  "chat.viewWelcome.enabled": false,
+  "workbench.startupEditor": "none",
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop",
+  },
+  "workbench.sideBar.location": "right",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.useCtrlKeys": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindings": [
+    {
+      "before": ["j", "j"],
+      "after": ["<Esc>"],
+    },
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<C-n>"],
+      "commands": [":nohl"],
+    },
+  ],
+  "vim.leader": ",",
+  "vim.handleKeys": {
+    "<C-a>": false,
+    "<C-f>": false,
+  },
+  // To improve performance
+  "extensions.experimental.affinity": {
+    "vscodevim.vim": 1,
+  },
+  "workbench.editor.showTabs": "none",
+  "workbench.iconTheme": "flow-deep",
+  "editor.fontSize": 13,
+  "[vue]": {
+    "editor.defaultFormatter": "oxc.oxc-vscode",
+  },
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "One Dark italic",
+        "scope": [
+          "comment",
+          "entity.other.attribute-name",
+          "keyword",
+          "markup.underline.link",
+          "storage.modifier",
+          "storage.type",
+          "string.url",
+          "variable.language.super",
+          "variable.language.this",
+        ],
+        "settings": {
+          "fontStyle": "italic",
+        },
+      },
+      {
+        "name": "One Dark italic reset",
+        "scope": [
+          "keyword.operator",
+          "keyword.other.type",
+          "storage.modifier.import",
+          "storage.modifier.package",
+          "storage.type.built-in",
+          "storage.type.function.arrow",
+          "storage.type.generic",
+          "storage.type.java",
+          "storage.type.primitive",
+        ],
+        "settings": {
+          "fontStyle": "",
+        },
+      },
+    ],
+  },
+  "update.showReleaseNotes": false,
+  "rubocop.bundleCommandPath": "/Users/ammar/.local/share/mise/shims/bundle",
+}
