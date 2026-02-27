@@ -345,21 +345,5 @@ return {
         },
       },
     },
-    keys = {
-      {
-        "<C-p>",
-        function()
-          Snacks.picker.smart()
-        end,
-        desc = "Smart Find Files",
-      },
-      {
-        "<C-b>",
-        function()
-          Snacks.picker.buffers()
-        end,
-        desc = "Find current buffers",
-      },
-    },
   },
 }
