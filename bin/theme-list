@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# List available themes
+# Usage: theme-list
+
+set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+THEMES_DIR="$DOTFILES/themes"
+CURRENT=$(cat "$DOTFILES/.current-theme" 2>/dev/null || echo "")
+
+for dir in "$THEMES_DIR"/*/; do
+  [[ -d "$dir" ]] || continue
+  name=$(basename "$dir")
+
+  # Skip the templates directory
+  [[ "$name" == "templates" ]] && continue
+  # Skip legacy directories
+  [[ "$name" == "neovim" || "$name" == "tmux" ]] && continue
+  # Must have a colors.toml to be a valid theme
+  [[ -f "$dir/colors.toml" ]] || continue
+
+  if [[ "$name" == "$CURRENT" ]]; then
+    echo "* $name"
+  else
+    echo "  $name"
+  fi
+done

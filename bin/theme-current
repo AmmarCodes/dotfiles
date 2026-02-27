@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Show the currently active theme
+# Usage: theme-current
+
+set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+CURRENT_FILE="$DOTFILES/.current-theme"
+
+if [[ -f "$CURRENT_FILE" ]]; then
+  cat "$CURRENT_FILE"
+else
+  echo "No theme set (run: theme-set <name>)"
+  exit 1
+fi

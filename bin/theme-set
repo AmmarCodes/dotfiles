@@ -1,0 +1,206 @@
+#!/usr/bin/env bash
+# theme-set — Unified theme switcher for dotfiles
+#
+# Usage: theme-set <theme-name>
+#        theme-set catppuccin-frappe
+#        theme-set everforest
+#
+# Architecture:
+#   themes/<name>/colors.toml   → Central color definitions (source of truth)
+#   themes/<name>/neovim.lua    → Neovim colorscheme spec (app-specific override)
+#   themes/<name>/tmux.tmux     → Tmux @thm_* variable definitions
+#   themes/<name>/sketchybar.lua → Sketchybar color table
+#   themes/templates/*.tpl      → Processed via sed → output configs
+
+set -euo pipefail
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+THEMES_DIR="$DOTFILES/themes"
+TEMPLATES_DIR="$THEMES_DIR/templates"
+THEME_NAME="${1:-}"
+
+# --- Helpers ---
+
+die() {
+  echo "error: $*" >&2
+  exit 1
+}
+
+info() { echo "  → $*"; }
+
+# --- Validation ---
+
+if [[ -z "$THEME_NAME" ]]; then
+  echo "Usage: theme-set <theme-name>"
+  echo ""
+  echo "Available themes:"
+  theme-list
+  exit 1
+fi
+
+THEME_DIR="$THEMES_DIR/$THEME_NAME"
+[[ -d "$THEME_DIR" ]] || die "Theme '$THEME_NAME' not found in $THEMES_DIR"
+[[ -f "$THEME_DIR/colors.toml" ]] || die "Theme '$THEME_NAME' has no colors.toml"
+
+echo "Setting theme: $THEME_NAME"
+
+# --- 1. Parse colors.toml → build sed script ---
+
+build_sed_file() {
+  local colors_file="$1"
+  local sed_file="$2"
+
+  >"$sed_file" # truncate
+
+  while IFS='=' read -r key value; do
+    # Skip empty lines, comments, section headers
+    [[ -z "$key" || "$key" =~ ^[[:space:]]*# || "$key" =~ ^[[:space:]]*\[ ]] && continue
+
+    # Trim whitespace and quotes
+    key=$(echo "$key" | xargs)
+    value=$(echo "$value" | xargs | sed 's/^"//; s/"$//')
+
+    # Only process hex colors and string values
+    if [[ "$value" =~ ^#[0-9a-fA-F]{6}$ ]]; then
+      local hex_stripped="${value#\#}"
+      local r=$((16#${hex_stripped:0:2}))
+      local g=$((16#${hex_stripped:2:2}))
+      local b=$((16#${hex_stripped:4:2}))
+
+      # Three formats like Omarchy: full hex, stripped hex, RGB decimal
+      echo "s|{{ ${key} }}|${value}|g" >>"$sed_file"
+      echo "s|{{ ${key}_strip }}|${hex_stripped}|g" >>"$sed_file"
+      echo "s|{{ ${key}_rgb }}|${r},${g},${b}|g" >>"$sed_file"
+    else
+      # String values (like variant, name)
+      echo "s|{{ ${key} }}|${value}|g" >>"$sed_file"
+    fi
+  done <"$colors_file"
+}
+
+info "Parsing colors.toml"
+SED_FILE=$(mktemp)
+trap 'rm -f "$SED_FILE"' EXIT
+build_sed_file "$THEME_DIR/colors.toml" "$SED_FILE"
+
+# --- 2. Process templates ---
+
+process_templates() {
+  local template_dir="$1"
+  local sed_file="$2"
+
+  for tpl in "$template_dir"/*.tpl; do
+    [[ -f "$tpl" ]] || continue
+    local basename
+    basename=$(basename "$tpl" .tpl)
+    local output=""
+
+    case "$basename" in
+    ghostty.conf)
+      output="$HOME/.config/ghostty/theme.conf"
+      ;;
+    fish-theme.fish)
+      output="$HOME/.config/fish/theme.fish"
+      ;;
+    *)
+      info "Skipping unknown template: $basename"
+      continue
+      ;;
+    esac
+
+    sed -f "$sed_file" "$tpl" >"$output"
+    info "Generated $(basename "$output")"
+  done
+}
+
+info "Processing templates"
+process_templates "$TEMPLATES_DIR" "$SED_FILE"
+
+# --- 3. Copy app-specific overrides ---
+
+# Neovim colorscheme (loaded by nvim/lua/plugins/colorscheme.lua)
+if [[ -f "$THEME_DIR/neovim.lua" ]]; then
+  cp "$THEME_DIR/neovim.lua" "$DOTFILES/themes/active-neovim.lua"
+  info "Updated neovim colorscheme"
+fi
+
+# Tmux theme (sourced by tmux.conf)
+if [[ -f "$THEME_DIR/tmux.tmux" ]]; then
+  cp "$THEME_DIR/tmux.tmux" "$DOTFILES/themes/active.tmux"
+  info "Updated tmux theme"
+fi
+
+# Sketchybar colors
+if [[ -f "$THEME_DIR/sketchybar.lua" ]]; then
+  cp "$THEME_DIR/sketchybar.lua" "$DOTFILES/themes/active-sketchybar.lua"
+  info "Updated sketchybar colors"
+fi
+
+# Ghostty — ensure config sources the theme file
+ghostty_config="$DOTFILES/ghostty/config"
+if [[ -f "$ghostty_config" ]]; then
+  # Remove any existing 'theme = ' line (we use config-file sourcing instead)
+  sed -i '' '/^theme = /d' "$ghostty_config"
+  # Add config-file directive if not already present
+  if ! grep -q 'config-file.*theme.conf' "$ghostty_config" 2>/dev/null; then
+    tmp=$(mktemp)
+    {
+      echo "# Theme colors (auto-managed by theme-set)"
+      echo "config-file = ./theme.conf"
+      echo ""
+      cat "$ghostty_config"
+    } >"$tmp"
+    mv "$tmp" "$ghostty_config"
+    info "Updated ghostty config to source theme.conf"
+  fi
+fi
+
+# --- 4. Record current theme ---
+
+echo "$THEME_NAME" >"$DOTFILES/.current-theme"
+info "Recorded current theme"
+
+# --- 5. Reload running applications ---
+
+reload_apps() {
+  # Tmux: source config if server is running
+  if command -v tmux &>/dev/null && tmux list-sessions &>/dev/null 2>&1; then
+    tmux source-file "$HOME/.tmux.conf" 2>/dev/null && info "Reloaded tmux" || true
+  fi
+
+  # Fish: source theme in all running fish sessions
+  if command -v fish &>/dev/null; then
+    fish -c "source $HOME/.config/fish/theme.fish" 2>/dev/null && info "Reloaded fish colors" || true
+  fi
+
+  # Sketchybar: restart if running
+  if pgrep -q sketchybar 2>/dev/null; then
+    brew services restart sketchybar 2>/dev/null && info "Restarted sketchybar" || true
+  fi
+
+  # Neovim: send colorscheme change to all running instances
+  if command -v nvim &>/dev/null; then
+    local nvim_reloaded=0
+    for sock in /tmp/nvim*/0 /tmp/nvimsocket; do
+      if [[ -S "$sock" ]]; then
+        local cs_name
+        cs_name=$(sed -n 's/.*colorscheme[[:space:]]*=[[:space:]]*["'\''']\([^"'\'']*\)["'\''].*/\1/p' "$THEME_DIR/neovim.lua" 2>/dev/null || echo "")
+        if [[ -n "$cs_name" ]]; then
+          nvim --server "$sock" --remote-send "<Cmd>colorscheme $cs_name<CR>" 2>/dev/null && nvim_reloaded=$((nvim_reloaded + 1)) || true
+        fi
+      fi
+    done
+    [[ $nvim_reloaded -gt 0 ]] && info "Reloaded $nvim_reloaded neovim instance(s)" || true
+
+  fi
+
+  # Ghostty: doesn't need explicit reload — reads config-file on new windows
+  # For live reload of existing windows, user can press Cmd+Shift+, in Ghostty
+  info "Ghostty will apply theme on new windows (or Cmd+Shift+, to reload)"
+}
+
+info "Reloading applications"
+reload_apps
+
+echo ""
+echo "✓ Theme set to: $THEME_NAME"

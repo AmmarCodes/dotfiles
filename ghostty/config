@@ -1,7 +1,5 @@
-## Theme
-theme = Catppuccin Frappe
-# theme = Everforest Dark Hard
-# background = #262E32
+# Theme colors (auto-managed by theme-set)
+config-file = ./theme.conf
 
 auto-update-channel=tip
 

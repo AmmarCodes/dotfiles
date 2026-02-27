@@ -5,3 +5,9 @@ Brewfile.lock.json
 node_modules/
 **/node_modules/
 .private_exports
+
+# theme specific ignores
+.current-theme
+themes/active-neovim.lua
+themes/active.tmux
+themes/active-sketchybar.lua

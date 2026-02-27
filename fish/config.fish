@@ -8,7 +8,7 @@ set fish_greeting # disable fish greeting
 source ~/.config/fish/environment.fish
 source ~/.config/fish/abbreviations.fish
 source ~/.config/fish/functions.fish
-source ~/.config/fish/themes.fish
+source ~/.config/fish/theme.fish
 
 # Load GitLab-specific configuration if it exists
 if test -f ~/.config/fish/gitlab.fish
