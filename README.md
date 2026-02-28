@@ -17,6 +17,9 @@ A unified theme system that switches colors across all tools with a single comma
 ### Usage
 
 ```bash
+# Interactive picker (fzf)
+theme
+
 # Switch to a theme
 theme-set catppuccin-frappe
 
@@ -25,9 +28,6 @@ theme-list
 
 # Show current theme
 theme-current
-
-# Interactive picker (fzf)
-theme-pick
 ```
 
 One command updates: Ghostty, Neovim, tmux, Fish shell, yazi, Sketchybar, and Lazygit.

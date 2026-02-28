@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Interactive theme picker using fzf
+# Interactive theme picker using gum
 # Usage: theme-pick
 
 set -euo pipefail
@@ -8,9 +8,9 @@ DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
 THEMES_DIR="$DOTFILES/themes"
 CURRENT=$(cat "$DOTFILES/.current-theme" 2>/dev/null || echo "none")
 
-if ! command -v fzf &>/dev/null; then
-  echo "Error: fzf is required for theme-pick"
-  echo "Install with: brew install fzf"
+if ! command -v gum &>/dev/null; then
+  echo "Error: gum is required for theme-pick"
+  echo "Install with: brew install gum"
   exit 1
 fi
 
@@ -29,12 +29,12 @@ if [[ ${#themes[@]} -eq 0 ]]; then
   exit 1
 fi
 
-selected=$(printf '%s\n' "${themes[@]}" | fzf \
-  --prompt="Theme ($CURRENT) > " \
-  --preview="cat '$THEMES_DIR/{}/colors.toml'" \
-  --preview-window=right:50%:wrap \
+selected=$(printf '%s\n' "${themes[@]}" | gum choose \
+  --height=50 \
   --header="Current: $CURRENT | Enter to apply" \
-  --no-multi)
+  --item.foreground="#A6ADC8" \
+  --selected.foreground="#F5E0DC" \
+  --selected.background="#585B70")
 
 if [[ -n "$selected" ]]; then
   echo "Applying theme: $selected"
