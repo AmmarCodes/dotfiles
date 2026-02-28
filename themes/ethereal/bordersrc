@@ -3,7 +3,7 @@
 set -e
 
 options=(
-  active_color=0xfff85552
+  active_color=0xffed5b5a
   inactive_color=0x00000000
   width=4.0
   style=round

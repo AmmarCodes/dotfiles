@@ -136,6 +136,13 @@ if [[ -f "$THEME_DIR/sketchybar.lua" ]]; then
   info "Updated sketchybar colors"
 fi
 
+# Bordersrc (window border config)
+if [[ -f "$THEME_DIR/bordersrc" ]]; then
+  cp "$THEME_DIR/bordersrc" "$DOTFILES/bordersrc"
+  chmod +x "$DOTFILES/bordersrc"
+  info "Updated bordersrc"
+fi
+
 # Ghostty — ensure config sources the theme file
 ghostty_config="$DOTFILES/ghostty/config"
 if [[ -f "$ghostty_config" ]]; then
@@ -175,7 +182,12 @@ reload_apps() {
 
   # Sketchybar: restart if running
   if pgrep -q sketchybar 2>/dev/null; then
-    brew services restart sketchybar 2>/dev/null && info "Restarted sketchybar" || true
+    sketchybar --reload
+  fi
+
+  # Borders: reload if running
+  if pgrep -q borders 2>/dev/null; then
+    pkill -f borders && "$DOTFILES/bordersrc" && info "Reloaded borders" || true
   fi
 
   # Neovim: send colorscheme change to all running instances
