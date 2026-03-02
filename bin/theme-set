@@ -162,12 +162,44 @@ if [[ -f "$ghostty_config" ]]; then
   fi
 fi
 
-# --- 4. Record current theme ---
+# --- 4. Set wallpaper ---
+
+WALLPAPER_FILE="$THEMES_DIR/wallpapers.toml"
+
+set_wallpaper() {
+  local wallpaper_config="$1"
+  local theme="$2"
+  local backgrounds_dir="$DOTFILES/backgrounds/omarchy"
+
+  if [[ ! -f "$wallpaper_config" ]]; then
+    return 0
+  fi
+
+  wallpaper=$(sed -n "s/^${theme} = \"\\(.*\\)\"/\\1/p" "$wallpaper_config" 2>/dev/null || echo "")
+
+  if [[ -z "$wallpaper" ]]; then
+    return 0
+  fi
+
+  local wallpaper_path="$backgrounds_dir/$wallpaper"
+
+  if [[ ! -f "$wallpaper_path" ]]; then
+    info "Wallpaper not found: $wallpaper_path"
+    return 0
+  fi
+
+  osascript -e "tell application \"System Events\" to tell every desktop to set picture to \"$wallpaper_path\"" 2>/dev/null && info "Set wallpaper to $wallpaper" || true
+}
+
+info "Setting wallpaper"
+set_wallpaper "$WALLPAPER_FILE" "$THEME_NAME"
+
+# --- 5. Record current theme ---
 
 echo "$THEME_NAME" >"$DOTFILES/.current-theme"
 info "Recorded current theme"
 
-# --- 5. Reload running applications ---
+# --- 6. Reload running applications ---
 
 reload_apps() {
   # Tmux: source config if server is running

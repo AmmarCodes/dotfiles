@@ -1,0 +1,21 @@
+# Wallpaper mapping for omarchy themes
+# Each theme maps to a wallpaper file in backgrounds/omarchy/
+#
+# Format: theme_name = "wallpaper_filename"
+# Theme not listed = no wallpaper change
+
+catppuccin = "2-waves.png"
+catppuccin-latte = "1-color-fade.png"
+catppuccin-frappe = "1-totoro.png"    # falls back to catppuccin
+ethereal = "2-meadow.jpg"
+everforest = "1-tree-tops.jpg"
+flexoki-light = "1-orb.png"
+gruvbox = "2-leaves.jpg"
+hackerman = "1-synth-scape.jpg"
+kanagawa = "1-kanagawa.jpg"
+matte-black = "0-ship-at-sea.jpg"
+nord = "nord.jpg"
+osaka-jade = "3-mountain-moon.jpg"
+ristretto = "1-color-curves.jpg"
+rose-pine = "1-funky-shapes.jpg"
+tokyo-night = "1-sunset-lake.png"
