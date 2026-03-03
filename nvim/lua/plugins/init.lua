@@ -267,18 +267,6 @@ return {
     },
   },
   {
-    "nickjvandyke/opencode.nvim",
-    keys = {
-      -- stylua: ignore start
-      { mode = { "n", "x" }, "<leader>oa", function() require("opencode").ask("@this: ", { submit = true }) end,  desc = "[A]sk opencode" },
-      { mode = { "n", "x" }, "<leader>os", function() require("opencode").select() end,                           desc = "E[x]ecute opencode action" },
-      { mode = { "n", "t" }, "<leader>oo", function() require("opencode").toggle() end,                           desc = "Toggle opencode" },
-      { mode = { "n", "x" }, "<leader>or", function() return require("opencode").operator("@this ") end,          desc = "Add [r]ange to opencode", expr = true },
-      { mode = {"n"},        "<leader>ol", function() return require("opencode").operator("@this ") .. "_" end,   desc = "Add [l]ine to opencode", expr = true },
-    },
-    -- stylua: ignore end
-  },
-  {
     "dmtrKovalenko/fff.nvim",
     build = function()
       -- this will download prebuild binary or try to use existing rustup toolchain to build from source
