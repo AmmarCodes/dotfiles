@@ -1,6 +1,4 @@
-tap "abtris/tap"
 tap "anomalyco/tap"
-tap "arl/arl"
 tap "felixkratz/formulae"
 tap "nikitabobko/tap"
 tap "oven-sh/bun"
@@ -37,6 +35,10 @@ brew "git-delta"
 brew "ifstat"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
+# Terminal multiplexer
+brew "tmux"
+# Git status in tmux status bar
+brew "gitmux"
 # Helps you navigate your file system faster by learning your habits
 brew "jump"
 # Simple terminal UI for git commands
@@ -53,10 +55,10 @@ brew "node"
 brew "noti"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Smart session manager for the terminal
+brew "sesh"
 # Log file highlighter
 brew "tailspin"
-# Terminal multiplexer
-brew "tmux"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
 # Upgrade all the things
@@ -65,14 +67,12 @@ brew "topgrade"
 brew "wget"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
-# A simple TUI for managing Git worktrees
-brew "abtris/tap/worktree-util"
 # CLI for Git worktree management, designed for parallel AI agent workflows
 brew "worktrunk"
+# Shell extension to navigate your filesystem faster
+brew "zoxide"
 # The AI coding agent built for the terminal.
 brew "anomalyco/tap/opencode"
-# Git in your tmux status bar.
-brew "arl/arl/gitmux"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
@@ -84,7 +84,7 @@ brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
 cask "1password"
 # AeroSpace is an i3-like tiling window manager for macOS
-cask "aerospace"
+cask "nikitabobko/tap/aerospace"
 # Allows switching between application windows
 cask "contexts"
 # Elgato FACECAM configuration tool
