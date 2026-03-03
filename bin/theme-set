@@ -124,12 +124,6 @@ if [[ -f "$THEME_DIR/neovim.lua" ]]; then
   info "Updated neovim colorscheme"
 fi
 
-# Tmux theme (sourced by tmux.conf)
-if [[ -f "$THEME_DIR/tmux.tmux" ]]; then
-  cp "$THEME_DIR/tmux.tmux" "$DOTFILES/themes/active.tmux"
-  info "Updated tmux theme"
-fi
-
 # Sketchybar colors
 if [[ -f "$THEME_DIR/sketchybar.lua" ]]; then
   cp "$THEME_DIR/sketchybar.lua" "$DOTFILES/themes/active-sketchybar.lua"
@@ -160,6 +154,12 @@ if [[ -f "$ghostty_config" ]]; then
     mv "$tmp" "$ghostty_config"
     info "Updated ghostty config to source theme.conf"
   fi
+fi
+
+# Tmux theme (sourced by tmux.conf)
+if [[ -f "$THEME_DIR/tmux.tmux" ]]; then
+  cp "$THEME_DIR/tmux.tmux" "$DOTFILES/themes/active.tmux"
+  info "Updated tmux theme"
 fi
 
 # --- 4. Set wallpaper ---
@@ -207,9 +207,13 @@ reload_apps() {
     tmux source-file "$HOME/.tmux.conf" 2>/dev/null && info "Reloaded tmux" || true
   fi
 
+  # Ghostty: doesn't need explicit reload — reads config-file on new windows
+  # this "should" reload it
+  kill -s USR2 "$(ps aux | grep -v grep | awk -v app='Ghostty' '$0 ~ app { print $2 }' | head -n 1)"
+
   # Fish: source theme in all running fish sessions
   if command -v fish &>/dev/null; then
-    fish -c "source $HOME/.config/fish/theme.fish" 2>/dev/null && info "Reloaded fish colors" || true
+    fish -c "source $HOME/.config/fish/theme.fish" 2>/dev/null # && info "Reloaded fish colors"
   fi
 
   # Sketchybar: restart if running
@@ -237,10 +241,6 @@ reload_apps() {
     [[ $nvim_reloaded -gt 0 ]] && info "Reloaded $nvim_reloaded neovim instance(s)" || true
 
   fi
-
-  # Ghostty: doesn't need explicit reload — reads config-file on new windows
-  # For live reload of existing windows, user can press Cmd+Shift+, in Ghostty
-  info "Ghostty will apply theme on new windows (or Cmd+Shift+, to reload)"
 }
 
 info "Reloading applications"
