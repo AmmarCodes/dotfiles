@@ -223,7 +223,7 @@ reload_apps() {
 
   # Borders: reload if running
   if pgrep -q borders 2>/dev/null; then
-    pkill -f borders && "$DOTFILES/bordersrc" && info "Reloaded borders" || true
+    brew services restart borders # && info "Reloaded borders" || true
   fi
 
   # Neovim: send colorscheme change to all running instances
