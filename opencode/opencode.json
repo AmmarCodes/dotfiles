@@ -13,7 +13,11 @@
       "enabled": true
     }
   },
-  "plugin": ["@tarquinen/opencode-dcp@2.1.3", "oh-my-opencode@latest"],
+  "plugin": [
+    "@tarquinen/opencode-dcp@2.1.3",
+    "oh-my-opencode@latest",
+    "@mohak34/opencode-notifier@latest"
+  ],
   "tools": {
     "ls": true,
     "cat": true
