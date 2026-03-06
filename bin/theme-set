@@ -211,11 +211,6 @@ reload_apps() {
   # this "should" reload it
   kill -s USR2 "$(ps aux | grep -v grep | awk -v app='Ghostty' '$0 ~ app { print $2 }' | head -n 1)"
 
-  # Fish: source theme in all running fish sessions
-  if command -v fish &>/dev/null; then
-    fish -c "source $HOME/.config/fish/theme.fish" 2>/dev/null # && info "Reloaded fish colors"
-  fi
-
   # Sketchybar: restart if running
   if pgrep -q sketchybar 2>/dev/null; then
     sketchybar --reload
