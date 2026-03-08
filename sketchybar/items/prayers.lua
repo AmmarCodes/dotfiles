@@ -61,7 +61,7 @@ prayers:subscribe("mouse.clicked", toggle_details)
 prayers:subscribe("mouse.exited.global", hide_details)
 
 prayers:subscribe({ "forced", "routine" }, function()
-  local handle = io.popen("~/.dotfiles/sketchybar/items/prayer-times.js")
+  local handle = io.popen('export PATH="/Users/ammar/.local/share/mise/shims:$PATH" && cd ~/.dotfiles/sketchybar/items && node prayer-times.js 2>&1')
   local remaining = ""
   local i = 0
   for line in handle:lines() do
