@@ -1,6 +1,6 @@
 [tools]
 go = "latest"
-node = "lts"
+node = "24.14.0"
 ruby = "3.3.9"
 yarn = "latest"
 
