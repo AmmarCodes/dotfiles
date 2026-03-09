@@ -14,9 +14,11 @@
     }
   },
   "plugin": [
-    "@tarquinen/opencode-dcp@2.1.3",
+    "@nick-vi/opencode-type-inject",
     "oh-my-opencode@latest",
-    "@mohak34/opencode-notifier@latest"
+    "@mohak34/opencode-notifier@latest",
+    "opencode-caffeinate",
+    "opencode-forge-session-title@latest"
   ],
   "tools": {
     "ls": true,
