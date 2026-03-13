@@ -55,6 +55,8 @@ brew "node"
 brew "noti"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# CLI proxy to minimize LLM token consumption
+brew "rtk"
 # Smart session manager for the terminal
 brew "sesh"
 # Log file highlighter
