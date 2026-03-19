@@ -1,8 +1,6 @@
 # Theme colors (auto-managed by theme-set)
 config-file = ./theme.conf
 
-auto-update-channel=tip
-
 # you can source another file using
 # config-file = "path to config file"
 # this way you can have somehow dynamic theme that can change
