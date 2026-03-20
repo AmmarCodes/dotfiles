@@ -99,6 +99,9 @@ process_templates() {
     ghostty.conf)
       output="$HOME/.config/ghostty/theme.conf"
       ;;
+    kitty.conf)
+      output="$HOME/.config/kitty/theme.conf"
+      ;;
     fish-theme.fish)
       output="$HOME/.config/fish/theme.fish"
       ;;
@@ -210,6 +213,13 @@ reload_apps() {
   # Ghostty: doesn't need explicit reload — reads config-file on new windows
   # this "should" reload it
   kill -s USR2 "$(ps aux | grep -v grep | awk -v app='Ghostty' '$0 ~ app { print $2 }' | head -n 1)"
+
+  # Kitty: reload config with SIGUSR1
+  local kitty_pid
+  kitty_pid=$(ps aux | grep -v grep | awk '/kitty/ && !/grep/ {print $2}' | head -n 1)
+  if [[ -n "$kitty_pid" ]]; then
+    kill -s USR1 "$kitty_pid" 2>/dev/null && info "Reloaded kitty" || true
+  fi
 
   # Sketchybar: restart if running
   if pgrep -q sketchybar 2>/dev/null; then

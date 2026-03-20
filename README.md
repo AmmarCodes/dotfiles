@@ -30,7 +30,7 @@ theme-list
 theme-current
 ```
 
-One command updates: Ghostty, Neovim, tmux, Fish shell, yazi, Sketchybar, and Lazygit.
+One command updates: Ghostty, Kitty, Neovim, tmux, Fish shell, yazi, Sketchybar, and Lazygit.
 
 ### Adding a New Theme
 
