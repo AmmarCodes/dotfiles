@@ -3,75 +3,66 @@
   "disabled_skills": ["playwright"],
   "agents": {
     "sisyphus": {
-      "model": "zai-coding-plan/glm-4.7",
-      "variant": "high"
+      "model": "opencode-go/minimax-m2.7"
     },
     "oracle": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "max"
+      "model": "opencode-go/kimi-k2.5"
     },
     "librarian": {
-      "model": "zai-coding-plan/glm-4.7"
+      "model": "opencode-go/minimax-m2.7"
     },
     "explore": {
-      "model": "opencode/gpt-5-nano"
+      "model": "opencode-go/minimax-m2.7"
     },
     "frontend-ui-ux-engineer": {
-      "model": "google/gemini-3-pro-preview"
+      "model": "opencode-go/glm-5"
     },
     "document-writer": {
-      "model": "google/gemini-3-pro-preview"
+      "model": "opencode-go/minimax-m2.7"
     },
     "multimodal-looker": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "opencode-go/minimax-m2.7"
     },
     "prometheus": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "max"
+      "model": "opencode-go/kimi-k2.5"
     },
     "metis": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "max"
+      "model": "opencode-go/kimi-k2.5"
     },
     "momus": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "max"
+      "model": "opencode-go/glm-5"
     },
     "atlas": {
-      "model": "opencode/kimi-k2.5-free"
+      "model": "opencode-go/kimi-k2.5"
     },
     "hephaestus": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "medium"
+      "model": "opencode-go/kimi-k2.5"
     }
   },
   "categories": {
     "visual-engineering": {
-      "model": "google/gemini-3-pro-preview"
+      "model": "opencode-go/glm-5"
     },
     "ultrabrain": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "max"
+      "model": "opencode-go/kimi-k2.5"
     },
     "artistry": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "high"
+      "model": "opencode-go/glm-5"
     },
     "quick": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "opencode-go/minimax-m2.7"
     },
     "unspecified-low": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "opencode-go/minimax-m2.7"
     },
     "unspecified-high": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "opencode-go/kimi-k2.5"
     },
     "writing": {
-      "model": "google/gemini-3-flash-preview"
+      "model": "opencode-go/minimax-m2.7"
     },
     "deep": {
-      "model": "google/gemini-3-pro-preview",
-      "variant": "medium"
+      "model": "glm-5"
     }
   },
   "git_master": {
