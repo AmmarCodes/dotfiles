@@ -1,15 +1,15 @@
 [tools]
 go = "latest"
-node = "24.14.0"
-ruby = "3.3.9"
+node = 'lts'
+ruby = "3.4.8"
 yarn = "latest"
-
-"npm:typescript-language-server" = "latest"
-"npm:@gitlab/duo-cli" = "latest"
 rust = "1.89.0"
 
+"npm:typescript-language-server" = "latest"
+
 [settings]
-idiomatic_version_file_enable_tools = ["ruby"]
+idiomatic_version_file_enable_tools = ["ruby", "node", "npm", "yarn", "bun"]
+trusted_config_paths = ['~/Projects/']
 
 [settings.npm]
 bun = true
