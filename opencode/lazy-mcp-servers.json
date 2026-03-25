@@ -2,16 +2,10 @@
   "mode": "multi-server",
   "servers": [
     {
-      "name": "gitlab",
-      "description": "GitLab API integration",
+      "name": "grepika",
+      "description": "Token-efficient MCP server for code search",
       "type": "local",
-      "command": [
-        "npx",
-        "mcp-remote@0.1.38",
-        "https://gitlab.com/api/v4/mcp",
-        "--static-oauth-client-metadata",
-        "{\"scope\": \"mcp\"}"
-      ]
+      "command": ["npx", "-y", "@agentika/grepika", "--mcp"]
     },
     {
       "name": "context7",
@@ -23,7 +17,13 @@
       "name": "memory",
       "description": "persistent memory using a local knowledge graph",
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory@2026.1.26"]
+      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
+    },
+    {
+      "name": "fff",
+      "type": "local",
+      "command": ["fff-mcp"],
+      "description": "fastest and the most accurate file search toolkit"
     },
     {
       "name": "sequential-thinking",
@@ -32,14 +32,8 @@
       "command": [
         "npx",
         "-y",
-        "@modelcontextprotocol/server-sequential-thinking@2025.12.18"
+        "@modelcontextprotocol/server-sequential-thinking"
       ]
-    },
-    {
-      "name": "grepai",
-      "description": "Search codebase",
-      "type": "local",
-      "command": ["grepai", "mcp-serve"]
     }
   ]
 }

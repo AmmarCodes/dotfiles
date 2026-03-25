@@ -5,21 +5,14 @@
     "lazy-mcp": {
       "type": "local",
       "command": [
-        "npx",
-        "lazy-mcp@1.2.0",
+        "bunx",
+        "lazy-mcp@2.2.3",
         "--config",
-        "~/.config/opencode/lazy-mcp-servers.json"
-      ],
-      "enabled": true
+        "~/.config/lazy-mcp/servers.json"
+      ]
     }
   },
-  "plugin": [
-    "@nick-vi/opencode-type-inject",
-    "oh-my-opencode@latest",
-    "@mohak34/opencode-notifier@latest",
-    "opencode-caffeinate",
-    "opencode-forge-session-title@latest"
-  ],
+  "plugin": ["oh-my-opencode@latest"],
   "tools": {
     "ls": true,
     "cat": true
