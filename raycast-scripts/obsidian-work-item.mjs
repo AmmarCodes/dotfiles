@@ -34,7 +34,8 @@ const browsers = {
 const browser = "Helium";
 if (!browser) console.error("Could not figure the default browser!");
 
-const getObsidianUrl = (url) => `obsidian://advanced-uri?vault=obsidian-work&${url}`;
+const getObsidianUrl = (url) =>
+  `obsidian://advanced-uri?vault=obsidian-work&${url}`;
 
 const openObsidianUrl = (url) => {
   const obsidianUrl = getObsidianUrl(url);
@@ -77,8 +78,6 @@ aliases:
 done_date: "[[${todayDate}]]"
 ---
 # ${title}
-
-## Updates
 `;
 
 // removed from content - [ ] Review [[${filePath}]] 📅 ${todayDate}
