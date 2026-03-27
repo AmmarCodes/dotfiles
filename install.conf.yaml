@@ -20,6 +20,8 @@
     ~/.config/topgrade.toml: topgrade.toml
     ~/.config/lazy-mcp/servers.json: opencode/lazy-mcp-servers.json
     ~/.config/kitty/kitty.conf: kitty.conf
+    ~/.config/opencode: opencode
+    ~/.agents/skills: skills
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
     ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json
     ~/.config/nvim/:
@@ -50,10 +52,6 @@
       glob: true
       force: true
       path: sketchybar/**
-    ~/.config/opencode/:
-      glob: true
-      force: true
-      path: opencode/**
     ~/Library/Application Support/espanso:
       glob: true
       force: true
