@@ -1,0 +1,27 @@
+{
+  "skill_name": "react-ts-init",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I want to create a new React project with TypeScript for my portfolio website. Can you set it up with proper linting and formatting?",
+      "expected_output": "ESLint config, Prettier config, tsconfig.json with strict settings, package.json with scripts, installed dependencies"
+    },
+    {
+      "id": 2,
+      "prompt": "Starting a greenfield React + TypeScript app for work. Need strict linting setup with prettier. Just created the vite project."
+    },
+    {
+      "id": 3,
+      "prompt": "npm create vite@latest my-app -- --template react-ts\n\nCan you set up the linting and formatting configs for this?"
+    },
+    {
+      "id": 4,
+      "prompt": "Setting up a fresh React TypeScript project. I ran npx create-react-app with the typescript template. Now I need eslint and prettier configured properly.",
+      "expected_output": "ESLint config, Prettier config, tsconfig.json with strict settings, package.json with scripts, installed dependencies"
+    },
+    {
+      "id": 5,
+      "prompt": "Scaffold a new React project for me with TypeScript and strict ESLint + Prettier configuration"
+    }
+  ]
+}
