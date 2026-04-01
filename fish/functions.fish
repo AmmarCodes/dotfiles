@@ -53,3 +53,78 @@ function tdl -d "Set up a tmux dev layout with editor and AI panes" --argument-n
     # Select the editor pane for focus
     tmux select-pane -t "$editor_pane"
 end
+
+# attach to the session matching cwd, or create it if it doesn't exist
+# also sets the terminal title to the session name
+# source: https://github.com/fcoury/config/blob/master/fish/conf.d/tmux.fish
+function t
+    set session_name (basename (pwd) | string replace '.' '_')
+    printf '\033]0;💻 %s\007' "$session_name"
+    if tmux has-session -t "$session_name"
+        tmux attach-session -t "$session_name"
+    else
+        tmux new-session -s "$session_name"
+    end
+end
+
+# tp: tmux session picker
+#   no args  -> fzf over existing sessions; Esc falls back to cwd session
+#   with arg -> attach to that session name, creating it if needed
+#   no sessions at all -> create one for cwd
+function tp
+    if not command -q tmux
+        echo "tmux is not installed"
+        return 1
+    end
+
+    # no sessions exist yet — just create one for the current directory
+    if test (tmux list-sessions 2>/dev/null | wc -l) -eq 0
+        set session_name (basename (pwd) | string replace '.' '_')
+        printf '\033]0;💻 %s\007' "$session_name"
+        tmux new-session -s "$session_name"
+        return
+    end
+
+    if test (count $argv) -eq 0
+        # interactive pick via fzf
+        set selected_session (tmux list-sessions -F "#{session_attached} #{session_name}#{?session_attached, (attached),}" | sort -rn | string replace -r '^\d+ ' '' | fzf --height 40% --reverse | string replace -r ' \(attached\)$' '')
+
+        if test -n "$selected_session"
+            printf '\033]0;💻 %s\007' "$selected_session"
+            tmux attach-session -t "$selected_session"
+        else
+            # fzf cancelled — fall back to cwd session
+            set session_name (basename (pwd) | string replace '.' '_')
+            printf '\033]0;💻 %s\007' "$session_name"
+
+            if tmux has-session -t "$session_name" 2>/dev/null
+                tmux attach-session -t "$session_name"
+            else
+                tmux new-session -s "$session_name"
+            end
+        end
+    else
+        # explicit session name provided
+        set session_name $argv[1]
+        printf '\033]0;💻 %s\007' "$session_name"
+
+        if tmux has-session -t "$session_name" 2>/dev/null
+            tmux attach-session -t "$session_name"
+        else
+            tmux new-session -s "$session_name"
+        end
+    end
+end
+
+# Capture the current pane content to a temporary file
+function tmux-edit
+    set -l tmp_file (mktemp)
+    tmux capture-pane -pS - >$tmp_file
+
+    # Open the file in Neovim in a new tmux window
+    tmux new-window -n "Edit Pane" "nvim $tmp_file; and fish -c 'cat $tmp_file | pbcopy; echo \"Content copied to clipboard\"; read -P \"Press Enter to close... \" -a ignore'"
+
+    # Clean up the temp file (this runs after the window is closed)
+    # We use a background job to give time for the new window to fully capture the file
+    fish -c "sleep 1; rm $tmp_file" &
+end
