@@ -10,56 +10,12 @@ sbar.exec(
 
 local popup_width = 250
 
--- local wifi_up = sbar.add("item", "widgets.wifi1", {
---   position = "right",
---   padding_left = -5,
---   width = 0,
---   icon = {
---     padding_right = 0,
---     font = {
---       style = settings.font.style_map["Bold"],
---       size = 9.0,
---     },
---     string = icons.wifi.upload,
---   },
---   label = {
---     font = {
---       family = settings.font.numbers,
---       style = settings.font.style_map["Bold"],
---       size = 9.0,
---     },
---     color = colors.red,
---     string = "??? Bps",
---   },
---   y_offset = 4,
--- })
-
--- local wifi_down = sbar.add("item", "widgets.wifi2", {
---   position = "right",
---   padding_left = -5,
---   icon = {
---     padding_right = 0,
---     font = {
---       style = settings.font.style_map["Bold"],
---       size = 9.0,
---     },
---     string = icons.wifi.download,
---   },
---   label = {
---     font = {
---       family = settings.font.numbers,
---       style = settings.font.style_map["Bold"],
---       size = 9.0,
---     },
---     color = colors.blue,
---     string = "??? Bps",
---   },
---   y_offset = -4,
--- })
-
-local wifi = sbar.add("item", "widgets.wifi.padding", {
+local wifi = sbar.add("item", "widgets.wifi", {
   position = "right",
   label = { drawing = false },
+  y_offset = 1,
+  update_freq = 180,
+  popup = { align = "center" },
 })
 
 -- Background around the item
@@ -70,6 +26,11 @@ local wifi_bracket = sbar.add("bracket", "widgets.wifi.bracket", {
 }, {
   background = { color = colors.item_bg_color },
   popup = { align = "center", height = 30 },
+})
+
+sbar.add("item", "widgets.wifi.padding", {
+  position = "right",
+  width = settings.group_paddings,
 })
 
 local ssid = sbar.add("item", {
@@ -153,27 +114,6 @@ local router = sbar.add("item", {
     align = "right",
   },
 })
-
--- sbar.add("item", { position = "right", width = settings.group_paddings })
-
--- wifi_up:subscribe("network_update", function(env)
--- 	local up_color = (env.upload == "000 Bps") and colors.grey or colors.red
--- 	local down_color = (env.download == "000 Bps") and colors.grey or colors.blue
--- 	wifi_up:set({
--- 		icon = { color = up_color },
--- 		label = {
--- 			string = env.upload,
--- 			color = up_color,
--- 		},
--- 	})
--- 	wifi_down:set({
--- 		icon = { color = down_color },
--- 		label = {
--- 			string = env.download,
--- 			color = down_color,
--- 		},
--- 	})
--- end)
 
 wifi:subscribe({ "wifi_change", "system_woke" }, function(env)
   sbar.exec("ipconfig getifaddr en0", function(ip)
