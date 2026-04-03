@@ -6,6 +6,8 @@ yarn = "latest"
 rust = "1.89.0"
 
 "npm:typescript-language-server" = "latest"
+"npm:@mariozechner/pi-coding-agent" = "latest"
+opencode = "latest"
 
 [settings]
 idiomatic_version_file_enable_tools = ["ruby", "node", "npm", "yarn", "bun"]
