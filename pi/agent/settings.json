@@ -1,0 +1,12 @@
+{
+  "lastChangelogVersion": "0.64.0",
+  "packages": [
+    "npm:pi-poly-notify",
+    "npm:pi-rtk-optimizer",
+    "npm:pi-token-burden",
+    "npm:pi-tool-display",
+    "npm:pi-interview",
+    "npm:glimpseui",
+    "npm:pi-notify"
+  ]
+}

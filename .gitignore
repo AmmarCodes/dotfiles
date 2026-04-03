@@ -5,6 +5,8 @@ Brewfile.lock.json
 node_modules/
 **/node_modules/
 .private_exports
+pi/agent/auth.json
+pi/agent/sessions
 
 # theme specific ignores
 .current-theme
