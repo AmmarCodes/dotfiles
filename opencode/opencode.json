@@ -12,7 +12,9 @@
       ]
     }
   },
-  "plugin": ["oh-my-opencode@latest"],
+  "plugin": [
+    "oh-my-openagent@latest"
+  ],
   "tools": {
     "ls": true,
     "cat": true
