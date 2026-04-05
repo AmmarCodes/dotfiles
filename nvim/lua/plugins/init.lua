@@ -5,10 +5,6 @@ return {
     ft = { "ruby", "eruby", "vim", "lua", "bash" },
   },
   {
-    "weilbith/nvim-code-action-menu",
-    cmd = "CodeActionMenu",
-  },
-  {
     "mrjones2014/smart-splits.nvim",
     event = "VeryLazy",
     config = true,
@@ -24,10 +20,6 @@ return {
     "tpope/vim-projectionist",
     event = "BufReadPre",
     ft = { "javascript", "ruby", "typescript", "vue" },
-  },
-  {
-    "gpanders/editorconfig.nvim",
-    event = "BufReadPre",
   },
   {
     "catgoose/nvim-colorizer.lua",

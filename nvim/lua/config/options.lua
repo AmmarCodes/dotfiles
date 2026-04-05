@@ -15,6 +15,10 @@ opt.autoread = true
 vim.g.lazyvim_php_lsp = "intelephense"
 vim.g.snacks_animate = false
 
+-- Neovim 0.12: completion popup border
+opt.pumborder = "rounded"
+opt.pummaxwidth = 40
+
 vim.diagnostic.config({
   -- Use the default configuration
   -- virtual_lines = true,

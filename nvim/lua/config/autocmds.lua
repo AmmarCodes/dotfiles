@@ -54,19 +54,14 @@ autocmd("FileType", {
   end,
 })
 
--- automatically create dirs when saving new file
--- source: https://github.com/mateuszwieloch/automkdir.nvim/blob/main/plugin/automkdir.lua
-local automkdirGroup = augroup("automkdirGroup", { clear = true })
-
+-- automatically create parent dirs when saving a new file
 autocmd("BufWritePre", {
   callback = function(t)
-    -- Function gets a table that contains match key, which maps to `<amatch>` (a full filepath).
-    local dirname = vim.fs.dirname(t.match)
-    -- Attempt to mkdir. If dir already exists, it returns nil.
-    -- Use 755 permissions, which means rwxr.xr.x
-    vim.loop.fs_mkdir(dirname, tonumber("0755", 8))
+    local dir = vim.fs.dirname(t.match)
+    if dir and dir ~= "" then
+      vim.fn.mkdir(dir, "p")
+    end
   end,
-  group = automkdirGroup,
 })
 
 autocmd({ "BufRead", "BufNewFile" }, { pattern = "*.njk", command = "setfiletype html" })
