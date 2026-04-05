@@ -1,12 +1,16 @@
 {
   "lastChangelogVersion": "0.64.0",
   "packages": [
-    "npm:pi-poly-notify",
     "npm:pi-rtk-optimizer",
     "npm:pi-token-burden",
-    "npm:pi-tool-display",
-    "npm:pi-interview",
-    "npm:glimpseui",
-    "npm:pi-notify"
+    // "npm:pi-tool-display",
+    {
+      "source": "git:github.com/aliou/pi-harness",
+      "extensions": [
+        "extensions/btw/index.ts",
+        "extensions/palette/index.ts",
+        "extensions/defaults/index.ts"
+      ]
+    }
   ]
 }
