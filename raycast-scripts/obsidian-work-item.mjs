@@ -71,8 +71,8 @@ let content = `---
 date: "[[${todayDate}]]"
 link: "${url}"
 tags:
-  - gitlab/work-item
-  - gitlab/type/review
+  - work-item
+  - type/review
 aliases:
   - "${title}"
 done_date: "[[${todayDate}]]"
