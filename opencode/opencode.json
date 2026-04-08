@@ -12,13 +12,10 @@
       ]
     }
   },
-  "plugin": [
-    "oh-my-openagent@latest"
-  ],
+  "plugin": ["oh-my-openagent@latest"],
   "tools": {
     "ls": true,
     "cat": true
   },
-  "share": "disabled",
-  "disabled_providers": ["zai"]
+  "share": "disabled"
 }

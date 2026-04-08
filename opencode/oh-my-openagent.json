@@ -1,42 +1,50 @@
 {
   "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
-  "disabled_skills": ["playwright"],
   "agents": {
     "sisyphus": {
-      "model": "opencode-go/minimax-m2.7"
+      "model": "opencode-go/kimi-k2.5"
     },
     "oracle": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/glm-5"
     },
     "librarian": {
       "model": "opencode-go/minimax-m2.7"
     },
     "explore": {
-      "model": "opencode-go/minimax-m2.7"
-    },
-    "frontend-ui-ux-engineer": {
-      "model": "opencode-go/glm-5"
-    },
-    "document-writer": {
-      "model": "opencode-go/minimax-m2.7"
+      "model": "opencode-go/minimax-m2.7",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7-highspeed"
+        }
+      ]
     },
     "multimodal-looker": {
-      "model": "opencode-go/minimax-m2.7"
+      "model": "opencode-go/kimi-k2.5"
     },
     "prometheus": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/glm-5"
     },
     "metis": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/glm-5"
     },
     "momus": {
       "model": "opencode-go/glm-5"
     },
     "atlas": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/kimi-k2.5",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7"
+        }
+      ]
     },
-    "hephaestus": {
-      "model": "opencode-go/kimi-k2.5"
+    "sisyphus-junior": {
+      "model": "opencode-go/kimi-k2.5",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7"
+        }
+      ]
     }
   },
   "categories": {
@@ -44,27 +52,40 @@
       "model": "opencode-go/glm-5"
     },
     "ultrabrain": {
-      "model": "opencode-go/kimi-k2.5"
-    },
-    "artistry": {
       "model": "opencode-go/glm-5"
+    },
+    "deep": {
+      "model": "opencode/gpt-5-nano"
     },
     "quick": {
       "model": "opencode-go/minimax-m2.7"
     },
     "unspecified-low": {
-      "model": "opencode-go/minimax-m2.7"
+      "model": "opencode-go/kimi-k2.5",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7"
+        }
+      ]
     },
     "unspecified-high": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/kimi-k2.5",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7"
+        }
+      ]
     },
     "writing": {
-      "model": "opencode-go/minimax-m2.7"
-    },
-    "deep": {
-      "model": "glm-5"
+      "model": "opencode-go/kimi-k2.5",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7"
+        }
+      ]
     }
   },
+  "disabled_skills": ["playwright"],
   "git_master": {
     "commit_footer": false,
     "include_co_authored_by": false
