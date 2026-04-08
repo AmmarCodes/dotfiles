@@ -205,30 +205,6 @@ matches:
       /approve
       /assign_reviewer @{{clipboard}}
 
-  - trigger: ";lmn"
-    replace: "Let me know what you think!"
-
-  - trigger: ";leftsug"
-    replace: "I left a small non-blocking suggestion for your consideration"
-
-  - trigger: ";wir"
-    replace: '/label ~"workflow::in review"'
-
-  - trigger: ";wid"
-    replace: '/label ~"workflow::in dev"'
-
-  - trigger: ";wc"
-    replace: "/label ~\"workflow::complete\"\n/close"
-
-  - trigger: "~wir"
-    replace: '~"workflow::in review"'
-
-  - trigger: "~wid"
-    replace: '~"workflow::in dev"'
-
-  - trigger: "~wv"
-    replace: '~"workflow::verification"'
-
   # Print the output of a shell command
   # - trigger: ";shell"
   #   replace: "{{output}}"
