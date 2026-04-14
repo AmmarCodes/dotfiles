@@ -41,7 +41,7 @@ return {
         emmet_language_server = {
           filetypes = { "vue", "eruby", "html", "haml", "javascript" },
         },
-        stylelint_lsp = {
+        stylelint_language_server = {
           filetypes = { "css", "scss" },
         },
         yamlls = {
