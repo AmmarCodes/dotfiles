@@ -39,8 +39,6 @@ brew "jq"
 brew "tmux"
 # Git status in tmux status bar
 brew "gitmux"
-# Helps you navigate your file system faster by learning your habits
-brew "jump"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Powerful, lightweight programming language

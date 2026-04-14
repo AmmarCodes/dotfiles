@@ -15,11 +15,11 @@ if test -f ~/.config/fish/gitlab.fish
     source ~/.config/fish/gitlab.fish
 end
 
-# Lazy-load jump and atuin
+# Lazy-load zoxide and atuin
 status --is-interactive; and function __init_deferred_tools --on-event fish_prompt
     functions --erase __init_deferred_tools # Run only once
-    if type -q jump
-        source (jump shell fish | psub)
+    if type -q zoxide
+        source (zoxide init fish | psub)
     end
     if type -q atuin
         source (atuin init fish --disable-up-arrow | psub)

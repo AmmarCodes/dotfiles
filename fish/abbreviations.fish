@@ -40,6 +40,7 @@ abbr --add mux tmuxinator
 abbr --add be "bundle exec"
 abbr --add ll "ls -lah"
 abbr --add upgrade-nvim "brew unlink neovim && brew install --fetch-HEAD --HEAD neovim && brew unlink neovim && brew link neovim -f"
+alias j z
 
 # git aliases
 abbr --add g git
