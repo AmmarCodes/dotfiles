@@ -1,0 +1,5 @@
+{
+  "app.model.select": ["ctrl+m"],
+  "app.exit": ["ctrl+c"],
+  "app.clear": ["ctrl+l"]
+}

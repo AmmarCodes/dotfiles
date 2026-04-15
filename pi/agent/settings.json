@@ -1,16 +1,10 @@
 {
-  "lastChangelogVersion": "0.64.0",
+  "lastChangelogVersion": "0.67.2",
+  "collapseChangelog": true,
   "packages": [
     "npm:pi-rtk-optimizer",
     "npm:pi-token-burden",
-    // "npm:pi-tool-display",
-    {
-      "source": "git:github.com/aliou/pi-harness",
-      "extensions": [
-        "extensions/btw/index.ts",
-        "extensions/palette/index.ts",
-        "extensions/defaults/index.ts"
-      ]
-    }
-  ]
+    "npm:pi-formatter"
+  ],
+  "quietStartup": true
 }

@@ -1,0 +1,5 @@
+{
+  "formatMode": "tool",
+  "commandTimeoutMs": 10000,
+  "hideCallSummariesInTui": false
+}
