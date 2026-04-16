@@ -21,7 +21,7 @@
     ~/.config/lazy-mcp/servers.json: opencode/lazy-mcp-servers.json
     ~/.config/kitty/kitty.conf: kitty.conf
     ~/.config/opencode: opencode
-    ~/.pi/agent/: pi/agent
+    ~/.pi/: pi
     ~/.agents/skills: skills
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
     ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json
