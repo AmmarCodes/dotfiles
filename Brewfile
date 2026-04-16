@@ -35,16 +35,14 @@ brew "git-delta"
 brew "ifstat"
 # Lightweight and flexible command-line JSON processor
 brew "jq"
-# Terminal multiplexer
-brew "tmux"
-# Git status in tmux status bar
-brew "gitmux"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Powerful, lightweight programming language
 brew "lua"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
+# Deep clean and optimize your Mac
+brew "mole"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Open-source, cross-platform JavaScript runtime environment
@@ -59,6 +57,8 @@ brew "rtk"
 brew "sesh"
 # Log file highlighter
 brew "tailspin"
+# Terminal multiplexer
+brew "tmux"
 # Manage complex tmux sessions easily
 brew "tmuxinator"
 # Upgrade all the things
@@ -71,6 +71,8 @@ brew "worktrunk"
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Git in your tmux status bar.
+brew "arl/arl/gitmux"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
@@ -95,8 +97,10 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "font-noto-sans-arabic"
 cask "font-sf-mono-nerd-font-ligaturized"
+cask "font-sf-pro"
 cask "font-sketchybar-app-font"
 cask "font-sn-pro"
+cask "font-vazirmatn"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Chromium-based web browser
