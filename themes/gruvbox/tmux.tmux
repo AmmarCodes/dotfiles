@@ -2,7 +2,7 @@
 base="#282828"
 surface="#3c3836"
 overlay="#3c3836"
-muted="#3c3836"
+muted="#665c54"
 subtle="#3c3836"
 text="#d4be98"
 love="#ea6962"

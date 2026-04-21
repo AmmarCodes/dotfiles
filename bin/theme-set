@@ -212,7 +212,12 @@ reload_apps() {
 
   # Ghostty: doesn't need explicit reload — reads config-file on new windows
   # this "should" reload it
-  kill -s USR2 "$(ps aux | grep -v grep | awk -v app='Ghostty' '$0 ~ app { print $2 }' | head -n 1)"
+  local ghostty_pid
+  ghostty_pid=$(ps aux | grep -v grep | awk '/Ghosty/ && !/grep/ {print $2}' | head -n 1)
+  if [[ -n "$ghostty_pid" ]]; then
+    kill -s USR1 "$ghostty_pid" 2>/dev/null && info "Reloaded ghostty" || true
+  fi
+  # kill -s USR2 "$(ps aux | grep -v grep | awk -v app='Ghostty' '$0 ~ app { print $2 }' | head -n 1)"
 
   # Kitty: reload config with SIGUSR1
   local kitty_pid
