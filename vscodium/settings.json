@@ -28,7 +28,6 @@
   "[ruby]": {
     "editor.defaultFormatter": "rubocop.vscode-rubocop",
   },
-  "workbench.sideBar.location": "right",
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
@@ -103,4 +102,6 @@
   },
   "update.showReleaseNotes": false,
   "rubocop.bundleCommandPath": "/Users/ammar/.local/share/mise/shims/bundle",
+  "workbench.activityBar.compact": true,
+  "workbench.activityBar.location": "top",
 }

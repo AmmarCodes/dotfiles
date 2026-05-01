@@ -14,7 +14,6 @@
     ~/.ripgreprc: ripgreprc
     ~/.config/karabiner.edn: karabiner.edn
     ~/.config/zed/settings.json: zed/settings.json
-    ~/.config/nvim/stylua.toml: stylua.toml
     ~/.config/borders/bordersrc: bordersrc
     ~/.config/worktrunk/config.toml: worktrunk/config.toml
     ~/.config/topgrade.toml: topgrade.toml
@@ -25,45 +24,21 @@
     ~/.agents/skills: skills
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
     ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json
-    ~/.config/nvim/:
-      glob: true
-      force: true
-      path: nvim/**
     ~/.config/fish/:
       glob: true
       force: true
       path: fish/**
+    ~/.config/nvim/: nvim
     ~/.config/ghostty/:
       glob: true
       force: true
       path: ghostty/**
-    ~/.config/bat/:
-      glob: true
-      force: true
-      path: bat/**
-    ~/.config/yazi/:
-      glob: true
-      force: true
-      path: yazi/**
-    ~/.config/atuin/:
-      glob: true
-      force: true
-      path: atuin/**
-    ~/.config/sketchybar/:
-      glob: true
-      force: true
-      path: sketchybar/**
-    ~/Library/Application Support/espanso:
-      glob: true
-      force: true
-      path: espanso/**
-    ~/.config/mise/:
-      glob: true
-      force: true
-      path: mise/**
-
-- create:
-    - ~/Library/Application Support/lazygit
+    ~/.config/bat/: bat
+    ~/.config/yazi/: yazi
+    ~/.config/atuin/: atuin
+    ~/.config/sketchybar/: sketchybar
+    ~/Library/Application Support/espanso: espanso
+    ~/.config/mise/: mise
 
 - shell:
     - description: "Install must-haves brew packages"

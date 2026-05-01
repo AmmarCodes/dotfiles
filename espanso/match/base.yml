@@ -15,9 +15,6 @@ global_vars:
 # Matches are substitution rules: when you type the "trigger" string
 # it gets replaced by the "replace" string.
 matches:
-  # - trigger: ""
-  #   replace: ""
-
   - trigger: ";date"
     replace: "{{date}}"
 
@@ -45,7 +42,7 @@ matches:
         params:
           format: "%Y-%m-%d %H:%M"
 
-  - trigger: ";review"
+  - trigger: ";rev"
     replace: |
       Hey @{{clipboard}} :wave:
 
@@ -95,15 +92,6 @@ matches:
 
   - trigger: ";shots"
     replace: "| before | after |\n| ------ | ------ |\n| $|$ |  |"
-
-  - trigger: ";it"
-    replace: "it('$|$', () => {  });"
-
-  - trigger: ";arr"
-    replace: "() => {$|$}"
-
-  - trigger: ";desc"
-    replace: "describe('$|$', () => {});"
 
   - trigger: ";refine"
     replace: |
@@ -162,26 +150,6 @@ matches:
       ```
 
       </details>
-
-  - trigger: ";11"
-    html: |
-      <h1 style="font-weight: normal; font-size: 26px">{{date}}</h1>
-      <ul style="font-size: 16px">
-        <li>
-          Ammar
-          <ul>
-            <li>...</li>
-          </ul>
-        </li>
-        <li>
-          Chase
-          <ul>
-            <li>Feedback for Ammar
-              <ul><li>...</li></ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
 
   - trigger: ";lgtm"
     replace: |
