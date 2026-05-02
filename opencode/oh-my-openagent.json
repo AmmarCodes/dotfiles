@@ -1,14 +1,19 @@
 {
-  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-opencode/master/assets/oh-my-opencode.schema.json",
+  "$schema": "https://raw.githubusercontent.com/code-yeongyu/oh-my-openagent/dev/assets/oh-my-opencode.schema.json",
   "agents": {
     "sisyphus": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/kimi-k2.6"
     },
     "oracle": {
       "model": "opencode-go/glm-5"
     },
     "librarian": {
-      "model": "opencode-go/minimax-m2.7"
+      "model": "opencode-go/minimax-m2.7",
+      "fallback_models": [
+        {
+          "model": "opencode-go/minimax-m2.7-highspeed"
+        }
+      ]
     },
     "explore": {
       "model": "opencode-go/minimax-m2.7",
@@ -19,7 +24,7 @@
       ]
     },
     "multimodal-looker": {
-      "model": "opencode-go/kimi-k2.5"
+      "model": "opencode-go/kimi-k2.6"
     },
     "prometheus": {
       "model": "opencode-go/glm-5"
@@ -31,7 +36,7 @@
       "model": "opencode-go/glm-5"
     },
     "atlas": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         {
           "model": "opencode-go/minimax-m2.7"
@@ -39,7 +44,7 @@
       ]
     },
     "sisyphus-junior": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         {
           "model": "opencode-go/minimax-m2.7"
@@ -61,7 +66,7 @@
       "model": "opencode-go/minimax-m2.7"
     },
     "unspecified-low": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         {
           "model": "opencode-go/minimax-m2.7"
@@ -69,7 +74,7 @@
       ]
     },
     "unspecified-high": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         {
           "model": "opencode-go/minimax-m2.7"
@@ -77,7 +82,7 @@
       ]
     },
     "writing": {
-      "model": "opencode-go/kimi-k2.5",
+      "model": "opencode-go/kimi-k2.6",
       "fallback_models": [
         {
           "model": "opencode-go/minimax-m2.7"
@@ -89,8 +94,5 @@
   "git_master": {
     "commit_footer": false,
     "include_co_authored_by": false
-  },
-  "experimental": {
-    "truncate_all_tool_outputs": true
   }
 }
