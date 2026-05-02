@@ -49,6 +49,8 @@ brew "neovim"
 brew "node"
 # Trigger notifications when a process completes
 brew "noti"
+# Command-line toolbox for fancy output in the terminal
+brew "rich-cli"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # CLI proxy to minimize LLM token consumption

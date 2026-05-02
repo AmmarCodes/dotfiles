@@ -13,5 +13,10 @@ use = "yazi-rs/plugins:piper"
 rev = "19dc890"
 hash = "b26d542e75151835d7bc885f6dda74cb"
 
+[[plugin.deps]]
+use = "AnirudhG07/rich-preview"
+rev = "7d616ad"
+hash = "d64feec9761392cbc250d199ab4b8a3a"
+
 [flavor]
 deps = []
