@@ -1,0 +1,15 @@
+# ft=ruby
+# Brewfile.local - machine-specific / experimental installs
+#
+# This file is gitignored. Use it for:
+#   - Work-only tools
+#   - Experiments you're trying out
+#   - One-off installs you don't want in the main Brewfile
+#
+# Copy this to Brewfile.local to start using it:
+#   cp Brewfile.local.example Brewfile.local
+#
+# When something graduates to "I use this everywhere", promote it to Brewfile.
+
+# brew "some-tool"
+# cask "some-app"

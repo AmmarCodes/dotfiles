@@ -1,5 +1,7 @@
 nvim/lazyvim.json
 Brewfile.lock.json
+Brewfile.local
+Brewfile.local.lock.json
 .DS_Store
 .ruby-lsp/
 node_modules/

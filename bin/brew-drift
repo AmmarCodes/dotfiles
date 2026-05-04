@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# Show what's installed but NOT tracked in Brewfile or Brewfile.local.
+# Useful for deciding what to promote to the tracked Brewfile.
+
+set -e
+
+DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
+TMPFILE="$(mktemp)"
+trap 'rm -f "$TMPFILE"' EXIT
+
+# Combine both Brewfiles for the check
+cat "$DOTFILES/Brewfile" > "$TMPFILE"
+if [ -f "$DOTFILES/Brewfile.local" ]; then
+  echo "" >> "$TMPFILE"
+  cat "$DOTFILES/Brewfile.local" >> "$TMPFILE"
+fi
+
+echo "==> Installed but NOT in Brewfile or Brewfile.local:"
+brew bundle cleanup --file="$TMPFILE" || true
+
+echo ""
+echo "==> Tracked but NOT installed:"
+brew bundle check --file="$TMPFILE" --verbose || true

@@ -18,7 +18,7 @@
     ~/.config/worktrunk/config.toml: worktrunk/config.toml
     ~/.config/topgrade.toml: topgrade.toml
     ~/.config/lazy-mcp/servers.json: opencode/lazy-mcp-servers.json
-    ~/.config/kitty/kitty.conf: kitty.conf
+    # ~/.config/kitty/kitty.conf: kitty.conf
     ~/.config/opencode: opencode
     ~/.pi/: pi
     ~/.agents/skills: skills
@@ -42,13 +42,17 @@
 
 - shell:
     - description: "Install must-haves brew packages"
-      command: "brew install fish raycast ghostty nvim"
+      command: "brew bundle install --file ~/.dotfiles/Brewfile"
     - description: "Install fisher - fish plugin manager"
       command: "curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher"
     - description: "Installing submodules"
       command: "git submodule update --init --recursive"
     - description: "Installing brew packages using ~/.dotfiles/Brewfile"
-      command: "if command -v brew > /dev/null; then brew bundle; fi"
+      command: "if command -v brew > /dev/null; then brew bundle --file=~/.dotfiles/Brewfile; fi"
+    - description: "Seeding Brewfile.local from example if missing"
+      command: "[ -f ~/.dotfiles/Brewfile.local ] || cp ~/.dotfiles/Brewfile.local.example ~/.dotfiles/Brewfile.local"
+    - description: "Installing local brew packages from ~/.dotfiles/Brewfile.local"
+      command: "if command -v brew > /dev/null; then brew bundle --file=~/.dotfiles/Brewfile.local; fi"
     - description: "Installing tmux plugin manager"
       command: "if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi"
     - description: "Installing SBarLua"

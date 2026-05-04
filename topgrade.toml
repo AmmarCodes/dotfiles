@@ -19,7 +19,7 @@ cleanup = true
 [post_commands]
 # "Emacs Snapshot" = "rm -rf ~/.emacs.d/elpa.bak && cp -rl ~/.emacs.d/elpa ~/.emacs.d/elpa.bak"
 "Clean up brew" = "brew cleanup --prune=all"
-"Dump Brewfile bundle" = "brew bundle dump --force --tap --cask --formula --services --tap --describe --force --file=~/.dotfiles/Brewfile"
+"Brew drift report" = "~/.dotfiles/bin/brew-drift"
 
 # Custom commands
 [commands]

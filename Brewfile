@@ -1,20 +1,9 @@
-tap "anomalyco/tap"
-tap "felixkratz/formulae"
-tap "nikitabobko/tap"
-tap "oven-sh/bun"
-tap "yqrashawn/goku"
-# Code searching, linting, rewriting
-brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Get a file from an HTTP, HTTPS or FTP server
 brew "curl"
-# General-purpose scripting language
-brew "php"
-# Dependency Manager for PHP
-brew "composer"
 # GNU File, Shell, and Text utilities
 brew "coreutils"
 # View disk space usage and delete unwanted data, fast
@@ -31,50 +20,32 @@ brew "fzf"
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
-# Tool to report network interface bandwidth
-brew "ifstat"
-# Lightweight and flexible command-line JSON processor
-brew "jq"
+# Terminal multiplexer
+brew "tmux"
+# Git status in tmux status bar
+brew "gitmux"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Powerful, lightweight programming language
 brew "lua"
 # Polyglot runtime manager (asdf rust clone)
 brew "mise"
-# Deep clean and optimize your Mac
-brew "mole"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
-# Open-source, cross-platform JavaScript runtime environment
-brew "node"
 # Trigger notifications when a process completes
 brew "noti"
-# Command-line toolbox for fancy output in the terminal
-brew "rich-cli"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
-# CLI proxy to minimize LLM token consumption
-brew "rtk"
 # Smart session manager for the terminal
 brew "sesh"
-# Log file highlighter
-brew "tailspin"
-# Terminal multiplexer
-brew "tmux"
-# Manage complex tmux sessions easily
-brew "tmuxinator"
 # Upgrade all the things
 brew "topgrade"
 # Internet file retriever
 brew "wget"
-# CLI for Git worktree management, designed for parallel AI agent workflows
-brew "worktrunk"
 # Blazing fast terminal file manager written in Rust, based on async I/O
 brew "yazi"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
-# Git in your tmux status bar.
-brew "arl/arl/gitmux"
 # A window border system for macOS
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
@@ -94,23 +65,20 @@ cask "elgato-camera-hub"
 # Cross-platform Text Expander written in Rust
 cask "espanso"
 cask "font-cascadia-mono"
+cask "font-geist-mono"
 cask "font-google-sans-code"
 cask "font-jetbrains-mono-nerd-font"
 cask "font-lilex"
 cask "font-noto-sans-arabic"
 cask "font-sf-mono-nerd-font-ligaturized"
-cask "font-sf-pro"
 cask "font-sketchybar-app-font"
 cask "font-sn-pro"
-cask "font-vazirmatn"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
 # Chromium-based web browser
 cask "helium-browser"
 # Keyboard customiser
 cask "karabiner-elements"
-# GPU-based terminal emulator
-cask "kitty"
 # Simple application that will prevent iTunes or Apple Music from launching
 cask "notunes"
 # Knowledge base that works on top of a local folder of plain text Markdown files
