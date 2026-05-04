@@ -23,7 +23,7 @@ brew "git-delta"
 # Terminal multiplexer
 brew "tmux"
 # Git status in tmux status bar
-brew "gitmux"
+brew "arl/arl/gitmux"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Powerful, lightweight programming language

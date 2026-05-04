@@ -6,10 +6,16 @@
 
 [misc]
 # Disable specific steps - same options as the command line flag
-disable = ["system", "containers", "gcloud", "yazi", "gem", "pnpm", "vim"]
+disable = ["system", "containers", "gcloud", "yazi", "gem", "pnpm", "vim", "pi"]
 
 # Cleanup temporary or old files (default: false)
 cleanup = true
+
+# Don't ask for confirmations (no default value)
+assume_yes = true
+
+# Do not ask to retry failed steps (default: false)
+no_retry = true
 
 # Commands to run before anything
 [pre_commands]
@@ -26,6 +32,10 @@ cleanup = true
 # "Python Environment" = "~/dev/.env/bin/pip install -i https://pypi.python.org/simple -U --upgrade-strategy eager jupyter"
 # "Custom command using interactive shell (unix)" = "-i vim_upgrade"
 "Update tmux plugins" = "~/.tmux/plugins/tpm/bin/update_plugins all"
+"Fish Update Completions" = "fish_update_completions"
+"Update mise runtimes" = "mise up"
+"Clean up mise" = "mise prune --yes"
+"Update fish plugins" = "fisher update"
 
 [composer]
 self_update = true
@@ -61,10 +71,7 @@ fetch_head = true
 # max_concurrency = 5
 
 # Additional git repositories to pull or fetch
-repos = [
-  "~/.dotfiles",
-  # "~/.config/something"
-]
+repos = ["~/.dotfiles"]
 
 # Set to `false` to skip pulling/fetching the predefined git repos
 # pull_predefined = false
