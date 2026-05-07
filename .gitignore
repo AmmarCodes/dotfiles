@@ -16,3 +16,4 @@ themes/active-neovim.lua
 themes/active.tmux
 themes/active-sketchybar.lua
 bordersrc
+/nvim/lazy-lock.json
