@@ -6,7 +6,7 @@ yarn = "latest"
 rust = "1.89.0"
 
 "npm:typescript-language-server" = "latest"
-"npm:@mariozechner/pi-coding-agent" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"
 opencode = "latest"
 
 [settings]
