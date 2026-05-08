@@ -68,11 +68,15 @@ const dd = String(today.getDate()).padStart(2, "0");
 const todayDate = `${yyyy}-${mm}-${dd}`;
 
 let content = `---
+status: open
+projects:
+related_goals:
 date: "[[${todayDate}]]"
 link: "${url}"
 tags:
   - work-item
   - type/review
+  - task
 aliases:
   - "${title}"
 done_date: "[[${todayDate}]]"
@@ -86,9 +90,9 @@ const data = encodeURIComponent(content);
 
 // add the work item to the worklog file
 const workItem = encodeURIComponent(`- [[${filePath}|${title}]]`);
-openObsidianUrl(
-  `filepath=Worklog.md&mode=append&data=${workItem}&openmode=silent`,
-);
+// openObsidianUrl(
+//   `filepath=Worklog.md&mode=append&data=${workItem}&openmode=silent`,
+// );
 
 openObsidianUrl(
   `filepath=${workItemPath + filePath}.md&data=${data}&openmode=tab`,
