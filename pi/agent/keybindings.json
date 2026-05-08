@@ -1,5 +1,4 @@
 {
-  "app.model.select": ["ctrl+shift+m"],
   "app.exit": ["ctrl+c"],
-  "app.clear": ["ctrl+l"]
+  "app.model.select": ["ctrl+l"]
 }

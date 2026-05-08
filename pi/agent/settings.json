@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.67.2",
+  "lastChangelogVersion": "0.74.0",
   "collapseChangelog": true,
   "packages": [
     "npm:pi-rtk-optimizer",
