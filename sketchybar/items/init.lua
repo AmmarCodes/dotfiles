@@ -11,6 +11,7 @@ require("items.battery")
 require("items.keyboard")
 require("items.cpu")
 require("items.wifi")
+require("items.timer")
 require("items.weather")
 
 --- center
