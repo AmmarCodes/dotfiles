@@ -10,9 +10,13 @@
         "--config",
         "~/.config/lazy-mcp/servers.json"
       ]
+    },
+    "context-mode": {
+      "type": "local",
+      "command": ["context-mode"]
     }
   },
-  "plugin": ["oh-my-openagent@latest"],
+  "plugin": ["context-mode", "oh-my-openagent@latest"],
   "tools": {
     "ls": true,
     "cat": true

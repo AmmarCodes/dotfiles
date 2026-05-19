@@ -17,3 +17,5 @@ themes/active.tmux
 themes/active-sketchybar.lua
 bordersrc
 /nvim/lazy-lock.json
+/opencode/context-mode
+/opencode/package-lock.json
