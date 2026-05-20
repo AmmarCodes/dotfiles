@@ -1,18 +1,18 @@
 # gruvbox
-base="#282828"
+base="#222526"
 surface="#3c3836"
 overlay="#3c3836"
 muted="#665c54"
-subtle="#3c3836"
+subtle="#504945"
 text="#d4be98"
 love="#ea6962"
-gold="#d8a657"
+gold="#e78a4e"
 rose="#d8a657"
 pine="#a9b665"
 foam="#89b482"
 iris="#d3869b"
 highlight_low="#3c3836"
-highlight_med="#3c3836"
+highlight_med="#928374"
 highlight_high="#3c3836"
 
 set -g @thm_bg $base
