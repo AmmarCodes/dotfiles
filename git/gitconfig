@@ -38,7 +38,7 @@
   cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
 [merge]
   ff = false
-  conflictstyle = diff3
+  conflictstyle = zdiff3
   tool = nvim
 [mergetool]
   prompt = false
@@ -90,6 +90,9 @@
 	defaultBranch = main
 [delta]
   navigate = true
+  side-by-side = true
+  hyperlinks = true
+  true-color = always
 
 # The contents of this file are included only for GitLab.com URLs
 [includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
