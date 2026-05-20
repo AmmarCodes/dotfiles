@@ -1,19 +1,19 @@
 # rose-pine
 base="#faf4ed"
-surface="#f2e9e1"
-overlay="#9893a5"
+surface="#fffaf3"
+overlay="#f2e9e1"
 muted="#9893a5"
-subtle="#9893a5"
+subtle="#797593"
 text="#575279"
 love="#b4637a"
 gold="#ea9d34"
-rose="#ea9d34"
+rose="#d7827e"
 pine="#286983"
-foam="#d7827e"
+foam="#56949f"
 iris="#907aa9"
-highlight_low="#f2e9e1"
-highlight_med="#f2e9e1"
-highlight_high="#f2e9e1"
+highlight_low="#f4ede8"
+highlight_med="#dfdad9"
+highlight_high="#cecacd"
 
 set -g @thm_bg $base
 set -g @thm_bg_tinted $base
