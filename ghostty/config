@@ -16,12 +16,12 @@ quit-after-last-window-closed = true
 # font-family = Google Sans Code
 font-family = MonoLisa
 
-font-size = 14
+font-size = 13
 font-thicken = true
 font-thicken-strength = 200
 adjust-cell-height = 14
 adjust-underline-position = 4
-# font-feature = calt
+font-feature = calt
 font-feature = dlig
 font-feature = ss01
 font-feature = ss02
