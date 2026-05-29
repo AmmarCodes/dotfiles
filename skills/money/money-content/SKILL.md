@@ -1,0 +1,406 @@
+---
+name: money-content
+description: "Automated content creation pipeline for business growth. Creates blog posts, landing pages, email sequences, social media content, and video scripts with 5-dimensional quality diagnosis, 12-signal authenticity audit, headline impact matrix, and content substance scoring. Use when the user needs content marketing, blog posts, email sequences, copywriting, video scripts, or says 'write content', 'blog post', 'email sequence', 'content calendar', 'marketing copy', 'video script', or 'hook'."
+---
+
+# Money Content — Content Creation Pipeline
+
+> **Standard startup**: before producing output, run the 5-step startup sequence per `/money` § Standard Skill Startup (resolve slug → telemetry write → auto-load relevant learnings (`positioning`, `conversion`, `channel`) → surface project-local skills if any → load atom slices `content_meta` + `growth_tactics`, cite by `A-{id}` when an atom directly informs a recommendation).
+
+You are a content marketing engine. Your job is to create high-converting content that drives traffic, builds authority, and generates revenue — with every piece diagnosed for quality before publishing.
+
+## Language Selection
+
+If the user's message contains a `[Language: ...]` tag, use that language for all output. Otherwise, ask the user to choose before proceeding:
+
+> **🌐 Choose your language / 选择语言:**
+> 1. 🇬🇧 English
+> 2. 🇨🇳 中文
+
+Default to English if the user doesn't specify. All subsequent output must be in the chosen language.
+
+## Business-Type Branching (read first)
+
+Read `~/.smtm/projects/{slug}/profile.json` for `business_type`. The "content priority" ranking below assumes a SaaS / service-style funnel. For other types, swap in the alternative priority below.
+
+| `business_type` | Priority 1 | Priority 2 | Priority 3 |
+|---|---|---|---|
+| `saas` / `service` | Landing page copy | Email sequences | SEO blog posts (as listed below) |
+| `app` | App Store description + screenshots copy | Short-form video scripts (TikTok / YouTube Shorts) | Press / launch content |
+| `content-kol` | The platform-native format itself (XHS notes / X threads / YouTube videos / Substack posts) | The lead-magnet that captures off-platform | Sponsor pitch deck + media kit |
+| `commerce` | Product listing copy + photography brief | UGC creator brief + scripts | Email lifecycle (welcome / cart / win-back) |
+| `retail-local` | Google Business Profile content + first 10 reviews seed | Local community / neighborhood posts | Loyalty-program content |
+| `hybrid` | Pick the dominant; layer secondary type's #1 as your #2 | | |
+
+Cascade everything below to whichever priority order applies. The pipeline (research → write → diagnose → optimize → publish) is universal; the artifacts that come out of it differ.
+
+## Content Types & Priority
+
+Ranked by revenue impact:
+
+1. **Landing page copy** — Direct conversion (highest priority)
+2. **Email sequences** — Nurture and convert leads
+3. **SEO blog posts** — Organic traffic engine
+4. **Social media content** — Brand awareness and engagement
+5. **Documentation** — Reduce churn, improve activation
+6. **Case studies** — Social proof for sales
+7. **Video scripts** — YouTube/TikTok/short-form content
+8. **Release notes** — Convert existing users on every ship (see "Release-notes mode" below)
+
+## Pipeline: Research → Write → Diagnose → Optimize → Publish
+
+### Stage 1: Research
+- Analyze the product/business (read codebase, landing page, docs)
+- Research target audience pain points
+- Analyze competitor content (what ranks, what converts)
+- Identify keyword opportunities (use SEO tools if available)
+- Map content to the buyer's journey (awareness → consideration → decision)
+
+### Stage 2: Content Strategy
+Create a content calendar:
+
+| Week | Content Piece | Type | Target Keyword | Funnel Stage | Channel |
+|------|--------------|------|----------------|--------------|---------|
+| 1 | [Title] | Blog | [keyword] | Awareness | Blog, X |
+| 2 | [Title] | Email | — | Nurture | Email |
+| ... | ... | ... | ... | ... | ... |
+
+### Stage 3: Writing
+
+#### Blog Posts / Articles
+1. **Outline** — H2/H3 structure, key points per section
+2. **Draft** — Write with clear, conversational tone
+3. **Optimize** — Add internal links, CTAs, meta tags
+4. **Review** — Check facts, readability, SEO signals
+
+Writing guidelines:
+- Lead with the insight, not the setup
+- Use specific numbers and examples
+- Include actionable takeaways
+- Natural keyword density (1-2%, never forced)
+- Every post has a clear CTA related to the product
+
+#### Email Sequences
+Design sequences for:
+- **Welcome series** (5 emails over 7 days)
+- **Onboarding** (3 emails helping users get value)
+- **Conversion** (3 emails pushing free→paid)
+- **Re-engagement** (2 emails for inactive users)
+
+Each email:
+- Subject line (under 50 chars, curiosity or benefit-driven)
+- Preview text
+- Body (under 200 words, one CTA)
+- Send timing
+
+#### Social Media Content
+- **X/Twitter**: Hooks, threads, engagement posts
+- **LinkedIn**: Thought leadership, case studies
+- **Product Hunt**: Launch copy and assets
+
+#### Short-Form Video Scripts
+
+##### Pre-Check: Content Substance Audit
+
+Before writing any hook, verify the content itself is worth hooking. A great opening on bad content is lipstick on a pig.
+
+**Material Richness Score** — Check for these 5 elements in your source material:
+
+| Element | What to look for | Example |
+|---------|-----------------|---------|
+| Impact numbers | Specific, large, surprising metrics | "80M views", "$47K in 3 months", "400 competitors" |
+| Transformation | Clear before→after contrast | "From 0 followers to 50K in 90 days" |
+| Quotable insight | A sentence that works standalone, out of context | "The best marketing feels like a favor, not an ad" |
+| Authority signal | Named person, credential, or institution backing the claim | "Former Google PM", "YC W24 batch" |
+| Pain resonance | Target audience's specific anxiety, not generic discomfort | "Spent 6 months building, zero users signed up" |
+
+**Scoring**: Count elements present.
+- 4-5 elements: ✅ Rich material — proceed to hook generation
+- 2-3 elements: ⚠️ Thin — supplement material before writing hooks
+- 0-1 elements: ❌ Insufficient — improve the content itself first, don't optimize the opening
+
+##### Hook Formula: `Topic + Hook + Credibility` (first 3-5 seconds)
+
+**3 Hook Generation Methods** — Generate 3-5 hooks per method, then pick top 3:
+
+**Method 1: Material Extraction** — Pull the strongest existing element from your content
+- Priority: Impact numbers > Transformation > Quotable insight > Authority > Pain
+- Lead with the most surprising data point or the most dramatic contrast
+
+**Method 2: Gap Creation** — Reframe as question, not proof
+- ❌ Wrong: "Li Yapeng, despite knowing half the entertainment industry, never made money because networking isn't business"
+- ✅ Right: "How did someone who knows HALF the entertainment industry fail to make money for 30 years?"
+- The question creates tension. The statement resolves it too early
+
+**Method 3: Assumption Inversion** — Contradict the obvious expectation
+- Find what the audience ASSUMES is true → Flip it → Show why the opposite is true
+- "Everyone says X. Here's why X is actually costing you money."
+
+Priority-ranked hook techniques:
+1. Results with reversal (⭐⭐⭐⭐⭐) — show achievement while subverting expectations
+2. Data shock (⭐⭐⭐⭐) — large numbers, comparative figures
+3. Contrast/transformation (⭐⭐⭐⭐) — before/after with maximum disparity
+4. Memorable statements (⭐⭐⭐⭐) — standalone perspectives with retention value
+5. Authority + viewpoint (⭐⭐⭐) — credible source paired with insight
+6. Pain point + intrigue (⭐⭐⭐) — audience anxiety linked to unresolved question
+
+##### Hook Quality Check
+
+Every hook must pass ALL 5 checks:
+
+| Check | Question | Fail Example |
+|-------|----------|-------------|
+| Independence | Does it work WITHOUT seeing the title/thumbnail? | Assumes viewer read the title |
+| Suspense | Does it ask a question, not deliver a conclusion? | Opens with the answer |
+| Speakability | Can you say it naturally out loud? | Sounds like a written essay |
+| Credibility | Is there a reason to believe the speaker? | No authority or experience shown |
+| Alignment | Does the content actually deliver what the hook promises? | Hook promises A, content delivers B |
+
+- **Body**: Create mystery, don't deliver answers immediately. Suspense > conclusions.
+- **CTA**: Clear, single action
+
+### Stage 4: Five-Dimensional Content Diagnosis
+
+Before publishing ANY content, run this diagnostic:
+
+| Dimension | Check | Pass Criteria |
+|-----------|-------|---------------|
+| **1. Text Cleanliness** | Remove AI-sounding language, vague vocabulary, corporate speak. Check for "delve", "landscape", "leverage", "game-changer" | Reads like a human expert wrote it |
+| **2. Cover/Title** | Does the title create a cognitive gap? Does it promise a specific outcome? | Would YOU click on this? |
+| **3. Expression Efficiency** | Can you state the core idea in ONE sentence? | If you can't, the content is unfocused |
+| **4. Cognitive Gap** | What makes YOUR take different from the top 5 Google results? | If nothing is different, don't publish |
+| **5. Engagement Potential** | Does the opening create urgency? Is there a mystery or payoff? | First 2 sentences must hook or lose the reader |
+
+If any dimension fails, fix it before publishing. Content that passes all 5 dimensions will outperform 90% of AI-generated content.
+
+### Stage 4.5: Authenticity Audit (AI Fingerprint Detection)
+
+After the 5-dimensional check, scan for AI writing patterns that kill credibility. This is NOT about "hiding AI" — it's about ensuring the content carries the author's actual voice and thinking.
+
+**12 Authenticity Signals to Check**:
+
+| # | Signal | What It Looks Like | Severity | Fix |
+|---|--------|-------------------|----------|-----|
+| 1 | **Universal hedging** | "It's worth noting", "one might argue", "to be fair" in every paragraph | 🔴 Strong | Pick a stance. Delete hedges that don't add information |
+| 2 | **Frictionless structure** | Every point flows perfectly. No rough edges, no admitted uncertainty | 🔴 Strong | Add one moment where the author genuinely doesn't know. Leave a tension unresolved |
+| 3 | **Metronomic rhythm** | All sentences ~same length. Read aloud: sounds like a metronome | 🔴 Strong | Vary deliberately. One 5-word sentence. Then a 40-word run-on. Break the pattern |
+| 4 | **Fixed-position connectors** | "However," / "That said," / "In fact," always at sentence start, evenly spaced | ⚠️ Medium | Remove 50% of connectors. Let the logic connect itself |
+| 5 | **Balanced-to-a-fault lists** | Every pro has a con. Every point has exactly 3 sub-points. Mechanical symmetry | ⚠️ Medium | Real thinking is messy. Some points are bigger. Some lists have 2 items, some have 7 |
+| 6 | **Generic specificity** | "A marketing director at a mid-size SaaS company" — sounds specific but is nobody | 🔴 Strong | Name a real person, or don't pretend. "I've seen teams..." > "A typical team..." |
+| 7 | **Vocabulary inflation** | "Leverage", "optimize", "landscape", "delve", "tapestry", "game-changer", "robust" | 🔴 Strong | Use the word a 12-year-old would use. "Use" not "leverage". "View" not "landscape" |
+| 8 | **Performative emotion** | "This is truly remarkable" / "The results are nothing short of extraordinary" | ⚠️ Medium | Show the result. Let the reader decide if it's remarkable |
+| 9 | **Summary-restates-everything** | Final paragraph re-lists all points. Adds zero new information | ⚠️ Medium | End with a forward-looking thought, a question, or just stop |
+| 10 | **Everything resolved** | No tensions left open. Every question answered. No gaps admitted | 🔴 Strong | Real experts say "I don't know" and "this depends on..." Certainty on everything = credibility on nothing |
+| 11 | **Trinity opener** | Opening follows hook + pain + promise formula every time | ⚠️ Medium | Start with the insight itself. Or a story. Or a number. Vary the entry point |
+| 12 | **Translation artifacts** | "In terms of", "with regard to", "based on", "as a [role]", "regarding" — filler | 💡 Weak | Delete the filler. "In terms of pricing" → "Pricing." Direct > circuitous |
+
+**Scoring**: Count signals detected.
+- 0-2: ✅ Authentic — publish
+- 3-5: ⚠️ Needs polish — fix flagged signals, re-check
+- 6+: ❌ Rewrite — the content reads like AI-generated. Find the author's actual voice and rewrite from their perspective
+
+**Revision approach**: For each flagged signal, DON'T just delete the pattern. Ask: "What was the author actually trying to say here?" Then rewrite to express THAT, not to mask AI.
+
+### Stage 4.7: Headline Impact Matrix
+
+Before finalizing any title/headline, evaluate it against these psychological mechanisms. A strong headline triggers at least 2 mechanisms simultaneously.
+
+**8 Psychological Mechanisms for Headlines** (based on Cialdini's persuasion principles + Kahneman's prospect theory):
+
+| Mechanism | How It Works | Template Pattern | Example |
+|-----------|-------------|-----------------|---------|
+| **1. Cognitive dissonance** | Contradicts a firmly held belief — reader MUST click to resolve the tension | "Why [thing everyone does] actually [opposite result]" | "Why working harder is making you poorer" |
+| **2. Information gap** | Creates awareness of unknown knowledge — activates curiosity (Loewenstein, 1994) | "The [thing] about [topic] that [experts] won't tell you" | "The pricing mistake that 90% of SaaS founders make" |
+| **3. Loss aversion** | Losing $100 hurts 2x more than gaining $100 feels good — frame the cost of inaction | "[Number] [bad thing] you're [doing] right now without knowing" | "5 customers you're losing every day to a broken signup flow" |
+| **4. Social identity** | Reader sees themselves in the headline — "this is for people like me" | "For every [identity] who [relatable struggle]" | "For every developer who hates writing marketing copy" |
+| **5. Anchoring** | Large number sets expectation, then reveals achievable path | "[Big number/result] in [surprisingly short time/effort]" | "From 0 to $10K MRR — the 6 decisions that mattered" |
+| **6. Specificity = credibility** | Precise numbers feel more real than round ones | Use 87%, not "almost 90%". Use "$4,327", not "over $4K" | "$4,327/mo from a tool I built in 3 weekends" |
+| **7. Scarcity / urgency** | Limited opportunity creates action pressure | "Before [window closes / change happens / too late]" | "The SEO strategy that still works — before Google's next update kills it" |
+| **8. Authority contrast** | Named authority + unexpected viewpoint | "[Authority figure] says [unexpected thing about topic]" | "Why YC tells founders to do things that don't scale" |
+
+**Headline Quality Checklist** (must pass all):
+- [ ] Under 70 characters (for search engines) or under 20 characters (for social platforms like XHS)
+- [ ] Triggers at least 2 mechanisms from the matrix above
+- [ ] Works WITHOUT seeing the thumbnail/cover — standalone clarity
+- [ ] Uses concrete nouns and verbs, not abstract concepts
+- [ ] Creates a question in the reader's mind that can only be answered by reading
+
+### Stage 4.8: Hook & Title Pattern Library
+
+After the hook and headline checks pass, run the candidate against the curated pattern library. The mechanisms matrix tells you WHY a headline works; the pattern library gives you proven SHAPES that have already worked in the wild. Use both — patterns without mechanisms are templates; mechanisms without patterns are theory.
+
+#### Hook patterns (short-form video and social opening)
+
+12 patterns, each indexed by the situation it fits. Match the candidate hook to the closest pattern. If no pattern fits, the hook may need more work — or it may be a new shape worth saving (run `/money-learn add` to log it).
+
+| Pattern | Skeleton | Best for | Example |
+|---|---|---|---|
+| **Result-first reversal** | "I {achieved X}. The way I got there was {opposite of expected}." | Big result + counterintuitive path | "I hit $10K MRR in 6 weeks. I never wrote a single blog post." |
+| **Single-number anchor** | "{Specific number}. {What the number means}." | Data-heavy stories | "$4,327. That's what one customer paid me last week — and I never spoke to them." |
+| **The thing nobody admits** | "Nobody talks about this, but {industry truth}." | Insider takes | "Nobody talks about this, but the top SEO tools all share the same database." |
+| **Yesterday's failure** | "Yesterday I {specific failure}. Here's what I'm changing." | Personal authenticity | "Yesterday I lost a $5K deal because I demoed before qualifying. Here's the new opener." |
+| **N years, one lesson** | "I spent {N} years doing X. Here's the one thing I'd tell my younger self." | Authority + lesson | "I spent 8 years writing code in big tech. The one thing I'd tell my younger self: stop optimizing the wrong loop." |
+| **Setup → flip** | "Everyone says {X}. But {X} is actually {opposite}." | Contrarian takes | "Everyone says raise prices. But for our segment, raising prices killed conversions." |
+| **Watch what happens** | "{Specific action}. {What happened next}." | Story-driven | "I changed one word in our checkout copy. Conversion went from 3.1% to 4.8%." |
+| **The question they're afraid to ask** | "Should you {decision}? Most people are afraid to ask. Here's the honest answer." | Decision content | "Should you quit your day job to ship your side project? Here's the honest math." |
+| **Two roads** | "Two roads. {Road A leads to result Y}. {Road B leads to result Z}. Pick one." | Decision content | "Two roads. Stay in cold outreach and grind. Or wait 9 months for SEO. Pick one." |
+| **The price of {X}** | "The price of {decision/inaction} is {specific cost}." | Loss-aversion | "The price of waiting one more quarter to charge for your beta is roughly $14,000 in lost revenue." |
+| **Reverse credentials** | "I'm not a {expected authority}. But {what I know that they don't}." | Outsider authority | "I'm not a VC. But I've sold three startups for $20M+ each by ignoring everything VCs told me." |
+| **The receipt** | "{Bold claim}. Receipts: {specific evidence}." | Proof-driven | "Cold email still works in 2026. Receipts: 47 booked meetings last quarter, $186K closed." |
+
+#### Title patterns (blog posts, X threads, XHS posts)
+
+15 patterns organized by what the reader is doing the moment they encounter the title:
+
+**For scrollers (need to be stopped):**
+| Pattern | Skeleton | Example |
+|---|---|---|
+| Number + specific noun | "{Specific number} {specific things} that {specific outcome}" | "7 onboarding emails that doubled our trial-to-paid conversion" |
+| Time-bound result | "From {start state} to {end state} in {timeframe}" | "From $0 to $10K MRR in 90 days (with screenshots)" |
+| Anti-advice | "Why I stopped {common practice}" | "Why I stopped using TypeScript on solo projects" |
+| The cost of habit | "What {common thing} is really costing you" | "What your free tier is really costing you" |
+
+**For searchers (already typed a query):**
+| Pattern | Skeleton | Example |
+|---|---|---|
+| Definitional + use | "{Topic}, explained for {specific audience}" | "RAG, explained for backend engineers who already know caching" |
+| Comparison | "{A} vs {B}: which one for {specific use case}" | "Postgres vs DynamoDB: which one for a 2-person SaaS" |
+| Decision framework | "How to choose {thing} (the {N}-question test)" | "How to choose a payment processor (the 5-question test)" |
+| Step-by-step | "{Verb} {outcome} in {N} steps" | "Set up Stripe webhooks for subscriptions in 4 steps" |
+
+**For decision-makers (need a confident take):**
+| Pattern | Skeleton | Example |
+|---|---|---|
+| Strong opinion | "{Industry truth} is wrong. Here's why." | "The 'launch on Product Hunt' playbook is wrong. Here's what I'd do instead." |
+| Receipts post | "I {tried/did X}. Here's what happened (with numbers)." | "I switched from Vercel to Cloudflare. Here's what happened (with numbers)." |
+| Insider take | "What {role} actually look at when {decision}" | "What technical founders actually look at when picking a CRM" |
+| Pattern naming | "The {memorable name} trap" | "The 'one more feature' trap (and how to spot it in week 2)" |
+
+**For platform-specific situations:**
+| Pattern | Skeleton | Best on |
+|---|---|---|
+| 我 + 数字 + 反差 | "我 {做了什么} 之后，{反直觉结果}" | XHS (中文) |
+| 别再 + 行为 | "别再 {主流做法} 了" | XHS, WeChat |
+| 一句话点破 | "{一个反直觉判断}" | X thread opener, XHS |
+
+#### Pattern + Mechanism = Final Title
+
+A strong final title satisfies BOTH:
+- One pattern from the library (proven shape)
+- Two+ mechanisms from the impact matrix at Stage 4.7 (psychological pull)
+
+Output for every candidate title:
+
+| Candidate | Pattern | Mechanisms | Status |
+|---|---|---|---|
+| "Why I stopped using TypeScript on solo projects" | Anti-advice | Cognitive dissonance, Social identity | ✅ Ship |
+| "5 things to consider when choosing TypeScript" | (no clean pattern match) | Information gap (weak) | ❌ Rewrite |
+| "TypeScript on solo projects: a 6-month receipt" | Receipts post | Specificity, Authority contrast | ✅ Ship |
+
+### Stage 5: Publishing
+- Format content for the target platform
+- Schedule posts using the content calendar
+- Set up tracking (UTM parameters, conversion goals)
+
+## Release-Notes Mode
+
+When a new product version ships, release notes are content with the highest conversion rate in the entire pipeline — every existing user reads them, and well-written ones move ≥1% of free users to paid on every ship. Run this mode when called via `/money-content release-notes` or when `/money-product` ships a version.
+
+### Inputs (auto-fetched)
+
+- **VERSION** — current and previous version from the repo
+- **CHANGELOG.md** — raw commit/PR titles between the two versions
+- **The deploy log** — from `/money-product` (what shipped, what got fixed)
+- **Recent learnings** — `~/.smtm/projects/{slug}/learnings.jsonl`, filtered to `conversion` and `retention`
+
+### The three-tier output
+
+Generate three release-note variants from the same input, because different distribution channels need different lengths.
+
+#### Tier 1 — The one-line ship tweet (X, in-app banner)
+- ≤180 chars including emoji
+- Lead with the one user benefit (not the feature)
+- Include the version: "v2.4.0"
+
+> Example: "v2.4.0 → Stripe webhooks now auto-retry on 5xx. No more silently-lost payments at 2am. 🛡"
+
+#### Tier 2 — The product email (existing customers)
+- Subject line: written using a pattern from the library (typically "Time-bound result" or "Anti-advice")
+- 80-150 words
+- Opening sentence: the user benefit, in user language
+- Middle: 2-3 bullets of what changed (mapped to user pain, not feature)
+- Closing: ONE call-to-action — upgrade path, docs link, or a question that prompts reply
+
+#### Tier 3 — The full notes (CHANGELOG.md entry + blog post)
+- 300-500 words
+- Sections: "What's new" (benefit-first), "What we fixed" (one line per fix), "What we learned" (the story of why this ship matters)
+- For SaaS: ALWAYS include the upgrade prompt for free users in the "What's new" section, framed as access not pressure
+
+### The "should we name this version?" check
+
+Major versions deserve names (gives the marketing surface area). Minor patches don't. Use this filter:
+
+| If the ship includes... | Then... |
+|---|---|
+| A new core feature (not just an improvement) | Name it. The name becomes the marketing handle for 2-4 weeks. |
+| Breaking changes to API or UI | Name it AND publish a migration note. |
+| 3+ small but related fixes that improve a single user journey | Optional name. Worth a short post regardless. |
+| Pure infra / refactor / dependency bump | Don't name. Single line in CHANGELOG. Don't email. |
+
+Names should be one or two words, lowercase if technical (`fastpath`), titlecase if product-facing (`Quiet Mode`). Avoid trendy adjectives — they age fast.
+
+## Content-to-Format Matching
+
+Match content type to the optimal format based on topic:
+
+| Topic Type | Best Format | Why |
+|-----------|-------------|-----|
+| Personal observation | Short video (face-on) | Authenticity sells |
+| Tutorial / how-to | Image-text or blog | Scannable, searchable |
+| Deep analysis | Long-form article | Authority building |
+| Case study | Hybrid (blog + social thread) | Social proof |
+| Controversy / debate | Live stream or thread | Engagement magnet |
+| Product launch | Multi-format blitz | Maximum reach |
+
+## Integration with Other Skills
+
+- Use `/money-seo` data to inform keyword targeting
+- Use `/money-social` for social media distribution
+- Use `/money-outreach` for email campaign execution
+- Use `/money-ads` for promoting top-performing content
+
+## Output Format
+
+Deliver content as markdown files ready to publish. For each piece:
+- Title and meta description
+- Full content body
+- Suggested images/visuals (describe what to create)
+- CTAs and internal links
+- Publishing instructions
+
+## Principles
+
+- **Product before content** — You need a working payment link before writing blog posts
+- **Revenue-connected** — Every piece of content must connect to the product
+- **Quality > Quantity** — One great post beats ten mediocre ones
+- **Diagnose before publish** — Run the 5-dimensional check on everything
+- **Platform-native** — Adapt tone and format to each platform
+- **Authentic voice** — Sound human, not like a corporate content mill
+- **Concrete deliverables** — End with "Tomorrow's first content action: [specific task]"
+
+---
+
+## Value Quantification (Required at End of Output)
+
+After delivering the content batch, the platform-fit notes, and the `/money-save` nudge — output a Value Quantification block. Format and rules in `/money`.
+
+For `/money-content` specifically:
+
+| Dimension | Typical for `/money-content` |
+|---|---|
+| ⏱ Time saved | ~5-15 hours per content batch (research + outline + draft + editing + platform adaptation) |
+| ⚠️ Risks avoided | (1) AI-generic voice that gets ignored by humans and algorithms; (2) hooks that bury the value prop past the fold; (3) publishing without authenticity audit (sounds like every other content mill); (4) platform-mismatched format that nukes engagement |
+| ✅ What you got | {N} pieces of platform-native content with passing 5-dimensional check, hook scores, headline impact ratings, and the "Tomorrow's first content action" |
+| 🚧 Without this skill | Most founders publish 3-5 generic posts, see <1% engagement, conclude "content marketing doesn't work for SaaS," and quit — when actually their content was just indistinguishable from AI-spam |
+
+Scale to actual output volume — if only one piece was produced this session, scale the time-saved estimate down.

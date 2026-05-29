@@ -4,7 +4,7 @@ description: >
   Compress natural language memory files (CLAUDE.md, todos, preferences) into caveman format
   to save input tokens. Preserves all technical substance, code, URLs, and structure.
   Compressed version overwrites the original file. Human-readable backup saved as FILE.original.md.
-  Trigger: /caveman:compress FILEPATH or "compress memory file"
+  Trigger: /caveman-compress FILEPATH or "compress memory file"
 ---
 
 # Caveman Compress
@@ -15,15 +15,15 @@ Compress natural language files (CLAUDE.md, todos, preferences) into caveman-spe
 
 ## Trigger
 
-`/caveman:compress <filepath>` or when user asks to compress a memory file.
+`/caveman-compress <filepath>` or when user asks to compress a memory file.
 
 ## Process
 
-1. The compression scripts live in `caveman-compress/scripts/` (adjacent to this SKILL.md). If the path is not immediately available, search for `caveman-compress/scripts/__main__.py`.
+1. The compression scripts live in `scripts/` (adjacent to this SKILL.md). If the path is not immediately available, search for `scripts/__main__.py` next to this SKILL.md.
 
-2. Run:
+2. From the directory containing this SKILL.md, run:
 
-cd caveman-compress && python3 -m scripts <absolute_filepath>
+python3 -m scripts <absolute_filepath>
 
 3. The CLI will:
 - detect file type (no tokens)
