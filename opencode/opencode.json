@@ -6,7 +6,7 @@
       "type": "local",
       "command": [
         "bunx",
-        "lazy-mcp@2.2.3",
+        "lazy-mcp@latest",
         "--config",
         "~/.config/lazy-mcp/servers.json"
       ]
