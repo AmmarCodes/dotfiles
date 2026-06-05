@@ -69,7 +69,6 @@ const todayDate = `${yyyy}-${mm}-${dd}`;
 
 let content = `---
 status: open
-projects:
 related_goals:
 date: "[[${todayDate}]]"
 link: "${url}"
