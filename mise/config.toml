@@ -8,6 +8,7 @@ rust = "1.89.0"
 "npm:typescript-language-server" = "latest"
 "npm:context-mode" = "latest"
 "npm:@earendil-works/pi-coding-agent" = "latest"
+"npm:@doist/todoist-cli" = "latest"
 opencode = "latest"
 
 [settings]
@@ -15,7 +16,7 @@ idiomatic_version_file_enable_tools = ["ruby", "node", "npm", "yarn", "bun"]
 trusted_config_paths = ['~/Projects/']
 
 [settings.npm]
-bun = true
+package_manager = "pnpm"
 
 [settings.ruby]
 compile = false
