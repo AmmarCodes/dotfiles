@@ -50,6 +50,8 @@ brew "zoxide"
 brew "felixkratz/formulae/borders"
 # Custom macOS statusbar with shell plugin, interaction and graph support
 brew "felixkratz/formulae/sketchybar"
+# Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
+brew "oven-sh/bun/bun"
 # karabiner configurator
 brew "yqrashawn/goku/goku"
 # Password manager that keeps all passwords secure behind one password
