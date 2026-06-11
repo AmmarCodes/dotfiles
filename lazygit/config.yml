@@ -1,4 +1,30 @@
 gui:
+  theme:
+    activeBorderColor:
+      - "#babbf1"
+      - bold
+    inactiveBorderColor:
+      - "#a5adce"
+    searchingActiveBorderColor:
+      - "#e5c890"
+    optionsTextColor:
+      - "#8caaee"
+    selectedLineBgColor:
+      - "#414559"
+    inactiveViewSelectedLineBgColor:
+      - "#737994"
+    cherryPickedCommitFgColor:
+      - "#babbf1"
+    cherryPickedCommitBgColor:
+      - "#51576d"
+    markedBaseCommitFgColor:
+      - "#8caaee"
+    markedBaseCommitBgColor:
+      - "#e5c890"
+    unstagedChangesColor:
+      - "#e78284"
+    defaultFgColor:
+      - "#c6d0f5"
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
   showCommandLog: false
@@ -7,7 +33,8 @@ gui:
   expandedSidePanelWeight: 4
   mainPanelSplitMode: flexible
   authorColors:
-    "*": "#babbf1"
+    "Ammar Alakkad": "#ffaa0a"
+    "*": "default"
   # If true, do not show a warning when rewording a commit via an external editor
   skipRewordInEditorWarning: true
   nerdFontsVersion: "3"
