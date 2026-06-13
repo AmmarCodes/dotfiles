@@ -90,7 +90,6 @@
 	defaultBranch = main
 [delta]
   navigate = true
-  side-by-side = true
   hyperlinks = true
   true-color = always
 
