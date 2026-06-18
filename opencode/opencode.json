@@ -16,7 +16,11 @@
       "command": ["context-mode"]
     }
   },
-  "plugin": ["context-mode", "oh-my-openagent@latest"],
+  "plugin": [
+    "context-mode",
+    "oh-my-openagent@latest",
+    "opencode-agents-sidebar@latest"
+  ],
   "tools": {
     "ls": true,
     "cat": true
