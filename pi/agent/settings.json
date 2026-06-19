@@ -1,10 +1,18 @@
 {
-  "lastChangelogVersion": "0.74.0",
+  "lastChangelogVersion": "0.79.6",
   "collapseChangelog": true,
   "packages": [
     "npm:pi-rtk-optimizer",
     "npm:pi-token-burden",
-    "npm:pi-formatter"
+    "npm:pi-formatter",
+    "npm:pi-terminal-theme",
+    "npm:@juanibiapina/pi-extension-settings",
+    "npm:@juanibiapina/pi-powerbar",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-lens",
+    "npm:@juicesharp/rpiv-todo"
   ],
-  "quietStartup": true
-}
+  "quietStartup": true,
+  "theme": "terminal",
+  "enableInstallTelemetry": false,
+  "defaultProjectTrust": "always",
