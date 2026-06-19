@@ -60,7 +60,7 @@ self_update = true
 
 # For the BrewFormula step
 # Execute `brew autoremove` after the step.
-autoremove = true
+# autoremove = true
 
 # For the BrewFormula step
 # Upgrade formulae built from the HEAD branch; `brew upgrade --fetch-HEAD`

@@ -9,14 +9,14 @@ TMPFILE="$(mktemp)"
 trap 'rm -f "$TMPFILE"' EXIT
 
 # Combine both Brewfiles for the check
-cat "$DOTFILES/Brewfile" > "$TMPFILE"
+cat "$DOTFILES/Brewfile" >"$TMPFILE"
 if [ -f "$DOTFILES/Brewfile.local" ]; then
-  echo "" >> "$TMPFILE"
-  cat "$DOTFILES/Brewfile.local" >> "$TMPFILE"
+  echo "" >>"$TMPFILE"
+  cat "$DOTFILES/Brewfile.local" >>"$TMPFILE"
 fi
 
-echo "==> Installed but NOT in Brewfile or Brewfile.local:"
-brew bundle cleanup --file="$TMPFILE" || true
+# echo "==> Installed but NOT in Brewfile or Brewfile.local:"
+# brew bundle cleanup --file="$TMPFILE" || true
 
 echo ""
 echo "==> Tracked but NOT installed:"
