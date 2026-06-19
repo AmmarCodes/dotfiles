@@ -58,3 +58,5 @@ end
 
 # set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"
 # set -x ICU_LIBS "-L"(brew --prefix icu4c)"/lib -licui18n -licuuc -licudata"
+
+set -gx PI_SKIP_VERSION_CHECK 1
