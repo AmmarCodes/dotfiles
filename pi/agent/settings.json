@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.79.6",
+  "lastChangelogVersion": "0.80.10",
   "collapseChangelog": true,
   "packages": [
     "npm:pi-rtk-optimizer",
@@ -10,9 +10,15 @@
     "npm:@juanibiapina/pi-powerbar",
     "npm:@ff-labs/pi-fff",
     "npm:pi-lens",
-    "npm:@juicesharp/rpiv-todo"
+    "npm:@tintinweb/pi-tasks"
   ],
   "quietStartup": true,
   "theme": "terminal",
   "enableInstallTelemetry": false,
   "defaultProjectTrust": "always",
+  "doubleEscapeAction": "none",
+  "defaultProvider": "anthropic",
+  "defaultModel": "claude-opus-4-8",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": false
+}

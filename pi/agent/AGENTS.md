@@ -32,6 +32,10 @@ No em dashes, smart quotes, or Unicode bullets. Plain hyphens and straight quote
 
 Prefer atomic commits. Keep every meaningful change in its own commit.
 
+## GitLab
+
+- **Use `glab` for all GitLab operations** - whenever a task involves GitLab (merge requests, issues, pipelines, jobs, labels, milestones, comments, releases, the API, etc.), use the `glab` CLI rather than the web UI, raw `curl`, or ad-hoc git remote pushes. Load the `glab` skill for usage and message-escaping rules.
+
 ## Self-Improvement
 
 - **LEARNING.md**: When something fails, record it with an encounter count (e.g. (1)). Increment on repeat encounters. After 3+, promote to AGENTS.md and remove from LEARNING.md.

@@ -19,3 +19,5 @@ bordersrc
 /nvim/lazy-lock.json
 /opencode/context-mode
 /opencode/package-lock.json
+/pi/agent/cache/pi-usage/cache.json
+/pi/agent/models-store.json
