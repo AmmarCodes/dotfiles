@@ -50,9 +50,8 @@ gui:
       - "∙∙●"
     rate: 100
 git:
-  pagers:
-    - useExternalDiffGitConfig: false
-      pager: "delta --dark --paging=never"
+  diffRenderers:
+    - command: "delta --dark --paging=never"
   log:
     order: default
   autoForwardBranches: allBranches
