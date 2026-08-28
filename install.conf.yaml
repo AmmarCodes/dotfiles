@@ -24,6 +24,18 @@
     ~/.agents/skills: skills
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
     ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json
+    ~/Library/Application Support/Cursor/User/settings.json:
+      path: cursor/settings.json
+      force: true
+    ~/Library/Application Support/Cursor/User/keybindings.json:
+      path: cursor/keybindings.json
+      force: true
+    ~/Library/Application Support/Cursor/User/snippets:
+      path: cursor/snippets
+      force: true
+    ~/.cursor/mcp.json:
+      path: cursor/mcp.json
+      force: true
     ~/.config/fish/:
       glob: true
       force: true

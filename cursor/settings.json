@@ -1,0 +1,33 @@
+{
+  "window.commandCenter": true,
+  "laravel-pint.enable": true,
+  "editor.formatOnSave": true,
+  "editor.fontSize": 13,
+  "editor.fontFamily": "MonoLisa, Menlo, Monaco, 'Courier New', monospace",
+  "workbench.colorTheme": "Rosé Pine Dawn",
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "editor.lineHeight": 2,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "workbench.editor.enablePreview": false,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "workbench.iconTheme": "catppuccin-latte",
+  "cursor.composer.queueMessageDefaultBehavior": "steer",
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "explorer.confirmDelete": false,
+  "explorer.excludeGitIgnore": true,
+  "search.useGlobalIgnoreFiles": true,
+  "explorer.fileNesting.enabled": true,
+  "workbench.agentsWindowButton.enabled": false,
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+}

@@ -29,6 +29,7 @@
       [:b [:launch "Helium"]]
       [:c [:launch "Notion Calendar"]]
       [:d [:launch "Obsidian"]]
+      [:v [:launch "Cursor"]]
       [:g [:launch "Telegram"]]
       [:r [:launch "RubyMine"]]
       [:s [:launch "Slack"]]
