@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.80.10",
+  "lastChangelogVersion": "0.83.0",
   "collapseChangelog": true,
   "packages": [
     "npm:pi-rtk-optimizer",
@@ -17,8 +17,8 @@
   "enableInstallTelemetry": false,
   "defaultProjectTrust": "always",
   "doubleEscapeAction": "none",
-  "defaultProvider": "anthropic",
-  "defaultModel": "claude-opus-4-8",
-  "defaultThinkingLevel": "high",
-  "hideThinkingBlock": false
+  "defaultProvider": "opencode-go",
+  "defaultModel": "kimi-k2.7-code",
+  "hideThinkingBlock": true,
+  "defaultThinkingLevel": "medium"
 }
