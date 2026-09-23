@@ -93,19 +93,11 @@
   hyperlinks = true
   true-color = always
 
-# The contents of this file are included only for GitLab.com URLs
-[includeIf "hasconfig:remote.*.url:https://gitlab.com/**"]
-
-path = ~/.gitconfig-gitlab
-
 [rerere]
   enabled = true
   autoupdate = true
 [column]
 	ui = auto
-[maintenance]
-	repo = ~/Projects/gitlab-development-kit/gitlab
-	repo = ~/Projects/gitlab-development-kit
 [index]
 	version = 4
 [advice]

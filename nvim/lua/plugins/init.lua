@@ -232,33 +232,6 @@ return {
     config = true,
   },
   {
-    "https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim.git",
-    event = { "BufReadPre", "BufNewFile" },
-    cond = function()
-      -- Only activate if token is present in environment variable.
-      -- Remove this line to use the interactive workflow.
-      return vim.env.GITLAB_TOKEN ~= nil and vim.env.GITLAB_TOKEN ~= ""
-    end,
-    opts = {
-      statusline = {
-        enabled = false,
-      },
-      -- Disable Started Code Suggestions LSP Integration messages
-      minimal_message_level = vim.log.levels.ERROR,
-      code_suggestions = {
-        -- For the full list of default languages, see the 'auto_filetypes' array in
-        -- https://gitlab.com/gitlab-org/editor-extensions/gitlab.vim/-/blob/main/lua/gitlab/config/defaults.lua
-        auto_filetypes = { "ruby", "javascript", "javascriptreact", "html", "css", "typescript", "typescriptreact" },
-        ghost_text = {
-          enabled = true,
-          accept_suggestion = "<C-l>",
-          clear_suggestions = "<C-k>",
-          stream = true,
-        },
-      },
-    },
-  },
-  {
     "dmtrKovalenko/fff.nvim",
     build = function()
       -- this will download prebuild binary or try to use existing rustup toolchain to build from source

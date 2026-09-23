@@ -10,11 +10,6 @@ source ~/.config/fish/abbreviations.fish
 source ~/.config/fish/functions.fish
 source ~/.config/fish/theme.fish
 
-# Load GitLab-specific configuration if it exists
-if test -f ~/.config/fish/gitlab.fish
-    source ~/.config/fish/gitlab.fish
-end
-
 # Lazy-load zoxide and atuin
 status --is-interactive; and function __init_deferred_tools --on-event fish_prompt
     functions --erase __init_deferred_tools # Run only once

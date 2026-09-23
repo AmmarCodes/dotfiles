@@ -62,10 +62,14 @@ update:
 disableStartupPopups: true
 customCommands:
   - key: "G"
-    command: "glab mr view -w {{.SelectedLocalBranch.UpstreamBranch}}"
+    command: "gh pr view -w {{.SelectedLocalBranch.Name}}"
     context: "localBranches"
-    description: "Go to MR in gitlab"
-  # retrieved from: https://github.com/jesseduffield/lazygit/wiki/Custom-Commands-Compendium#conventional-commit
+    description: "Open Github PR in browser"
+  - key: "G"
+    command: "gh pr view -w"
+    context: "commits"
+    description: "Open Github PR in browser"
+
   - key: "<c-v>"
     context: "global"
     description: "Create new conventional commit"

@@ -1,6 +1,0 @@
-[user]
-	name = Ammar Alakkad
-	email = aalakkad@gitlab.com
-	signingKey = 26F17AB567F05E18
-[commit]
-  gpgsign = true

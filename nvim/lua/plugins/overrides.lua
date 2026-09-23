@@ -44,13 +44,6 @@ return {
         stylelint_language_server = {
           filetypes = { "css", "scss" },
         },
-        yamlls = {
-          settings = {
-            yaml = {
-              ["https://gitlab.com/gitlab-org/gitlab/-/raw/master/app/assets/javascripts/editor/schema/ci.json"] = "/.gitlab-ci.yml",
-            },
-          },
-        },
         vtsls = {
           settings = {
             typescript = {
