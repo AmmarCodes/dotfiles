@@ -3,8 +3,8 @@
 import { DateTime, Duration } from "luxon";
 import { Coordinates, CalculationMethod, PrayerTimes } from "adhan";
 
-const coordinates = new Coordinates(41.09798187627378, 28.7729281);
-const params = CalculationMethod.Turkey();
+const coordinates = new Coordinates(33.51381, 36.27653);
+const params = CalculationMethod.MuslimWorldLeague();
 const prayerTimes = new PrayerTimes(coordinates, new Date(), params);
 
 const items = [];
