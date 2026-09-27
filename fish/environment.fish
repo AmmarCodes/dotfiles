@@ -55,6 +55,8 @@ if type -q mise
     mise activate fish | source
 end
 
+set -gx GPG_TTY $(tty)
+
 # set -gx RUBYOPT "-r$HOME/.rubyopenssl_default_store.rb $RUBYOPT"
 
 # set -x ICU_CFLAGS "-I"(brew --prefix icu4c)"/include"

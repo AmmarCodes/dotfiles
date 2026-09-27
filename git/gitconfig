@@ -1,6 +1,7 @@
 [user]
 	name = Ammar Alakkad
 	email = am.alakkad@gmail.com
+	signingkey = BB49D64CDB6D4CFF
 [color]
 	ui = true
 [push]
@@ -15,6 +16,7 @@
   autocorrect = prompt
 [commit]
   verbose = true
+	gpgsign = true
 [branch]
 	sort=-committerdate
 [status]
@@ -102,3 +104,5 @@
 	version = 4
 [advice]
 	detachedHead = false
+[tag]
+	gpgSign = true
