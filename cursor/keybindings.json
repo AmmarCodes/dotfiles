@@ -1,7 +1,21 @@
 // Place your key bindings in this file to override the defaults
 [
-    {
-        "key": "cmd+i",
-        "command": "composerMode.agent"
-    }
+  {
+    "key": "cmd+i",
+    "command": "composerMode.agent",
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.toggleAgentsFromKeyboard",
+    "when": "!isAuxiliaryWindowFocusedContext && !isGlass",
+  },
+  {
+    "key": "cmd+2",
+    "command": "-workbench.action.focusSecondEditorGroup",
+  },
+  {
+    "key": "cmd+2",
+    "command": "workbench.action.toggleAgentsFromKeyboard",
+    "when": "!isAuxiliaryWindowFocusedContext && !isGlass",
+  },
 ]

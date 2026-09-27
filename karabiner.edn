@@ -34,6 +34,7 @@
       [:r [:launch "RubyMine"]]
       [:s [:launch "Slack"]]
       [:t [:launch "Ghostty"]]
+      [:h [:launch "Hermes"]]
       [:spacebar :play_or_pause]
      ]
     }
@@ -108,11 +109,10 @@
             ]
      }
     {
-     :des "Raycast shortcuts"
+     :des "Tinycast shortcuts"
      :rules [
              :launch-mode
-             [:e [:raycast "raycast/emoji-symbols/search-emoji-symbols"]]
-             [:w [:raycast "raycast/raycast/search-quicklinks"]]
+             [:e :!CTOSe]
             ]
      }
 	]

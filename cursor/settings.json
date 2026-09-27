@@ -28,6 +28,12 @@
   "explorer.excludeGitIgnore": true,
   "search.useGlobalIgnoreFiles": true,
   "explorer.fileNesting.enabled": true,
-  "workbench.agentsWindowButton.enabled": false,
   "js/ts.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
+  "workbench.agentsWindowButton.enabled": false,
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  },
 }

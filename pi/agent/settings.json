@@ -18,7 +18,7 @@
   "defaultProjectTrust": "always",
   "doubleEscapeAction": "none",
   "defaultProvider": "opencode-go",
-  "defaultModel": "kimi-k2.7-code",
+  "defaultModel": "minimax-m3",
   "hideThinkingBlock": true,
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "off"
 }

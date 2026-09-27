@@ -37,10 +37,12 @@ Copy these to your project and customize as needed.
 
 ### 1. Install dependencies
 
+`eslint-plugin-react` does not yet support ESLint 10. Pin ESLint to v9:
+
 ```bash
 npm install -D \
-  eslint \
-  @eslint/js \
+  eslint@9 \
+  @eslint/js@9 \
   typescript-eslint \
   eslint-plugin-react \
   eslint-plugin-react-hooks \
@@ -52,9 +54,17 @@ npm install -D \
   @tailwindcss/vite
 ```
 
+Also remove `oxlint` if the Vite template installed it (it becomes dead weight):
+
+```bash
+npm uninstall oxlint
+```
+
 ### 2. Copy ESLint configuration
 
 Copy `configs/eslint.config.js` to your project root, or create it with the contents from the skill's configs directory.
+
+Note: the config ignores `dist/` by default so the build output does not get linted as source code.
 
 ### 3. Copy Prettier configuration
 
@@ -90,7 +100,7 @@ This enables Tailwind utility classes alongside any existing custom CSS.
 
 ### 7. Add lint/format scripts to package.json
 
-Add these scripts if not present:
+Replace the existing lint script (Vite's template often uses `oxlint`) and add format scripts:
 
 ```json
 {

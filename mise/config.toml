@@ -9,7 +9,7 @@ rust = "1.89.0"
 "npm:context-mode" = "latest"
 "npm:@earendil-works/pi-coding-agent" = "latest"
 "npm:@doist/todoist-cli" = "latest"
-opencode = "latest"
+pnpm = "12.5.1"
 
 [settings]
 idiomatic_version_file_enable_tools = ["node", "npm", "yarn", "bun"]
