@@ -21,4 +21,9 @@ status --is-interactive; and function __init_deferred_tools --on-event fish_prom
     end
 end
 
+# herdr
+for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook.fish
+    test -r "$_f"; and source "$_f"; and break
+end
+
 set -g async_prompt_functions _pure_prompt_git

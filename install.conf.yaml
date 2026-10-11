@@ -44,6 +44,10 @@
       glob: true
       force: true
       path: ghostty/**
+    ~/.config/herdr/:
+      glob: true
+      force: true
+      path: herdr/**
     ~/.config/bat/: bat
     ~/.config/yazi/: yazi
     ~/.config/atuin/: atuin
