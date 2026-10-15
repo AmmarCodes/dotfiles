@@ -57,7 +57,7 @@
   "extensions.experimental.affinity": {
     "vscodevim.vim": 1,
   },
-  "workbench.iconTheme": "vs-minimal",
+  "workbench.iconTheme": "vscode-modern-icons",
   "editor.fontSize": 13,
   "[vue]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",

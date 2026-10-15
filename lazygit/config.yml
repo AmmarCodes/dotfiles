@@ -25,6 +25,9 @@ gui:
       - "#e78284"
     defaultFgColor:
       - "#c6d0f5"
+    authorColors:
+      "Ammar Alakkad": "#ffaa0a"
+      "*": "default"
   # If true, increase the height of the focused side window; creating an accordion effect.
   expandFocusedSidePanel: true
   showCommandLog: false
@@ -32,9 +35,6 @@ gui:
   showRandomTip: false
   expandedSidePanelWeight: 4
   mainPanelSplitMode: flexible
-  authorColors:
-    "Ammar Alakkad": "#ffaa0a"
-    "*": "default"
   # If true, do not show a warning when rewording a commit via an external editor
   skipRewordInEditorWarning: true
   nerdFontsVersion: "3"
@@ -69,7 +69,6 @@ customCommands:
     command: "gh pr view -w"
     context: "commits"
     description: "Open Github PR in browser"
-
   - key: "<c-v>"
     context: "global"
     description: "Create new conventional commit"

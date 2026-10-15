@@ -5,7 +5,7 @@
       "name": "grepika",
       "description": "Token-efficient MCP server for code search",
       "type": "local",
-      "command": ["npx", "-y", "@agentika/grepika", "--mcp"]
+      "command": ["pnpx", "@agentika/grepika", "--mcp"]
     },
     {
       "name": "context7",
@@ -17,7 +17,7 @@
       "name": "memory",
       "description": "persistent memory using a local knowledge graph",
       "type": "local",
-      "command": ["npx", "-y", "@modelcontextprotocol/server-memory"]
+      "command": ["pnpx", "@modelcontextprotocol/server-memory"]
     },
     {
       "name": "fff",
@@ -29,11 +29,13 @@
       "name": "sequential-thinking",
       "description": "provides a tool for dynamic and reflective problem-solving through a structured thinking process",
       "type": "local",
-      "command": [
-        "npx",
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ]
+      "command": ["pnpx", "@modelcontextprotocol/server-sequential-thinking"]
+    },
+    {
+      "name": "Linear MCP",
+      "description": "The Linear MCP server has tools available for finding, creating, and updating objects in Linear like issues, projects, and comments",
+      "type": "local",
+      "command": ["pnpx", "mcp-remote", "https://mcp.linear.app/mcp"]
     }
   ]
 }

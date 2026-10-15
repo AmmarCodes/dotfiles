@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "1.2.0",
   "collapseChangelog": true,
   "packages": [
     "npm:pi-rtk-optimizer",
@@ -19,6 +19,6 @@
   "doubleEscapeAction": "none",
   "defaultProvider": "opencode-go",
   "defaultModel": "minimax-m3",
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "defaultThinkingLevel": "off"
 }

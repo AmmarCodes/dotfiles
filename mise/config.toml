@@ -1,5 +1,4 @@
 [tools]
-go = "latest"
 node = 'lts'
 ruby = "3.4.8"
 yarn = "latest"
