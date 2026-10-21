@@ -15,8 +15,7 @@
 [help]
   autocorrect = prompt
 [commit]
-  verbose = true
-	gpgsign = true
+  gpgsign = true
 [branch]
 	sort=-committerdate
 [status]
@@ -105,4 +104,7 @@
 [advice]
 	detachedHead = false
 [tag]
-	gpgSign = true
+    gpgsign = true
+
+[includeIf "gitdir:~/Projects/zad-academy/"]
+	path = ~/.gitconfig-zad

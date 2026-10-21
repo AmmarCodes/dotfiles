@@ -229,5 +229,95 @@
       "managed_path": "/Users/ammar/.config/herdr/plugins/github/herdr-automatic-rename-db02a35e1e35",
       "installed_unix_ms": 1791697898394
     }
+  },
+  {
+    "plugin_id": "herdr-navigator",
+    "name": "Herdr Navigator",
+    "version": "0.3.6",
+    "min_herdr_version": "0.7.3",
+    "description": "Jump to any Herdr workspace, agent, project, session, remote, directory, or action from one fuzzy navigator.",
+    "manifest_path": "/Users/ammar/.config/herdr/plugins/github-installations/herdr-navigator-3a5a6fa5dfb5/56157-0/checkout/herdr-plugin.toml",
+    "plugin_root": "/Users/ammar/.config/herdr/plugins/github-installations/herdr-navigator-3a5a6fa5dfb5/56157-0/checkout",
+    "enabled": true,
+    "platforms": [
+      "linux",
+      "macos"
+    ],
+    "build": [
+      {
+        "command": [
+          "cargo",
+          "build",
+          "--release"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "jump-back",
+        "title": "Herdr Navigator: jump back",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "jump-back"
+        ]
+      },
+      {
+        "id": "open",
+        "title": "Herdr Navigator: open",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "open"
+        ]
+      },
+      {
+        "id": "open-side",
+        "title": "Herdr Navigator: side pane",
+        "contexts": [
+          "workspace",
+          "global"
+        ],
+        "command": [
+          "./target/release/herdr-navigator",
+          "open-side"
+        ]
+      }
+    ],
+    "panes": [
+      {
+        "id": "picker",
+        "title": "Herdr Navigator",
+        "placement": "overlay",
+        "command": [
+          "./target/release/herdr-navigator",
+          "ui"
+        ]
+      },
+      {
+        "id": "picker-side",
+        "title": "Navigator Side",
+        "placement": "split",
+        "command": [
+          "./target/release/herdr-navigator",
+          "ui",
+          "--side"
+        ]
+      }
+    ],
+    "source": {
+      "kind": "github",
+      "owner": "thanhdat77",
+      "repo": "herdr-navigator",
+      "resolved_commit": "313b753b1f98f802b7d861430a13cb95a86e8dd3",
+      "managed_path": "/Users/ammar/.config/herdr/plugins/github-installations/herdr-navigator-3a5a6fa5dfb5/56157-0/checkout",
+      "installed_unix_ms": 1792586456647
+    }
   }
 ]

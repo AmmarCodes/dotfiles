@@ -71,7 +71,7 @@ local function get_icon(code)
 end
 
 weather:subscribe({ "forced", "routine", "system_woke" }, function()
-  local handle = io.popen("curl -s \"https://wttr.in/?format=j1\"")
+  local handle = io.popen("curl -s \"https://wttr.in/Damascus?format=j1\"")
   if handle == nil then
     weather:set({ label = "No data" })
     return

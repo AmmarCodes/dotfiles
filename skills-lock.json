@@ -25,6 +25,12 @@
       "skillPath": "skills/caveman-compress/SKILL.md",
       "computedHash": "84517cd4cf7a49d8d2bc1baf00f61bc359306c6ad9389756b6937eff958bd374"
     },
+    "context7": {
+      "source": "netresearch/context7-skill",
+      "sourceType": "github",
+      "skillPath": "skills/context7/SKILL.md",
+      "computedHash": "9dc85c0e42a4919f641002ed997cfa0bb6e1d8442e807bc732c70f43ec1ae143"
+    },
     "design-taste-frontend": {
       "source": "Leonxlnx/taste-skill",
       "sourceType": "github",

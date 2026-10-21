@@ -243,4 +243,7 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
   },
+  "explorer.confirmDelete": false,
+  "claudeCode.preferredLocation": "panel",
+  "claudeCode.hideOnboarding": true,
 }
