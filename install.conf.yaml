@@ -21,6 +21,18 @@
     ~/.config/opencode: opencode
     ~/.pi/: pi
     ~/.agents/skills: skills
+    ~/.claude/settings.json:
+      path: claude/settings.json
+      force: true
+    ~/.claude/CLAUDE.md:
+      path: claude/CLAUDE.md
+      force: true
+    ~/.claude/RTK.md:
+      path: claude/RTK.md
+      force: true
+    ~/.claude/agents:
+      path: claude/agents
+      force: true
     ~/Library/Application Support/lazygit/config.yml: lazygit/config.yml
     ~/Library/Application Support/VSCodium/User/settings.json: vscodium/settings.json
     ~/Library/Application Support/Cursor/User/settings.json:

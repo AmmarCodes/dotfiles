@@ -1,0 +1,29 @@
+{
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "hooks": {},
+  "enabledPlugins": {
+    "php-lsp@claude-plugins-official": true,
+    "open-code-review@open-code-review": true,
+    "claude-md-management@anthropic-plugin-directory": true,
+    "superpowers@anthropic-plugin-directory": true,
+    "code-review-anthropics@anthropic-plugin-directory": true,
+    "context7@anthropic-plugin-directory": true,
+    "security-guidance@anthropic-plugin-directory": true,
+    "ralph-loop@anthropic-plugin-directory": true
+  },
+  "extraKnownMarketplaces": {
+    "open-code-review": {
+      "source": {
+        "source": "github",
+        "repo": "alibaba/open-code-review"
+      }
+    }
+  },
+  "theme": "auto",
+  "editorMode": "normal",
+  "autoCompactEnabled": true
+}
