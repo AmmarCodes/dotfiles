@@ -240,3 +240,6 @@ filters = [
   "session",
   "directory",
 ]
+
+[ai]
+enabled = true
