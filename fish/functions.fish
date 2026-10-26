@@ -128,3 +128,13 @@ function tmux-edit
     # We use a background job to give time for the new window to fully capture the file
     fish -c "sleep 1; rm $tmp_file" &
 end
+
+# Install a skill into ~/.dotfiles/agents/skills (shared by all agents) and link it for Claude Code.
+# `-a opencode` targets the shared ~/.agents/skills dir; claude-code would copy into ~/.claude/skills instead.
+function skill-add -d "Install an agent skill globally into dotfiles" --argument-names source
+    npx -y skills add -g $source -a opencode $argv[2..] && ~/.dotfiles/install --only link clean >/dev/null
+end
+
+function skill-update -d "Update agent skills and relink them"
+    npx -y skills update -g -y && ~/.dotfiles/install --only link clean >/dev/null
+end

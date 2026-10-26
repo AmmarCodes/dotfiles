@@ -89,6 +89,21 @@ themes/
   active-neovim.lua      # Copy of current theme's neovim.lua
 ```
 
+## Agent skills
+
+Skills live in `agents/skills/` and are shared by every agent. `./install` links:
+
+- `~/.agents` → `agents/` (OpenCode, Pi, Codex, Gemini read `~/.agents/skills`; the `skills` CLI keeps its lockfile at `agents/.skill-lock.json`)
+- each skill into `~/.claude/skills/` for Claude Code, removing dead links
+- then runs `npx skills update -g`
+
+```fish
+skill-add owner/repo -s skill-name   # install into agents/skills + relink
+skill-update                         # update tracked skills + relink
+```
+
+Hand-written skills: drop a folder into `agents/skills/` and run `./install --only link clean`.
+
 ## New setup
 
 1. Dock
