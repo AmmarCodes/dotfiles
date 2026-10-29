@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "fff": {
+      "type": "stdio",
+      "command": "$HOME/.local/bin/fff-mcp",
+      "args": [],
+      "env": {}
+    },
+    "playwright": {
+      "type": "stdio",
+      "command": "npx",
+      "args": ["@playwright/mcp@latest"],
+      "env": {}
+    }
+  }
+}

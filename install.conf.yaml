@@ -90,6 +90,8 @@
       command: "[ -f ~/.dotfiles/Brewfile.local ] || cp ~/.dotfiles/Brewfile.local.example ~/.dotfiles/Brewfile.local"
     - description: "Installing local brew packages from ~/.dotfiles/Brewfile.local"
       command: "if command -v brew > /dev/null; then brew bundle --file=~/.dotfiles/Brewfile.local; fi"
+    - description: "Merging Claude MCP servers into ~/.claude.json"
+      command: "[ -f ~/.claude.json ] || echo '{}' > ~/.claude.json; sed \"s|\\$HOME|$HOME|g\" ~/.dotfiles/claude/mcp-servers.json | jq -s '.[1] * .[0]' - ~/.claude.json > ~/.claude.json.tmp && mv ~/.claude.json.tmp ~/.claude.json && chmod 600 ~/.claude.json"
     - description: "Installing tmux plugin manager"
       command: "if test ! -d ~/.tmux/plugins/tpm; then git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && ~/.tmux/plugins/tpm/bin/install_plugins; fi"
     - description: "Installing SBarLua"

@@ -1,25 +1,48 @@
 {
+  "prefersReducedMotion": true,
+  "feedbackSurveyRate": 0,
   "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "auto"
   },
   "model": "opus",
-  "hooks": {},
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/context-mode-cache-heal.mjs\""
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  },
   "enabledPlugins": {
     "php-lsp@claude-plugins-official": true,
-    "open-code-review@open-code-review": true,
     "claude-md-management@anthropic-plugin-directory": true,
     "superpowers@anthropic-plugin-directory": true,
     "code-review-anthropics@anthropic-plugin-directory": true,
     "context7@anthropic-plugin-directory": true,
     "security-guidance@anthropic-plugin-directory": true,
-    "ralph-loop@anthropic-plugin-directory": true
+    "ralph-loop@anthropic-plugin-directory": true,
+    "context-mode@context-mode": true,
+    "typescript-lsp@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
-    "open-code-review": {
+    "context-mode": {
       "source": {
         "source": "github",
-        "repo": "alibaba/open-code-review"
+        "repo": "mksglu/context-mode"
       }
     }
   },

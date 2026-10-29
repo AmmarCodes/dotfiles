@@ -36,6 +36,7 @@
       [:t [:launch "Ghostty"]]
       [:o [:launch "OpenCode"]]
       [:v [:launch "Zed"]]
+      [:f [:launch "Claude"]]
       [:spacebar :play_or_pause]
      ]
     }
