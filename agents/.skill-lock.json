@@ -38,6 +38,132 @@
       "pluginName": "context7",
       "installedAt": "2026-10-26T13:14:29.932Z",
       "updatedAt": "2026-10-26T13:15:19.487Z"
+    },
+    "ci-cd-and-automation": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/ci-cd-and-automation/SKILL.md",
+      "skillFolderHash": "7da17da7c380f6890d4fb495cd9adcf57d6d812a",
+      "installedAt": "2026-10-29T11:41:55.349Z",
+      "updatedAt": "2026-10-29T11:41:55.349Z"
+    },
+    "code-review-and-quality": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/code-review-and-quality/SKILL.md",
+      "skillFolderHash": "2c0b966d411b0d64c4f44efdde30d5f6f3666f76",
+      "installedAt": "2026-10-29T11:41:55.351Z",
+      "updatedAt": "2026-10-29T11:41:55.351Z"
+    },
+    "code-simplification": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/code-simplification/SKILL.md",
+      "skillFolderHash": "957272f55c03d2aacd8292ee6ee8e74ea33692bb",
+      "installedAt": "2026-10-29T11:41:55.351Z",
+      "updatedAt": "2026-10-29T11:41:55.351Z"
+    },
+    "context-engineering": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/context-engineering/SKILL.md",
+      "skillFolderHash": "90b86f784f0961c8f2e3c646efb3830822c81706",
+      "installedAt": "2026-10-29T11:41:55.351Z",
+      "updatedAt": "2026-10-29T11:41:55.351Z"
+    },
+    "git-workflow-and-versioning": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/git-workflow-and-versioning/SKILL.md",
+      "skillFolderHash": "92d87ae1fe98e6b67403bace2ef01264f9664468",
+      "installedAt": "2026-10-29T11:41:55.352Z",
+      "updatedAt": "2026-10-29T11:41:55.352Z"
+    },
+    "idea-refine": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/idea-refine/SKILL.md",
+      "skillFolderHash": "0c75c3e2a5c7579c2f40491963375a00acdb8d42",
+      "installedAt": "2026-10-29T11:41:55.352Z",
+      "updatedAt": "2026-10-29T11:41:55.352Z"
+    },
+    "interview-me": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/interview-me/SKILL.md",
+      "skillFolderHash": "2a391376521dee060881b7edc676e58a564616f2",
+      "installedAt": "2026-10-29T11:41:55.353Z",
+      "updatedAt": "2026-10-29T11:41:55.353Z"
+    },
+    "incremental-implementation": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/incremental-implementation/SKILL.md",
+      "skillFolderHash": "a3e2fab3e3b97e078e2404a505c4b2fa5e123c9b",
+      "installedAt": "2026-10-29T11:41:55.353Z",
+      "updatedAt": "2026-10-29T11:41:55.353Z"
+    },
+    "frontend-ui-engineering": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/frontend-ui-engineering/SKILL.md",
+      "skillFolderHash": "984efc18829fe11fad1bb58fa73c28be8aeb2100",
+      "installedAt": "2026-10-29T11:41:55.354Z",
+      "updatedAt": "2026-10-29T11:41:55.354Z"
+    },
+    "performance-optimization": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/performance-optimization/SKILL.md",
+      "skillFolderHash": "dcbfd29d22392c1e2476f7da337537025e30bc51",
+      "installedAt": "2026-10-29T11:41:55.354Z",
+      "updatedAt": "2026-10-29T11:41:55.354Z"
+    },
+    "planning-and-task-breakdown": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/planning-and-task-breakdown/SKILL.md",
+      "skillFolderHash": "3045f95a156dc71d7b5ac1e29ce795bb5cac2b71",
+      "installedAt": "2026-10-29T11:41:55.355Z",
+      "updatedAt": "2026-10-29T11:41:55.355Z"
+    },
+    "spec-driven-development": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/spec-driven-development/SKILL.md",
+      "skillFolderHash": "857f385f3e91cf22fc7588116fc22aed72476efe",
+      "installedAt": "2026-10-29T11:41:55.355Z",
+      "updatedAt": "2026-10-29T11:41:55.355Z"
+    },
+    "test-driven-development": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/test-driven-development/SKILL.md",
+      "skillFolderHash": "c7d844f3f2321c14e982346580742b17db2caf1a",
+      "installedAt": "2026-10-29T11:41:55.356Z",
+      "updatedAt": "2026-10-29T11:41:55.356Z"
+    },
+    "using-agent-skills": {
+      "source": "addyosmani/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/addyosmani/agent-skills.git",
+      "skillPath": "skills/using-agent-skills/SKILL.md",
+      "skillFolderHash": "81e8196f4dd4bf9fc5f0a1b827f4148af52a4391",
+      "installedAt": "2026-10-29T11:41:55.356Z",
+      "updatedAt": "2026-10-29T11:41:55.356Z"
     }
   },
   "dismissed": {
@@ -49,6 +175,7 @@
     "codex",
     "cursor",
     "droid",
+    "fx",
     "gemini-cli",
     "github-copilot",
     "kilo",
