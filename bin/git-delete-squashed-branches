@@ -16,13 +16,14 @@ else
 fi
 
 git for-each-ref refs/heads/ "--format=%(refname:short)" | while read -r branch; do
+    [[ $branch == "$targetBranch" ]] && continue
     mergeBase=$(git merge-base "$targetBranch" "$branch")
 
     if [[ $(git cherry "$targetBranch" "$(git commit-tree "$(git rev-parse "$branch^{tree}")" -p "$mergeBase" -m _)") == "-"* ]]; then
         if [[ $proceed == true ]]; then
             git branch -D "$branch" || true
         else
-            git branch -D "$branch"
+            echo "would delete: $branch (run with --proceed to delete)"
         fi
     fi
 done
