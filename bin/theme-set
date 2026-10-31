@@ -140,25 +140,6 @@ if [[ -f "$THEME_DIR/bordersrc" ]]; then
   info "Updated bordersrc"
 fi
 
-# Ghostty — ensure config sources the theme file
-ghostty_config="$DOTFILES/ghostty/config"
-if [[ -f "$ghostty_config" ]]; then
-  # Remove any existing 'theme = ' line (we use config-file sourcing instead)
-  sed -i '' '/^theme = /d' "$ghostty_config"
-  # Add config-file directive if not already present
-  if ! grep -q 'config-file.*theme.conf' "$ghostty_config" 2>/dev/null; then
-    tmp=$(mktemp)
-    {
-      echo "# Theme colors (auto-managed by theme-set)"
-      echo "config-file = ./theme.conf"
-      echo ""
-      cat "$ghostty_config"
-    } >"$tmp"
-    mv "$tmp" "$ghostty_config"
-    info "Updated ghostty config to source theme.conf"
-  fi
-fi
-
 # Tmux theme (sourced by tmux.conf)
 if [[ -f "$THEME_DIR/tmux.tmux" ]]; then
   cp "$THEME_DIR/tmux.tmux" "$DOTFILES/themes/active.tmux"
@@ -210,21 +191,9 @@ reload_apps() {
     tmux source-file "$HOME/.tmux.conf" 2>/dev/null && info "Reloaded tmux" || true
   fi
 
-  # Ghostty: doesn't need explicit reload — reads config-file on new windows
-  # this "should" reload it
-  local ghostty_pid
-  ghostty_pid=$(ps aux | grep -v grep | awk '/Ghosty/ && !/grep/ {print $2}' | head -n 1)
-  if [[ -n "$ghostty_pid" ]]; then
-    kill -s USR1 "$ghostty_pid" 2>/dev/null && info "Reloaded ghostty" || true
-  fi
-  # kill -s USR2 "$(ps aux | grep -v grep | awk -v app='Ghostty' '$0 ~ app { print $2 }' | head -n 1)"
-
-  # Kitty: reload config with SIGUSR1
-  local kitty_pid
-  kitty_pid=$(ps aux | grep -v grep | awk '/kitty/ && !/grep/ {print $2}' | head -n 1)
-  if [[ -n "$kitty_pid" ]]; then
-    kill -s USR1 "$kitty_pid" 2>/dev/null && info "Reloaded kitty" || true
-  fi
+  # Ghostty reloads its config on SIGUSR2, kitty on SIGUSR1
+  pkill -USR2 -x ghostty 2>/dev/null && info "Reloaded ghostty" || true
+  pkill -USR1 -x kitty 2>/dev/null && info "Reloaded kitty" || true
 
   # Sketchybar: restart if running
   if pgrep -q sketchybar 2>/dev/null; then
@@ -239,13 +208,12 @@ reload_apps() {
   # Neovim: send colorscheme change to all running instances
   if command -v nvim &>/dev/null; then
     local nvim_reloaded=0
-    for sock in /tmp/nvim*/0 /tmp/nvimsocket; do
-      if [[ -S "$sock" ]]; then
-        local cs_name
-        cs_name=$(sed -n 's/.*colorscheme[[:space:]]*=[[:space:]]*["'\''']\([^"'\'']*\)["'\''].*/\1/p' "$THEME_DIR/neovim.lua" 2>/dev/null || echo "")
-        if [[ -n "$cs_name" ]]; then
-          nvim --server "$sock" --remote-send "<Cmd>colorscheme $cs_name<CR>" 2>/dev/null && nvim_reloaded=$((nvim_reloaded + 1)) || true
-        fi
+    local cs_name
+    cs_name=$(sed -n 's/.*colorscheme[[:space:]]*=[[:space:]]*["'\''']\([^"'\'']*\)["'\''].*/\1/p' "$THEME_DIR/neovim.lua" 2>/dev/null || echo "")
+    # Default server sockets live under stdpath("run"): $TMPDIR/nvim.$USER/*/nvim.<pid>.0
+    for sock in "${TMPDIR:-/tmp}"/nvim."$USER"/*/nvim.*.0 /tmp/nvimsocket; do
+      if [[ -S "$sock" && -n "$cs_name" ]]; then
+        nvim --server "$sock" --remote-send "<Cmd>colorscheme $cs_name<CR>" 2>/dev/null && nvim_reloaded=$((nvim_reloaded + 1)) || true
       fi
     done
     [[ $nvim_reloaded -gt 0 ]] && info "Reloaded $nvim_reloaded neovim instance(s)" || true

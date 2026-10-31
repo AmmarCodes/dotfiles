@@ -9,15 +9,9 @@ THEMES_DIR="$DOTFILES/themes"
 CURRENT=$(cat "$DOTFILES/.current-theme" 2>/dev/null || echo "")
 
 for dir in "$THEMES_DIR"/*/; do
-  [[ -d "$dir" ]] || continue
-  name=$(basename "$dir")
-
-  # Skip the templates directory
-  [[ "$name" == "templates" ]] && continue
-  # Skip legacy directories
-  [[ "$name" == "neovim" || "$name" == "tmux" ]] && continue
-  # Must have a colors.toml to be a valid theme
+  # Must have a colors.toml to be a valid theme (skips templates/)
   [[ -f "$dir/colors.toml" ]] || continue
+  name=$(basename "$dir")
 
   if [[ "$name" == "$CURRENT" ]]; then
     echo "* $name"

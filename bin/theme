@@ -1,35 +1,27 @@
 #!/usr/bin/env bash
 # Interactive theme picker using gum
-# Usage: theme-pick
+# Usage: theme
 
 set -euo pipefail
 
 DOTFILES="${DOTFILES:-$HOME/.dotfiles}"
-THEMES_DIR="$DOTFILES/themes"
 CURRENT=$(cat "$DOTFILES/.current-theme" 2>/dev/null || echo "none")
 
 if ! command -v gum &>/dev/null; then
-  echo "Error: gum is required for theme-pick"
+  echo "Error: gum is required for theme"
   echo "Install with: brew install gum"
   exit 1
 fi
 
-# Build list of valid themes
-themes=()
-for dir in "$THEMES_DIR"/*/; do
-  [[ -d "$dir" ]] || continue
-  name=$(basename "$dir")
-  [[ "$name" == "templates" || "$name" == "neovim" || "$name" == "tmux" ]] && continue
-  [[ -f "$dir/colors.toml" ]] || continue
-  themes+=("$name")
-done
+# theme-list marks the current theme with "* "; strip the 2-char prefix
+themes=$(theme-list | cut -c3-)
 
-if [[ ${#themes[@]} -eq 0 ]]; then
-  echo "No themes found in $THEMES_DIR"
+if [[ -z "$themes" ]]; then
+  echo "No themes found in $DOTFILES/themes"
   exit 1
 fi
 
-selected=$(printf '%s\n' "${themes[@]}" | gum choose \
+selected=$(echo "$themes" | gum choose \
   --height=50 \
   --header="Current: $CURRENT | Enter to apply" \
   --item.foreground="#A6ADC8" \

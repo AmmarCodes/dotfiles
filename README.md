@@ -17,7 +17,7 @@ A unified theme system that switches colors across all tools with a single comma
 ### Usage
 
 ```bash
-# Interactive picker (fzf)
+# Interactive picker (gum)
 theme
 
 # Switch to a theme
@@ -30,7 +30,7 @@ theme-list
 theme-current
 ```
 
-One command updates: Ghostty, Kitty, Neovim, tmux, Fish shell, yazi, Sketchybar, and Lazygit.
+One command updates: Ghostty, Kitty, Neovim, tmux, Fish shell, Sketchybar, borders, and the wallpaper.
 
 ### Adding a New Theme
 
@@ -83,8 +83,8 @@ themes/
   templates/             # Sed-processed templates
     ghostty.conf.tpl     # -> ghostty/theme.conf
     fish-theme.fish.tpl  # -> fish/theme.fish
-    yazi-theme.toml.tpl  # -> yazi/theme.toml
-    lazygit.yml.tpl      # -> lazygit/theme.yml
+    yazi-theme.toml.tpl  # not wired up yet
+    lazygit.yml.tpl      # not wired up yet
   active.tmux            # Symlink-like copy of current theme's tmux.tmux
   active-neovim.lua      # Copy of current theme's neovim.lua
 ```
