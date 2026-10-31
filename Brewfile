@@ -16,10 +16,14 @@ brew "fd"
 brew "fish"
 # Command-line fuzzy finder written in Go
 brew "fzf"
+# Tool for glamorous shell scripts
+brew "gum"
 # Distributed revision control system
 brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
 # Terminal multiplexer
 brew "tmux"
 # Git status in tmux status bar
@@ -36,6 +40,8 @@ brew "neovim"
 brew "noti"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Log file highlighter
+brew "tailspin"
 # Smart session manager for the terminal
 brew "sesh"
 # Upgrade all the things
