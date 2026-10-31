@@ -5,74 +5,59 @@
 [color]
 	ui = true
 [push]
-  default = current
-  autoSetupRemote = true
+	default = current
+	autoSetupRemote = true
 	followTags = true
 [fetch]
-  prune = true
-  pruneTags = true
-  writeCommitGraph = true
+	prune = true
+	pruneTags = true
+	writeCommitGraph = true
 [help]
-  autocorrect = prompt
+	autocorrect = prompt
 [commit]
-  gpgsign = true
+	gpgsign = true
 [branch]
 	sort=-committerdate
 [status]
 	showUntrackedFiles = all
-[pager]
-	diff = delta
-	show = delta
 [core]
-  # Use custom `.gitignore` and `.gitattributes`
-  excludesfile = ~/.gitignore
-  pager = delta
-  ignorecase = false
-  fsmonitor = true
-  preloadindex = true
+	# Use custom `.gitignore` and `.gitattributes`
+	excludesfile = ~/.gitignore
+	pager = delta
+	ignorecase = false
+	fsmonitor = true
+	preloadindex = true
 [interactive]
-  diffFilter = delta --color-only --features=interactive
+	diffFilter = delta --color-only --features=interactive
 [difftool]
-  prompt = false
-  keepBackup = false
+	prompt = false
+	keepBackup = false
 [difftool "nvim"]
-  cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
+	cmd = nvim -d -c "wincmd l" -c "norm ]c" "$LOCAL" "$MERGED" "$REMOTE"
 [merge]
-  ff = false
-  conflictstyle = zdiff3
-  tool = nvim
+	ff = false
+	conflictstyle = zdiff3
+	tool = nvim
 [mergetool]
-  prompt = false
-  keepBackup = false
+	prompt = false
+	keepBackup = false
 [mergetool "nvim"]
-  cmd = "nvim -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
+	cmd = "nvim -d $MERGED $LOCAL $BASE $REMOTE -c 'wincmd J | wincmd ='"
 [diff]
-  algorithm = histogram
-  colorMoved = plain
-  mnemonicPrefix = true
-  renames = true
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 [alias]
-  main-branch = !git symbolic-ref refs/remotes/origin/HEAD --short | cut -d "/" -f 2
-  main = !git switch $(git symbolic-ref refs/remotes/origin/HEAD --short | cut -d "/" -f 2)
+	main-branch = !git symbolic-ref refs/remotes/origin/HEAD --short | cut -d "/" -f 2
+	main = !git switch $(git main-branch)
 	mr = "!f() { git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2; }; f"
 	cb = !git checkout $(git branch | fzf | tr -d "[:space:]")
 	recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
-  affected = !git --no-pager diff --name-only $(git rev-parse HEAD) $(git rev-parse HEAD~1)
-  delete-current-switch-main="!d() { branch=$(git branch --show-current); if [ -n \"$branch\" ]; then git main; git branch -D \"$branch\"; fi; }; d"
+	affected = !git --no-pager diff --name-only $(git rev-parse HEAD) $(git rev-parse HEAD~1)
+	delete-current-switch-main="!d() { branch=$(git branch --show-current); if [ -n \"$branch\" ]; then git main; git branch -D \"$branch\"; fi; }; d"
 [gc]
 	autoDetach = false
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
-[color "diff"]
-	meta = yellow
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -82,20 +67,20 @@
 	rebase = false
 	ff = true
 [rebase]
-  autosquash = true
-  instructionFormat = (%ar) %<|(120)%s <%an>
-  autoStash = true
-  updateRefs = true
+	autosquash = true
+	instructionFormat = (%ar) %<|(120)%s <%an>
+	autoStash = true
+	updateRefs = true
 [init]
 	defaultBranch = main
 [delta]
-  navigate = true
-  hyperlinks = true
-  true-color = always
+	navigate = true
+	hyperlinks = true
+	true-color = always
 
 [rerere]
-  enabled = true
-  autoupdate = true
+	enabled = true
+	autoupdate = true
 [column]
 	ui = auto
 [index]
@@ -103,7 +88,7 @@
 [advice]
 	detachedHead = false
 [tag]
-    gpgsign = true
+	gpgsign = true
 
 [includeIf "gitdir:~/Projects/zad-academy/"]
 	path = ~/.gitconfig-zad
