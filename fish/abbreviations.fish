@@ -2,8 +2,9 @@
 ## Aliases ##
 #############
 
+status is-interactive; or return
+
 # Config
-abbr --add zshconfig "nvim ~/.zshrc"
 abbr --add fishconfig "nvim ~/.config/fish/config.fish"
 abbr --add vimconfig "nvim ~/.config/nvim"
 abbr --add espansoconfig "nvim ~/.dotfiles/espanso"
@@ -18,7 +19,6 @@ end
 
 abbr --add e exit
 abbr --add q exit
-# abbr --add wt worktree-util
 abbr --add oc opencode
 
 if type -q eza
@@ -29,12 +29,10 @@ end
 abbr --add vim nvim
 abbr --add weather "curl \"https://wttr.in/?Q1n\""
 abbr --add doc docker
-abbr --add docc docker-compose
-abbr --add dcup "docker-compose up"
-abbr --add dcupb "docker-compose up --build -d"
-abbr --add dcd "docker-compose down"
-abbr --add wm "nvim ~/Desktop/working-memory.md" # edit working memory file
-abbr --add wmc "bat ~/Desktop/working-memory.md" # read working memory file
+abbr --add docc "docker compose"
+abbr --add dcup "docker compose up"
+abbr --add dcupb "docker compose up --build -d"
+abbr --add dcd "docker compose down"
 abbr --add :q exit
 abbr --add mux tmuxinator
 abbr --add be "bundle exec"
@@ -76,7 +74,5 @@ abbr --add gp "git push"
 abbr --add gpf "git push --force-with-lease --force-if-includes"
 abbr --add gpf! "git push --force-with-lease --force-if-includes --no-verify"
 abbr --add gfo "git fetch origin"
-abbr --add gri "git rebase -i"
 abbr --add gam 'git commit --amend -C HEAD' # Commit current staged files and amend it to the previous commit message without changing the commit or being prompted
 abbr --add gps "git push -o ci.skip" # push with skip ci option
-alias gdb "git branch --merged | egrep -v \"(^\*|master|main|develop|dev|staging|production)\" | xargs git branch -d" # Delete all local branches that have been merged into HEAD
