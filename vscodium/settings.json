@@ -246,4 +246,5 @@
   "explorer.confirmDelete": false,
   "claudeCode.preferredLocation": "panel",
   "claudeCode.hideOnboarding": true,
+  "network.meteredConnection": "off",
 }

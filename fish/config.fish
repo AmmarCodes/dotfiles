@@ -27,3 +27,7 @@ for _f in $HOME/.config/herdr/plugins/github/herdr-automatic-rename-*/shell/hook
 end
 
 set -g async_prompt_functions _pure_prompt_git
+
+# Added by OrbStack: command-line tools and integration
+# This won't be added again if you remove it.
+source ~/.orbstack/shell/init2.fish 2>/dev/null || :

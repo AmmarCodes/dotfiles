@@ -1,6 +1,4 @@
 {
-  "prefersReducedMotion": true,
-  "feedbackSurveyRate": 0,
   "includeCoAuthoredBy": false,
   "permissions": {
     "defaultMode": "auto"
@@ -46,7 +44,10 @@
       }
     }
   },
+  "feedbackSurveyRate": 0,
+  "prefersReducedMotion": true,
   "theme": "auto",
   "editorMode": "normal",
-  "autoCompactEnabled": true
+  "autoCompactEnabled": true,
+  "agentPushNotifEnabled": true
 }
