@@ -10,15 +10,6 @@ matches:
   # source: https://github.com/katrinleinweber/espanso-effective-markdown/blob/master/effective-markdown/0.1.0/package.yml
   - trigger: "|--"
     replace: "| $|$ |  |\n| --- | --- |\n|  |  |"
-  - trigger: "[)"
-    replace: "[$|$]({{clipboard}})"
-  # - trigger: "-["
-  #   replace: "- [ ] "
-  # - trigger: "```js"
-  #   replace: "```javascript\n$|$\n```"
-  # - trigger: "```vue"
-  #   replace: "```vue\n$|$\n```"
-  # end of source
   - trigger: ";table"
     replace: "| $|$ |  |\n| --- | --- |\n|  |  |"
   - trigger: "[)"
@@ -26,23 +17,20 @@ matches:
 
   # Preformatted blocks with syntax highlighting
 
-  - trigger: "``go``"
-    replace: "```go\n$|$\n```"
-
-  - trigger: "``vue``"
+  - trigger: "```vue"
     replace: "```vue\n$|$\n```"
 
-  - trigger: "``js``"
+  - trigger: "```js"
     replace: "```javascript\n$|$\n```"
 
-  - trigger: "``rb``"
+  - trigger: "```rb"
     replace: "```ruby\n$|$\n```"
 
-  - trigger: "``sh``"
+  - trigger: "```sh"
     replace: "```shell\n$|$\n```"
 
-  - trigger: "``ts``"
+  - trigger: "```ts"
     replace: "```typescript\n$|$\n```"
 
-  - trigger: "``diff``"
+  - trigger: "```diff"
     replace: "```diff\n$|$\n```"

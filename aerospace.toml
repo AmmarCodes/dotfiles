@@ -175,15 +175,11 @@ if.app-id = 'com.devuap.beautyshotapp' # Xnapper
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Shottr' # Shottr
-run = 'layout floating'
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'Ghostty'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'kitty'
+if.app-name-regex-substring = 'Rex'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
@@ -199,16 +195,8 @@ if.app-id = 'com.valvesoftware.steam'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.cron.electron'
-run = 'move-node-to-workspace 9'
-
-[[on-window-detected]]
 if.app-name-regex-substring = 'Activity Monitor'
 run = 'layout floating'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Mail'
-run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Telegram'
@@ -219,8 +207,8 @@ if.app-name-regex-substring = 'Discord'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Brave Browser'
-run = 'move-node-to-workspace 1'
+if.app-name-regex-substring = 'Calendar'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Helium'
@@ -231,5 +219,5 @@ if.app-name-regex-substring = 'Obsidian'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Rancher Desktop'
+if.app-name-regex-substring = 'OrbStack'
 run = 'layout floating'

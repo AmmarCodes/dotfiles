@@ -3,7 +3,8 @@
   "permissions": {
     "defaultMode": "auto"
   },
-  "model": "opus",
+  "model": "opus[1m]",
+  "effortLevel": "medium",
   "hooks": {
     "SessionStart": [
       {

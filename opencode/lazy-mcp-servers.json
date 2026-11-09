@@ -30,12 +30,6 @@
       "description": "provides a tool for dynamic and reflective problem-solving through a structured thinking process",
       "type": "local",
       "command": ["pnpx", "@modelcontextprotocol/server-sequential-thinking"]
-    },
-    {
-      "name": "Linear MCP",
-      "description": "The Linear MCP server has tools available for finding, creating, and updating objects in Linear like issues, projects, and comments",
-      "type": "local",
-      "command": ["pnpx", "mcp-remote", "https://mcp.linear.app/mcp"]
     }
   ]
 }

@@ -2,6 +2,7 @@
 node = 'lts'
 ruby = "3.4.8"
 rust = "1.89.0"
+shellcheck = "latest"
 
 "npm:typescript-language-server" = "latest"
 "npm:context-mode" = "latest"

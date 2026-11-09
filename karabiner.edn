@@ -10,8 +10,7 @@
 		:macbookpro13 [{:device_id 4294970053}]
 		:ergodox [{:product_id 4871 :vendor_id 65261}]
 		:mxmini [{:product_id 45929 :vendor_id 1133}]
-		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-68"}]
-		:nuphy_air60_2 [{:device_address "fd-d1-59-90-63-7a"}]
+		:nuphy_air60 [{:device_address "fd-d1-59-90-d2-6d"}]
     :ajazz [{:product_id 65278 :vendor_id 3141}]
 	}
   :simlayer-threshold 250
@@ -27,15 +26,15 @@
      :rules [
       :launch-mode
       [:b [:launch "Helium"]]
-      [:c [:launch "Notion Calendar"]]
+      [:c [:launch "Calendar"]]
       [:d [:launch "Obsidian"]]
       [:g [:launch "Telegram"]]
       [:h [:launch "Hermes"]]
       [:r [:launch "RubyMine"]]
       [:s [:launch "Slack"]]
-      [:t [:launch "Ghostty"]]
+      [:t [:launch "Rex Beta"]]
       [:o [:launch "OpenCode"]]
-      [:v [:launch "Zed"]]
+      [:v [:launch "VSCodium"]]
       [:f [:launch "Claude"]]
       [:spacebar :play_or_pause]
      ]
