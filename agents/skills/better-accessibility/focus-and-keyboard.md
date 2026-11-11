@@ -36,7 +36,7 @@ Group focus styles with `:focus-within` when a wrapper should light up while an 
 
 ## Focus not obscured
 
-Sticky chrome hides whatever scrolls under it, including the element that just received focus. Pad the scroll container by the sticky element's height with `scroll-padding-block-start`, and by a sticky footer or cookie banner's height with `scroll-padding-block-end`. The recipe is `better-layout`'s.
+Pad the scroll container with `scroll-padding-block-start` for a sticky header and `scroll-padding-block-end` for a sticky footer or cookie banner. The recipe is `better-layout`'s.
 
 ## Skip link
 
@@ -61,17 +61,15 @@ Target `<main id="main">` and visually hide the link until focused:
 </body>
 ```
 
-Give in-page anchor targets `scroll-margin-block-start`, such as `80px` under a sticky header, so the target isn't hidden when jumped to.
+Where the scroller sets no `scroll-padding-block-start`, give in-page anchor targets `scroll-margin-block-start`, such as `80px` under a sticky header. The two add up, so never set both for one header.
 
 ## tabindex rules
 
-- `tabindex="0"`: adds an element to the natural tab order. Only for custom interactive elements that aren't natively focusable.
-- `tabindex="-1"`: focusable via JavaScript only (`el.focus()`). Use for headings you move focus to, modal containers and roving-tabindex members.
-- Positive `tabindex`: never. It hijacks the tab order for the whole page. Fix the DOM order instead.
+`tabindex="0"` is only for custom interactive elements that aren't natively focusable. `tabindex="-1"` suits headings you move focus to, modal containers and roving-tabindex members. Where a positive value was patching the order, fix the DOM order instead.
 
 ### Roving tabindex
 
-Composite widgets, meaning tabs, menus, toolbars and radio groups, occupy one Tab stop. The active item has `tabindex="0"`, all others `tabindex="-1"`, and arrow keys move both focus and the `0`:
+Tabs, menus, toolbars and radio groups each occupy one Tab stop. Arrow keys move both focus and the `0`:
 
 ```tsx
 <div role="tablist">
@@ -100,7 +98,7 @@ dialogRef.current.close(); // on close
 triggerRef.current?.focus(); // return focus to the element that opened it
 ```
 
-A custom overlay that can't use `<dialog>` needs `role="dialog"`, `aria-modal="true"` and an accessible name via `aria-labelledby`. Put `inert` on everything behind it, which removes background content from the tab order and from assistive tech in one move:
+A custom overlay that can't use `<dialog>` needs `role="dialog"`, `aria-modal="true"` and an accessible name via `aria-labelledby`. Put `inert` on everything behind it, which removes background content from the tab order and from assistive tech in one move. Render the overlay outside the inert container, in a portal or a sibling element, because `inert` on an ancestor disables the dialog too:
 
 ```tsx
 // On open
@@ -125,7 +123,7 @@ Native elements come with these behaviors; custom widgets must implement them.
 
 | Widget | Keys |
 | --- | --- |
-| Dialog | Tab/Shift+Tab cycle inside (wrap at ends); Escape closes |
+| Dialog | Tab and Shift+Tab stay inside; Escape closes |
 | Tabs | Arrow keys move between tabs (wrapping); Tab exits to the panel; Home/End jump to first/last |
 | Menu button | Enter/Space/ArrowDown opens and focuses first item; ArrowUp opens and focuses last; arrows navigate; Escape closes and refocuses the button |
 | Disclosure / accordion | Header is a `<button aria-expanded>`; Enter and Space toggle |
@@ -140,4 +138,4 @@ Universal rules:
 
 ## SPA route changes
 
-Client-side navigation doesn't reset focus or announce anything. On route change, update `document.title` to match the new context, then move focus to the new view's `<h1>` (given `tabindex="-1"`) or to `<main>`. Restore scroll position on history traversal with back and forward, and scroll to top on a new navigation.
+Client-side navigation doesn't reset focus or announce anything. On route change, update `document.title` to match the new context, then move focus to the new view's `<h1>` or to `<main>`, either given `tabindex="-1"`. Restore scroll position on history traversal with back and forward, and scroll to top on a new navigation.

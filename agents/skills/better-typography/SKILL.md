@@ -5,7 +5,7 @@ description: Sets and reviews how text renders, from the type scale and spacing 
 
 # Typography
 
-This skill sets and reviews how text renders, from the type scale and spacing to font loading, wrapping and punctuation. It writes every fix in the project's styling system, and the [cheat sheet](css-cheat-sheet.md) maps each declaration to its Tailwind utility.
+This skill sets and reviews how text renders, from the type scale and spacing to font loading, wrapping and punctuation. It writes every fix in the project's styling system, and the [cheat sheet](css-cheat-sheet.md) gives the Tailwind form of each declaration with no obvious utility.
 
 The words belong to `better-writing`, semantic heading structure to `better-accessibility` and spatial RTL layout to `better-layout`. Measure contrast with `better-colors`; whether it passes is `better-accessibility`'s.
 
@@ -17,9 +17,9 @@ Letter-spacing, pairing and scale ratios are heuristics. Report them only where 
 
 ## Fewer fonts, sizes and weights
 
-Rarely use more than three fonts; marketing pages can carry more than apps. Weight and size carry hierarchy, so each extra one dilutes it. Pair for contrast. A serif headline over a sans body reads as deliberate, two near-identical sans-serifs read as a mistake.
+Rarely use more than three fonts; marketing pages can carry more than apps. Weight and size carry hierarchy, so each extra weight or size dilutes it. Pair for contrast. A serif headline over a sans body reads as deliberate, two near-identical sans-serifs read as a mistake.
 
-Below `18px`, use weight `400` or heavier. Weights `100`–`300` belong at `28px` and up, checked against the background even there. Categories, `Display` and `Text` cuts, formats and fallback stacks are in [choosing-fonts.md](choosing-fonts.md).
+Below `18px`, use weight `400` or heavier. Weights `100`–`300` belong at `28px` and up, checked against the background even there. `Display` and `Text` cuts, formats and fallback stacks are in [choosing-fonts.md](choosing-fonts.md).
 
 ## Load the faces the design uses
 
@@ -86,11 +86,11 @@ Rendered text uses typographic characters, never their keyboard stand-ins. Curly
 
 Set `text-underline-position: from-font` and `text-decoration-thickness: from-font`, or tune `text-underline-offset` and thickness by hand. A dotted `text-decoration-style` hints that a word carries extra information, such as an abbreviation or a defined term. See the [underline recipes](details-and-accessibility.md#underlines).
 
-Color is the only part of a real underline that animates reliably. Any other underline animation needs a separate element, and its motion is `better-ui`'s.
+Color is the only part of a real underline that animates reliably. Any other underline animation needs a separate element, and its motion is `better-motion`'s.
 
 ## Inputs at 16px on mobile
 
-iOS Safari zooms the whole page when an input's text is smaller than `16px`. Two fixes hold `16px` and look different, so ask which one the design wants:
+iOS Safari zooms the whole page when an input's text is smaller than `16px`. Two fixes hold `16px` and look different, so ask which one the design wants, or offer both in a review:
 
 - Size the input up on mobile (`text-base sm:text-sm`). Changes how it looks on small screens.
 - Keep `font-size: 16px` and render the intended size with `transform: scale()`. Identical at every viewport, more code to maintain.
@@ -101,7 +101,7 @@ Both recipes, plus placeholder and caret styling, are in [details-and-accessibil
 
 Start long-form body text at `16px`, the browser default. Move off it only for a reason you can name, such as a typeface that runs small, a narrow measure or a dense professional tool.
 
-UI text can go smaller. Start inputs and menus at `14px` and captions at `13px`, and rarely go below `12px`. Set `font-size` in [`rem`](spacing-and-sizing.md#units) so the reader's browser font size still applies.
+UI text can go smaller. Start inputs and menus at `14px` and captions at `13px`, and rarely go below `12px`. Set `font-size` in `rem` so the reader's browser font size still applies.
 
 ## Font smoothing on the root
 
@@ -109,7 +109,7 @@ Apply `-webkit-font-smoothing: antialiased` and `-moz-osx-font-smoothing: graysc
 
 ## Language and bidi behavior
 
-Set `lang` so browsers and assistive technology pick the right quotes, hyphenation and pronunciation. Set `dir` on the document and wherever direction changes. Wrap a mixed-direction value in `<bdi>` and never reorder digits by hand. How long paragraphs and numbers behave is in [wrapping-and-punctuation.md](wrapping-and-punctuation.md#internationalization).
+Set `lang` so browsers and assistive technology pick the right quotes, hyphenation and pronunciation. Set `dir` on the document and wherever direction changes. Wrap a mixed-direction value in `<bdi>` and never reorder digits by hand. How multi-line paragraphs and numbers behave is in [wrapping-and-punctuation.md](wrapping-and-punctuation.md#internationalization).
 
 ## Trim text boxes in tight containers
 
@@ -134,7 +134,7 @@ Keep text selectable by default. `::selection` can carry brand into the reading 
 | `font-variation-settings: "wght"` or `"opsz"` | `font-weight`; drop `"opsz"` so `font-optical-sizing: auto` applies |
 | `font-feature-settings: "tnum"` or `"zero"` | `font-variant-numeric: tabular-nums` or `slashed-zero` |
 | `line-height` in `px` or `rem` | A unitless value |
-| `leading-none` or `leading-tight` on a description, card body or anything that can wrap | `1.4` or more |
+| `leading-none` or `leading-tight` on a description, card body or other text that wraps to three or more lines | `1.4` or more |
 | `letter-spacing` in `px` | The same value in `em` |
 | Body `font-size` in `px` | `rem` |
 | Weight `100`–`300` or `font-thin`, `font-light` on text under `18px` | `400` or heavier |
@@ -151,15 +151,6 @@ Keep text selectable by default. `::selection` can carry brand into the reading 
 
 ## Reporting
 
-**Severity.** `HIGH` makes text unreadable, truncates content with no way back to it or clips text at 320px width or 200% zoom. The last two are `better-interface` escalation triggers, so they stay `HIGH` however minor the surface. `MEDIUM` breaks the type system or the visual heading hierarchy. `LOW` is isolated polish.
-
 **Verification.** Without a browser, check declared size and weight per heading level, descending within each semantic section. Check declared line-height, units and measure. Check truncation rules against realistic string lengths. With one, compare computed values, then resize the viewport with real content to catch wrapping, lone last-line words and truncation. Report every check you could not run as `Not verified`.
 
-**Format.** Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:
-
-| Severity | Location | Before | After | Why |
-| --- | --- | --- | --- | --- |
-
-`Location` is `path/to/file:line`. `Why` names the principle and the user impact.
-
-End with `Block` when any `HIGH` remains, `Approve` otherwise, leaving the rest in the table as work to do. Never `Approve` coverage you did not inspect. With nothing to report, state "No actionable typography findings" and report verification.
+A standalone review takes its severity ladder and format from [reporting.md](reporting.md).

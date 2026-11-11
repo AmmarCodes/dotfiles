@@ -4,10 +4,6 @@ Naming is what makes a palette usable by anyone who did not build it. For which 
 
 ## Two tiers
 
-**Primitives** name a value. They are the ramp, named by hue and step, as in `--blue-600` or `--neutral-200`. A primitive describes what the color *is*, so it never changes meaning between themes and is never applied directly in a component.
-
-**Semantics** name a job. They point at a primitive and take the name of the role they fill, as in `--color-text-secondary` or `--color-border-subtle`. Components only ever reference this tier.
-
 ```css
 :root {
   /* Tier 1: primitives, named by hue and step. Never used directly. */
@@ -22,7 +18,7 @@ Naming is what makes a palette usable by anyone who did not build it. For which 
 }
 ```
 
-The tiering is what makes theming possible. Dark mode, a white-label theme and an increased-contrast variant all repoint the semantic tier, leaving the primitives and every component untouched. A codebase applying `--blue-600` directly in components has no theming seam. Adding one later means auditing every usage to work out which meant "the accent" and which just wanted blue.
+Dark mode, a white-label theme and an increased-contrast variant all repoint the semantic tier. A codebase applying `--blue-600` directly in components has no theming seam. Adding one later means auditing every usage to work out which meant "the accent" and which just wanted blue.
 
 Add a third, component-level tier (`--color-button-danger-bg`) only where a component genuinely and intentionally diverges from the system. One component token is a documented exception; twenty mean the semantic tier is missing roles.
 
@@ -94,6 +90,6 @@ Tailwind v4 generates utilities from `@theme`, so names declared there become th
 
 That yields `bg-accent-solid` and `text-text-secondary` alongside `bg-blue-600`. Tailwind prefixes every `--color-*` name with the utility, so a `text-` token doubles. Accept the doubling, or follow the convention the project already uses. Both tiers are reachable, so the discipline is a convention rather than a constraint. Templates use the semantic utilities, and a raw `bg-blue-600` in a component is the thing to flag.
 
-Repoint semantics for dark mode in a `.dark` block outside `@theme`. Leave the block without `inline`, so utilities read the semantic variable at render time.
+Repoint semantics for dark mode in a `.dark` block outside `@theme`. Leave the `@theme` block without `inline`, so utilities read the semantic variable at render time.
 
 Opacity modifiers work on either tier, as in `bg-accent-solid/50`. But a color carrying alpha cannot be contrast-checked against a static background, because what it renders depends on what sits behind it. Use solid tokens for anything with text on it.

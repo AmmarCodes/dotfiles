@@ -49,7 +49,7 @@ Selected states may use the accent on the glyph and label. An active tab or a ch
 
 ## Gradients
 
-**The interpolation space is a look, not a correctness setting.** Three are worth knowing, and the difference between them is most visible in the middle of the gradient:
+Three interpolation spaces are worth knowing, and the difference between them is most visible in the middle of the gradient:
 
 ```css
 /* sRGB: the default and the classic. Midpoint darkens and mutes. */
@@ -106,4 +106,4 @@ When the product ships a dark appearance, every custom color needs a dark varian
 }
 ```
 
-A single `prefers-contrast` block shared by both appearances darkens the color on a dark background too, lowering contrast there. The increased-contrast variant widens the gap to its background by at least `0.15` of OKLCH `L` over the default. Remeasure it, aiming for Lc 90 on body text. Widening the gap without remeasuring is not fixing it.
+A single `prefers-contrast` block shared by both appearances darkens the color on a dark background too, lowering contrast there. The increased-contrast variant widens the gap to its background by at least `0.15` of OKLCH `L` over the default. Remeasure it, aiming for Lc 90 on body text.

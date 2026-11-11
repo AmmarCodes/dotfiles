@@ -100,18 +100,13 @@ Never mark a favourite in the table. Asked directly, answer from how often the p
 
 On a choice, build that variant properly where it belongs, following the project's own conventions. Then delete the other variants, the picker and the hosting page's import of the variants. Search for the variant names and the `__variant` param, and check the diff leaves nothing of the harness behind.
 
-Asked for another round instead, keep the harness and run **Name the axis before writing code** again, taking new positions around the direction you leaned toward.
+Asked for another round instead, keep the harness and run **Name the axis before writing code** again, taking new positions around the direction the user leaned toward.
 
 ## Before you finish
 
 | Mistake | Fix |
 | --- | --- |
-| Variants differ only in accent color or copy | Move one to a different position on the primary axis, or cut it |
-| Every axis varies at once | Vary one; let the rest follow from it |
-| Judged on a blank route | Host them on the page that will contain the piece |
+| Variants differ only in accent color or a few words | Move one to a different position on the primary axis, or cut it |
 | Lorem ipsum, three rows, "Jane Doe" | Real copy and the item count the page will really carry |
-| The boldest variant skips keyboard or focus | Clear the floor or drop the direction |
-| A favourite marked in the table | State each variant's cost and let the user choose |
 | Picker restyled with the project's tokens | Keep it visibly outside the design system |
 | One long row of tabs, one per variant | A grouped list beside the piece that scrolls on its own; a select above it where the list does not fit |
-| Harness left behind after promotion | Delete it and search for the names and the param |

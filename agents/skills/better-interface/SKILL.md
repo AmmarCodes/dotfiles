@@ -1,13 +1,13 @@
 ---
 name: better-interface
-description: Reviews a screen, flow or whole interface across accessibility, layout, writing, typography, color and UI polish, and returns one ranked report.
+description: Reviews a screen, flow or whole interface across accessibility, layout, writing, typography, color, UI polish and motion, and returns one ranked report.
 ---
 
 # Interface
 
 This skill runs a cross-discipline review. It routes the interface to each `better-*` skill, collects their evidence and consolidates one ranked verdict.
 
-Orchestration is all it owns. Accessibility rules belong to `better-accessibility`, structure to `better-layout`, copy to `better-writing`, type to `better-typography`, color to `better-colors`, visual polish and motion to `better-ui`.
+Orchestration is all it owns. Accessibility rules belong to `better-accessibility`, structure to `better-layout`, copy to `better-writing`, type to `better-typography`, color to `better-colors`, visual polish to `better-ui` and motion to `better-motion`.
 
 Change-scoped review of uncommitted work, branches and pull requests belongs to `interface-review`.
 
@@ -49,6 +49,7 @@ Load every owning skill below and complete each domain review before consolidati
 4. `better-typography`
 5. `better-colors`
 6. `better-ui`
+7. `better-motion`
 
 From each, take its principles, its references and its verification checks. Its severity ladder and its format are for standalone use; the ones in this file replace them.
 
@@ -62,7 +63,7 @@ Run the safe, relevant checks the project offers. Inspect the rendered interface
 
 ## Require evidence
 
-Every finding cites `path/to/file:line` and shows the current implementation. When runtime behavior determines the result, source alone cannot support a visual finding and a screenshot alone cannot support a code finding.
+Every finding cites `path/to/file:line` and shows the current implementation. Source alone cannot support a visual finding when runtime behavior determines the result. A result that follows from declared values, such as a fixed `384px` panel at a 320px viewport, is a source finding. A screenshot alone cannot support a code finding.
 
 ## Rank by user impact
 
@@ -90,7 +91,7 @@ Within a severity, rank by how many places the finding reaches and how much one 
 - A semantic color used against its meaning, such as the danger hue on a non-destructive action.
 - A state change carried by motion alone, with no color, icon or label left behind when the animation does not run.
 
-Triggers rank above every other finding. When more fire than the cap allows, list them first and say how many the cap excluded. A cap may shorten a report; it may never be why a blocker went unreported.
+Triggers rank above every other finding and are exempt from the cap, so list every one. A cap may shorten a report; it may never be why a blocker went unreported.
 
 These set severity, not new rules. The owning skill decides whether the symptom is present; this list decides what it costs.
 
@@ -120,7 +121,6 @@ Treat a review request as read-only. Do not edit source unless the user also ask
 | --- | --- |
 | A separate findings section per domain | Merge them into one table ranked by severity, then reach |
 | A rendering claim whose only evidence is source | Inspect the rendered state, or mark it **Not verified** |
-| A missing accessible name or focus ring rated `MEDIUM` because the surface is minor | Triggers are `HIGH` on sight |
 | A coverage row whose evidence cell names no file, component or check | Inspect that domain, or mark it `Not reviewed` with the reason |
 | A domain marked `Clear` although its skill never loaded | Mark it `Not reviewed` and name the skill |
 | The same symptom in several rows, one per component | One row against the shared token or component, listing every location |

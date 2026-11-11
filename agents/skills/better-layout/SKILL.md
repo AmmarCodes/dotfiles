@@ -9,7 +9,7 @@ This skill sets grouping, alignment, spacing and responsive structure. It then s
 
 Write every fix in the project's styling system. The numbers below apply only where the project has no spacing scale or density system; otherwise use its tokens. A finding needs a failure you can show, such as a clip, an overlap, a broken mirror or a misread group. A value that differs from these starting points is not one.
 
-Hit areas and focus behavior belong to `better-accessibility`. Radius, shadows and animation belong to `better-ui`. Line length, text spacing and truncation mechanics belong to `better-typography`. The words themselves belong to `better-writing`.
+Hit areas and focus behavior belong to `better-accessibility`. Radius and shadows belong to `better-ui`, and animation to `better-motion`. Line length, text spacing and truncation mechanics belong to `better-typography`. The words themselves belong to `better-writing`.
 
 ## Group with space, not lines
 
@@ -33,7 +33,7 @@ The most important content sits near the top and the leading edge. Within a row,
 
 ## One primary action per view
 
-Give each view one primary action. Put secondary actions behind a menu once there are more than 3. Prefer a short view that links deeper over one long view that shows everything at the top level. `better-colors` owns how color marks the primary action.
+Give each view one primary action. Once a view has more than 3 secondary actions, put them behind a menu. Prefer a short view that links deeper over one long view that shows everything at the top level. `better-colors` owns how color marks the primary action.
 
 ## Hint at hidden content
 
@@ -71,7 +71,7 @@ Never park a critical action where resizing, zoom or scrolling clips it. Keep it
 | --- | --- |
 | `grid-template-columns: … 1fr` or a flex child holding long text or a wide table, overflowing its track | `minmax(0, 1fr)` on the track, `min-width: 0` on the flex child |
 | `width: 100vw` | `width: 100%`; `100vw` includes the scrollbar and scrolls horizontally on desktop |
-| `height: 100vh` on a full-height mobile pane | `100dvh`, so the browser toolbar and keyboard never cover the bottom |
+| `height: 100vh` on a full-height mobile pane | `100dvh` tracks the toolbar. The on-screen keyboard resizes only the visual viewport, so keep the bottom action in stable chrome |
 | `height:` with a fixed length on a box holding text | `min-height`, or `max-height` with `overflow-y: auto` |
 | `@media (max-width: …)` inside a reusable component | `@container` on the component's parent |
 | `container-type: inline-size` on a flex item, inline-block or absolute element with no width | Give it a definite width; size containment collapses a shrink-to-fit box to zero |
@@ -83,15 +83,6 @@ Never park a critical action where resizing, zoom or scrolling clips it. Keep it
 
 ## Reporting
 
-**Severity.** `HIGH` blocks content or an action at a supported viewport. Clipping or overlap at 320px width or 200% zoom is always `HIGH`, as is truncated content with no way to the full value. So is content past a scroll edge or behind a disclosure with no visible cue. `MEDIUM` harms hierarchy, reading order or adaptability. `LOW` is isolated alignment or spacing polish.
-
 **Verification.** Without a browser, check logical properties in place of physical ones, container and media queries against the supported viewport list and DOM order against visual order. With one, check every supported width, 320px, 200% zoom and the RTL mirror. Report every check you could not run as `Not verified`.
 
-**Format.** Group findings under the principle each violates, ordered by severity, one row per root cause listing every location it appears in:
-
-| Severity | Location | Before | After | Why |
-| --- | --- | --- | --- | --- |
-
-`Location` is `path/to/file:line`. `Why` names the principle and the user impact.
-
-End with `Block` when any `HIGH` remains, `Approve` otherwise, leaving the rest in the table as work to do. Never `Approve` coverage you did not inspect. With nothing to report, state "No actionable layout findings" and report verification.
+A standalone review takes its severity ladder and format from [reporting.md](reporting.md).
