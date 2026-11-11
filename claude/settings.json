@@ -56,6 +56,18 @@
           }
         ]
       }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"$HOME/.claude/hooks/verify-changes.py\"",
+            "timeout": 600,
+            "statusMessage": "Checking changed files"
+          }
+        ]
+      }
     ]
   },
   "enabledPlugins": {
