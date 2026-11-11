@@ -33,9 +33,6 @@
     ~/.claude/CLAUDE.md:
       path: claude/CLAUDE.md
       force: true
-    ~/.claude/RTK.md:
-      path: claude/RTK.md
-      force: true
     ~/.claude/agents:
       path: claude/agents
       force: true
