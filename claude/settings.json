@@ -1,7 +1,6 @@
 {
   "includeCoAuthoredBy": false,
   "permissions": {
-    "defaultMode": "auto",
     "deny": [
       "Bash(git merge staging*)",
       "Bash(git merge origin/staging*)",
@@ -22,21 +21,10 @@
       "Bash(git reset --hard*)",
       "Bash(git clean -f*)",
       "Bash(glab mr merge*)"
-    ]
-  },
-  "autoMode": {
-    "hard_deny": [
-      "$defaults",
-      "Merging the staging branch into main or into any other branch: staging is a test environment and never flows back.",
-      "Staging, committing or pushing .env files, credentials, API keys, tokens or vault values."
     ],
-    "soft_deny": [
-      "$defaults",
-      "Committing, pushing, merging or opening a merge request when the user has not asked for it in this session."
-    ]
+    "defaultMode": "auto"
   },
   "model": "opus[1m]",
-  "effortLevel": "medium",
   "hooks": {
     "SessionStart": [
       {
@@ -70,16 +58,38 @@
       }
     ]
   },
+  "skillOverrides": {
+    "agent-browser": "user-invocable-only",
+    "code-review-and-quality": "user-invocable-only",
+    "code-simplification": "user-invocable-only",
+    "context7-mcp": "user-invocable-only",
+    "design-taste-frontend": "user-invocable-only",
+    "frontend-ui-engineering": "user-invocable-only",
+    "high-end-visual-design": "user-invocable-only",
+    "image-to-code": "user-invocable-only",
+    "impeccable": "user-invocable-only",
+    "industrial-brutalist-ui": "user-invocable-only",
+    "interface-design": "user-invocable-only",
+    "interface-review": "user-invocable-only",
+    "make-interfaces-feel-better": "user-invocable-only",
+    "minimalist-ui": "user-invocable-only",
+    "redesign-existing-projects": "user-invocable-only",
+    "stitch-design-taste": "user-invocable-only",
+    "test-driven-development": "user-invocable-only",
+    "ui-ux-pro-max": "user-invocable-only",
+    "web-design-guidelines": "user-invocable-only"
+  },
   "enabledPlugins": {
     "php-lsp@claude-plugins-official": true,
     "claude-md-management@anthropic-plugin-directory": true,
     "superpowers@anthropic-plugin-directory": true,
-    "code-review-anthropics@anthropic-plugin-directory": true,
-    "context7@anthropic-plugin-directory": true,
+    "code-review-anthropics@anthropic-plugin-directory": false,
+    "context7@anthropic-plugin-directory": false,
     "security-guidance@anthropic-plugin-directory": true,
     "ralph-loop@anthropic-plugin-directory": true,
     "context-mode@context-mode": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "claude-for-nonprofits@synced": false
   },
   "extraKnownMarketplaces": {
     "context-mode": {
@@ -90,9 +100,21 @@
     }
   },
   "feedbackSurveyRate": 0,
+  "effortLevel": "medium",
   "prefersReducedMotion": true,
   "theme": "auto",
   "editorMode": "normal",
   "autoCompactEnabled": true,
-  "agentPushNotifEnabled": true
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "soft_deny": [
+      "$defaults",
+      "Committing, pushing, merging or opening a merge request when the user has not asked for it in this session."
+    ],
+    "hard_deny": [
+      "$defaults",
+      "Merging the staging branch into main or into any other branch: staging is a test environment and never flows back.",
+      "Staging, committing or pushing .env files, credentials, API keys, tokens or vault values."
+    ]
+  }
 }
